@@ -45,6 +45,16 @@
 </head>
 
 <body>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">CENDI</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="./inicio.html">Inicio</a></li>
+                <li><a href="./registro.html">Registro</a></li>
+                <li><a href="./admin.html">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
     <h1>Bienvenido</h1>
     <form action="../back/hola.php" method="get">
 
@@ -53,10 +63,10 @@
             <div class="input-field col s12 m6">
                 <select class="icons">
                     <option value="" disabled selected>Seleccione su CENDI</option>
-                    <option value="" data-icon="https://picsum.photos/100/100">Amalia Solórzano de Cárdenas
+                    <option value="1" data-icon="https://picsum.photos/100/100">Amalia Solórzano de Cárdenas
                     </option>
-                    <option value="" disabled data-icon="https://picsum.photos/100/100">example 2</option>
-                    <option value="" disabled data-icon="https://picsum.photos/100/100">example 3</option>
+                    <option value="2" disabled data-icon="https://picsum.photos/100/100">cendi 2</option>
+                    <option value="3" disabled data-icon="https://picsum.photos/100/100">cendi 3</option>
                 </select>
                 <label>Cendi</label>
             </div>
@@ -74,15 +84,15 @@
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="input_text" type="text" data-length="10">
-                    <label for="input_text">Folio (Boleta)</label>
+                    <input id="folio" type="text" data-length="10">
+                    <label for="folio">Folio (Boleta)</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="input_text" type="text" data-length="5">
-                    <label for="input_text">Grupo</label>
+                    <input id="grupo" type="text" data-length="5">
+                    <label for="grupo">Grupo</label>
                 </div>
             </div>
         </fieldset>
