@@ -14,7 +14,19 @@
     <title>.::Inicio::.</title>
     <script>
         $(document).ready(function () {
-
+            var contenido = $('#resultados');
+            var numero = 1;
+            $('#actualizar').click(function () {
+                var nuevo = $("<ul class=\"collection\" id=\"resultados\"> ");
+                for (var i = 0; i < numero; i++) {
+                    var otro = $("                <li class=\"collection-item avatar\">                <img src=\"https://picsum.photos/100/100\" alt=\"\" class=\"circle\">                <span class=\"title\">" + (numero-i) + "</span>                <p>First Line <br>                    Second Line                </p>        <a href=\"#!\" class=\"secondary-content\"><i class=\"material-icons\">grade</i></a>            <div class=\"row\">           <a href=\"./registro.html\" class=\"waves-effect waves-light right btn\">Editar</a>                   <a class=\"waves-effect waves-light right btn red\">Eliminar</a>               </div>            </li>");
+                    nuevo.append(otro);
+                }
+                nuevo.append($("</ul>"));
+                numero += 1;
+                contenido.replaceWith(nuevo);
+                contenido = $('#resultados');
+            });
         });
 
     </script>
@@ -31,6 +43,14 @@
             </ul>
         </div>
     </nav>
+    <div class="row">
+        <a class="waves-effect waves-light right btn" id="actualizar">Actualizar</a>
+    </div>
+    <div class="row">
+        <ul class="collection" id="resultados">
+
+        </ul>
+    </div>
     <div class="row">
         <ul class="collection">
             <li class="collection-item avatar">
