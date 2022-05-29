@@ -1,6 +1,6 @@
 <?php
     /* Clase fpdf */
-   
+    include("requestData.php");
     require("tfpdf/tfpdf.php");
 
     class PDF extends tFPDF
@@ -53,9 +53,9 @@
     
     //1ra Linea - Nombre completo
     $pdf->SetFillColorC($gris);
-    $pdf->Cell($widthBody/3,$lineHeight,"",1,0,"C",true); 
-    $pdf->Cell($widthBody/3,$lineHeight,"",1,0,"C",true);
-    $pdf->Cell($widthBody/3,$lineHeight,"",1,1,"C",true);
+    $pdf->Cell($widthBody/3,$lineHeight,$nNombre,1,0,"C",true); 
+    $pdf->Cell($widthBody/3,$lineHeight,$nApellido1,1,0,"C",true);
+    $pdf->Cell($widthBody/3,$lineHeight,$nApellido2,1,1,"C",true);
     $pdf->Cell($widthBody/3,$lineHeight,"Primer Apellido",1,0,"C"); 
     $pdf->Cell($widthBody/3,$lineHeight,"Segundo Apellido",1,0,"C");
     $pdf->Cell($widthBody/3,$lineHeight,"Nombre(s)",1,1,"C");
