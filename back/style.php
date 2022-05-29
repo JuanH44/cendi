@@ -1,9 +1,11 @@
 <?php
 
-$fontSize = 11;
-$titleFontSize = 12;
+$fontSize = 10;
+$titleFontSize = 11;
 $fillColor = 230;
-$lineHeight = 6;
+$lineHeight = 5;
+
+
 
 
 ?>

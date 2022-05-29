@@ -1,6 +1,7 @@
 <?php
     /* Clase fpdf */
     include("requestData.php");
+    include("style.php");
     require("tfpdf/tfpdf.php");
 
     class PDF extends tFPDF
@@ -22,7 +23,7 @@
         // Cabecera de página
         function Header(){
             // Logo
-            $this->Image('./encabezado.fw.png',10,8,200);
+            $this->Image('./SEP_IPN.png',$this->lMargin,8,120);
             $this->Ln(20);  
         }
 
@@ -33,6 +34,7 @@
             // Arial italic 8
             $this->SetFont('Arial','',8);
             // Número de página
+            $this->Image('./pleca_flores_magon.png',$this->lMargin,$this->GetPageHeight()-30,$this->getBodyWidth());
             $this->Cell(0,10,'Página '.$this->PageNo().'/{nb}',0,0,'C');
         }
     }
@@ -43,29 +45,36 @@
     $pdf->AddPage();
 
     $gris = 230;
-    $lineHeight = 6;
+   
 
     //Establecemos los margenes 
     $margins = 15;
     $pdf->SetMargins($margins, $margins);
+    $pdf->SetAutoPageBreak(true);
+    $pdf->SetLineWidth(0.1);
     
     function getFrac($numerator, $denominator){
         global $pdf;
         return $pdf->getBodyWidth() / $denominator * $numerator;
     }
+
+    $pdf->SetFillColor(220,230,240 );
     $pdf->AddFont('Arial','','arial.ttf',true);
     $pdf->AddFont('Arial','B','arialbd.ttf',true);
 
 
-    $pdf->SetFont('Arial','B',11);
-    $pdf->Cell(0,10,"FICHA DE REISNCRIPCIÓN",0,1,"C");
+    $pdf->SetFont('Arial','B',$titleFontSize);
 
-    $pdf->Cell(0,10,"DATOS DE LA NIÑA O EL NIÑO:",0,1,"L");
+    //ENCABEZADO
+    $pdf->Cell(0,$lineHeight+2,"FICHA DE REISNCRIPCIÓN",0,1,"C");
+    $pdf->Cell(0,$lineHeight+2,"CICLO ESCOLAR: ". $startYear ." - ". $endYear ,0,1,"C");
+    $pdf->Cell(0,$lineHeight+2,"CENDI: ". $cendi ,0,1,"C");
 
-    $pdf->SetFont('Arial','',11);
+    //DATOS DEL NIÑO O NIÑA
+    $pdf->Cell(0,$lineHeight,"DATOS DE LA NIÑA O EL NIÑO:",0,1,"L");
+    $pdf->SetFont('Arial','',$fontSize);
     
     //1ra Linea - Nombre completo
-    $pdf->SetFillColorC($gris);
     $pdf->Cell(getFrac(1,3),$lineHeight,$nNombre,1,0,"C",true); 
     $pdf->Cell(getFrac(1,3),$lineHeight,$nApellido1,1,0,"C",true);
     $pdf->Cell(getFrac(1,3),$lineHeight,$nApellido2,1,1,"C",true);
@@ -89,16 +98,15 @@
 
     //3ra Linea - Curp
     $pdf->Cell(getFrac(2,12),$lineHeight,"CURP:",1,0,"C");
-    $pdf->SetFillColorC($gris);
     $pdf->Cell(getFrac(4,12),$lineHeight,"",1,0,"C",true); 
 
 
     $pdf->Ln(10);
     // ### DERECHOHABIENTE
     //1ra Linea - Nombre completo
-    $pdf->SetFont('Arial','B',11);
-    $pdf->Cell(0,10,"DATOS DEL O LA DERECHOHABIENTE:",0,1,"L");
-    $pdf->SetFont('Arial','',11);
+    $pdf->SetFont('Arial','B',$titleFontSize);
+    $pdf->Cell(0,$lineHeight,"DATOS DEL O LA DERECHOHABIENTE:",0,1,"L");
+    $pdf->SetFont('Arial','',$fontSize);
     $pdf->Cell(getFrac(1,3),$lineHeight,"",1,0,"C",true);
     $pdf->Cell(getFrac(1,3),$lineHeight,"",1,0,"C",true); 
     $pdf->Cell(getFrac(1,3),$lineHeight,"",1,1,"C",true);
@@ -107,12 +115,19 @@
     $pdf->Cell(getFrac(1,3),$lineHeight,"Nombre(s)",1,1,"C");
 
     //2da Linea -  Domicilio
-    $pdf->Cell(getFrac(1,10),$lineHeight,"Domicilo","L", 0,"C");
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+    $pdf->MultiCell(getFrac(1,10),$lineHeight,"Domicilio particular:",1,"C");
+   
+    $pdf->SetXY($x+getFrac(1,10),$y); //Nos posicionamos delante del la celda anterior
+
     $pdf->Cell(getFrac(4,10),$lineHeight,"",1,0,"C",true);
     $pdf->Cell(getFrac(1,10),$lineHeight,"",1,0,"C",true);
     $pdf->Cell(getFrac(1,10),$lineHeight,"",1,0,"C",true);
     $pdf->Cell(getFrac(3,10),$lineHeight,"",1,1,"C",true);
-    $pdf->Cell(getFrac(1,10),$lineHeight,"particular:","L", 0,"C");
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+    $pdf->SetXY($x+getFrac(1,10),$y); //Nos posicionamos delante del la celda anterior
     $pdf->Cell(getFrac(4,10),$lineHeight,"Calle",1,0,"C");
     $pdf->Cell(getFrac(1,10),$lineHeight,"N°. Ext.",1,0,"C");
     $pdf->Cell(getFrac(1,10),$lineHeight,"N°. Int.",1,0,"C");
@@ -163,10 +178,9 @@
 
     // ### CONYUGE
     //1ra Linea - Nombre completo
-    $pdf->SetFont('Arial','B',11);
-    $pdf->Cell(0,10,"DATOS DEL CONYUGE (PADRE, MADRE):",0,1,"L");
-    $pdf->SetFont('Arial','',11);
-    $pdf->SetFillColorC($gris);
+    $pdf->SetFont('Arial','B',$titleFontSize);
+    $pdf->Cell(0,$lineHeight,"DATOS DEL CONYUGE (PADRE, MADRE):",0,1,"L");
+    $pdf->SetFont('Arial','',$fontSize);
     $pdf->Cell(getFrac(1,3),$lineHeight,"",1,0,"C",true);
     $pdf->Cell(getFrac(1,3),$lineHeight,"",1,0,"C",true); 
     $pdf->Cell(getFrac(1,3),$lineHeight,"",1,1,"C",true);
@@ -176,12 +190,18 @@
     
 
     //2da Linea - Domicilio Particular
-    $pdf->Cell(getFrac(1,10),$lineHeight,"Domicilo","L", 0,"C");
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+    $pdf->MultiCell(getFrac(1,10),$lineHeight,"Domicilio particular:",1,"C");
+   
+    $pdf->SetXY($x+getFrac(1,10),$y); //Nos posicionamos delante del la celda anterior
     $pdf->Cell(getFrac(4,10),$lineHeight,"",1,0,"C",true);
     $pdf->Cell(getFrac(1,10),$lineHeight,"",1,0,"C",true);
     $pdf->Cell(getFrac(1,10),$lineHeight,"",1,0,"C",true);
     $pdf->Cell(getFrac(3,10),$lineHeight,"",1,1,"C",true);
-    $pdf->Cell(getFrac(1,10),$lineHeight,"particular:","L", 0,"C");
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+    $pdf->SetXY($x+getFrac(1,10),$y); //Nos posicionamos delante del la celda anterior
     $pdf->Cell(getFrac(4,10),$lineHeight,"Calle",1,0,"C");
     $pdf->Cell(getFrac(1,10),$lineHeight,"N°. Ext.",1,0,"C");
     $pdf->Cell(getFrac(1,10),$lineHeight,"N°. Int.",1,0,"C");
@@ -212,16 +232,21 @@
     //6ta Linea - Teléfono del trabajo, Religión
     $pdf->Cell(getFrac(1,4),$lineHeight,"Teléfono del trabajo:",1,0,"L");
     $pdf->Cell(getFrac(1,4),$lineHeight,"",1,0,"C",true);
-    $pdf->Cell(getFrac(1,4),$lineHeight,"Religión de la familia:",0,0,"C");
-    $pdf->Cell(getFrac(1,4),$lineHeight,"","LTR",1,"C",true);
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+
+    $pdf->MultiCell(getFrac(1,4),$lineHeight*2,"Religión de la familia:",1,"C");
+    $pdf->SetXY($x+getFrac(1,4),$y);
+    $pdf->Cell(getFrac(1,4),$lineHeight,"",1,1,"C",true);
 
     //7ma Linea - Telefono celular
     $pdf->Cell(getFrac(1,4),$lineHeight,"Télefono celular:",1,0,"L");
     $pdf->Cell(getFrac(1,4),$lineHeight,"",1,0,"C",true);
-    $pdf->Cell(getFrac(1,4),$lineHeight,"","RB",0,"C");
-    $pdf->Cell(getFrac(1,4),$lineHeight,"","LBR",1,"C",true);
+    $x = $pdf->GetX();
+    $y = $pdf->GetY();
+    $pdf->SetXY($x+getFrac(1,4),$y); 
 
-
+    $pdf->Cell(getFrac(1,4),$lineHeight,"",1,1,"C",true);
 
 
     $pdf->Output();

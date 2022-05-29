@@ -1,4 +1,12 @@
 <?php
+    //Ciclo
+    $startYear = 2021;
+    $endYear = 2022;
+    $cendi = "EVA SÁMANO DE LÓPEZ MATEOS";
+
+
+
+
     //Datos del niño o niña
     $nNombre = "José Angel";
     $nApellido1 = "Espinoza";
