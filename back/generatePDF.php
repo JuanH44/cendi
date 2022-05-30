@@ -6,18 +6,8 @@
 
     class PDF extends tFPDF
     {
-        //private $widthBody =   $this->GetPageWidth(); //Recuperamos el ancho de la pagina menos los margenes
-
-        function setFillColorC($col){
-            $this->SetFillColor($col,$col,$col);
-        }
-
         function getBodyWidth(){
             return $this->GetPageWidth() - $this->lMargin - $this->rMargin;
-        }
-
-        function getFraction($numerator, $denominator){
-            return $this->getBodyWidth() / $denominator * $numerator;
         }
 
         // Cabecera de página
@@ -30,12 +20,15 @@
         // Pie de página
         function Footer(){
             // Posición: a 1.5 cm del final
-            $this->SetY(-15);
+            $this->SetY(-23);
             // Arial italic 8
-            $this->SetFont('Arial','',8);
-            // Número de página
-            $this->Image('./pleca_flores_magon.png',$this->lMargin,$this->GetPageHeight()-30,$this->getBodyWidth());
-            $this->Cell(0,10,'Página '.$this->PageNo().'/{nb}',0,0,'C');
+            $this->SetFont("DejaVu-Serif","",6.5);
+
+            $this->Image('./pleca_flores_magon.png',$this->lMargin,$this->GetPageHeight()-25,$this->getBodyWidth());
+
+          $this->MultiCell(0,3, 
+          "Juan de Dios Bátiz esquina Miguel Othón de Mendizábal, Col. Nueva Industrial Vallejo, Alcaldía Gustavo A. Madero 07738 \nCiudad de México. Tel. 5729-6000, 5729-6300 Ext. 57701, 57702, 57704. Correo electrónico: cocendi@ipn.mx",
+           0, 'L', false);
         }
     }
 
@@ -60,6 +53,7 @@
 
     $pdf->SetFillColor(220,230,240 );
     $pdf->AddFont('Arial','','arial.ttf',true);
+    $pdf->AddFont('DejaVu-Serif','','DejaVuSerif.ttf',true);
     $pdf->AddFont('Arial','B','arialbd.ttf',true);
 
 
@@ -70,6 +64,17 @@
     $pdf->Cell(0,$lineHeight+2,"CICLO ESCOLAR: ". $startYear ." - ". $endYear ,0,1,"C");
     $pdf->Cell(0,$lineHeight+2,"CENDI: ". $cendi ,0,1,"C");
 
+    //FOTO, FOLIO, GRUPO
+    $pdf->SetXY(getFrac(1,12)*11, 30);
+    $pdf->Cell(25,30,"Foto", 1, 1, 'C');
+    $pdf->SetXY(getFrac(1,7)*5+$margins, 63);
+    $pdf->Cell(getFrac(2,21),$lineHeight,"Folio:", 1, 0, 'C');
+    $pdf->Cell(getFrac(4,21),$lineHeight,"", 1, 1, 'C', true);
+    $pdf->SetXY(getFrac(1,7)*5+$margins, 63+ $lineHeight);
+    $pdf->Cell(getFrac(2,21),$lineHeight,"Grupo:", 1, 0, 'C');
+    $pdf->Cell(getFrac(4,21),$lineHeight,"", 1, 1, 'C', true);
+    $pdf->Ln(5);
+  
     //DATOS DEL NIÑO O NIÑA
     $pdf->Cell(0,$lineHeight,"DATOS DE LA NIÑA O EL NIÑO:",0,1,"L");
     $pdf->SetFont('Arial','',$fontSize);
@@ -101,7 +106,7 @@
     $pdf->Cell(getFrac(4,12),$lineHeight,"",1,0,"C",true); 
 
 
-    $pdf->Ln(10);
+    $pdf->Ln(8);
     // ### DERECHOHABIENTE
     //1ra Linea - Nombre completo
     $pdf->SetFont('Arial','B',$titleFontSize);
@@ -174,7 +179,7 @@
     $pdf->Cell(getFrac(3,4),$lineHeight,"Horario de trabajo",1,0,"C");
     $pdf->Cell(getFrac(1,4),$lineHeight,"Extensión",1,0,"C");
 
-    $pdf->Ln(10);
+    $pdf->Ln(8);
 
     // ### CONYUGE
     //1ra Linea - Nombre completo
