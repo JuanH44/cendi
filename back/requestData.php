@@ -8,9 +8,9 @@
 
 
     //Datos del niño o niña
-    $nNombre = "José Angel";
-    $nApellido1 = "Espinoza";
-    $nApellido2 = "Bautista";
+    $nNombre = "Victor";
+    $nApellido1 = "Robles";
+    $nApellido2 = "Suarez";
 
     //Datos del o la derechohabiente
     $dNombre = "Alexis";

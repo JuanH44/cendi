@@ -60,6 +60,7 @@
     $pdf->SetFont('Arial','B',$titleFontSize);
 
     //ENCABEZADO
+    $pdf->Ln(1);
     $pdf->Cell(0,$lineHeight+2,"FICHA DE REISNCRIPCIÓN",0,1,"C");
     $pdf->Cell(0,$lineHeight+2,"CICLO ESCOLAR: ". $startYear ." - ". $endYear ,0,1,"C");
     $pdf->Cell(0,$lineHeight+2,"CENDI: ". $cendi ,0,1,"C");
@@ -306,7 +307,6 @@
     $pdf->SetXY($margins + getFrac(1,3), $pdf->GetY()+$lineHeight);
     $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
     $pdf->Cell(getFrac(1,3), 10, "Nombre y Firma del o la derechohabiente",0, 1, "C");
-
 
     $pdf->Output();
 ?>
