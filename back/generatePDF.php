@@ -254,5 +254,59 @@
     $pdf->Cell(getFrac(1,4),$lineHeight,"",1,1,"C",true);
 
 
+    $pdf->AddPage();
+
+    $pdf->SetFont('Arial','B',7);
+    $pdf-> Cell(0,$lineHeight,"FOTOGRAFÍAS DEL O LA DERECHOHABIENTE, CÓNYUGE (PADRE, MADRE) Y PERSONA AUTORIZADA PARA RECOGER AL NIÑO O LA NIÑA:",0,1,"C");
+
+    $rectHeight = 30;
+    $rectWidth = 25;
+    
+    $spaceBetween = ($pdf->getBodyWidth() - (getFrac(1,12)*4 + $rectWidth*3))/2 ; //Espacio entre cada rectangulo
+
+    //FOTOS
+    $pdf->SetXY($margins+ getFrac(2,12), 50);
+    $pdf->Rect($pdf->GetX(), $pdf->GetY(), $rectWidth, $rectHeight);
+    $pdf->SetXY($pdf->GetX()+$rectWidth + $spaceBetween, $pdf->GetY());
+    $pdf->Rect($pdf->GetX(), $pdf->GetY(), $rectWidth, $rectHeight);
+    $pdf->SetXY($pdf->GetX()+$rectWidth + $spaceBetween, $pdf->GetY());
+    $pdf->Rect($pdf->GetX(), $pdf->GetY(), $rectWidth, $rectHeight);
+
+    $pdf->SetXY(35, $pdf->GetY()+$rectHeight+$lineHeight);
+
+    $pdf->SetFont('Arial','B',$fontSize);
+    $pdf->Cell(getFrac(1,4),$lineHeight,"DERECHOHABIENTE",0,0,"C");
+    $pdf->Cell(3,$lineHeight,"",0,0,"C");
+    $pdf->Cell(getFrac(1,4),$lineHeight,"CONYUGE",0,0,"C");
+    $pdf->Cell(3,$lineHeight,"",0,0,"C");
+    $pdf->Cell(getFrac(1,4),$lineHeight,"PERSONA AUTORIZADA",0,0,"C");
+
+    $pdf->Ln(10);
+
+    //FECHA DE REGISTRO
+    $pdf->SetFont('Arial','B',$fontSize);
+    $spaceAside = ($pdf->getBodyWidth() - ($pdf->GetStringWidth("Ciudad de México a ".$diaRegistro." de ".$mesRegistro." de ".$anioRegistro)+10)) / 2;
+    $pdf->SetXY($spaceAside+$margins, $pdf->GetY()+$lineHeight);
+
+    $pdf->SetFont('Arial','',$fontSize);
+    $pdf->Cell($pdf->GetStringWidth("Ciudad de México a ")+2,$lineHeight,"Ciudad de México a ",0,0,"L");
+    $pdf->SetFont('Arial','B',$fontSize);
+    $pdf->Cell($pdf->GetStringWidth($diaRegistro)+2,$lineHeight,$diaRegistro,0,0,"L",true);
+    $pdf->SetFont('Arial','',$fontSize);
+    $pdf->Cell($pdf->GetStringWidth(" de ")+2,$lineHeight," de ",0,0,"L");
+    $pdf->SetFont('Arial','B',$fontSize);
+    $pdf->Cell($pdf->GetStringWidth($mesRegistro)+2,$lineHeight,$mesRegistro,0,0,"L",true);
+    $pdf->SetFont('Arial','',$fontSize);
+    $pdf->Cell($pdf->GetStringWidth(" de ")+2,$lineHeight," de ",0,0,"L");
+    $pdf->SetFont('Arial','B',$fontSize);
+    $pdf->Cell($pdf->GetStringWidth($anioRegistro)+2,$lineHeight,$anioRegistro,0,0,"L",true);
+
+    $spaceAside = 
+    $pdf->Ln(12);
+    $pdf->SetXY($margins + getFrac(1,3), $pdf->GetY()+$lineHeight);
+    $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
+    $pdf->Cell(getFrac(1,3), 10, "Nombre y Firma del o la derechohabiente",0, 1, "C");
+
+
     $pdf->Output();
 ?>

@@ -24,4 +24,9 @@
     $cApellido2 = "Perez";
 
 
+    //Registro
+    $diaRegistro = "22";
+    $mesRegistro = "Diciembre";
+    $anioRegistro = "2021";
+
 ?>
