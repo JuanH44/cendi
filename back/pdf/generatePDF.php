@@ -9,7 +9,7 @@
         function getBodyWidth(){
             return $this->GetPageWidth() - $this->lMargin - $this->rMargin;
         }
-
+ 
         // Cabecera de página
         function Header(){
             // Logo
@@ -38,7 +38,6 @@
     $pdf->AddPage();
 
     $gris = 230;
-   
 
     //Establecemos los margenes 
     $margins = 15;

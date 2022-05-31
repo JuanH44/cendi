@@ -4,9 +4,6 @@
     $endYear = 2022;
     $cendi = "EVA SÁMANO DE LÓPEZ MATEOS";
 
-
-
-
     //Datos del niño o niña
     $nNombre = "Victor";
     $nApellido1 = "Robles";

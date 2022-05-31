@@ -5,7 +5,4 @@ $titleFontSize = 11;
 $fillColor = 230;
 $lineHeight = 5;
 
-
-
-
 ?>
