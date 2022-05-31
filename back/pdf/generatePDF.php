@@ -2,7 +2,7 @@
     /* Clase fpdf */
     include("requestData.php");
     include("style.php");
-    require("tfpdf/tfpdf.php");
+    require("../tfpdf/tfpdf.php");
 
     class PDF extends tFPDF
     {
@@ -13,7 +13,7 @@
         // Cabecera de página
         function Header(){
             // Logo
-            $this->Image('./SEP_IPN.png',$this->lMargin,8,120);
+            $this->Image('../assets/SEP_IPN.png',$this->lMargin,8,120);
             $this->Ln(20);  
         }
 
@@ -24,7 +24,7 @@
             // Arial italic 8
             $this->SetFont("DejaVu-Serif","",6.5);
 
-            $this->Image('./pleca_flores_magon.png',$this->lMargin,$this->GetPageHeight()-25,$this->getBodyWidth());
+            $this->Image('../assets/pleca_flores_magon.png',$this->lMargin,$this->GetPageHeight()-25,$this->getBodyWidth());
 
           $this->MultiCell(0,3, 
           "Juan de Dios Bátiz esquina Miguel Othón de Mendizábal, Col. Nueva Industrial Vallejo, Alcaldía Gustavo A. Madero 07738 \nCiudad de México. Tel. 5729-6000, 5729-6300 Ext. 57701, 57702, 57704. Correo electrónico: cocendi@ipn.mx",
