@@ -88,10 +88,13 @@ $sql3="insert into datos_derecho values('".$primer_apellido_derecho."','".$segun
 $sql4="insert into conyuge values('".$primer_apellido_conyuge."','".$segundo_apellido_conyuge."','".$nombre_conyuge."','".$domicilio_conyuge."','".$telefono_fijo_conyuge."','"
 .$telefono_celular_conyuge."','".$lugar_trabajo_conyuge."','".$domicilio_trabajo_conyuge."','".$telefono_trabajo_conyuge."','".$extension_conyuge."')";
 
-mysqli_query($conexion, $sql1);
+mysqli_query($conexion, $sql1);//insert todos los datos
 mysqli_query($conexion, $sql2);
 mysqli_query($conexion, $sql3);
+//comprobar que tiene conyugue
 mysqli_query($conexion, $sql4);
+
+
 
 echo "ha sido registrado";
 ?>
