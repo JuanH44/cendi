@@ -14,9 +14,6 @@ $folio=$_GET['folio'];
 $grupo=$_GET['grupo'];
 $cendi="Amalia Solórzano de Cárdenas";//cambiar value
 
-echo "Aquie".$folio;
-
-
 //Datos niño
 $primer_apellido=$_GET['primer_apellido'];
 $segundo_apellido=$_GET['segundo_apellido'];
@@ -75,26 +72,153 @@ $telefono_trabajo_conyuge=$_GET['telefono_trabajo_conyuge'];
 $extension_conyuge=$_GET['extension_conyuge'];
 
 
-//conectar a BD
-$conexion = mysqli_connect("localhost","root","","cendi");
+//consultas
 
-$sql1="insert into datos_generales values('".$folio."','".$cendi."','".$grupo."')";
+$sqlConsDatos="insert into datos_generales values('".$folio."','".$cendi."','".$grupo."')";
 
-$sql2="insert into datos_niño values('".$primer_apellido."','".$segundo_apellido."','".$nombre."','".$fecha."','".$email."','".$edad."','".$curp."','".$folio."')";
+$sqlConsNin="insert into datos_niño values('".$primer_apellido."','".$segundo_apellido."','".$nombre."','".$fecha."','".$email."','".$edad."','".$curp."','".$folio."')";
 
-$sql3="insert into datos_derecho values('".$primer_apellido_derecho."','".$segundo_apellido_derecho."','".$nombre_derecho."','".$domicilio."','".$telefono_fijo."','"
+$sqlConsDere="insert into datos_derecho values('".$primer_apellido_derecho."','".$segundo_apellido_derecho."','".$nombre_derecho."','".$domicilio."','".$telefono_fijo."','"
 .$telefono_celular."','".$email_derecho."','".$ocupacion."','".$curp_derecho."','".$puesto."','".$sueldo."','".$numero_empleado."','".$adscripcion."','".$horario."','".$extension."')";
 
-$sql4="insert into conyuge values('".$primer_apellido_conyuge."','".$segundo_apellido_conyuge."','".$nombre_conyuge."','".$domicilio_conyuge."','".$telefono_fijo_conyuge."','"
+$sqlConsCony="insert into conyuge values('".$primer_apellido_conyuge."','".$segundo_apellido_conyuge."','".$nombre_conyuge."','".$domicilio_conyuge."','".$telefono_fijo_conyuge."','"
 .$telefono_celular_conyuge."','".$lugar_trabajo_conyuge."','".$domicilio_trabajo_conyuge."','".$telefono_trabajo_conyuge."','".$extension_conyuge."')";
 
-mysqli_query($conexion, $sql1);//insert todos los datos
-mysqli_query($conexion, $sql2);
-mysqli_query($conexion, $sql3);
-//comprobar que tiene conyugue
-mysqli_query($conexion, $sql4);
+//Datos para el pdf
+$conexion = mysqli_connect("localhost","luis","luis","cendi");//conexion a la BD
+$sqlConsLug = "select lugares from horario where grupo = '".$grupo."'";//Consulta para obtener lugares del grupo
+$resultado = mysqli_query($conexion, $sqlConsLug);//ejecutar consulta
+$lugaresOcup = mysqli_fetch_row($resultado);//obener los lugares ocupados en ese grupo
 
-
-
-echo "ha sido registrado";
+if ($grupo == "Lac I-II"){
+    if ($lugaresOcup[0] == 10){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "Lac III - Mat I"){
+    if ($lugaresOcup[0] == 10){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "Mat IIA"){
+    if ($lugaresOcup[0] == 12){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "Mat IIB"){
+    if ($lugaresOcup[0] == 12){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "PIA"){
+    if ($lugaresOcup[0] == 15){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "PIB"){
+    if ($lugaresOcup[0] == 15){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "PIIA"){
+    if ($lugaresOcup[0] == 15){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "PIIB"){
+    if ($lugaresOcup[0] == 15){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "PIIIA"){
+    if ($lugaresOcup[0] == 15){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+elseif ($grupo == "PIIIB"){
+    if ($lugaresOcup[0] == 15){
+        echo "No quedan mas lugares";
+    }else{
+        mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+        mysqli_query($conexion, $sqlConsNin);
+        mysqli_query($conexion, $sqlConsDere);
+        mysqli_query($conexion, $sqlConsCony);
+        $lugaresOcup[0]+=1;
+        $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
+        mysqli_query($conexion, $sqlConsLug2);
+    }
+}
+mysqli_close($conexion);
 ?>
