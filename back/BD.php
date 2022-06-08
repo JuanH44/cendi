@@ -1,13 +1,4 @@
 <?php 
-    //require("fpdf184/fpdf.php");
-
-    //$pdf = new FPDF();
-    //$pdf -> AddPage();
-    //$pdf ->SetFont('helvetica','B',20);
-    //$pdf ->Cell(0,20, 'Hola grupo 4CM4!',1);
-    //$pdf ->Output();
-    /////////////////////Conexion BD////////////////////:
-
 //Datos Generales
 
 $folio=$_GET['folio'];
@@ -79,10 +70,11 @@ $sqlConsDatos="insert into datos_generales values('".$folio."','".$cendi."','".$
 $sqlConsNin="insert into datos_niño values('".$primer_apellido."','".$segundo_apellido."','".$nombre."','".$fecha."','".$email."','".$edad."','".$curp."','".$folio."')";
 
 $sqlConsDere="insert into datos_derecho values('".$primer_apellido_derecho."','".$segundo_apellido_derecho."','".$nombre_derecho."','".$domicilio."','".$telefono_fijo."','"
-.$telefono_celular."','".$email_derecho."','".$ocupacion."','".$curp_derecho."','".$puesto."','".$sueldo."','".$numero_empleado."','".$adscripcion."','".$horario."','".$extension."')";
+.$telefono_celular."','".$email_derecho."','".$ocupacion."','".$curp_derecho."','".$puesto."','".$sueldo."','".$numero_empleado."','".$adscripcion."','".$horario."','".$extension.
+"','".$folio."')";
 
 $sqlConsCony="insert into conyuge values('".$primer_apellido_conyuge."','".$segundo_apellido_conyuge."','".$nombre_conyuge."','".$domicilio_conyuge."','".$telefono_fijo_conyuge."','"
-.$telefono_celular_conyuge."','".$lugar_trabajo_conyuge."','".$domicilio_trabajo_conyuge."','".$telefono_trabajo_conyuge."','".$extension_conyuge."')";
+.$telefono_celular_conyuge."','".$lugar_trabajo_conyuge."','".$domicilio_trabajo_conyuge."','".$telefono_trabajo_conyuge."','".$extension_conyuge."','".$folio."')";
 
 //Datos para el pdf
 $conexion = mysqli_connect("localhost","luis","luis","cendi");//conexion a la BD
