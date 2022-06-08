@@ -19,27 +19,39 @@
         $(document).ready(function() {
             $("#navegacion").load("./compartidos/barranav.html");
             $("#futer").load("./compartidos/futer.html");
-            /*
+            var alumno;
+            
             $("#formula").submit(function(event) {
+                event.preventDefault();
+
+                var form = $(this);
+                
                 var formData = {
                     curp: $("#curp").val(),
                     folio: $("#folio").val(),
                     accion: "recuperar",
                 };
+                alumno = formData;
+                var actionUrl = form.attr('action') + "?folio="+formData.folio;
 
                 $.ajax({
                     type: "POST",
-                    url: "genera.php",
+                    url: actionUrl,
                     data: formData,
                     dataType: "json",
                     encode: true,
                 }).done(function(data) {
-                    console.log(data);
+                    if(data.estado == 0 && data.folio == alumno.folio){
+                        alert("Cita recuperada");
+                        let direc = "../back/recupera.php?folio="+alumno.folio;
+                        window.open(direc,'_blank');
+                    }
+                    
                 });
 
-                event.preventDefault();
+                
             });
-            */
+            
 
             $("#btn-reset").click(function() {
                 $("#formula").trigger('reset');

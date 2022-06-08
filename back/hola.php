@@ -3,13 +3,14 @@
 
     
 
-    $nombre = $_REQUEST['nombre'];
-    $curp = $_REQUEST['curp'];
+    $folio = $_REQUEST['folio'];
+
+    $respuesta = array('estado' => 0, 'folio' => $folio);
 
     
-    echo json_encode($_REQUEST);
+    echo json_encode($respuesta);
 
-    
+    /*
 
     $pdf = new FPDF();
     $pdf -> AddPage();
@@ -19,4 +20,5 @@
     $pdf ->Cell(10,20,("curp: si"),70);
     $pdf ->Cell(20,50,("folio: mon"),110);
     $pdf ->Output();
+    */
 ?>
