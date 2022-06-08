@@ -1,8 +1,14 @@
 <?php
 
-    $folioBorrar =123;//recibir este datos
+    $_info = $_REQUEST['informacion'];
+    $folio = $_info['folio'];
+    echo $folio;
+    //$folioBorrar = $_REQUEST['folio'];
+    //echo $folioBorrar;
 
-    $conexion = mysqli_connect("localhost","luis","luis","cendi");//conexion a la BD
+    /*$folioBorrar =123;//recibir este datos
+
+    $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
     $sqlBorarDerecho="delete from datos_derecho where folio = ".$folioBorrar;
     mysqli_query($conexion,$sqlBorarDerecho);
     $sqlBorarConyuge="delete from conyuge where folio = ".$folioBorrar;
@@ -24,5 +30,5 @@
     $sqlBorarGeneral="delete from datos_generales where folio = ".$folioBorrar;
     mysqli_query($conexion,$sqlBorarGeneral);
     mysqli_close($conexion);
-    
+  */
 ?>

@@ -77,7 +77,7 @@ $sqlConsCony="insert into conyuge values('".$primer_apellido_conyuge."','".$segu
 .$telefono_celular_conyuge."','".$lugar_trabajo_conyuge."','".$domicilio_trabajo_conyuge."','".$telefono_trabajo_conyuge."','".$extension_conyuge."','".$folio."')";
 
 //Datos para el pdf
-$conexion = mysqli_connect("localhost","luis","luis","cendi");//conexion a la BD
+$conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
 $sqlConsLug = "select lugares from horario where grupo = '".$grupo."'";//Consulta para obtener lugares del grupo
 $resultado = mysqli_query($conexion, $sqlConsLug);//ejecutar consulta
 $lugaresOcup = mysqli_fetch_row($resultado);//obener los lugares ocupados en ese grupo
@@ -212,5 +212,6 @@ elseif ($grupo == "PIIIB"){
         mysqli_query($conexion, $sqlConsLug2);
     }
 }
+echo "Registrado Exitosamente";
 mysqli_close($conexion);
 ?>
