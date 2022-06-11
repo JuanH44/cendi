@@ -67,6 +67,7 @@
     //FOTO, FOLIO, GRUPO
     $pdf->SetXY(getFrac(1,12)*11, 30);
     $pdf->Cell(25,30,"Foto", 1, 1, 'C');
+    $pdf->Image('https://illumesense.com/resources/illumesense/style/img/website/profile-picture-blanks/female-profile.jpg',getFrac(1,12)*11,30,25);
     $pdf->SetXY(getFrac(1,7)*5+$margins, 63);
     $pdf->Cell(getFrac(2,21),$lineHeight,"Folio:", 1, 0, 'C');
     $pdf->Cell(getFrac(4,21),$lineHeight,"", 1, 1, 'C', true);
