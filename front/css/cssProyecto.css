@@ -1,5 +1,5 @@
 h1{
-    color:greenyellow;
+    color:black;
 }
 
 .brand-logo{
@@ -14,4 +14,12 @@ h1{
 #nav-mobile{
     font-style:italic;
     margin-right: 10px;
+}
+
+nav {
+    background-color:forestgreen !important;
+}
+
+.page-footer{
+    background-color: forestgreen !important;
 }
