@@ -1,12 +1,13 @@
 <?php
     /* Clase fpdf */
-    include("requestData.php");
-    include("style.php");
-    require("../tfpdf/tfpdf.php");
+
+        include("requestData.php");
+        include("style.php");
+        require("../tfpdf/tfpdf.php"); 
 
     class PDF extends tFPDF
     {
-        function getBodyWidth(){
+        public function getBodyWidth(){
             return $this->GetPageWidth() - $this->lMargin - $this->rMargin;
         }
  
@@ -31,6 +32,12 @@
            0, 'L', false);
         }
     }
+    
+    global $titleFontSize;
+    global $lineHeight;
+    global $startYear;
+    global $endYear;
+    global $cendi;
 
     $pdf = new PDF("P","mm","Letter");
     //  $pdf->Error("Ha ocurrido un error al generar el PDF");
@@ -307,5 +314,8 @@
     $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
     $pdf->Cell(getFrac(1,3), 10, "Nombre y Firma del o la derechohabiente",0, 1, "C");
 
-    $pdf->Output( "S", "Ficha de Registro ".$folio.".pdf");
+    $pdf ->Output("Ficha de Registro ".$folio.".pdf","I");
+
+       
+        //$pdfDoc =$pdf ->Output("Test Invoice.pdf","S");
 ?>
