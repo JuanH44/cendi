@@ -69,10 +69,10 @@
     $pdf->Cell(25,30,"Foto", 1, 1, 'C');
     $pdf->SetXY(getFrac(1,7)*5+$margins, 63);
     $pdf->Cell(getFrac(2,21),$lineHeight,"Folio:", 1, 0, 'C');
-    $pdf->Cell(getFrac(4,21),$lineHeight,"", 1, 1, 'C', true);
+    $pdf->Cell(getFrac(4,21),$lineHeight,$folio, 1, 1, 'L', true);
     $pdf->SetXY(getFrac(1,7)*5+$margins, 63+ $lineHeight);
     $pdf->Cell(getFrac(2,21),$lineHeight,"Grupo:", 1, 0, 'C');
-    $pdf->Cell(getFrac(4,21),$lineHeight,"", 1, 1, 'C', true);
+    $pdf->Cell(getFrac(4,21),$lineHeight,$grupo, 1, 1, 'L', true);
     $pdf->Ln(5);
   
     //DATOS DEL NIÑO O NIÑA
@@ -307,5 +307,5 @@
     $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
     $pdf->Cell(getFrac(1,3), 10, "Nombre y Firma del o la derechohabiente",0, 1, "C");
 
-    $pdf->Output();
+    $pdf->Output( "S", "Ficha de Registro ".$folio.".pdf");
 ?>
