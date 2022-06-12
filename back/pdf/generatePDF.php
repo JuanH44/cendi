@@ -313,9 +313,33 @@
     $pdf->SetXY($margins + getFrac(1,3), $pdf->GetY()+$lineHeight);
     $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
     $pdf->Cell(getFrac(1,3), 10, "Nombre y Firma del o la derechohabiente",0, 1, "C");
+   // $pdfDoc = $pdf ->Output("","S");
 
-    $pdf ->Output("Ficha de Registro ".$folio.".pdf","I");
+    //Generar el PDF: Mostrar, Enviar o Mostrar y Enviar.
+
+    $opcion =2;
+    switch ($opcion) {
+        case 1:
+            $pdf ->Output("Ficha de Registro ".$folio.".pdf","I");
+            break;
+        case 2:
+            $pdfDoc = $pdf ->Output("","S");
+            break;
+        case 3:
+            $pdfDoc = $pdf ->Output("","S");
+            $pdf ->Output("Ficha de Registro ".$folio.".pdf","I");
+            break;
+        default:
+            echo "<alert>Opción no válida</alert>";
+        break;
+    }
+   
+    
+   
+   
+    
+    //
 
        
-        //$pdfDoc =$pdf ->Output("Test Invoice.pdf","S");
+        //
 ?>
