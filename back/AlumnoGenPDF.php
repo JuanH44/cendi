@@ -30,9 +30,11 @@ while($fila = mysqli_fetch_array($respCon)){
         $domicilio_trabajo_conyuge = $fila["Domicilio_Trabajo_Conyuge"];
         $telefono_trabajo_conyuge = $fila["Telefono_Trabajo_Conyuge"];
         $extension = $fila["Extension"];
+        $tieneconyuge='si';
     }
     else{
         echo "Folio: ".$folio." no encontrado";
+        $tieneconyuge='no';
     }
 }
 

@@ -1,5 +1,8 @@
 <?php
-
-    $nose=$_GET['tienec'];
+    if (isset($_GET['tienec'])){
+        $nose="on";
+    }else{
+        $nose="off";
+    }
     echo $nose;
 ?>
