@@ -1,0 +1,25 @@
+h1{
+    color:black;
+}
+
+.brand-logo{
+    margin-left: 50px;
+}
+
+#actualizar{
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+#nav-mobile{
+    font-style:italic;
+    margin-right: 10px;
+}
+
+nav {
+    background-color:forestgreen !important;
+}
+
+.page-footer{
+    background-color: forestgreen !important;
+}

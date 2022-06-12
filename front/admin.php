@@ -18,6 +18,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/cssProyecto.css" media="screen,projection" />
     <!--Jquery-->
     <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
