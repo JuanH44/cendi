@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--Import Google Icon Font-->
@@ -481,13 +482,7 @@
     </form>
     <div class="row">
         
-        <button id="btn-imprimir" class="btn waves-effect waves-light btn-imprimir"  name="imprimir">Imprimir cita de registro
-            <i class="material-icons right">print</i>
-        </button>
-    </div>
-    <div class="row">
-        
-        <button id="jala" class="btn waves-effect waves-light jala"  name="jala"> Subir
+        <button id="btn-imprimir" class="btn waves-effect waves-light btn-imprimir"  name="imprimir">Ver cita
             <i class="material-icons right">print</i>
         </button>
     </div>
@@ -504,7 +499,7 @@
    <!---->
 <script type="module">
     // Import the functions you need from the SDKs you need
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
    import { getStorage, ref, uploadBytesResumable, getDownloadURL} from "https://www.gstatic.com/firebasejs/9.8.2/firebase-storage.js";
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
@@ -524,15 +519,21 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const storage = getStorage();
+    var alumno;
 
     
         function enviaJSON(informacion, actionUrl){
             $.ajax({
                 type: "POST",
                 url: actionUrl,
-                data: informacion, // serializes the form's elements.
+                data: informacion, // envia el json
                 success: function (data) {
-                    alert(data); // show response from the php script.
+                    let jsonData = $.parseJSON(data);
+                    alert(data);
+                    if(jsonData.estado == 0 && jsonData.folio == alumno.folio){
+                        alert("Cita generada, de clic en 'ver cita'");
+                        $('#btn-imprimir').show();
+                    }
                 }
             });
         }
@@ -541,16 +542,16 @@
             var file = $('#foto').prop('files')[0];
             let nombre = 'images/'+file.name;
             let storageRef = ref(storage, nombre);
-
+            alert('Subir imagen al servidor?');
             uploadBytesResumable(storageRef, file).then((snapshot) => {
-                alert('Uploaded a blob or file!');
-                alert(snapshot);
+                alert('Imagen subida al servidor');
                 getDownloadURL(snapshot.ref).then((url) => {
                     informacion.foto = url;
                     enviaJSON(informacion, actionUrl);
+                }).error(function () {
+                    enviaJSON(informacion, actionUrl);
                 });
             });
-            alert(file.name);
         }
         $("#formulario").submit(function (e) {
 
@@ -621,20 +622,19 @@
                 extension_conyuge: $('#extension_conyuge').val()
 
             };
+            alumno = informacion;
 
-            let salida = JSON.stringify(informacion);
-            alert('averaaaa');
+            
 
             subeFoto( informacion, actionUrl);
 
 
-            });
+        });
     
-        
-        $('#jala').click(function (){
-            alert('estoylisto');
-            subele();
-            
+        $('#btn-imprimir').hide();
+        $('#btn-imprimir').click(function(){
+            let direc = "../back/recupera.php?folio="+alumno.folio;
+            window.open(direc,'_blank');
         });
     
   </script>

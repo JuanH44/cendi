@@ -1,28 +1,11 @@
 $(document).ready(function () {
-    
+    //Importaciones
     $("#navegacion").load("./compartidos/barranav.html");
     $("#futer").load("./compartidos/futer.html");
+
+    //Activaciones
     $('select').formSelect(); //jala select
     $('input#input_text, textarea#textarea2').characterCounter(); // jala counter
-    var alumno = { curp: 'Jose Angel', folio: 'Espinosa' };
-    //activaciones
-    //$('.datepicker').datepicker();
-   
-      // Initialize Firebase
-      
-      
-      
-    function uploadimage() {
-
-        alert('Aqui te voy');
-        
-    }
-
-    function anioHoy() {
-        var hoy = new Date();
-        return hoy.getFullYear();
-    }
-
     $('.datepicker').datepicker({
         format: 'dd mmm yyyy',
         yearRange: [anioHoy() - 6, anioHoy()],
@@ -37,10 +20,6 @@ $(document).ready(function () {
             today: 'Hoy',
             clear: 'Limpiar',
             close: 'Ok',
-            labelMonthNext: 'Siguiente mes',
-            labelMonthPrev: 'Mes anterior',
-            labelMonthSelect: 'Selecciona un mes',
-            labelYearSelect: 'Selecciona un año',
         }
         ,
         onSelect: function (selDate) {
@@ -71,26 +50,25 @@ $(document).ready(function () {
 
         }
     });
-    /*
-    $('#fecha').ready(function (){
-        $("#fecha").change(function (selDate) {
-            var today = new Date();
-            alert(typeof(selDate ));
-            var birthDate = new Date(selDate);
-            var age = today.getFullYear() - birthDate.getFullYear();
-            var m = today.getMonth() - birthDate.getMonth();
-            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-                age--;
-            }
+    var alumno = { curp: 'Jose Angel', folio: 'Espinosa' };
+    //activaciones
+    //$('.datepicker').datepicker();
+   
+      // Initialize Firebase
+      
+
+
+    function anioHoy() {
+        var hoy = new Date();
+        return hoy.getFullYear();
+    }
+
     
-            alert(age);
-        });
-    });
-    */
+    
 
 
 
-
+    $('#btn-imprimir').hide();
     $('#fila-conyuge').hide();
     $('#tienec').click(function () {
         if ($('#tienec').prop('checked')) {
@@ -105,16 +83,12 @@ $(document).ready(function () {
         $("#formulario").trigger('reset');
         $('#fila-conyuge').hide();
     });
+    
+    
 
     // Old way
     // $('select').material_select();
     
-
-    $('#btn-imprimir').click(function () {
-        alert('dalee');
-        let url = "../back/hola.php?" + "curp=" + alumno.curp + "&" + "folio=" + alumno.folio;
-        window.open(url, '_blank');
-    })
 
 
     

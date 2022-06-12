@@ -1,4 +1,5 @@
 <?php 
+echo "Entro";
 //Datos Generales
 
 $cendi="Amalia Solórzano de Cárdenas";//No se puede cambiar
@@ -58,6 +59,7 @@ $sqlConsDere="insert into datos_derecho values('".$primer_apellido_derecho."','"
 "','".$folio."')";
 
 $tieneconyuge=$_GET['tieneconyuge'];
+echo $tieneconyuge;
 if $tieneconyuge=='Sí'{
     $sqlConsCony="insert into conyuge values('".$primer_apellido_conyuge."','".$segundo_apellido_conyuge."','".$nombre_conyuge."','".$domicilio_conyuge."','".
     $telefono_fijo_conyuge."','".$telefono_celular_conyuge."','".$lugar_trabajo_conyuge."','".$domicilio_trabajo_conyuge."','".$telefono_trabajo_conyuge."','".$extension_conyuge."','".$folio."')";
@@ -72,6 +74,7 @@ $lugaresOcup = mysqli_fetch_row($resultado);//obener los lugares ocupados en ese
 if ($grupo == "Lac I-II"){
     if ($lugaresOcup[0] == 10){
         echo "No quedan mas lugares";
+        $generarPDF='no';
     }else{
         mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
         mysqli_query($conexion, $sqlConsNin);
@@ -82,7 +85,7 @@ if ($grupo == "Lac I-II"){
         $lugaresOcup[0]+=1;
         $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
         mysqli_query($conexion, $sqlConsLug2);
-
+        $generarPDF='si';
         //Mandar la señal de que se puede inscribir y generar el pdf
     }
 }
