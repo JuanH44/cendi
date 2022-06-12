@@ -1,6 +1,7 @@
-<?php
+<?php//sacar todos los datos de la BD para el admin
 
 $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
+
 $sqlConyuge="select * from conyuge";//declarar consulta
 $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
 while($fila=mysqli_fetch_array($respCon)){
@@ -14,6 +15,7 @@ while($fila=mysqli_fetch_array($respCon)){
     echo $fila["Domicilio_Trabajo_Conyuge"];
     echo $fila["Telefono_Trabajo_Conyuge"];
     echo $fila["Extension"];
+    echo $fila["Folio"];
 }
 $sqlConyuge="select * from datos_derecho";//declarar consulta
 $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
@@ -33,6 +35,7 @@ while($fila=mysqli_fetch_array($respCon)){
     echo $fila["Adscripcion"];
     echo $fila["Horario_Trabajo"];
     echo $fila["Extension"];
+    echo $fila["Folio"];
 }
 $sqlConyuge="select * from datos_generales";//declarar consulta
 $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
