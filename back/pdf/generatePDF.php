@@ -307,5 +307,5 @@
     $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
     $pdf->Cell(getFrac(1,3), 10, "Nombre y Firma del o la derechohabiente",0, 1, "C");
 
-    $pdf->Output();
+    $pdf->Output( "S", "Ficha de Registro ".$folio.".pdf");
 ?>
