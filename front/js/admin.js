@@ -30,7 +30,7 @@ $(document).ready(function () {
             nuevoAlumno += ("        <a class='waves-effect waves-light btn cancelar-edicion'>Cancelar edicion</a>");
             nuevoAlumno += ("        <a class='waves-effect waves-light btn btn-reset'>Restablecer valores</a>");
             nuevoAlumno += ("        <a class='waves-effect waves-light right btn red elimina'>Eliminar</a>");
-            nuevoAlumno += ("        <form id='formula" + index + "' class='formula' action='../back/api.php' method='get'>");
+            nuevoAlumno += ("        <form id='formula" + index + "' class='formula' action='../back/ActualizarDatos.php' method='get'>");
             nuevoAlumno += ("            <!-- Aqui se inserta solito -->");
             nuevoAlumno += ("        </form>");
             nuevoAlumno += ("    </div>");
@@ -170,28 +170,26 @@ $(document).ready(function () {
 
                 ///Enviar un fomrulario a actualizar
                 $(formID).submit(function (e) {
-                    alert("Voy a subir");
+                    //alert("Voy a subir");
                     e.preventDefault(); // avoid to execute the actual submit of the form.
 
                     let subitForm = $(this);
                     let actionUrl = subitForm.attr('action');
-                    let alumno = {
-                        'curp': subitForm.find('.correo').val(),
-                        'nombre': subitForm.find('.contrasena').val()
-                    };
-                    alert("Tengo el yeison" + alumno + subitForm.find('.contrasena').val());
+                    let alumno = $(formID).serialize();
+                    alert("Tengo para subir el yeison" + alumno);
 
                     $.ajax({
-                        type: "POST",
+                        type: "GET",
                         url: actionUrl,
                         //data: form.serialize(), // serializes the form's elements.
                         data: alumno,
                         success: function (data) {
 
-                            alert("respondido");
-                            alert(data); // show response from the php script.
+                            //alert("respondido");
+                             // show response from the php script.
                             let jsonData = $.parseJSON(data);
-                            subitForm.find('.correo').val("Enviado chido" + jsonData.curpo);
+                            console.log(data);
+                            //subitForm.find('.correo').val("Enviado chido" + jsonData.curpo);
                         }
                     });
 
@@ -236,15 +234,16 @@ $(document).ready(function () {
 
             });
             $(alumnID).find('.elimina').click(function () {
+                $(('#usr'+index)).replaceWith("");
                 $.ajax({
                     type: "GET",
-                    url: '../back/api.php?ide=12345',
+                    url: '../back/EliminarDatos.php?folio='+alumnos[index].folio,
                     success: function (response) {
                         let jsonData = JSON.parse(response);
-
+                        $(alumnID).replaceWith("");
                         // user is logged in successfully in the back-end
                         // let's redirect
-                        if (jsonData.success == "1") {
+                        if (jsonData.state == "0") {
                             //location.href = 'inicio.html';
                             alert(jsonData.arre[0]);
                         } else {
@@ -258,17 +257,7 @@ $(document).ready(function () {
         }
     }
 
-
-    $('#actualizar').click(function () {
-        jalaTodo();
-
-
-        //$('#alumnos').ready(function() {
-
-
-
-        //});
-    });
+ 
     function jalaTodo() {
         let direc = "../back/traeTodo.php";
         $.ajax({
@@ -282,6 +271,18 @@ $(document).ready(function () {
             }
         });
     }
+
+    $('#actualizar').click(function () {
+        jalaTodo();
+
+
+        //$('#alumnos').ready(function() {
+
+
+
+        //});
+    });
+    
     ///Colocar los controladores de los botones de cada formulario
 
 });
