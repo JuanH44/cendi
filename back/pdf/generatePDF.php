@@ -1,12 +1,13 @@
 <?php
     /* Clase fpdf */
-    include("requestData.php");
-    include("style.php");
-    require("../tfpdf/tfpdf.php");
+
+        include("requestData.php");
+        include("style.php");
+        require("./tfpdf/tfpdf.php"); 
 
     class PDF extends tFPDF
     {
-        function getBodyWidth(){
+        public function getBodyWidth(){
             return $this->GetPageWidth() - $this->lMargin - $this->rMargin;
         }
  
@@ -31,6 +32,12 @@
            0, 'L', false);
         }
     }
+    
+    global $titleFontSize;
+    global $lineHeight;
+    global $startYear;
+    global $endYear;
+    global $cendi;
 
     $pdf = new PDF("P","mm","Letter");
     //  $pdf->Error("Ha ocurrido un error al generar el PDF");
@@ -70,10 +77,10 @@
     $pdf->Image('https://illumesense.com/resources/illumesense/style/img/website/profile-picture-blanks/female-profile.jpg',getFrac(1,12)*11,30,25);
     $pdf->SetXY(getFrac(1,7)*5+$margins, 63);
     $pdf->Cell(getFrac(2,21),$lineHeight,"Folio:", 1, 0, 'C');
-    $pdf->Cell(getFrac(4,21),$lineHeight,"", 1, 1, 'C', true);
+    $pdf->Cell(getFrac(4,21),$lineHeight,$folio, 1, 1, 'L', true);
     $pdf->SetXY(getFrac(1,7)*5+$margins, 63+ $lineHeight);
     $pdf->Cell(getFrac(2,21),$lineHeight,"Grupo:", 1, 0, 'C');
-    $pdf->Cell(getFrac(4,21),$lineHeight,"", 1, 1, 'C', true);
+    $pdf->Cell(getFrac(4,21),$lineHeight,$grupo, 1, 1, 'L', true);
     $pdf->Ln(5);
   
     //DATOS DEL NIÑO O NIÑA
@@ -307,6 +314,33 @@
     $pdf->SetXY($margins + getFrac(1,3), $pdf->GetY()+$lineHeight);
     $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
     $pdf->Cell(getFrac(1,3), 10, "Nombre y Firma del o la derechohabiente",0, 1, "C");
+   // $pdfDoc = $pdf ->Output("","S");
 
-    $pdf->Output();
+    //Generar el PDF: Mostrar, Enviar o Mostrar y Enviar.
+
+    $opcion =2;
+    switch ($opcion) {
+        case 1:
+            $pdf ->Output("Ficha de Registro ".$folio.".pdf","I");
+            break;
+        case 2:
+            $pdfDoc = $pdf ->Output("","S");
+            break;
+        case 3:
+            $pdfDoc = $pdf ->Output("","S");
+            $pdf ->Output("Ficha de Registro ".$folio.".pdf","I");
+            break;
+        default:
+            echo "<alert>Opción no válida</alert>";
+        break;
+    }
+   
+    
+   
+   
+    
+    //
+
+       
+        //
 ?>
