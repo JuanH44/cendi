@@ -3,7 +3,7 @@
 
         include("requestData.php");
         include("style.php");
-        require("../tfpdf/tfpdf.php"); 
+        require("./tfpdf/tfpdf.php"); 
 
     class PDF extends tFPDF
     {
