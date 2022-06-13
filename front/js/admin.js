@@ -26,25 +26,34 @@ $(document).ready(function() {
                 let nuevaLista = "<ul class='collection' id='alumnos'> ";
                 for (let index = 0; index < alumnos.length; index++) {
                     let nuevoAlumno = "";
+                    nuevoAlumno += ("<div id='clave'>");
+                    nuevoAlumno += ("<fieldset>");
                     nuevoAlumno += ("<li class='collection-item avatar' id='usr" + index + "'>");
-                    nuevoAlumno += ("    <img src='"+alumnos[index].foto+"' alt='" + alumnos[index].folio + "' class='circle'>");
+                    nuevoAlumno += ("<div>");
+                    nuevoAlumno += ("    <img id='imagen-ipn-2' src='"+alumnos[index].foto+"' alt='" + alumnos[index].folio + "' class='circle'>");
+                    nuevoAlumno += ("</div>");
+                    nuevoAlumno += ("<div id='letras'>");
                     nuevoAlumno += ("    <span class='title'>" + alumnos[index].folio + "</span>");
                     nuevoAlumno += ("    <p class='parrafo'>" + alumnos[index].curp + " <br>");
                     nuevoAlumno += ("        " + alumnos[index].nombre + "");
                     nuevoAlumno += ("    </p>");
+                    nuevoAlumno += ("</div>");
                     nuevoAlumno += ("    <a href='#!' class='secondary-content'><i class='material-icons'>grade</i></a>");
                     nuevoAlumno += ("    <div class='row' id='alumno" + index + "'>");
-                    nuevoAlumno += ("        <a class='waves-effect waves-light btn ver-mas'>Ver mas</a>");
+                    nuevoAlumno += ("        <a id='vermas' class='waves-effect waves-light btn ver-mas'>Ver mas</a>");
                     nuevoAlumno += ("        <a class='waves-effect waves-light btn ver-menos'>Ver menos</a>");
                     nuevoAlumno += ("        <a class='waves-effect waves-light btn editar'>Editar</a>");
                     nuevoAlumno += ("        <a class='waves-effect waves-light btn cancelar-edicion'>Cancelar edicion</a>");
                     nuevoAlumno += ("        <a class='waves-effect waves-light btn btn-reset'>Restablecer valores</a>");
                     nuevoAlumno += ("        <a class='waves-effect waves-light right btn red elimina'>Eliminar</a>");
-                    nuevoAlumno += ("        <form id='formula" + index + "' class='formula' action='../back/api.php' method='get'>");
+                    nuevoAlumno += ("        <form id='formula" + index + "' action='../back/api.php' method='get'>");
                     nuevoAlumno += ("            <!-- Aqui se inserta solito -->");
                     nuevoAlumno += ("        </form>");
                     nuevoAlumno += ("    </div>");
                     nuevoAlumno += ("</li>");
+                    nuevoAlumno += ("</fieldset>");
+                    nuevoAlumno += ("</div>");
+                    nuevoAlumno += ("</br>");
                     nuevaLista += nuevoAlumno;
                 }
                 nuevaLista += "</ul>";
