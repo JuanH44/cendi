@@ -18,29 +18,19 @@
     $sqlConyuge="select * from conyuge";//declarar consulta
     $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
 
-    $cont=0;
     while($filaGen=mysqli_fetch_assoc($respGen)){
-        while($filaNin=mysqli_fetch_assoc($respNin)){
-            if ($filaGen['Folio'] == $filaNin["Folio"]){
-                $result[$cont]=array_merge_recursive($filaGen,$filaNin);
-                break;
-            }
-        }
-        while($filaDer=mysqli_fetch_assoc($respDer)){
-            if ($filaGen['Folio']==$filaDer["Folio"]){
-                $result[$cont]=array_merge_recursive($result,$filaDer);
-                break;
-            }
-        }
-        while($filaCon=mysqli_fetch_assoc($respCon)){
-            if ($filaGen['Folio']==$filaCon["Folio"]){
-                $result[$cont]=array_merge_recursive($result,$filaCon);
-                break;
-            }
-        }
-        $cont++;
+        $result[]=$filaGen;
     }
-    print_r( $result[2]);
-    //echo $json_info = json_encode($result[1]);
+    while($filaNin=mysqli_fetch_assoc($respNin)){
+        $result[]=$filaNin;
+    }
+    while($filaDer=mysqli_fetch_assoc($respDer)){
+        $result[]=$filaDer;
+    }
+    while($filaCon=mysqli_fetch_assoc($respCon)){
+        $result[]=$filaCon;
+    }
+    $resultado=json_encode($result);
+    file_put_contents("BD.json",$resultado);
     mysqli_close($conexion);
 ?>
