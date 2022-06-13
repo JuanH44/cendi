@@ -53,15 +53,15 @@ $(document).ready(function () {
     function restableceValores(alumnRow, idx) {
         //alumnRow.find('.folio').val(alumnos[idx].folio);
         //alert('eeeee');
-        console.log("aaaa");
+        //alert("aaaa");
         alumnRow.find('.cendi').val(alumnos[idx].cendi);
         //alumnRow.find('.foto').val(alumnos[idx].foto);
         alumnRow.find('.folio').val(alumnos[idx].folio);
         let testo =  "cosa" + alumnRow.find('.folio').val();
-        console.log(testo);
+        //alert(testo);
         
         alumnRow.find('.grupo').val(alumnos[idx].grupo);
-        console.log("rrrrr");
+        //alert("rrrrr");
         //Datos niño
         alumnRow.find('.primer_apellido').val(alumnos[idx].primer_apellido);
         alumnRow.find('.segundo_apellido').val(alumnos[idx].segundo_apellido);

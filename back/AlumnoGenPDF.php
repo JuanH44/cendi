@@ -1,8 +1,8 @@
 <?php
-
-    $folio='1231';//recibir cual folio a actualizar
+    //$folio='1231';//folio a encontrar en BD
 
     $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
+
     $sqlConyuge="select * from conyuge";//declarar consulta
     $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
     while($fila = mysqli_fetch_array($respCon)){
@@ -24,9 +24,11 @@
             $telefono_trabajo_conyuge = $fila["Telefono_Trabajo_Conyuge"];
             $extension = $fila["Extension"];
             $tieneconyuge='si';
+            $encontrado=1;
+            break;
         }
         else{
-            echo "Folio: ".$folio." no encontrado";
+            $encontrado=0;
             $tieneconyuge='no';
         }
     }
@@ -56,8 +58,10 @@
             $adscripcion = $fila["Adscripcion"];
             $horario = $fila["Horario_Trabajo"];
             $extension = $fila["Extension"];
-        }else{
-            echo "Folio: ".$folio." no encontrado";
+            $encontrado=1;
+            break;
+        }else{ 
+            $encontrado=0; 
         }
     }
 
@@ -67,8 +71,10 @@
         if ( $fila['Folio'] == $folio ) {
             $cendi = $fila["Cendi"];
             $grupo = $fila["Grupo"];
+            $encontrado=1;
+            break;
         }else{
-            echo "Folio: ".$folio." no encontrado";
+            $encontrado=0;
         }
     }
     $sqlNin="select * from datos_niño";//niño
@@ -82,37 +88,16 @@
             $email = $fila["Email"];    
             $edad = $fila["Edad"];
             $curp = $fila["Curp"];    
-        }else{
-            echo "Folio: ".$folio." no encontrado";
+            $encontrado=1;
+            break;
+        }else{ 
+            $encontrado=0; 
         }
     }
-
-//Insertar los datos a BD
-
-    $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
-
-    $sqlActGeneral="update datos_generales set Cendi='".$cendi."',Grupo='".$grupo."' where folio = '".$folio."'";
-
-    $sqlActNinio="update datos_niño set Primer_Apellido='".$primer_apellido."',Segundo_Apellido='".$segundo_apellido."',Nombre='".$nombre."',FechaNac='".$fecha."',Email='".$email."',Edad='".$edad."',Curp='"
-    .$curp."',Folio='".$folio."'";
-
-    $sqlActDerecho="update datos_derecho set Primer_Apellido_Derecho='".$primer_apellido_derecho."',Segundo_Apellido_Derecho='".$segundo_apellido_derecho."',Nombre_Derecho='".$nombre_derecho."',calle='"
-    .$calle."',NoExt='".$noExt."',noInt='".$noInt."',colonia='".$colonia."',alcaldia='".$alcaldia."',entidad='".$entidad."',cp='".$cp."',Telefono_Fijo_Derecho='".$telefono_fijo."',Telefono_Celular_Derecho='"
-    .$telefono_celular."',Email_Derecho='".$email_derecho."',Ocupacion_Derecho='".$ocupacion."',Curp_Derecho='".$curp_derecho."',Puesto='".$puesto."',Sueldo='".$sueldo."',Numero_Empleado='".$numero_empleado.
-    "',Adscripcion='".$adscripcion."',Horario_Trabajo='".$horario."',Extension='".$extension."',Folio='".$folio."'";
-    
-    $tieneconyuge=$_GET['tieneconyuge'];
-    if ($tieneconyuge=='Sí'){
-        $sqlActConyuge="update conyuge set Primer_Apellido_Conyuge = '".$primer_apellido_conyuge."',Segundo_Apellido_Conyuge='".$segundo_apellido_conyuge."',Nombre_Conyuge='".$nombre_conyuge."',calle_conyuge='"
-        .$calle_conyuge."',NoExt_conyuge='".$noExt_conyuge."',noInt_conyuge='".$noInt_conyuge."',colonia_conyuge='".$colonia_conyuge."',alcaldia_conyuge='".$alcaldia_conyuge."',entidad_conyuge='".$entidad_conyuge.
-        "',cp_conyuge='".$cp_conyuge."',Telefono_Fijo_Conyuge='".$telefono_fijo_conyuge."',Telefono_Celular_Conyuge='".$telefono_celular_conyuge."',Lugar_Trabajo_Conyuge='".$lugar_trabajo_conyuge."',Domicilio_Trabajo_Conyuge='"
-        .$domicilio_trabajo_conyuge."',Telefono_Trabajo_Conyuge='".$telefono_trabajo_conyuge."',Extension='".$extension_conyuge."',Folio='".$folio."'";
-        mysqli_query($conexion,$sqlActConyuge);
+    if ($encontrado==1){
+        include("../back/pdf/requestData.php");//mandar variables
+    }else{ 
+        echo "No se encontre en la BD";
     }
-    
-    mysqli_query($conexion,$sqlActNinio);
-    mysqli_query($conexion,$sqlActGeneral);
-    mysqli_query($conexion,$sqlActDerecho);
-
-    mysqli_close($conexion);//Cerrar conexion con BD
-?>  
+    mysqli_close($conexion);
+?>

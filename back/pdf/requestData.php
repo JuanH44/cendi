@@ -66,5 +66,4 @@
     $diaRegistro = "22";
     $mesRegistro = "Diciembre";
     $anioRegistro = "2021";
-
 ?>
