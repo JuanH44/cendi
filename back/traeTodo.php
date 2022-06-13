@@ -3,7 +3,7 @@
 $resp = array(
     array(
 
-        'cendi' => '12',
+        'cendi' => 'Amalia Solórzano de Cárdenas',
         'foto' => 'https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png',
         'folio' => '12345',
         'grupo' => '#grupo',
@@ -123,7 +123,7 @@ $resp = array(
     ),
     array(
 
-        'cendi' => '#cendi',
+        'cendi' => 'Amalia Solórzano de Cárdenas',
         'foto' => 'https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png',
         'folio' => '6789',
         'grupo' => '#grupo',
@@ -183,7 +183,7 @@ $resp = array(
     ),
     array(
 
-        'cendi' => '#cendi',
+        'cendi' => 'Clementina Batalla de Bassols',
         'foto' => 'https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png',
         'folio' => '9102',
         'grupo' => '#grupo',

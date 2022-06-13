@@ -30,7 +30,7 @@ $(document).ready(function () {
             nuevoAlumno += ("        <a class='waves-effect waves-light btn cancelar-edicion'>Cancelar edicion</a>");
             nuevoAlumno += ("        <a class='waves-effect waves-light btn btn-reset'>Restablecer valores</a>");
             nuevoAlumno += ("        <a class='waves-effect waves-light right btn red elimina'>Eliminar</a>");
-            nuevoAlumno += ("        <form id='formula" + index + "' class='formula' action='../back/api.php' method='get'>");
+            nuevoAlumno += ("        <form id='formula" + index + "' class='formula' action='../back/ActualizarDatos.php' method='get'>");
             nuevoAlumno += ("            <!-- Aqui se inserta solito -->");
             nuevoAlumno += ("        </form>");
             nuevoAlumno += ("    </div>");
@@ -53,15 +53,15 @@ $(document).ready(function () {
     function restableceValores(alumnRow, idx) {
         //alumnRow.find('.folio').val(alumnos[idx].folio);
         //alert('eeeee');
-        //alert("aaaa");
+        console.log("aaaa");
         alumnRow.find('.cendi').val(alumnos[idx].cendi);
         //alumnRow.find('.foto').val(alumnos[idx].foto);
         alumnRow.find('.folio').val(alumnos[idx].folio);
         let testo =  "cosa" + alumnRow.find('.folio').val();
-        //alert(testo);
+        console.log(testo);
         
         alumnRow.find('.grupo').val(alumnos[idx].grupo);
-        //alert("rrrrr");
+        console.log("rrrrr");
         //Datos niño
         alumnRow.find('.primer_apellido').val(alumnos[idx].primer_apellido);
         alumnRow.find('.segundo_apellido').val(alumnos[idx].segundo_apellido);
@@ -175,14 +175,11 @@ $(document).ready(function () {
 
                     let subitForm = $(this);
                     let actionUrl = subitForm.attr('action');
-                    let alumno = {
-                        'curp': subitForm.find('.correo').val(),
-                        'nombre': subitForm.find('.contrasena').val()
-                    };
-                    alert("Tengo el yeison" + alumno + subitForm.find('.contrasena').val());
+                    let alumno = $(formID).serialize();
+                    alert("Tengo el yeison" + alumno);
 
                     $.ajax({
-                        type: "POST",
+                        type: "GET",
                         url: actionUrl,
                         //data: form.serialize(), // serializes the form's elements.
                         data: alumno,
@@ -238,7 +235,7 @@ $(document).ready(function () {
             $(alumnID).find('.elimina').click(function () {
                 $.ajax({
                     type: "GET",
-                    url: '../back/api.php?ide=12345',
+                    url: '../back/EliminarDatos.php?folio='+alumnos[index].folio,
                     success: function (response) {
                         let jsonData = JSON.parse(response);
 
@@ -259,16 +256,6 @@ $(document).ready(function () {
     }
 
  
-    $('#actualizar').click(function () {
-        jalaTodo();
-
-
-        //$('#alumnos').ready(function() {
-
-
-
-        //});
-    });
     function jalaTodo() {
         let direc = "../back/traeTodo.php";
         $.ajax({
@@ -282,6 +269,18 @@ $(document).ready(function () {
             }
         });
     }
+
+    $('#actualizar').click(function () {
+        jalaTodo();
+
+
+        //$('#alumnos').ready(function() {
+
+
+
+        //});
+    });
+    
     ///Colocar los controladores de los botones de cada formulario
 
 });

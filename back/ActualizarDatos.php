@@ -33,7 +33,7 @@
 
     //Datos Conyugue
     $tieneconyuge=$_GET['tieneconyuge'];
-    if $tieneconyuge=='Sí'{
+    if ($tieneconyuge =='Sí'){
         $primer_apellido_conyuge=$_GET['primer_apellido_conyuge'];
         $segundo_apellido_conyuge=$_GET['segundo_apellido_conyuge'];
         $nombre_conyuge=$_GET['nombre_conyuge'];
@@ -60,7 +60,7 @@
     .$curp_derecho."',Puesto='".$puesto."',Sueldo='".$sueldo."',Numero_Empleado='".$numero_empleado."',Adscripcion='".$adscripcion."',Horario_Trabajo='".$horario."',Extension='".$extension."',Folio='".$folio."'";
     
     $tieneconyuge=$_GET['tieneconyuge'];
-    if $tieneconyuge=='Sí'{
+    if ($tieneconyuge=='Sí'){
         $sqlActConyuge="update conyuge set Primer_Apellido_Conyuge = '".$primer_apellido_conyuge."',Segundo_Apellido_Conyuge='".$segundo_apellido_conyuge."',Nombre_Conyuge='".$nombre_conyuge."',Domicilio_Conyuge='"
         .$domicilio_conyuge."',Telefono_Fijo_Conyuge='".$telefono_fijo_conyuge."',Telefono_Celular_Conyuge='".$telefono_celular_conyuge."',Lugar_Trabajo_Conyuge='".$lugar_trabajo_conyuge."',Domicilio_Trabajo_Conyuge='"
         .$domicilio_trabajo_conyuge."',Telefono_Trabajo_Conyuge='".$telefono_trabajo_conyuge."',Extension='".$extension_conyuge."',Folio='".$folio."'";
