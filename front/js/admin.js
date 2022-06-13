@@ -170,13 +170,13 @@ $(document).ready(function () {
 
                 ///Enviar un fomrulario a actualizar
                 $(formID).submit(function (e) {
-                    alert("Voy a subir");
+                    //alert("Voy a subir");
                     e.preventDefault(); // avoid to execute the actual submit of the form.
 
                     let subitForm = $(this);
                     let actionUrl = subitForm.attr('action');
                     let alumno = $(formID).serialize();
-                    alert("Tengo el yeison" + alumno);
+                    alert("Tengo para subir el yeison" + alumno);
 
                     $.ajax({
                         type: "GET",
@@ -185,10 +185,11 @@ $(document).ready(function () {
                         data: alumno,
                         success: function (data) {
 
-                            alert("respondido");
-                            alert(data); // show response from the php script.
+                            //alert("respondido");
+                             // show response from the php script.
                             let jsonData = $.parseJSON(data);
-                            subitForm.find('.correo').val("Enviado chido" + jsonData.curpo);
+                            console.log(data);
+                            //subitForm.find('.correo').val("Enviado chido" + jsonData.curpo);
                         }
                     });
 
@@ -233,15 +234,16 @@ $(document).ready(function () {
 
             });
             $(alumnID).find('.elimina').click(function () {
+                $(('#usr'+index)).replaceWith("");
                 $.ajax({
                     type: "GET",
                     url: '../back/EliminarDatos.php?folio='+alumnos[index].folio,
                     success: function (response) {
                         let jsonData = JSON.parse(response);
-
+                        $(alumnID).replaceWith("");
                         // user is logged in successfully in the back-end
                         // let's redirect
-                        if (jsonData.success == "1") {
+                        if (jsonData.state == "0") {
                             //location.href = 'inicio.html';
                             alert(jsonData.arre[0]);
                         } else {

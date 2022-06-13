@@ -1,8 +1,9 @@
 <?php
+session_start();
 // verificacion de que se inicio sesión
-//if ( !(isset($_SESSION['acceso']) && $_SESSION['acceso'] == 10)) {
-//header("location: login.php");
-//}
+if ( !(isset($_SESSION['correo']) && $_SESSION['correo'] == 'admin')) {
+    header("location: login.php");
+}
 
 ?>
 

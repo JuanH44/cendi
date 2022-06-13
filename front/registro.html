@@ -17,6 +17,8 @@
     <script type="text/javascript" src="js/materialize.js"></script>
     
     <script type="text/javascript" src="js/registro.js"></script>
+
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
     <title>.::Registro::.</title>
     
@@ -529,9 +531,21 @@
                 data: informacion, // envia el json
                 success: function (data) {
                     let jsonData = $.parseJSON(data);
-                    alert(data);
-                    if(jsonData.estado == 0 && jsonData.folio == alumno.folio){
-                        alert("Cita generada, de clic en 'ver cita'");
+                    console.log(data);
+                    if(jsonData.state == 0 && jsonData.folio == alumno.folio){
+                        Swal.fire({
+                            title: (jsonData.mensaje),
+                            icon: 'succes',
+                            imageUrl: 'https://firebasestorage.googleapis.com/v0/b/cendi-c14d4.appspot.com/o/images%2Frei.png?alt=media&token=aad34563-8ad1-43bc-941e-4c6e2a9ae988',
+            
+                            confirmButtonColor: '#3085d6',
+                            confirmButtonText: 'Generar PDF',
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    let direc = "../back/generatePDF.php?folio="+alumno.folio;
+                                    window.open(direc,'_blank');
+                                }
+                        });
                         $('#btn-imprimir').show();
                     }
                 }
@@ -547,7 +561,45 @@
                 alert('Imagen subida al servidor');
                 getDownloadURL(snapshot.ref).then((url) => {
                     informacion.foto = url;
-                    enviaJSON(informacion, actionUrl);
+                    let saludo = ("Hola"+$("#nombre_derecho").val()+", verifica que los datos que ingresaste sean correctos:");
+                    let contenido = $("#formulario").serialize();
+                    Swal.fire({
+                        title: saludo,
+                        text: contenido,
+                        imageUrl: url,
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        imageAlt: 'Custom image',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Aceptar',
+                        cancelButtonText: 'Modificar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                enviaJSON(informacion, actionUrl);
+                            }
+                    })
+                    /*Swal.fire({
+                        title: saludo,
+                        text: textoo,
+                        icon: 'warning',
+                        imageUrl: url,
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        imageAlt: 'Custom image',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Aceptar',
+                        cancelButtonText: 'Modificar'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                enviaJSON(informacion, actionUrl);
+                            }
+                    });
+                    */
+                    
                 }).error(function () {
                     enviaJSON(informacion, actionUrl);
                 });
@@ -556,8 +608,19 @@
         $("#formulario").submit(function (e) {
 
             e.preventDefault(); // avoid to execute the actual submit of the form.
-
             
+            /*
+            Swal.fire({
+                title: "Seguro",
+                text: textoo,
+                imageUrl: 'https://firebasestorage.googleapis.com/v0/b/cendi-c14d4.appspot.com/o/images%2Frei.png?alt=media&token=aad34563-8ad1-43bc-941e-4c6e2a9ae988',
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+            })
+            */
+            
+
 
             var form = $(this);
             var actionUrl = form.attr('action');
@@ -633,7 +696,7 @@
     
         $('#btn-imprimir').hide();
         $('#btn-imprimir').click(function(){
-            let direc = "../back/recupera.php?folio="+alumno.folio;
+            let direc = "../back/generatePDF.php?folio="+alumno.folio;
             window.open(direc,'_blank');
         });
     

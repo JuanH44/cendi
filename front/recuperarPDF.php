@@ -33,21 +33,23 @@
                 };
                 alumno = formData;
                 var actionUrl = form.attr('action') + "?folio="+formData.folio;
-
+                window.open(actionUrl,'_self');
+                /*
                 $.ajax({
-                    type: "POST",
+                    type: "GET",
                     url: actionUrl,
                     data: formData,
                     dataType: "json",
                     encode: true,
                 }).done(function(data) {
-                    if(data.estado == 0 && data.folio == alumno.folio){
-                        alert("Cita recuperada");
+                    //if(data.estado == 0 && data.folio == alumno.folio){
+                        //alert("Cita recuperada");
                         let direc = "../back/recupera.php?folio="+alumno.folio;
                         window.open(direc,'_blank');
-                    }
+                    //}
                     
                 });
+                */
 
                 
             });
@@ -64,7 +66,7 @@
 <body>
     <header id="navegacion"></header>
     <h1>Bienvenido</h1>
-    <form id="formula" action="../back/hola.php" method="get">
+    <form id="formula" action="../back/pdf/generatePDF.php" method="get">
 
         <fieldset>
             <legend>BUSCAR COMPROBANTE DE CITA</legend>
