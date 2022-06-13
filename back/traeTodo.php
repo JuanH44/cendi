@@ -3,7 +3,7 @@
 $resp = array(
     array(
 
-        'cendi' => '#cendi',
+        'cendi' => '12',
         'foto' => 'https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png',
         'folio' => '12345',
         'grupo' => '#grupo',
