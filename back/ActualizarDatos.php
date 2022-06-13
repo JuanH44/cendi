@@ -1,4 +1,5 @@
 <?php
+
     $folio='1231';//recibir cual folio a actualizar
 
     $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
@@ -95,17 +96,20 @@
     $sqlActNinio="update datos_niño set Primer_Apellido='".$primer_apellido."',Segundo_Apellido='".$segundo_apellido."',Nombre='".$nombre."',FechaNac='".$fecha."',Email='".$email."',Edad='".$edad."',Curp='"
     .$curp."',Folio='".$folio."'";
 
-    $sqlActDerecho="update datos_derecho set Primer_Apellido_Derecho='".$primer_apellido_derecho."',Segundo_Apellido_Derecho='".$segundo_apellido_derecho."',Nombre_Derecho='".$nombre_derecho."',Domicilio_Derecho='"
-    .$domicilio."',Telefono_Fijo_Derecho='".$telefono_fijo."',Telefono_Celular_Derecho='".$telefono_celular."',Email_Derecho='".$email_derecho."',Ocupacion_Derecho='".$ocupacion."',Curp_Derecho='"
-    .$curp_derecho."',Puesto='".$puesto."',Sueldo='".$sueldo."',Numero_Empleado='".$numero_empleado."',Adscripcion='".$adscripcion."',Horario_Trabajo='".$horario."',Extension='".$extension."',Folio='".$folio."'";
+    $sqlActDerecho="update datos_derecho set Primer_Apellido_Derecho='".$primer_apellido_derecho."',Segundo_Apellido_Derecho='".$segundo_apellido_derecho."',Nombre_Derecho='".$nombre_derecho."',calle='"
+    .$calle."',NoExt='".$noExt."',noInt='".$noInt."',colonia='".$colonia."',alcaldia='".$alcaldia."',entidad='".$entidad."',cp='".$cp."',Telefono_Fijo_Derecho='".$telefono_fijo."',Telefono_Celular_Derecho='"
+    .$telefono_celular."',Email_Derecho='".$email_derecho."',Ocupacion_Derecho='".$ocupacion."',Curp_Derecho='".$curp_derecho."',Puesto='".$puesto."',Sueldo='".$sueldo."',Numero_Empleado='".$numero_empleado.
+    "',Adscripcion='".$adscripcion."',Horario_Trabajo='".$horario."',Extension='".$extension."',Folio='".$folio."'";
     
     $tieneconyuge=$_GET['tieneconyuge'];
     if $tieneconyuge=='Sí'{
-        $sqlActConyuge="update conyuge set Primer_Apellido_Conyuge = '".$primer_apellido_conyuge."',Segundo_Apellido_Conyuge='".$segundo_apellido_conyuge."',Nombre_Conyuge='".$nombre_conyuge."',Domicilio_Conyuge='"
-        .$domicilio_conyuge."',Telefono_Fijo_Conyuge='".$telefono_fijo_conyuge."',Telefono_Celular_Conyuge='".$telefono_celular_conyuge."',Lugar_Trabajo_Conyuge='".$lugar_trabajo_conyuge."',Domicilio_Trabajo_Conyuge='"
+        $sqlActConyuge="update conyuge set Primer_Apellido_Conyuge = '".$primer_apellido_conyuge."',Segundo_Apellido_Conyuge='".$segundo_apellido_conyuge."',Nombre_Conyuge='".$nombre_conyuge.."',calle_conyuge='"
+        .$calle_conyuge."',NoExt_conyuge='".$noExt_conyuge."',noInt_conyuge='".$noInt_conyuge."',colonia_conyuge='".$colonia_conyuge."',alcaldia_conyuge='".$alcaldia_conyuge."',entidad_conyuge='".$entidad_conyuge.
+        "',cp_conyuge='".$cp_conyuge."',Telefono_Fijo_Conyuge='".$telefono_fijo_conyuge."',Telefono_Celular_Conyuge='".$telefono_celular_conyuge."',Lugar_Trabajo_Conyuge='".$lugar_trabajo_conyuge."',Domicilio_Trabajo_Conyuge='"
         .$domicilio_trabajo_conyuge."',Telefono_Trabajo_Conyuge='".$telefono_trabajo_conyuge."',Extension='".$extension_conyuge."',Folio='".$folio."'";
         mysqli_query($conexion,$sqlActConyuge);
     }
+    
     mysqli_query($conexion,$sqlActNinio);
     mysqli_query($conexion,$sqlActGeneral);
     mysqli_query($conexion,$sqlActDerecho);

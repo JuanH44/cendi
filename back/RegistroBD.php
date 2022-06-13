@@ -59,7 +59,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
     $noInt_conyuge = $_GET['noInt_conyuge'];
     $colonia_conyuge = $_GET['colonia_conyuge'];
     $alcaldia_conyuge = $_GET['alcaldia_conyuge'];
-    $entidad_conyuge = $_GET['entidad_conyuge'];
+    //$entidad_conyuge = $_GET['entidad_conyuge'];
     $cp_conyuge = $_GET['cp_conyuge'];
     $telefono_fijo_conyuge=$_GET['telefono_fijo_conyuge'];
     $telefono_celular_conyuge=$_GET['telefono_celular_conyuge'];
@@ -82,7 +82,6 @@ $tieneconyuge=$_GET['tieneconyuge'];
     if (isset($_GET['tienec'])){
         $tieneconyuge='si';
     }else{
-        echo "NSAIFJKASJF";
         $tieneconyuge='no';
     }
     if ($tieneconyuge == 'si'){
@@ -102,32 +101,32 @@ $tieneconyuge=$_GET['tieneconyuge'];
         if ($lugaresOcup[0] == 10){
             echo "No quedan mas lugares";
         }else{
-            mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
-            mysqli_query($conexion, $sqlConsNin);
-            mysqli_query($conexion, $sqlConsDere);
+            //mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+            //mysqli_query($conexion, $sqlConsNin);
+            //mysqli_query($conexion, $sqlConsDere);
             if ($tieneconyuge=='si'){
-                mysqli_query($conexion, $sqlConsCony);
+                //mysqli_query($conexion, $sqlConsCony);
             }
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
-            mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            //mysqli_query($conexion, $sqlConsLug2);
+            include("../back/AlumnoGenPDF.php");//mandar señal a front para mostrar boton
         }
     }
     elseif ($grupo == "Lac III - Mat I"){
         if ($lugaresOcup[0] == 10){
             echo "No quedan mas lugares";
         }else{
-            mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
-            mysqli_query($conexion, $sqlConsNin);
-            mysqli_query($conexion, $sqlConsDere);
+            //mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+            //mysqli_query($conexion, $sqlConsNin);
+            //mysqli_query($conexion, $sqlConsDere);
             if ($tieneconyuge=='si'){
-                mysqli_query($conexion, $sqlConsCony);
+                //mysqli_query($conexion, $sqlConsCony);
             }
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
-            mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            //mysqli_query($conexion, $sqlConsLug2);
+            include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "Mat IIA"){
@@ -143,7 +142,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "Mat IIB"){
@@ -159,7 +158,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIA"){
@@ -175,7 +174,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIB"){
@@ -191,7 +190,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIIA"){
@@ -207,7 +206,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIIB"){
@@ -223,7 +222,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIIIA"){
@@ -239,7 +238,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIIIB"){
@@ -255,9 +254,8 @@ $tieneconyuge=$_GET['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            include("../back/pdf/generatePDF.php");
+            include("../back/AlumnoGenPDF.php");
         }
     }
-    mysqli_close($conexion);
     echo "Registrado Exitosamente";
 ?>
