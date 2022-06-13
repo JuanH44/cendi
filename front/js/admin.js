@@ -237,7 +237,7 @@ $(document).ready(function () {
                 $(('#usr'+index)).replaceWith("");
                 $.ajax({
                     type: "GET",
-                    url: '../back/EliminarDatos.php?folio='+alumnos[index].folio,
+                    url: '../back/EliminarDatos.php?folio='+alumnos[index].Folio,
                     success: function (response) {
                         let jsonData = JSON.parse(response);
                         $(alumnID).replaceWith("");

@@ -1,10 +1,7 @@
 <?php
 
     $folioBorrar = $_REQUEST['folio'];
-    echo $folioBorrar;
-
-    $folioBorrar =123;//recibir este datos
-
+   
     $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
     $sqlBorarDerecho="delete from datos_derecho where folio = ".$folioBorrar;
     mysqli_query($conexion,$sqlBorarDerecho);
