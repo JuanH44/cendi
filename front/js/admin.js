@@ -29,8 +29,8 @@ $(document).ready(function() {
                     nuevoAlumno += ("<div id='clave'>");
                     nuevoAlumno += ("<fieldset>");
                     nuevoAlumno += ("<li class='collection-item avatar' id='usr" + index + "'>");
-                    nuevoAlumno += ("<div>");
-                    nuevoAlumno += ("    <img id='imagen-ipn-2' src='"+alumnos[index].foto+"' alt='" + alumnos[index].folio + "' class='circle'>");
+                    nuevoAlumno += ("<div id='arreglo'>");
+                    nuevoAlumno += ("<img src='"+alumnos[index].foto+"' alt='" + alumnos[index].folio + "' id='imagen-ipn-2'>");
                     nuevoAlumno += ("</div>");
                     nuevoAlumno += ("<div id='letras'>");
                     nuevoAlumno += ("    <span class='title'>" + alumnos[index].folio + "</span>");
