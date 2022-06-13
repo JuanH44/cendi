@@ -3,12 +3,13 @@ h1{
     font-weight: 500;
 }
 
-#alumno{
-    margin-top: 20px;
+#arreglo{
+    padding-left: 50px;
 }
 
 #vermas{
     margin-top: 10px;
+    margin-left: 10px;
 }
 
 #letras{
@@ -18,7 +19,7 @@ h1{
 
 #imagen-ipn-2{
    max-width: 100px;
-   max-height: 80px;
+   max-height: 90px;
 }
 
 #clave{
