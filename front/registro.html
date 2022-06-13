@@ -27,7 +27,7 @@
 <body>
     <header id="navegacion"></header>
     <h1>Bienvenido</h1>
-    <form action="../back/RegistroBD.php" method="get" id="formulario">
+    <form action="../back/api.php" method="get" id="formulario">
 
         <fieldset>
             <legend>DATOS GENERALES</legend>
@@ -542,7 +542,7 @@
                             confirmButtonText: 'Generar PDF',
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    let direc = "../back/generatePDF.php?folio="+alumno.folio;
+                                    let direc = "../back/pdf/viewPDF.php?folio="+alumno.folio;
                                     window.open(direc,'_blank');
                                 }
                         });
@@ -561,7 +561,7 @@
                 alert('Imagen subida al servidor');
                 getDownloadURL(snapshot.ref).then((url) => {
                     informacion.foto = url;
-                    let saludo = ("Hola"+$("#nombre_derecho").val()+", verifica que los datos que ingresaste sean correctos:");
+                    let saludo = ("Hola "+$("#nombre_derecho").val()+", verifica que los datos que ingresaste sean correctos:");
                     let contenido = $("#formulario").serialize();
                     Swal.fire({
                         title: saludo,
@@ -696,7 +696,7 @@
     
         $('#btn-imprimir').hide();
         $('#btn-imprimir').click(function(){
-            let direc = "../back/generatePDF.php?folio="+alumno.folio;
+            let direc = "../back/pdf/viewPDF.php?folio="+alumno.folio;
             window.open(direc,'_blank');
         });
     

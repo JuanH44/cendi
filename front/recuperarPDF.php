@@ -66,7 +66,7 @@
 <body>
     <header id="navegacion"></header>
     <h1>Bienvenido</h1>
-    <form id="formula" action="../back/pdf/generatePDF.php" method="get">
+    <form id="formula" action="../back/pdf/viewPDF.php" method="get">
 
         <fieldset>
             <legend>BUSCAR COMPROBANTE DE CITA</legend>
