@@ -39,7 +39,7 @@ $mail->Subject = $the_subject;
 $mail->AddEmbeddedImage('../assets/banne-cendi-min.jpg', 'banner');
 
 
-$mail->Body ='<img alt="Banner del cendi" src="cid:banner" style="width:90%">';
+$mail->Body ='<img alt="Banner del cendi" src="cid:banner" style="width:100%">';
 $mail->Body .="<h1 style='color:#3498db;'>Buen día, $nombre </h1>";
 $mail->Body .= "<p>Usted ha concluido su registro exitosamente. A continuación adjutamos un archivo pdf con los datos registrados. Si usted no ha solicitado el registro, haga caso omiso a este correo.</p>";
 
