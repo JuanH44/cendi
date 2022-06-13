@@ -2,7 +2,7 @@
     <fieldset>
         <legend>DATOS GENERALES</legend>
         <div class="input-field col s12 m6">
-            <select  name="cendi" id="cendi" class="icons">
+            <select  name="cendi" class="cendi icons">
                 <option value="sel" disabled selected>Seleccione su CENDI</option>
                 <option value="Amalia Solórzano de Cárdenas" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CENDI “Amalia Solórzano de Cárdenas” </option>
                 <option value="Clementina Batalla de Bassols" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CENDI “Clementina Batalla de Bassols”</option>
@@ -17,7 +17,7 @@
         <div class="file-field input-field">
             <div class="btn">
                 <span>Foto</span>
-                <input  name="foto" type="file" id="foto">
+                <input  name="foto" type="file" class="foto">
             </div>
             <div class="file-path-wrapper">
                 <input  name="fotoNombre" class="file-path validate" type="text">
@@ -26,14 +26,14 @@
 
         <div class="row">
             <div class="input-field col s6">
-                <input  name="folio" id="folio" type="text" data-length="10">
+                <input  name="folio" class="folio" type="text" data-length="10">
                 <label for="folio">Folio (Boleta)</label>
             </div>
         </div>
 
         <div class="row">
             <div class="input-field col s6">
-                <select  name="grupo" id="grupo">
+                <select  name="grupo" class="grupo">
                     <option value="sel" disabled selected>Seleccione grupo</option>
                     <option value="Lac I - II ">Lac I - II </option>
                     <option value="Lac III - Mat I">Lac III - Mat I</option>
@@ -52,35 +52,35 @@
         <div class="row">
 
             <div class="input-field col s6">
-                <input  name="primer_apellido" id="primer_apellido" type="text" class="validate">
+                <input  name="primer_apellido" class="primer_apellido validate" type="text" >
                 <label for="primer_apellido">Primer Apellido</label>
             </div>
             <div class="input-field col s6">
-                <input  name="segundo_apellido" id="segundo_apellido" type="text" class="validate">
+                <input  name="segundo_apellido" class="segundo_apellido validate" type="text" >
                 <label for="segundo_apellido">Segundo Apellido</label>
             </div>
             <div class="input-field col s6">
-                <input  name="nombre" id="nombre" type="text" class="validate">
+                <input  name="nombre" class="nombre validate" type="text" >
                 <label for="nombre">Nombre(s)</label>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input  name="fecha" id="fecha" type="text" class="datepicker">
+                    <input  name="fecha" class="fecha" type="text" class="datepicker">
                     <label for="fecha">Fecha de Nacimiento</label>
                 </div>
             </div>
             <div class="input-field col s6">
-                <input  name="edadAnios" id="edadAnios" type="text" class="validate" disabled>
+                <input  name="edadAnios" class="edadAnios validate" type="text"  disabled>
                 <label class="active" for="edadAnios">Edad (años) </label>
             </div>
             
             <div class="input-field col s6">
-                <input  name="edadMeses" id="edadMeses" type="text" class="validate" disabled>
+                <input  name="edadMeses" class="edadMeses validate" type="text"  disabled>
                 <label class="active" for="edadMeses">Meses</label>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input  name="email" id="email" type="email" class="validate">
+                    <input  name="email" class="email validate" type="email" >
                     <label for="email">Email</label>
                     <span class="helper-text" data-error="Invalido" data-success="Valido">Escriba una direccion
                         valida</span>
@@ -88,7 +88,7 @@
             </div>
 
             <div class="input-field col s6">
-                <input  name="curp" id="curp" type="text" data-length="18">
+                <input  name="curp" class="curp" type="text" data-length="18">
                 <label for="curp">CURP</label>
             </div>
 
@@ -102,42 +102,42 @@
         <legend>DATOS DEL O LA DERECHOHABIENTE:</legend>
         <div class="row">
             <div class="input-field col s6">
-                <input  name="primer_apelido_derecho" id="primer_apellido_derecho" type="text" class="validate">
+                <input  name="primer_apelido_derecho" class="primer_apellido_derecho validate" type="text" >
                 <label for="primer_apellido_derecho">Primer Apellido</label>
             </div>
             <div class="input-field col s6">
-                <input  name="segundo_apellido_derecho" id="segundo_apellido_derecho" type="text" class="validate">
+                <input  name="segundo_apellido_derecho" class="segundo_apellido_derecho validate" type="text" >
                 <label for="segundo_apellido_derecho">Segundo Apellido</label>
             </div>
             <div class="input-field col s6">
-                <input  name="nombre_derecho" id="nombre_derecho" type="text" class="validate">
+                <input  name="nombre_derecho" class="nombre_derecho validate" type="text" >
                 <label for="nombre_derecho">Nombre(s)</label>
             </div>
             <div class="row col s12">
                 <fieldset>
                     <legend>Domicilio particular</legend>
                     <div class="input-field col s4">
-                        <input  name="calle" id="calle" type="text" class="validate">
+                        <input  name="calle" class="calle validate" type="text" >
                         <label for="calle">Calle</label>
                     </div>
                     <div class="input-field col s4">
-                        <input  name="noExt" id="noExt" type="text" class="validate">
+                        <input  name="noExt" class="noExt validate" type="text" >
                         <label for="noExt">Número exterior</label>
                     </div>
                     <div class="input-field col s4">
-                        <input  name="noInt" id="noInt" type="text" class="validate">
+                        <input  name="noInt" class="noInt validate" type="text" >
                         <label for="noInt">Número interior</label>
                     </div>
                     <div class="input-field col s4">
-                        <input  name="colonia" id="colonia" type="text" class="validate">
+                        <input  name="colonia" class="colonia validate" type="text" >
                         <label for="colonia">Colonia</label>
                     </div>
                     <div class="input-field col s4">
-                        <input  name="alcaldia" id="alcaldia" type="text" class="validate">
+                        <input  name="alcaldia" class="alcaldia validate" type="text" >
                         <label for="alcaldia">Alcaldia o municipio</label>
                     </div>
                     <div class="input-field col s4">
-                        <select  name="entidad" id="entidad">
+                        <select  name="entidad" class="entidad">
                             <option value="sel" disabled selected>Seleccione su entidad</option>
                             <option value="Aguascalientes">Aguascalientes</option>
                             <option value="Baja California">Baja California</option>
@@ -176,15 +176,15 @@
                         <label>Entidad Federativa</label>
                     </div>
                     <div class="input-field col s4">
-                        <input  name="cp" id="cp" type="text" class="validate">
+                        <input  name="cp" class="cp validate" type="text" >
                         <label for="cp">Código postal</label>
                     </div>
                     <div class="input-field col s6">
-                        <input  name="telefono_fijo" id="telefono_fijo" type="text" class="validate">
+                        <input  name="telefono_fijo" class="telefono_fijo validate" type="text" >
                         <label for="telefono_fijo">Telefono Fijo</label>
                     </div>
                     <div class="input-field col s6">
-                        <input  name="telefono_celular" id="telefono_celular" type="text" class="validate">
+                        <input  name="telefono_celular" class="telefono_celular validate" type="text" >
                         <label for="telefono_celular">Telefono celular</label>
                     </div>
                 </fieldset>
@@ -193,14 +193,14 @@
 
             <div class="row">
                 <div class="input-field col s12">
-                    <input  name="email_derecho" id="email_derecho" type="email" class="validate">
+                    <input  name="email_derecho" class="email_derecho validate" type="email" >
                     <label for="email_derecho">Email</label>
                     <span class="helper-text" data-error="Invalido" data-success="Valido">Escriba una direccion
                         valida</span>
                 </div>
             </div>
             <div class="input-field col s12">
-                <select  name="ocupacion" id="ocupacion">
+                <select  name="ocupacion" class="ocupacion">
                     <option value="sel" disabled selected>Escoja su ocupacion</option>
                     <option value="Docente">Docente</option>
                     <option value="PAAE">PAAE</option>
@@ -212,27 +212,27 @@
             </div>
 
             <div class="input-field col s6">
-                <input  name="curp_derecho" id="curp_derecho" type="text" data-length="18">
+                <input  name="curp_derecho" class="curp_derecho" type="text" data-length="18">
                 <label for="curp_derecho">CURP</label>
             </div>
 
             <div class="input-field col s6">
-                <input  name="puesto" id="puesto" type="text" class="validate">
+                <input  name="puesto" class="puesto validate" type="text" >
                 <label for="puesto">Nombre de la plaza o puesto</label>
             </div>
 
             <div class="input-field col s6">
-                <input  name="sueldo" id="sueldo" type="text" class="validate">
+                <input  name="sueldo" class="sueldo validate" type="text" >
                 <label for="sueldo">Sueldo mensual</label>
             </div>
 
             <div class="input-field col s6">
-                <input  name="numero_empleado" id="numero_empleado" type="text" class="validate">
+                <input  name="numero_empleado" class="numero_empleado validate" type="text" >
                 <label for="numero_empleado">Numero de empleado</label>
             </div>
 
             <div class="input-field col s12">
-                <select  name="adscripcion" id="adscripcion">
+                <select  name="adscripcion" class="adscripcion">
                     <option value="sel" disabled selected>Seleccione Adscripcion</option>
                     <optgroup label="Nivel Medio Superior">
                         <option value="CECyT1" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT1.png">CECyT 1 Gonzalo Vázquez Vela</option>
@@ -301,7 +301,7 @@
             </div>
 
             <div class="input-field col s12">
-                <select  name="horario" id="horario">
+                <select  name="horario" class="horario">
                     <option value="sel" disabled selected>Seleccione horario</option>
                     <option value="07:00 a 15:00">07:00 a 15:00</option>
                     <option value="08:00 a 15:00">08:00 a 15:00</option>
@@ -311,7 +311,7 @@
             </div>
 
             <div class="input-field col s6">
-                <input  name="extension" id="extension" type="text" data-length="5">
+                <input  name="extension" class="extension" type="text" data-length="5">
                 <label for="extension">Extension</label>
             </div>
         </div>
@@ -322,27 +322,27 @@
         <div class="row">
             <!-- Switch -->
             <label for="tieneconyuge">Tiene Conyuge</label>
-            <div id="tieneconyuge" name="tieneconyuge" class="switch">
+            <div class="tieneconyuge" name="tieneconyuge" class="switch">
                 <label>
                     No 
-                    <input name="tienec" id="tienec" type="checkbox">
+                    <input name="tienec" class="tienec" type="checkbox">
                     <span class="lever"></span>
                     Sí
                 </label>
             </div>
 
         </div>
-        <div class="row" id="fila-conyuge">
+        <div class="row" class="fila-conyuge">
             <div class="input-field col s6">
-                <input name="primer_apellido_conyuge" id="primer_apellido_conyuge" type="text" class="validate">
+                <input name="primer_apellido_conyuge" class="primer_apellido_conyuge validate" type="text" >
                 <label for="primer_apellido_conyuge">Primer Apellido</label>
             </div>
             <div class="input-field col s6">
-                <input name="segundo_apellido_conyuge" id="segundo_apellido_conyuge" type="text" class="validate">
+                <input name="segundo_apellido_conyuge" class="segundo_apellido_conyuge validate" type="text" >
                 <label for="segundo_apellido_conyuge">Segundo Apellido</label>
             </div>
             <div class="input-field col s6">
-                <input name="nombre_conyuge" id="nombre_conyuge" type="text" class="validate">
+                <input name="nombre_conyuge" class="nombre_conyuge validate" type="text" >
                 <label for="nombre_conyuge">Nombre(s)</label>
             </div>
             <div class="row col s12">
@@ -351,23 +351,23 @@
                 <fieldset>
                     <legend>Domicilio particular</legend>
                     <div class="input-field col s4">
-                        <input name="calle_conyuge" id="calle_conyuge" type="text" class="validate">
+                        <input name="calle_conyuge" class="calle_conyuge validate" type="text" >
                         <label for="calle_conyuge">Calle</label>
                     </div>
                     <div class="input-field col s4">
-                        <input name="noExt_conyuge" id="noExt_conyuge" type="text" class="validate">
+                        <input name="noExt_conyuge" class="noExt_conyuge validate" type="text" >
                         <label for="noExt_conyuge">Número exterior</label>
                     </div>
                     <div class="input-field col s4">
-                        <input name="noInt_conyuge" id="noInt_conyuge" type="text" class="validate">
+                        <input name="noInt_conyuge" class="noInt_conyuge validate" type="text" >
                         <label for="noInt_conyuge">Número interior</label>
                     </div>
                     <div class="input-field col s4">
-                        <input name="colonia_conyuge" id="colonia_conyuge" type="text" class="validate">
+                        <input name="colonia_conyuge" class="colonia_conyuge validate" type="text" >
                         <label for="colonia_conyuge">Colonia</label>
                     </div>
                     <div class="input-field col s4">
-                        <input name="alcaldia_conyuge" id="alcaldia_conyuge" type="text" class="validate">
+                        <input name="alcaldia_conyuge" class="alcaldia_conyuge validate" type="text" >
                         <label for="alcaldia_conyuge">Alcaldia o municipio</label>
                     </div>
                     <div class="input-field col s4">
@@ -410,35 +410,35 @@
                         <label>Entidad Federativa</label>
                     </div>
                     <div class="input-field col s4">
-                        <input name="cp_conyuge" id="cp_conyuge" type="text" class="validate">
+                        <input name="cp_conyuge" class="cp_conyuge validate" type="text" >
                         <label for="cp_conyuge">Código postal</label>
                     </div>
                     <div class="input-field col s6">
-                        <input name="telefono_fijo_conyuge" id="telefono_fijo_conyuge" type="text" class="validate">
+                        <input name="telefono_fijo_conyuge" class="telefono_fijo_conyuge validate" type="text" >
                         <label for="telefono_fijo_conyuge">Telefono Fijo</label>
                     </div>
                     <div class="input-field col s6">
-                        <input name="telefono_celular_conyuge" id="telefono_celular_conyuge" type="text"
-                            class="validate">
+                        <input name="telefono_celular_conyuge" class="telefono_celular_conyuge validate" type="text"
+                            >
                         <label for="telefono_celular_conyuge">Telefono celular</label>
                     </div>
                 </fieldset>
             </div>
 
             <div class="input-field col s6">
-                <input name="lugar_trabajo_conyuge" id="lugar_trabajo_conyuge" type="text" class="validate">
+                <input name="lugar_trabajo_conyuge" class="lugar_trabajo_conyuge validate" type="text" >
                 <label for="lugar_trabajo_conyuge">Lugar de trabajo</label>
             </div>
             <div class="input-field col s6">
-                <input name="domicilio_trabajo_conyuge" id="domicilio_trabajo_conyuge" type="text" class="validate">
+                <input name="domicilio_trabajo_conyuge" class="domicilio_trabajo_conyuge validate" type="text" >
                 <label for="domicilio_trabajo_conyuge">Domicilio del trabajo</label>
             </div>
             <div class="input-field col s6">
-                <input name="telefono_trabajo_conyuge" id="telefono_trabajo_conyuge" type="text" class="validate">
+                <input name="telefono_trabajo_conyuge" class="telefono_trabajo_conyuge validate" type="text" >
                 <label for="telefono_trabajo_conyuge">Telefono del trabajo</label>
             </div>
             <div class="input-field col s6">
-                <input name="extension_conyuge" id="extension_conyuge" type="text" class="validate">
+                <input name="extension_conyuge" class="extension_conyuge validate" type="text" >
                 <label for="extension_conyuge">Extension</label>
             </div>
         </div>
