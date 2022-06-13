@@ -2,47 +2,52 @@
 
 
  function validateFields(){
+
+     let valido = true;
     //Validar datos del (la) infante
-    validateFolio();
-    validateNombre('#nombre');
-    validateApellido('#primer_apellido');
-    validateApellido('#segundo_apellido');
-    validateCurp('#curp');
-    validateEmail('#email');
+    valido = valido & validateFolio();
+    valido = valido & validateNombre('#nombre');
+    valido = valido & validateApellido('#primer_apellido');
+    valido = valido & validateApellido('#segundo_apellido');
+    valido = valido & validateCurp('#curp');
+    valido = valido & validateEmail('#email');
 
     //Validar datos del derechohabitante
-    validateApellido('#primer_apellido_derecho');
-    validateApellido('#segundo_apellido_derecho');
-    validateNombre('#nombre_derecho');
+    valido = valido & validateApellido('#primer_apellido_derecho');
+    valido = valido & validateApellido('#segundo_apellido_derecho');
+    valido = valido & validateNombre('#nombre_derecho');
 
-    validateNumero('#noExt');
-    validateNumero('#noInt');
-    validateCP('#cp');
+    valido = valido & validateNumero('#noExt');
+    valido = valido & validateNumero('#noInt');
+    valido = valido & validateCP('#cp');
 
 
-    validateTelefono('#telefono_fijo');
-    validateTelefono('#telefono_celular');
-    validateEmail('#email_derecho');
-    validateCurp('#curp_derecho');
-    validatePuesto('#puesto');
-    validateNumero('#sueldo');
-    validateNumEmpleado();
-    validateExtension();
+    valido = valido & validateTelefono('#telefono_fijo');
+    valido = valido & validateTelefono('#telefono_celular');
+    valido = valido & validateEmail('#email_derecho');
+    valido = valido & validateCurp('#curp_derecho');
+    valido = valido & validatePuesto('#puesto');
+    valido = valido & validateNumero('#sueldo');
+    valido = valido & validateNumEmpleado();
+    valido = valido & validateExtension();
    
 
     //Validar datos del conyuge
     if ($('#tienec').is(':checked')) {
-    validateApellido('#primer_apellido_conyuge');
-    validateApellido('#segundo_apellido_conyuge');
-    validateNombre('#nombre_conyuge');
-    validateNumero('#noExt_conyuge');
-    validateNumero('#noInt_conyuge');
-    validateCP('#cp_conyuge');
-    validateTelefono('#telefono_fijo_conyuge');
-    validateTelefono('#telefono_celular_conyuge');
-    validateTelefono('#telefono_trabajo_conyuge');
-    validateExtension2();
+    valido = valido & validateApellido('#primer_apellido_conyuge');
+    valido = valido & validateApellido('#segundo_apellido_conyuge');
+    valido = valido & validateNombre('#nombre_conyuge');
+    valido = valido & validateNumero('#noExt_conyuge');
+    valido = valido & validateNumero('#noInt_conyuge');
+    valido = valido & validateCP('#cp_conyuge');
+    valido = valido & validateTelefono('#telefono_fijo_conyuge');
+    valido = valido & validateTelefono('#telefono_celular_conyuge');
+    valido = valido & validateTelefono('#telefono_trabajo_conyuge');
+    valido = valido & validateExtension2();
     }    
+
+
+    return valido;
 
  }
 
@@ -188,10 +193,6 @@ function validateCP(id){
     }
     return true;
 }
-
-
-
-
 
     /* CURP, se validará que máximo se ingresen 18 caracteres (los primeros 4
     deberán ser letras, los siguientes 6 serán números, los siguientes 6 serán letras y para los

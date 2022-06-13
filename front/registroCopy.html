@@ -558,8 +558,9 @@
 
             e.preventDefault(); // avoid to execute the actual submit of the form.
 
-            
-
+            if (!validateFields())
+                return false;
+                
             var form = $(this);
             var actionUrl = form.attr('action');
             let fotoURL = "https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png";
