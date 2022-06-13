@@ -314,11 +314,5 @@ ob_start();
     $pdfDoc = $pdf->Output("", "S");
 
     include ("../mail/sendMail.php");
-
-
-    
-
-   
-
 ob_end_flush(); 
 ?>

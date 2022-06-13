@@ -1,10 +1,23 @@
+<script>
+
+$(".dropdown-trigger").dropdown();
+</script>
+
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="Nutricion.html">Nutrición</a></li>
+    <li><a href="Psicologia.html">Psicología</a></li>
+    <li><a href="Medicina.html">Medicina</a></li>
+</ul>
+
 <nav>
+
     <div class="nav-wrapper center-align">
         <a href="#" class="brand-logo">CENDI</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="./inicio.html">Inicio</a></li>
             <li><a href="./registro.html">Registro</a></li>
             <li><a href="./recuperarPDF.php">Recuperar pdf</a></li>
+            <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Servicios<i class="material-icons right">arrow_drop_down</i></a></li>
             <li><a href="./admin.php">Admin</a></li>
         </ul>
     </div>

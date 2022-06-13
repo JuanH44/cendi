@@ -11,7 +11,7 @@ require 'phpMailer/SMTP.php';
 $email_user = "equipo3tecweb@gmail.com"; //OJO. Debes actualizar esta línea con tu información
 $email_password = "otlheyotnscyleep"; //OJO. Debes actualizar esta línea con tu información
 $the_subject = "Registro CENDI";
-$address_to = "juanh7522@gmail.com"; //OJO. Debes actualizar esta línea con tu información
+$address_to = $email_derecho; //OJO. Debes actualizar esta línea con tu información
 $from_name = "CENDI";
 $mail = new PHPMailer();
 

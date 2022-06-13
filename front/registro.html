@@ -26,6 +26,7 @@
 
 <body>
     <header id="navegacion"></header>
+    <div class="container">
     <h1>Bienvenido</h1>
     <form action="../back/RegistroBD.php" method="get" id="formulario">
 
@@ -488,6 +489,7 @@
             <i class="material-icons right">print</i>
         </button>
     </div>
+</div>
     <footer id="futer"></footer>
     
     
@@ -542,7 +544,7 @@
                             confirmButtonText: 'Generar PDF',
                             }).then((result) => {
                                 if (result.isConfirmed) {
-                                    let direc = "../back/pdf/viewPDF.php?folio="+alumno.folio;
+                                    let direc = "../back/pdf/generatePDF.php?folio="+alumno.folio;
                                     window.open(direc,'_blank');
                                 }
                         });
@@ -698,7 +700,7 @@
     
         $('#btn-imprimir').hide();
         $('#btn-imprimir').click(function(){
-            let direc = "../back/pdf/viewPDF.php?folio="+alumno.folio;
+            let direc = "../back/pdf/generatePDF.php?folio="+alumno.folio;
             window.open(direc,'_blank');
         });
     

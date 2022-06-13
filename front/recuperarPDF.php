@@ -59,6 +59,12 @@
                 $("#formula").trigger('reset');
             });
 
+
+            $('#recuperar').click(function(){
+            let direc = "../back/pdf/generatePDF.php?folio="+alumno.folio;
+            window.open(direc,'_blank');
+        });
+
         });
     </script>
 </head>
@@ -66,7 +72,7 @@
 <body>
     <header id="navegacion"></header>
     <h1>Bienvenido</h1>
-    <form id="formula" action="../back/pdf/viewPDF.php" method="get">
+    <form id="formula" action="../back/pdf/generatePDF.php" method="get">
 
         <fieldset>
             <legend>BUSCAR COMPROBANTE DE CITA</legend>
@@ -84,7 +90,7 @@
         </fieldset>
         <div class="row">
             <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
-            <button class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
+            <button id="recuperar" class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
                 <i class="material-icons right">send</i>
             </button>
         </div>
