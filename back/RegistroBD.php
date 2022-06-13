@@ -101,15 +101,15 @@ $tieneconyuge=$_GET['tieneconyuge'];
         if ($lugaresOcup[0] == 10){
             echo "No quedan mas lugares";
         }else{
-            //mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
-            //mysqli_query($conexion, $sqlConsNin);
-            //mysqli_query($conexion, $sqlConsDere);
+            mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+            mysqli_query($conexion, $sqlConsNin);
+            mysqli_query($conexion, $sqlConsDere);
             if ($tieneconyuge=='si'){
                 //mysqli_query($conexion, $sqlConsCony);
             }
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
-            //mysqli_query($conexion, $sqlConsLug2);
+            mysqli_query($conexion, $sqlConsLug2);
             include("../back/AlumnoGenPDF.php");//mandar señal a front para mostrar boton
         }
     }
@@ -117,15 +117,15 @@ $tieneconyuge=$_GET['tieneconyuge'];
         if ($lugaresOcup[0] == 10){
             echo "No quedan mas lugares";
         }else{
-            //mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
-            //mysqli_query($conexion, $sqlConsNin);
-            //mysqli_query($conexion, $sqlConsDere);
+            mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
+            mysqli_query($conexion, $sqlConsNin);
+            mysqli_query($conexion, $sqlConsDere);
             if ($tieneconyuge=='si'){
-                //mysqli_query($conexion, $sqlConsCony);
+                mysqli_query($conexion, $sqlConsCony);
             }
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
-            //mysqli_query($conexion, $sqlConsLug2);
+            mysqli_query($conexion, $sqlConsLug2);
             include("../back/AlumnoGenPDF.php");
         }
     }

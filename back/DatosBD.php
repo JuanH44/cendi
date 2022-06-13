@@ -1,63 +1,46 @@
-<?php//sacar todos los datos de la BD para el admin
+<?php
+//sacar todos los datos de la BD para el admin
 
-$conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
+    $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
 
-$sqlConyuge="select * from conyuge";//declarar consulta
-$respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
-while($fila=mysqli_fetch_array($respCon)){
-    echo $fila["Primer_Apellido_Conyuge"];
-    echo $fila["Segundo_Apellido_Conyuge"];
-    echo $fila["Nombre_Conyuge"];
-    echo $fila["Domicilio_Conyuge"];
-    echo $fila["Telefono_Fijo_Conyuge"];
-    echo $fila["Telefono_Celular_Conyuge"];
-    echo $fila["Lugar_Trabajo_Conyuge"];
-    echo $fila["Domicilio_Trabajo_Conyuge"];
-    echo $fila["Telefono_Trabajo_Conyuge"];
-    echo $fila["Extension"];
-    echo $fila["Folio"];
-}
-$sqlConyuge="select * from datos_derecho";//declarar consulta
-$respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
-while($fila=mysqli_fetch_array($respCon)){
-    echo $fila["Primer_Apellido_Derecho"];
-    echo $fila["Segundo_Apellido_Derecho"];
-    echo $fila["Nombre_Derecho"];
-    echo $fila["Domicilio_Derecho"];
-    echo $fila["Telefono_Fijo_Derecho"];
-    echo $fila["Telefono_Celular_Derecho"];
-    echo $fila["Email_Derecho"];
-    echo $fila["Ocupacion_Derecho"];
-    echo $fila["Curp_Derecho"];
-    echo $fila["Puesto"];
-    echo $fila["Sueldo"];
-    echo $fila["Numero_Empleado"];
-    echo $fila["Adscripcion"];
-    echo $fila["Horario_Trabajo"];
-    echo $fila["Extension"];
-    echo $fila["Folio"];
-}
-$sqlConyuge="select * from datos_generales";//declarar consulta
-$respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
-while($fila=mysqli_fetch_array($respCon)){
-    echo $fila["Folio"];
-    echo $fila["Cendi"];
-    echo $fila["Grupo"];
-}
-while($fila=mysqli_fetch_array($respCon)){
-    echo $fila["Primer_Apellido"];
-    echo $fila["Segundo_Apellido"];
-    echo $fila["Nombre"];    
-    echo $fila["FechaNac"];
-    echo $fila["Email"];    
-    echo $fila["Edad"];
-    echo $fila["Curp"];    
-    echo $fila["Folio"];
-}
-while($fila=mysqli_fetch_array($respCon)){
-    echo $fila["grupo"];
-    echo $fila["lugares"];
-    echo $fila["entrevista"];
-}
-mysqli_close($conexion);
+    //datos generales
+    $result=array();
+
+    $sqlGeneral="select * from datos_generales";//declarar consulta
+    $respGen=mysqli_query($conexion,$sqlGeneral);//hacer consulta
+
+    $sqlNin="select * from datos_niño";//declarar consulta
+    $respNin=mysqli_query($conexion,$sqlNin);//hacer consulta
+
+    $sqlDerecho="select * from datos_derecho";//declarar consulta
+    $respDer=mysqli_query($conexion,$sqlDerecho);//hacer consulta
+
+    $sqlConyuge="select * from conyuge";//declarar consulta
+    $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
+
+    $cont=0;
+    while($filaGen=mysqli_fetch_assoc($respGen)){
+        while($filaNin=mysqli_fetch_assoc($respNin)){
+            if ($filaGen['Folio'] == $filaNin["Folio"]){
+                $result[$cont]=array_merge_recursive($filaGen,$filaNin);
+                break;
+            }
+        }
+        while($filaDer=mysqli_fetch_assoc($respDer)){
+            if ($filaGen['Folio']==$filaDer["Folio"]){
+                $result[$cont]=array_merge_recursive($result,$filaDer);
+                break;
+            }
+        }
+        while($filaCon=mysqli_fetch_assoc($respCon)){
+            if ($filaGen['Folio']==$filaCon["Folio"]){
+                $result[$cont]=array_merge_recursive($result,$filaCon);
+                break;
+            }
+        }
+        $cont++;
+    }
+    print_r( $result[2]);
+    //echo $json_info = json_encode($result[1]);
+    mysqli_close($conexion);
 ?>
