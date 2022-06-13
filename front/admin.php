@@ -30,7 +30,7 @@
 <body>
     <header id="navegacion"></header>
     <div class="row">
-        <a class="waves-effect waves-light right btn" id="actualizar">Actualizar</a>
+        <a class="waves-effect waves-light left btn" id="actualizar">Actualizar</a>
     </div>
     
     <div class="row">

@@ -1,25 +1,77 @@
 h1{
-    color:black;
+    color:rgb(178, 136, 82);
+    font-weight: 500;
+}
+
+#alumno{
+    margin-top: 20px;
+}
+
+#vermas{
+    margin-top: 10px;
+}
+
+#letras{
+    font-size: medium;
+    font-weight: 400;
+}
+
+#imagen-ipn-2{
+   max-width: 100px;
+   max-height: 80px;
+}
+
+#clave{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+#actualizar{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+
+.card-image{
+    margin-top: 15px;
+}
+
+#card-title{
+    margin-left: 50px;
 }
 
 .brand-logo{
     margin-left: 50px;
 }
 
-#actualizar{
-    margin-top: 20px;
-    margin-right: 20px;
-}
-
 #nav-mobile{
-    font-style:italic;
     margin-right: 10px;
 }
 
-nav {
-    background-color:forestgreen !important;
+.nav-wrapper{
+    font-weight: 400;
 }
 
-.page-footer{
-    background-color: forestgreen !important;
+#btn-reset{
+    margin-top: 20px;
+    margin-left: 45px;
+}
+
+#fieldset1{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+#fieldset2{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+#fieldset3{
+    margin-right: 30px;
+    margin-left: 30px;
+}
+
+#fieldset4{
+    margin-right: 30px;
+    margin-left: 30px;
 }
