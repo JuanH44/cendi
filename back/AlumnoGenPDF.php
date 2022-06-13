@@ -1,5 +1,5 @@
 <?php
-    //$folio='1231';//folio a encontrar en BD
+    $folio=$_REQUEST['folio'];
 
     $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
 
@@ -94,10 +94,6 @@
             $encontrado=0; 
         }
     }
-    if ($encontrado==1){
-        include("../back/pdf/requestData.php");//mandar variables
-    }else{ 
-        echo "No se encontre en la BD";
-    }
+   
     mysqli_close($conexion);
 ?>

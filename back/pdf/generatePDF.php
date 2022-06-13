@@ -2,7 +2,9 @@
 ob_start();
     /* Clase fpdf */
     include("style.php");
-    require("../back/tfpdf/tfpdf.php");
+    include("../AlumnoGenPDF.php");
+    include("requestData.php");
+    require("./tfpdf/tfpdf.php");
 
     class PDF extends tFPDF
     {
@@ -13,7 +15,7 @@ ob_start();
         // Cabecera de página
         function Header(){
             // Logo
-            $this->Image('../back/assets/SEP_IPN.png',$this->lMargin,8,120);
+            $this->Image('../assets/SEP_IPN.png',$this->lMargin,8,120);
             $this->Ln(20);  
         }
 
@@ -24,7 +26,7 @@ ob_start();
             // Arial italic 8
             $this->SetFont("DejaVu-Serif","",6.5);
 
-            $this->Image('../back/assets/pleca_flores_magon.png',$this->lMargin,$this->GetPageHeight()-25,$this->getBodyWidth());
+            $this->Image('../assets/pleca_flores_magon.png',$this->lMargin,$this->GetPageHeight()-25,$this->getBodyWidth());
 
           $this->MultiCell(0,3, 
           "Juan de Dios Bátiz esquina Miguel Othón de Mendizábal, Col. Nueva Industrial Vallejo, Alcaldía Gustavo A. Madero 07738 \nCiudad de México. Tel. 5729-6000, 5729-6300 Ext. 57701, 57702, 57704. Correo electrónico: cocendi@ipn.mx",
@@ -307,6 +309,16 @@ ob_start();
     $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
     $pdf->Cell(getFrac(1,3), 10, "Nombre y Firma del o la derechohabiente",0, 1, "C");
 
+
     $pdf->Output( "I", "Ficha de Registro ".$folio.".pdf");
+    $pdfDoc = $pdf->Output("", "S");
+
+    include ("../mail/sendMail.php");
+
+
+    
+
+   
+
 ob_end_flush(); 
 ?>

@@ -27,7 +27,7 @@
 <body>
     <header id="navegacion"></header>
     <h1>Bienvenido</h1>
-    <form action="../back/api.php" method="get" id="formulario">
+    <form action="../back/RegistroBD.php" method="get" id="formulario">
 
         <fieldset>
             <legend>DATOS GENERALES</legend>
@@ -401,7 +401,7 @@
                             <label for="alcaldia_conyuge">Alcaldia o municipio</label>
                         </div>
                         <div class="input-field col s4">
-                            <select  name="entidad_conyuge">
+                            <select  name="entidad_conyuge"  id="entidad_conyuge" >
                                 <option value="sel" disabled selected>Seleccione su entidad</option>
                                 <option value="Aguascalientes">Aguascalientes</option>
                                 <option value="Baja California">Baja California</option>
@@ -645,7 +645,7 @@
                 curp: $('#curp').val(),
 
                 //Datos de derechohabiente
-                primer_apelido_derecho: $('#primer_apelido_derecho').val(),
+                primer_apellido_derecho: $('#primer_apellido_derecho').val(),
                 segundo_apellido_derecho: $('#segundo_apellido_derecho').val(),
                 nombre_derecho: $('#nombre_derecho').val(),
                 calle: $('#calle').val(),
@@ -669,7 +669,7 @@
 
                 //Datos del conyuge
                 tienec: $('#tienec').val(),
-                primer_apelido_conyuge: $('#primer_apelido_conyuge').val(),
+                primer_apellido_conyuge: $('#primer_apellido_conyuge').val(),
                 segundo_apellido_conyuge: $('#segundo_apellido_conyuge').val(),
                 nombre_conyuge: $('#nombre_conyuge').val(),
                 calle_conyuge: $('#calle_conyuge').val(),

@@ -6,7 +6,7 @@ require 'phpMailer/Exception.php';
 require 'phpMailer/PHPMailer.php';
 require 'phpMailer/SMTP.php';
 
-include("../pdf/stringPDF.php");
+//include("../pdf/stringPDF.php");
 
 $email_user = "equipo3tecweb@gmail.com"; //OJO. Debes actualizar esta línea con tu información
 $email_password = "otlheyotnscyleep"; //OJO. Debes actualizar esta línea con tu información
@@ -30,8 +30,7 @@ $mail->setFrom($mail->Username,$from_name);
 $mail->AddAddress($address_to); // recipients email
 
 //Datos personales--------------------------------------------------------
-  $nombre = "Juan";
-  $folio = "12345";
+ 
 
 
 //------------------------------------------------------------
@@ -40,10 +39,11 @@ $mail->AddEmbeddedImage('../assets/banne-cendi-min.jpg', 'banner');
 
 
 $mail->Body ='<img alt="Banner del cendi" src="cid:banner" style="width:100%">';
-$mail->Body .="<h1 style='color:#3498db;'>Buen día, $nombre </h1>";
+$mail->Body .="<h1 style='color:#3498db;'>Buen día, C. $nombre_derecho </h1>";
 $mail->Body .= "<p>Usted ha concluido su registro exitosamente. A continuación adjutamos un archivo pdf con los datos registrados. Si usted no ha solicitado el registro, haga caso omiso a este correo.</p>";
 
-global $pdfDoc;$mail->Body .= "<p>Este correo es sólamente informativo, favor de no responer.</p>";
+global $pdfDoc;
+$mail->Body .= "<p>Este correo es sólamente informativo, favor de no responer.</p>";
 
 $mail->AddStringAttachment($pdfDoc, "Ficha de Registro $folio.pdf", $encoding = 'base64', $type = 'application/pdf');
 

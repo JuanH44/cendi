@@ -1,10 +1,11 @@
 <?php
+    //include("../AlumnoGenPDF.php");
     //Datos generales
     $startYear = 2021;
     $endYear = 2022;
     $cendi = "EVA SÁMANO DE LÓPEZ MATEOS";
 
-    $folio = "123456789";
+   
     $grupo = "Grupo 1";
 
 
@@ -66,4 +67,7 @@
     $diaRegistro = "22";
     $mesRegistro = "Diciembre";
     $anioRegistro = "2021";
+
+    //include
+
 ?>

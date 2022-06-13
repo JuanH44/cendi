@@ -17,10 +17,10 @@ $(document).ready(function () {
         for (let index = 0; index < alumnos.length; index++) {
             let nuevoAlumno = "";
             nuevoAlumno += ("<li class='collection-item avatar' id='usr" + index + "'>");
-            nuevoAlumno += ("    <img src='" + alumnos[index].foto + "' alt='" + alumnos[index].folio + "' class='circle'>");
-            nuevoAlumno += ("    <span class='title'>" + alumnos[index].folio + "</span>");
-            nuevoAlumno += ("    <p class='parrafo'>" + alumnos[index].curp + " <br>");
-            nuevoAlumno += ("        " + alumnos[index].nombre + "");
+            nuevoAlumno += ("    <img src='" + alumnos[index].foto + "' alt='" + alumnos[index].Folio + "' class='circle'>");
+            nuevoAlumno += ("    <span class='title'>" + alumnos[index].Folio + "</span>");
+            nuevoAlumno += ("    <p class='parrafo'>" + alumnos[index].Curp + " <br>");
+            nuevoAlumno += ("        " + alumnos[index].Nombre + "");
             nuevoAlumno += ("    </p>");
             nuevoAlumno += ("    <a href='#!' class='secondary-content'><i class='material-icons'>grade</i></a>");
             nuevoAlumno += ("    <div class='row' id='alumno" + index + "'>");
@@ -54,28 +54,28 @@ $(document).ready(function () {
         //alumnRow.find('.folio').val(alumnos[idx].folio);
         //alert('eeeee');
         //alert("aaaa");
-        alumnRow.find('.cendi').val(alumnos[idx].cendi);
+        alumnRow.find('.cendi').val(alumnos[idx].Cendi);
         //alumnRow.find('.foto').val(alumnos[idx].foto);
-        alumnRow.find('.folio').val(alumnos[idx].folio);
+        alumnRow.find('.folio').val(alumnos[idx].Folio);
         let testo =  "cosa" + alumnRow.find('.folio').val();
         //alert(testo);
         
-        alumnRow.find('.grupo').val(alumnos[idx].grupo);
+        alumnRow.find('.grupo').val(alumnos[idx].Grupo);
         //alert("rrrrr");
         //Datos niño
-        alumnRow.find('.primer_apellido').val(alumnos[idx].primer_apellido);
-        alumnRow.find('.segundo_apellido').val(alumnos[idx].segundo_apellido);
-        alumnRow.find('.nombre').val(alumnos[idx].nombre);
-        alumnRow.find('.fecha').val(alumnos[idx].fecha);
-        alumnRow.find('.edadAnios').val(alumnos[idx].edadAnios);
+        alumnRow.find('.primer_apellido').val(alumnos[idx].Primer_Apellido);
+        alumnRow.find('.segundo_apellido').val(alumnos[idx].Segundo_Apellido);
+        alumnRow.find('.nombre').val(alumnos[idx].Nombre);
+        alumnRow.find('.fecha').val(alumnos[idx].FechaNac);
+        alumnRow.find('.edadAnios').val(alumnos[idx].Edad);
         alumnRow.find('.edadMeses').val(alumnos[idx].edadMeses);
-        alumnRow.find('.email').val(alumnos[idx].email);
-        alumnRow.find('.curp').val(alumnos[idx].curp);
+        alumnRow.find('.email').val(alumnos[idx].Email);
+        alumnRow.find('.curp').val(alumnos[idx].Curp);
 
         //Datos de derechohabiente
-        alumnRow.find('.primer_apelido_derecho').val(alumnos[idx].primer_apelido_derecho);
-        alumnRow.find('.segundo_apellido_derecho').val(alumnos[idx].segundo_apellido_derecho);
-        alumnRow.find('.nombre_derecho').val(alumnos[idx].nombre_derecho);
+        alumnRow.find('.primer_apellido_derecho').val(alumnos[idx].Primer_Apellido_Derecho);
+        alumnRow.find('.segundo_apellido_derecho').val(alumnos[idx].Segundo_Apellido_Derecho);
+        alumnRow.find('.nombre_derecho').val(alumnos[idx].Nombre_Derecho);
         alumnRow.find('.calle').val(alumnos[idx].calle);
         alumnRow.find('.noExt').val(alumnos[idx].noExt);
         alumnRow.find('.noInt').val(alumnos[idx].noInt);
@@ -83,23 +83,23 @@ $(document).ready(function () {
         alumnRow.find('.alcaldia').val(alumnos[idx].alcaldia);
         alumnRow.find('.entidad').val(alumnos[idx].entidad);
         alumnRow.find('.cp').val(alumnos[idx].cp);
-        alumnRow.find('.telefono_fijo').val(alumnos[idx].telefono_fijo);
-        alumnRow.find('.telefono_celular').val(alumnos[idx].telefono_celular);
-        alumnRow.find('.email_derecho').val(alumnos[idx].email_derecho);
-        alumnRow.find('.ocupacion').val(alumnos[idx].ocupacion);
-        alumnRow.find('.curp_derecho').val(alumnos[idx].curp_derecho);
-        alumnRow.find('.puesto').val(alumnos[idx].puesto);
-        alumnRow.find('.sueldo').val(alumnos[idx].sueldo);
-        alumnRow.find('.numero_empleado').val(alumnos[idx].numero_empleado);
-        alumnRow.find('.adscripcion').val(alumnos[idx].adscripcion);
-        alumnRow.find('.horario').val(alumnos[idx].horario);
-        alumnRow.find('.extension').val(alumnos[idx].extension);
+        alumnRow.find('.telefono_fijo').val(alumnos[idx].Telefono_Fijo_Derecho);
+        alumnRow.find('.telefono_celular').val(alumnos[idx].Telefono_Celular_Derecho);
+        alumnRow.find('.email_derecho').val(alumnos[idx].Email_Derecho);
+        alumnRow.find('.ocupacion').val(alumnos[idx].Ocupacion_Derecho);
+        alumnRow.find('.curp_derecho').val(alumnos[idx].Curp_Derecho);
+        alumnRow.find('.puesto').val(alumnos[idx].Puesto);
+        alumnRow.find('.sueldo').val(alumnos[idx].Sueldo);
+        alumnRow.find('.numero_empleado').val(alumnos[idx].Numero_Empleado);
+        alumnRow.find('.adscripcion').val(alumnos[idx].Adscripcion);
+        alumnRow.find('.horario').val(alumnos[idx].Horario_Trabajo);
+        alumnRow.find('.extension').val(alumnos[idx].Extension);
 
         //Datos del conyuge
         alumnRow.find('.tienec').val(alumnos[idx].tienec);
-        alumnRow.find('.primer_apelido_conyuge').val(alumnos[idx].primer_apelido_conyuge);
-        alumnRow.find('.segundo_apellido_conyuge').val(alumnos[idx].segundo_apellido_conyuge);
-        alumnRow.find('.nombre_conyuge').val(alumnos[idx].nombre_conyuge);
+        alumnRow.find('.primer_apellido_conyuge').val(alumnos[idx].Primer_Apellido_Conyuge);
+        alumnRow.find('.segundo_apellido_conyuge').val(alumnos[idx].Segundo_Apellido_Conyuge);
+        alumnRow.find('.nombre_conyuge').val(alumnos[idx].Nombre_Conyuge);
         alumnRow.find('.calle_conyuge').val(alumnos[idx].calle_conyuge);
         alumnRow.find('.noExt_conyuge').val(alumnos[idx].noExt_conyuge);
         alumnRow.find('.noInt_conyuge').val(alumnos[idx].noInt_conyuge);
@@ -107,12 +107,12 @@ $(document).ready(function () {
         alumnRow.find('.alcaldia_conyuge').val(alumnos[idx].alcaldia_conyuge);
         alumnRow.find('.entidad_conyuge').val(alumnos[idx].entidad_conyuge);
         alumnRow.find('.cp_conyuge').val(alumnos[idx].cp_conyuge);
-        alumnRow.find('.telefono_fijo_conyuge').val(alumnos[idx].telefono_fijo_conyuge);
-        alumnRow.find('.telefono_celular_conyuge').val(alumnos[idx].telefono_celular_conyuge);
-        alumnRow.find('.lugar_trabajo_conyuge').val(alumnos[idx].lugar_trabajo_conyuge);
-        alumnRow.find('.domicilio_trabajo_conyuge').val(alumnos[idx].domicilio_trabajo_conyuge);
-        alumnRow.find('.telefono_trabajo_conyuge').val(alumnos[idx].telefono_trabajo_conyuge);
-        alumnRow.find('.extension_conyuge').val(alumnos[idx].extension_conyuge);
+        alumnRow.find('.telefono_fijo_conyuge').val(alumnos[idx].Telefono_Fijo_Conyuge);
+        alumnRow.find('.telefono_celular_conyuge').val(alumnos[idx].Telefono_Celular_Conyuge);
+        alumnRow.find('.lugar_trabajo_conyuge').val(alumnos[idx].Lugar_Trabajo_Conyuge);
+        alumnRow.find('.domicilio_trabajo_conyuge').val(alumnos[idx].Domicilio_Trabajo_Conyuge);
+        alumnRow.find('.telefono_trabajo_conyuge').val(alumnos[idx].Telefono_Trabajo_Conyuge);
+        alumnRow.find('.extension_conyuge').val(alumnos[idx].Extension);
         // alert('camara');
         M.updateTextFields();
 
@@ -259,11 +259,13 @@ $(document).ready(function () {
 
  
     function jalaTodo() {
-        let direc = "../back/traeTodo.php";
+        let direc = "../back/DatosBD.php";
         $.ajax({
             type: "GET",
             url: direc,
+
             success: function (data) {
+                
                 let jsonData = $.parseJSON(data);
                 alumnos = jsonData;
                 construye();

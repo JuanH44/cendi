@@ -10,63 +10,63 @@
 //Datos Generales
 
     $cendi="Amalia Solórzano de Cárdenas";//No se puede cambiar
-    $folio=$_GET['folio'];
-    $grupo=$_GET['grupo'];//
+    $folio=$_REQUEST['folio'];
+    $grupo=$_REQUEST['grupo'];//
 
 //Datos niño
-    $primer_apellido=$_GET['primer_apellido'];
-    $segundo_apellido=$_GET['segundo_apellido'];
-    $nombre=$_GET['nombre'];
-    $fecha=$_GET['fecha'];
-//$edad=$_GET['edadAnios'];
+    $primer_apellido=$_REQUEST['primer_apellido'];
+    $segundo_apellido=$_REQUEST['segundo_apellido'];
+    $nombre=$_REQUEST['nombre'];
+    $fecha=$_REQUEST['fecha'];
+//$edad=$_REQUEST['edadAnios'];
     $edad='2';
-    $email=$_GET['email'];
-    $curp=$_GET['curp'];
+    $email=$_REQUEST['email'];
+    $curp=$_REQUEST['curp'];
 
 //Datos Derechoabiente
-    $primer_apellido_derecho=$_GET['primer_apellido_derecho'];
-    $segundo_apellido_derecho=$_GET['segundo_apellido_derecho'];
-    $nombre_derecho=$_GET['nombre_derecho'];
-    $calle=$_GET['calle'];
-    $noExt=$_GET['noExt'];
-    $noInt = $_GET['noInt'];
-    $colonia= $_GET['colonia'];
-    $alcaldia= $_GET['alcaldia'];
-    $entidad = $_GET['entidad'];
-    $cp = $_GET['cp'];
-    $telefono_fijo=$_GET['telefono_fijo'];
-    $telefono_celular=$_GET['telefono_celular'];
-    $email_derecho=$_GET['email_derecho'];
-    $ocupacion=$_GET['ocupacion'];
-    $curp_derecho=$_GET['curp_derecho'];
-    $puesto=$_GET['puesto'];
-    $sueldo=$_GET['sueldo'];
-    $numero_empleado=$_GET['numero_empleado'];
-    $adscripcion=$_GET['adscripcion'];
-    $horario=$_GET['horario'];
-    $extension=$_GET['extension'];
+    $primer_apellido_derecho=$_REQUEST['primer_apellido_derecho'];
+    $segundo_apellido_derecho=$_REQUEST['segundo_apellido_derecho'];
+    $nombre_derecho=$_REQUEST['nombre_derecho'];
+    $calle=$_REQUEST['calle'];
+    $noExt=$_REQUEST['noExt'];
+    $noInt = $_REQUEST['noInt'];
+    $colonia= $_REQUEST['colonia'];
+    $alcaldia= $_REQUEST['alcaldia'];
+    $entidad = $_REQUEST['entidad'];
+    $cp = $_REQUEST['cp'];
+    $telefono_fijo=$_REQUEST['telefono_fijo'];
+    $telefono_celular=$_REQUEST['telefono_celular'];
+    $email_derecho=$_REQUEST['email_derecho'];
+    $ocupacion=$_REQUEST['ocupacion'];
+    $curp_derecho=$_REQUEST['curp_derecho'];
+    $puesto=$_REQUEST['puesto'];
+    $sueldo=$_REQUEST['sueldo'];
+    $numero_empleado=$_REQUEST['numero_empleado'];
+    $adscripcion=$_REQUEST['adscripcion'];
+    $horario=$_REQUEST['horario'];
+    $extension=$_REQUEST['extension'];
 
 //Datos Conyugue
 /*
-$tieneconyuge=$_GET['tieneconyuge'];
+$tieneconyuge=$_REQUEST['tieneconyuge'];
 */
 //if $tieneconyuge=='Sí'{
-    $primer_apellido_conyuge = $_GET['primer_apellido_conyuge'];
-    $segundo_apellido_conyuge = $_GET['segundo_apellido_conyuge'];
-    $nombre_conyuge = $_GET['nombre_conyuge'];
-    $calle_conyuge = $_GET['calle'];
-    $noExt_conyuge = $_GET['noExt_conyuge'];
-    $noInt_conyuge = $_GET['noInt_conyuge'];
-    $colonia_conyuge = $_GET['colonia_conyuge'];
-    $alcaldia_conyuge = $_GET['alcaldia_conyuge'];
-    //$entidad_conyuge = $_GET['entidad_conyuge'];
-    $cp_conyuge = $_GET['cp_conyuge'];
-    $telefono_fijo_conyuge=$_GET['telefono_fijo_conyuge'];
-    $telefono_celular_conyuge=$_GET['telefono_celular_conyuge'];
-    $lugar_trabajo_conyuge=$_GET['lugar_trabajo_conyuge'];
-    $domicilio_trabajo_conyuge=$_GET['domicilio_trabajo_conyuge'];
-    $telefono_trabajo_conyuge=$_GET['telefono_trabajo_conyuge'];
-    $extension_conyuge=$_GET['extension_conyuge'];
+    $primer_apellido_conyuge = $_REQUEST['primer_apellido_conyuge'];
+    $segundo_apellido_conyuge = $_REQUEST['segundo_apellido_conyuge'];
+    $nombre_conyuge = $_REQUEST['nombre_conyuge'];
+    $calle_conyuge = $_REQUEST['calle'];
+    $noExt_conyuge = $_REQUEST['noExt_conyuge'];
+    $noInt_conyuge = $_REQUEST['noInt_conyuge'];
+    $colonia_conyuge = $_REQUEST['colonia_conyuge'];
+    $alcaldia_conyuge = $_REQUEST['alcaldia_conyuge'];
+    $entidad_conyuge = $_REQUEST['entidad_conyuge'];
+    $cp_conyuge = $_REQUEST['cp_conyuge'];
+    $telefono_fijo_conyuge=$_REQUEST['telefono_fijo_conyuge'];
+    $telefono_celular_conyuge=$_REQUEST['telefono_celular_conyuge'];
+    $lugar_trabajo_conyuge=$_REQUEST['lugar_trabajo_conyuge'];
+    $domicilio_trabajo_conyuge=$_REQUEST['domicilio_trabajo_conyuge'];
+    $telefono_trabajo_conyuge=$_REQUEST['telefono_trabajo_conyuge'];
+    $extension_conyuge=$_REQUEST['extension_conyuge'];
 //}
 
 //consultas
@@ -79,7 +79,7 @@ $tieneconyuge=$_GET['tieneconyuge'];
     "','".$noInt."','".$colonia."','".$alcaldia."','".$entidad."','".$cp."','".$telefono_fijo."','".$telefono_celular."','".$email_derecho.
     "','".$ocupacion."','".$curp_derecho."','".$puesto."','".$sueldo."','".$numero_empleado."','".$adscripcion."','".$horario."','".$extension."','".$folio."')";
 
-    if (isset($_GET['tienec'])){
+    if (isset($_REQUEST['tienec'])){
         $tieneconyuge='si';
     }else{
         $tieneconyuge='no';
@@ -257,5 +257,5 @@ $tieneconyuge=$_GET['tieneconyuge'];
             include("../back/AlumnoGenPDF.php");
         }
     }
-    echo "Registrado Exitosamente";
+    echo json_encode(array("state"=> 0, "folio"=> $folio, "mensaje"=> "Se ha registrado correctamente"));
 ?>
