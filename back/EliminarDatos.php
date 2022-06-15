@@ -1,6 +1,6 @@
 <?php
 
-    $folioBorrar = $_REQUEST['folio'];
+    $folioBorrar = $_REQUEST['folioBorrar'];
 
     $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
 

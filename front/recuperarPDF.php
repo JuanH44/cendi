@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/cssProyecto.css" media="screen,projection" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -70,6 +71,7 @@
 </head>
 
 <body>
+    <div class="row blue lighten-4">
     <header id="navegacion"></header>
     <h1>Bienvenido</h1>
     <form id="formula" action="../back/pdf/generatePDF.php" method="get">
@@ -88,6 +90,7 @@
                 </div>
             </div>
         </fieldset>
+        </div>
         <div class="row">
             <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
             <button id="recuperar" class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
@@ -97,6 +100,7 @@
     </form>
 
     <footer id="futer"></footer>
+    </div>
 </body>
 
 </html>
