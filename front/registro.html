@@ -31,7 +31,7 @@
     <form action="../back/RegistroBD.php" method="get" id="formulario">
 
         <fieldset>
-            <legend>DATOS GENERALES</legend>
+            <legend><h6>DATOS GENERALES</h6></legend>
             <div class="input-field col s12 m6">
                 <select  name="cendi" id="cendi" class="icons">
                     <option value="sel" disabled selected>Seleccione su CENDI</option>
@@ -78,8 +78,13 @@
                 </div>
             </div>
         </fieldset>
+    </div>
+        </div>
+        <div id="tabla2">
+            <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL NIÑO O DE LA NIÑA</legend>
+            
+            <legend><h6>DATOS DEL NIÑO O DE LA NIÑA</h6></legend>
             <div class="row">
 
                 <div class="input-field col s6">
@@ -129,8 +134,12 @@
             <div class="row">
 
         </fieldset>
+    </div>
+    </div>
+    <div id="tabla3">
+        <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL O LA DERECHOHABIENTE:</legend>
+            <legend><h6>DATOS DEL O LA DERECHOHABIENTE:</h6></legend>
             <div class="row">
                 <div class="input-field col s6">
                     <input  name="primer_apellido_derecho" id="primer_apellido_derecho" type="text" class="validate">
@@ -347,9 +356,11 @@
                 </div>
             </div>
         </fieldset>
-
+    </div>
+    <div id="tabla4">
+        <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL CÓNYUGE (PADRE, MADRE):</legend>
+            <legend><h6>DATOS DEL CÓNYUGE (PADRE, MADRE):</h6></legend>
             <div class="row">
                 <!-- Switch -->
                 <label for="tieneconyuge">Tiene Conyuge</label>
@@ -475,12 +486,16 @@
             </div>
             </div>
         </fieldset>
-
+    </div>
+    </div>
+    </div>
         <div class="row">
-            <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+            <div id="letras">
+            <a id="btn-reset" class="z-depth-3 waves-effect waves-light btn">Limpiar</a>
+            <button class="z-depth-3 btn waves-effect waves-light" type="submit" name="action">Enviar
                 <i class="material-icons right">send</i>
             </button>
+        </div>
         </div>
     </form>
     <div class="row">
