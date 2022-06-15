@@ -1,8 +1,9 @@
 <?php
+session_start();
 // verificacion de que se inicio sesión
-//if ( !(isset($_SESSION['acceso']) && $_SESSION['acceso'] == 10)) {
-//header("location: login.php");
-//}
+if ( !(isset($_SESSION['correo']) && $_SESSION['correo'] == 'admin')) {
+    header("location: login.php");
+}
 
 ?>
 
@@ -22,49 +23,9 @@
     <!--Jquery-->
     <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
-    <title>.::Inicio::.</title>
-    <script>
-        $(document).ready(function() {
-            $("#navegacion").load("./compartidos/barranavadmin.html");
-            $("#futer").load("./compartidos/futer.html");
-
-            //Activaciones
-            //$(".dropdown-trigger").dropdown();
-
-
-            var contenido = $('#resultados');
-            var numero = 1;
-            $('#actualizar').click(function() {
-                var nuevo = $("<ul class=\"collection\" id=\"resultados\"> ");
-                for (var i = 0; i < numero; i++) {
-                    var otro = $("                <li class=\"collection-item avatar\">                <img src=\"https://picsum.photos/100/100\" alt=\"\" class=\"circle\">                <span class=\"title\">" + (numero - i) + "</span>                <p>First Line <br>                    Second Line                </p>        <a href=\"#!\" class=\"secondary-content\"><i class=\"material-icons\">grade</i></a>            <div class=\"row\">           <a href=\"./registro.html\" class=\"waves-effect waves-light right btn\">Editar</a>                   <a class=\"waves-effect waves-light right btn red\">Eliminar</a>               </div>            </li>");
-                    nuevo.append(otro);
-                }
-                nuevo.append($("</ul>"));
-                numero += 1;
-                contenido.replaceWith(nuevo);
-                contenido = $('#resultados');
-            });
-            $('#elimina-12345').click(function() {
-                $.ajax({
-                    type: "GET",
-                    url: '../back/api.php?ide=12345',
-                    success: function(response) {
-                        var jsonData = JSON.parse(response);
-
-                        // user is logged in successfully in the back-end
-                        // let's redirect
-                        if (jsonData.success == "1") {
-                            //location.href = 'inicio.html';
-                            alert(jsonData.arre[0]);
-                        } else {
-                            alert('Invalid Credentials!');
-                        }
-                    }
-                });
-            });
-        });
-    </script>
+    <script type="text/javascript" src="js/admin.js"></script>
+    <title>.::Admin::.</title>
+    
 </head>
 
 <body>
@@ -74,10 +35,16 @@
     </div>
     <div class="row"></div>
     <div class="row">
+<<<<<<< HEAD
         <p id="textoAdmin" class="white-text center-align">Este apartado es solo para personar autorizado</p>
         <a class="waves-effect waves-light right btn" id="actualizar">Actualizar</a>
+=======
+        <a class="waves-effect waves-light left btn" id="actualizar">Actualizar</a>
+>>>>>>> 75d556fa3589e526fefb598d93d020d7a36f324b
     </div>
+    
     <div class="row">
+<<<<<<< HEAD
         <ul class="collection" id="resultados">
 
         </ul>
@@ -148,6 +115,9 @@
             </li>
             </fieldset> 
             </div>
+=======
+        <ul class="collection" id="alumnos">
+>>>>>>> 75d556fa3589e526fefb598d93d020d7a36f324b
             
         </ul>
     </div>
