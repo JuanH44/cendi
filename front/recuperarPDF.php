@@ -73,16 +73,9 @@
 <body>
     <div class="row blue lighten-4">
     <header id="navegacion"></header>
-<<<<<<< HEAD
-    <div class="row"></div>
-    <h1 id="otroTitulo" class="center-align">Bienvenido a Recupera tus Datos</h1>
-    <form id="formula" action="../back/hola.php" method="get">
-<div id="Tabla6">
-=======
     <h1>Bienvenido</h1>
     <form id="formula" action="../back/pdf/generatePDF.php" method="get">
 
->>>>>>> 75d556fa3589e526fefb598d93d020d7a36f324b
         <fieldset>
             <legend>BUSCAR COMPROBANTE DE CITA</legend>
 
@@ -99,19 +92,10 @@
         </fieldset>
         </div>
         <div class="row">
-<<<<<<< HEAD
-            <div id="botones2">
-                <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
-                <button class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
-                    <i class="material-icons right">send</i>
-                </button>
-            </div>
-=======
             <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
             <button id="recuperar" class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
                 <i class="material-icons right">send</i>
             </button>
->>>>>>> 75d556fa3589e526fefb598d93d020d7a36f324b
         </div>
     </form>
 

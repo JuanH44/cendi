@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-#textoAdmin{
-    font-size: 50px;
-    font-weight: 300;
-    margin-top: 15px;
-=======
 h1{
     color:rgb(178, 136, 82);
     font-weight: 500;
@@ -44,7 +38,6 @@ h1{
 
 #card-title{
     margin-left: 50px;
->>>>>>> 75d556fa3589e526fefb598d93d020d7a36f324b
 }
 
 #textoCendi{
@@ -52,103 +45,6 @@ h1{
     font-size: 50px !important;
 }
 
-<<<<<<< HEAD
-#cuardro-1{
-    margin-top: 15px;
-}
-
-#cuardro-2{
-    margin-top: 15px;
-}
-
-#cuardro-3{
-    margin-top: 15px;
-}
-
-#cuardro-4{
-    margin-top: 15px;
-}
-
-#elimina-1{
-    margin-right: 20px;
-}
-
-#elimina-2{
-    margin-right: 20px;
-}
-
-#elimina-3{
-    margin-right: 20px;
-}
-
-#elimina-4{
-    margin-right: 20px;
-}
-
-#actualizar{
-    margin-right: 25px;
-}
-
-#nav-mobile{
-    font-size: 30px !important;
-}
-
-#textoCendi2{
-    font-weight: 200 !important;
-    font-size: 50px !important;
-}
-
-#titulo{
-    padding-bottom: 20px;
-    margin-top: 25px;
-    color: azure;
-    font-weight: 500;
-}
-
-#tablas{
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-bottom: 15px;
-}
-
-#tabla1{
-    margin-bottom: 20px;
-}
-
-#tabla2{
-    margin-bottom: 20px;
-}
-
-#tabla3{
-    margin-bottom: 20px;
-}
-
-#tabla4{
-    margin-bottom: 25px;
-}
-
-#letras{
-    margin-left: 30px;
-}
-
-#letras2{
-    margin-left: 30px !important;
-}
-
-#Tabla6{
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-bottom: 20px;
-}
-
-#botones2{
-    margin-left: 32px;
-}
-
-#otroTitulo{
-    margin-top: 35px;
-}
-=======
 #nav-mobile{
     margin-right: 10px;
 }
@@ -181,4 +77,3 @@ h1{
     margin-right: 30px;
     margin-left: 30px;
 }
->>>>>>> 75d556fa3589e526fefb598d93d020d7a36f324b
