@@ -50,12 +50,13 @@
     $foto_derecho=$_REQUEST['foto_derecho'];
 
 
-
-    if (isset($_REQUEST['tienec'])){
-        $tieneconyuge='si';
-    }else{
-        $tieneconyuge='no';
-    }
+    //if (isset($_REQUEST['tienec'])){
+        //$tieneconyuge='si';
+    //}else{
+        //$tieneconyuge='no';
+    //}
+    echo $_REQUEST['tienec'];
+    //echo $tieneconyuge;
 
 //Datos Conyugue
 
