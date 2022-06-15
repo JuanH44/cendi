@@ -52,34 +52,39 @@
     $foto_derecho='1';
 
 
-    if (isset($_REQUEST['tienec'])){
-        //$tieneconyuge='si';
-    }else{
-        $tieneconyuge='no';
-    }
-    echo $tieneconyuge;
 
 //Datos Conyugue
 
-    if ($tieneconyuge=='si'){
-        $primer_apellido_conyuge = $_REQUEST['primer_apellido_conyuge'];
-        $segundo_apellido_conyuge = $_REQUEST['segundo_apellido_conyuge'];
-        $nombre_conyuge = $_REQUEST['nombre_conyuge'];
-        $calle_conyuge = $_REQUEST['calle_conyuge'];
-        $noExt_conyuge = $_REQUEST['noExt_conyuge'];
-        $noInt_conyuge = $_REQUEST['noInt_conyuge'];
-        $colonia_conyuge = $_REQUEST['colonia_conyuge'];
-        $alcaldia_conyuge = $_REQUEST['alcaldia_conyuge'];
-        $entidad_conyuge = $_REQUEST['entidad_conyuge'];
-        $cp_conyuge = $_REQUEST['cp_conyuge'];
-        $telefono_fijo_conyuge=$_REQUEST['telefono_fijo_conyuge'];
-        $telefono_celular_conyuge=$_REQUEST['telefono_celular_conyuge'];
-        $lugar_trabajo_conyuge=$_REQUEST['lugar_trabajo_conyuge'];
-        $domicilio_trabajo_conyuge=$_REQUEST['domicilio_trabajo_conyuge'];
-        $telefono_trabajo_conyuge=$_REQUEST['telefono_trabajo_conyuge'];
-        $extension_conyuge=$_REQUEST['extension_conyuge'];
-        $foto_conyuge=$_REQUEST['foto_conyuge'];
+    $primer_apellido_conyuge = $_REQUEST['primer_apellido_conyuge'];
+    $segundo_apellido_conyuge = $_REQUEST['segundo_apellido_conyuge'];
+    $nombre_conyuge = $_REQUEST['nombre_conyuge'];
+    $calle_conyuge = $_REQUEST['calle_conyuge'];
+    $noExt_conyuge = $_REQUEST['noExt_conyuge'];
+    $noInt_conyuge = $_REQUEST['noInt_conyuge'];
+    $colonia_conyuge = $_REQUEST['colonia_conyuge'];
+    $alcaldia_conyuge = $_REQUEST['alcaldia_conyuge'];
+    $entidad_conyuge = $_REQUEST['entidad_conyuge'];
+    $cp_conyuge = $_REQUEST['cp_conyuge'];
+    $telefono_fijo_conyuge=$_REQUEST['telefono_fijo_conyuge'];
+    $telefono_celular_conyuge=$_REQUEST['telefono_celular_conyuge'];
+    $lugar_trabajo_conyuge=$_REQUEST['lugar_trabajo_conyuge'];
+    $domicilio_trabajo_conyuge=$_REQUEST['domicilio_trabajo_conyuge'];
+    $telefono_trabajo_conyuge=$_REQUEST['telefono_trabajo_conyuge'];
+    $extension_conyuge=$_REQUEST['extension_conyuge'];
+    //$foto_conyuge=$_REQUEST['foto_conyuge'];
+    $foto_conyuge='3';
+    
+    //if (isset($_REQUEST['primer_apellido_conyuge'])){
+        //$tieneconyuge='si';
+    //}else{
+        //$tieneconyuge='no';
+    //}
+    if ($primer_apellido_conyuge==''){
+        $tieneconyuge='no';
+    }else{
+        $tieneconyuge='si';
     }
+    echo $tieneconyuge;
 
 //consultas
 
