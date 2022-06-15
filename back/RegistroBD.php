@@ -12,6 +12,7 @@
     $cendi="Amalia Solórzano de Cárdenas";//No se puede cambiar
     $folio=$_REQUEST['folio'];
     $grupo=$_REQUEST['grupo'];//
+    $foto_autorizada=$_REQUEST['foto_autorizada'];
 
 //Datos niño
     $primer_apellido=$_REQUEST['primer_apellido'];
@@ -20,9 +21,9 @@
     $fecha=$_REQUEST['fecha'];
     $edadAnios=$_REQUEST['edadAnios'];
     $edadMeses=$_REQUEST['edadMeses'];
-    //$edad='2';
     $email=$_REQUEST['email'];
     $curp=$_REQUEST['curp'];
+    $foto=$_REQUEST['foto'];
 
 //Datos Derechoabiente
     $primer_apellido_derecho=$_REQUEST['primer_apellido_derecho'];
@@ -46,49 +47,55 @@
     $adscripcion=$_REQUEST['adscripcion'];
     $horario=$_REQUEST['horario'];
     $extension=$_REQUEST['extension'];
+    $foto_derecho=$_REQUEST['foto_derecho'];
 
-//Datos Conyugue
-/*
-$tieneconyuge=$_REQUEST['tieneconyuge'];
-*/
-//if $tieneconyuge=='Sí'{
-    $primer_apellido_conyuge = $_REQUEST['primer_apellido_conyuge'];
-    $segundo_apellido_conyuge = $_REQUEST['segundo_apellido_conyuge'];
-    $nombre_conyuge = $_REQUEST['nombre_conyuge'];
-    $calle_conyuge = $_REQUEST['calle'];
-    $noExt_conyuge = $_REQUEST['noExt_conyuge'];
-    $noInt_conyuge = $_REQUEST['noInt_conyuge'];
-    $colonia_conyuge = $_REQUEST['colonia_conyuge'];
-    $alcaldia_conyuge = $_REQUEST['alcaldia_conyuge'];
-    $entidad_conyuge = $_REQUEST['entidad_conyuge'];
-    $cp_conyuge = $_REQUEST['cp_conyuge'];
-    $telefono_fijo_conyuge=$_REQUEST['telefono_fijo_conyuge'];
-    $telefono_celular_conyuge=$_REQUEST['telefono_celular_conyuge'];
-    $lugar_trabajo_conyuge=$_REQUEST['lugar_trabajo_conyuge'];
-    $domicilio_trabajo_conyuge=$_REQUEST['domicilio_trabajo_conyuge'];
-    $telefono_trabajo_conyuge=$_REQUEST['telefono_trabajo_conyuge'];
-    $extension_conyuge=$_REQUEST['extension_conyuge'];
-//}
 
-//consultas
-
-    $sqlConsDatos="insert into datos_generales values('".$folio."','".$cendi."','".$grupo."')";
-
-    $sqlConsNin="insert into datos_niño values('".$primer_apellido."','".$segundo_apellido."','".$nombre."','".$fecha."','".$email."','".$edadAnios."','".$edadMeses."','".$curp."','".$folio."')";
-
-    $sqlConsDere="insert into datos_derecho values('".$primer_apellido_derecho."','".$segundo_apellido_derecho."','".$nombre_derecho."','".$calle."','".$noExt.
-    "','".$noInt."','".$colonia."','".$alcaldia."','".$entidad."','".$cp."','".$telefono_fijo."','".$telefono_celular."','".$email_derecho.
-    "','".$ocupacion."','".$curp_derecho."','".$puesto."','".$sueldo."','".$numero_empleado."','".$adscripcion."','".$horario."','".$extension."','".$folio."')";
 
     if (isset($_REQUEST['tienec'])){
         $tieneconyuge='si';
     }else{
         $tieneconyuge='no';
     }
-    if ($tieneconyuge == 'si'){
+
+//Datos Conyugue
+
+    if ($tieneconyuge=='si'){
+        $primer_apellido_conyuge = $_REQUEST['primer_apellido_conyuge'];
+        $segundo_apellido_conyuge = $_REQUEST['segundo_apellido_conyuge'];
+        $nombre_conyuge = $_REQUEST['nombre_conyuge'];
+        $calle_conyuge = $_REQUEST['calle_conyuge'];
+        $noExt_conyuge = $_REQUEST['noExt_conyuge'];
+        $noInt_conyuge = $_REQUEST['noInt_conyuge'];
+        $colonia_conyuge = $_REQUEST['colonia_conyuge'];
+        $alcaldia_conyuge = $_REQUEST['alcaldia_conyuge'];
+        $entidad_conyuge = $_REQUEST['entidad_conyuge'];
+        $cp_conyuge = $_REQUEST['cp_conyuge'];
+        $telefono_fijo_conyuge=$_REQUEST['telefono_fijo_conyuge'];
+        $telefono_celular_conyuge=$_REQUEST['telefono_celular_conyuge'];
+        $lugar_trabajo_conyuge=$_REQUEST['lugar_trabajo_conyuge'];
+        $domicilio_trabajo_conyuge=$_REQUEST['domicilio_trabajo_conyuge'];
+        $telefono_trabajo_conyuge=$_REQUEST['telefono_trabajo_conyuge'];
+        $extension_conyuge=$_REQUEST['extension_conyuge'];
+        $foto_conyuge=$_REQUEST['foto_conyuge'];
+    }
+
+//consultas
+
+    $sqlConsDatos="insert into datos_generales values('".$folio."','".$cendi."','".$grupo."','".$foto_autorizada."')";
+
+    $sqlConsNin="insert into datos_niño values('".$primer_apellido."','".$segundo_apellido."','".$nombre."','".$fecha."','".$email."','".$edadAnios."','".$edadMeses."','".$curp."','".$folio.
+    "','".$foto."')";
+
+    $sqlConsDere="insert into datos_derecho values('".$primer_apellido_derecho."','".$segundo_apellido_derecho."','".$nombre_derecho."','".$calle."','".$noExt.
+    "','".$noInt."','".$colonia."','".$alcaldia."','".$entidad."','".$cp."','".$telefono_fijo."','".$telefono_celular."','".$email_derecho.
+    "','".$ocupacion."','".$curp_derecho."','".$puesto."','".$sueldo."','".$numero_empleado."','".$adscripcion."','".$horario."','".$extension."','".$folio.
+    "','".$foto_derecho."')";
+
+    
+    if ($tieneconyuge =='si'){
         $sqlConsCony="insert into conyuge values('".$primer_apellido_conyuge."','".$segundo_apellido_conyuge."','".$nombre_conyuge."','".$calle_conyuge."','".$noExt_conyuge.
         "','".$noInt_conyuge."','".$colonia_conyuge."','".$alcaldia_conyuge."','".$entidad_conyuge."','".$cp_conyuge."','".$telefono_fijo_conyuge."','".$telefono_celular_conyuge."','".
-        $lugar_trabajo_conyuge."','".$domicilio_trabajo_conyuge."','".$telefono_trabajo_conyuge."','".$extension_conyuge."','".$folio."')";
+        $lugar_trabajo_conyuge."','".$domicilio_trabajo_conyuge."','".$telefono_trabajo_conyuge."','".$extension_conyuge."','".$folio."','".$foto_conyuge."')";
     }
 
 //Datos para el pdf
@@ -111,7 +118,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");//mandar señal a front para mostrar boton
         }
     }
     elseif ($grupo == "Lac III - Mat I"){
@@ -121,13 +127,12 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             mysqli_query($conexion, $sqlConsDatos);//insert todos los datos a BD
             mysqli_query($conexion, $sqlConsNin);
             mysqli_query($conexion, $sqlConsDere);
-            if ($tieneconyuge=='si'){
+            if ($tieneconyuge =='si'){
                 mysqli_query($conexion, $sqlConsCony);
             }
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "Mat IIA"){
@@ -143,7 +148,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "Mat IIB"){
@@ -159,7 +163,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIA"){
@@ -175,7 +178,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIB"){
@@ -191,7 +193,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIIA"){
@@ -207,7 +208,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIIB"){
@@ -223,7 +223,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIIIA"){
@@ -239,7 +238,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     elseif ($grupo == "PIIIB"){
@@ -255,7 +253,6 @@ $tieneconyuge=$_REQUEST['tieneconyuge'];
             $lugaresOcup[0]+=1;
             $sqlConsLug2 = "update horario set lugares = ".$lugaresOcup[0]." where grupo = '".$grupo."'";
             mysqli_query($conexion, $sqlConsLug2);
-            //include("../back/AlumnoGenPDF.php");
         }
     }
     echo json_encode(array("state"=> 0, "folio"=> $folio, "mensaje"=> "Se ha registrado correctamente"));

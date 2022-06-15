@@ -1,8 +1,10 @@
 <?php
-    if (isset($_GET['tienec'])){
-        $nose="on";
+    if (isset($_REQUEST['tienec'])){
+        $nose='si';
     }else{
-        $nose="off";
+        $nose='no';
     }
-    echo $nose;
+    if ($nose =='si'){
+        echo $nose;
+    }
 ?>
