@@ -6,20 +6,12 @@
     //datos generales
     $result=array();
     //declarar consulta
-    $sqlGeneral="
-    select DISTINCT  * 
-    from datos_generales as dg, datos_niño as dn, datos_derecho as dd, conyuge as dc WHERE dg.Folio=dn.Folio AND dn.Folio=dd.Folio AND dd.Folio=dc.Folio";
-
-    
-    // from datos_generales as dg 
-    // inner join datos_niño as dn on dn.Folio = dg.Folio 
-    // inner join datos_derecho as dd on dd.Folio = dg.Folio 
-    // RIGHT join conyuge as dc on dc.Folio = dg.Folio UNION 
-    // select DISTINCT * 
-    // from datos_generales as dg 
-    // inner join datos_niño as dn on dn.Folio = dg.Folio 
-    // inner join datos_derecho as dd on dd.Folio = dg.Folio 
-    // LEFT join conyuge as dc on dc.Folio = dg.Folio";
+    $sqlGeneral=
+        "SELECT DISTINCT * 
+        from datos_generales 
+        INNER JOIN datos_niño on datos_niño.Folio = datos_generales.Folio
+        INNER JOIN datos_derecho on datos_derecho.Folio = datos_generales.Folio
+        RIGHT JOIN conyuge on conyuge.Folio = datos_generales.Folio";
 
     $respGen=mysqli_query($conexion,$sqlGeneral);//hacer consulta
     while($filaGen=mysqli_fetch_assoc($respGen)){

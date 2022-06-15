@@ -24,12 +24,7 @@
             $telefono_trabajo_conyuge = $fila["Telefono_Trabajo_Conyuge"];
             $extension = $fila["Extension"];
             $tieneconyuge='si';
-            $encontrado=1;
             break;
-        }
-        else{
-            $encontrado=0;
-            $tieneconyuge='no';
         }
     }
 
@@ -60,8 +55,6 @@
             $extension = $fila["Extension"];
             $encontrado=1;
             break;
-        }else{ 
-            $encontrado=0; 
         }
     }
 
@@ -73,8 +66,6 @@
             $grupo = $fila["Grupo"];
             $encontrado=1;
             break;
-        }else{
-            $encontrado=0;
         }
     }
     $sqlNin="select * from datos_niño";//niño
@@ -86,12 +77,11 @@
             $nombre = $fila["Nombre"];    
             $fechaNac = $fila["FechaNac"];
             $email = $fila["Email"];    
-            $edad = $fila["Edad"];
+            $edadAnios = $fila["Edad_Anios"];
+            $edadMeses = $fila["Edad_Meses"];
             $curp = $fila["Curp"];    
             $encontrado=1;
             break;
-        }else{ 
-            $encontrado=0; 
         }
     }
    

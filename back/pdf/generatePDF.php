@@ -99,9 +99,9 @@ ob_start();
     $pdf->Cell(getFrac(1,16),$lineHeight,"",1,0,"C", true);
     $pdf->Cell(getFrac(1,16),$lineHeight,"Edad:",1,0,"C");
     $pdf->Cell(getFrac(1,16),$lineHeight,"Años",1,0,"C");
-    $pdf->Cell(getFrac(1,16),$lineHeight,"",1,0,"C", true);
+    $pdf->Cell(getFrac(1,16),$lineHeight,$edadAnios,1,0,"C", true);
     $pdf->Cell(getFrac(1,16),$lineHeight,"Mes",1,0,"C");
-    $pdf->Cell(getFrac(1,16),$lineHeight,"",1,1,"C", true);
+    $pdf->Cell(getFrac(1,16),$lineHeight,$edadMeses,1,1,"C", true);
 
     //3ra Linea - Curp
     $pdf->Cell(getFrac(2,12),$lineHeight,"CURP:",1,0,"C");
