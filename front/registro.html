@@ -593,7 +593,7 @@
             success: function (data) {
                 let jsonData = $.parseJSON(data);
                 console.log(data);
-                if(jsonData.state == 0 && jsonData.folio == alumno.folio){
+                if(jsonData.state == 0  && jsonData.folio == alumno.folio){
 
                     Swal.fire({
                         title:'Enviado!',
@@ -615,20 +615,20 @@
         });
     }
 
-    const subirFoto = async (idFoto, actionUrl) => {
-        const file = $(idFoto).prop('files')[0];
+    // const subirFoto = async (idFoto, actionUrl) => {
+    //     const file = $(idFoto).prop('files')[0];
 
-       if (file == undefined)
-            return "";
+    //    if (file == undefined)
+    //         return "";
 
-        const nombre = 'images/'+file.name;
-        const storageRef = ref(storage, nombre);
+    //     const nombre = 'images/'+file.name;
+    //     const storageRef = ref(storage, nombre);
        
         
 
-        await uploadBytesResumable(storageRef, file);
-        return await getDownloadURL(storageRef);
-        }
+    //     await uploadBytesResumable(storageRef, file);
+    //     return await getDownloadURL(storageRef);
+    //     }
 
       // return await
 

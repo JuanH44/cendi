@@ -12,7 +12,7 @@
     $cendi="Amalia Solórzano de Cárdenas";//No se puede cambiar
     $folio=$_REQUEST['folio'];
     $grupo=$_REQUEST['grupo'];//
-    //$foto_autorizada=$_REQUEST['foto_autorizada'];
+    $foto_autorizada=$_REQUEST['foto_autorizada'];
     $foto_autorizada='1';
 
 //Datos niño
@@ -48,7 +48,7 @@
     $adscripcion=$_REQUEST['adscripcion'];
     $horario=$_REQUEST['horario'];
     $extension=$_REQUEST['extension'];
-    //$foto_derecho=$_REQUEST['foto_derecho'];
+    $foto_derecho=$_REQUEST['foto_derecho'];
     $foto_derecho='1';
 
 
@@ -71,7 +71,7 @@
     $domicilio_trabajo_conyuge=$_REQUEST['domicilio_trabajo_conyuge'];
     $telefono_trabajo_conyuge=$_REQUEST['telefono_trabajo_conyuge'];
     $extension_conyuge=$_REQUEST['extension_conyuge'];
-    //$foto_conyuge=$_REQUEST['foto_conyuge'];
+    $foto_conyuge=$_REQUEST['foto_conyuge'];
     $foto_conyuge='3';
     
     //if (isset($_REQUEST['primer_apellido_conyuge'])){
