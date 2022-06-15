@@ -16,11 +16,9 @@
     $respGen=mysqli_query($conexion,$sqlGeneral);//hacer consulta
     while($filaGen=mysqli_fetch_assoc($respGen)){
         $result[]=$filaGen;
-        //echo 
     }
 
     $resultado=json_encode($result);
     echo $resultado;
-    //file_put_contents("BD.json",$resultado);
     mysqli_close($conexion);
 ?>
