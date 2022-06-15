@@ -68,7 +68,11 @@
 </head>
 
 <body>
-    <header id="navegacion"></header>
+<div class="row blue lighten-4">
+    <div id="cuadros">
+        <header id="navegacion"></header>
+    </div>
+    <div class="row"></div>
     <div class="row">
         <a class="waves-effect waves-light right btn" id="actualizar">Actualizar</a>
     </div>
@@ -131,6 +135,7 @@
         </ul>
     </div>
     <footer id="futer"></footer>
+</div>
 </body>
 
 </html>

@@ -1,17 +1,53 @@
-h1{
-    color:greenyellow;
+#textoCendi{
+    font-weight: 350;
+    font-size: 50px;
 }
-
-.brand-logo{
-    margin-left: 50px;
-}
-
-#actualizar{
-    margin-top: 20px;
+#elimina-12345{
     margin-right: 20px;
 }
 
+#actualizar{
+    margin-right: 25px;
+}
+
 #nav-mobile{
-    font-style:italic;
-    margin-right: 10px;
+    font-size: 30px !important;
+}
+
+#textoCendi2{
+    font-weight: 200;
+    font-size: 50px;
+}
+
+#titulo{
+    padding-bottom: 20px;
+    margin-top: 25px;
+    color: azure;
+    font-weight: 500;
+}
+
+#tablas{
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
+#tabla1{
+    margin-bottom: 20px;
+}
+
+#tabla2{
+    margin-bottom: 20px;
+}
+
+#tabla3{
+    margin-bottom: 20px;
+}
+
+#tabla4{
+    margin-bottom: 25px;
+}
+
+#letras{
+    margin-left: 30px;
 }
