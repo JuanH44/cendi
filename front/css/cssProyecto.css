@@ -5,8 +5,8 @@
 }
 
 #textoCendi{
-    font-weight: 200px;
-    font-size: 50px;
+    font-weight: 200px !important;
+    font-size: 50px !important;
 }
 
 #cuardro-1{
@@ -50,8 +50,8 @@
 }
 
 #textoCendi2{
-    font-weight: 200;
-    font-size: 50px;
+    font-weight: 200 !important;
+    font-size: 50px !important;
 }
 
 #titulo{
@@ -89,4 +89,18 @@
 
 #letras2{
     margin-left: 30px !important;
+}
+
+#Tabla6{
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+#botones2{
+    margin-left: 32px;
+}
+
+#otroTitulo{
+    margin-top: 35px;
 }

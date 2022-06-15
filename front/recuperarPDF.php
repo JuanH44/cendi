@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/cssProyecto.css" media="screen,projection" />
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -50,10 +51,12 @@
 </head>
 
 <body>
+    <div class="row blue lighten-4">
     <header id="navegacion"></header>
-    <h1>Bienvenido</h1>
+    <div class="row"></div>
+    <h1 id="otroTitulo" class="center-align">Bienvenido a Recupera tus Datos</h1>
     <form id="formula" action="../back/hola.php" method="get">
-
+<div id="Tabla6">
         <fieldset>
             <legend>BUSCAR COMPROBANTE DE CITA</legend>
 
@@ -68,15 +71,19 @@
                 </div>
             </div>
         </fieldset>
+        </div>
         <div class="row">
-            <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
-            <button class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
-                <i class="material-icons right">send</i>
-            </button>
+            <div id="botones2">
+                <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
+                <button class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
         </div>
     </form>
 
     <footer id="futer"></footer>
+    </div>
 </body>
 
 </html>
