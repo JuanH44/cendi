@@ -23,6 +23,7 @@
             $domicilio_trabajo_conyuge = $fila["Domicilio_Trabajo_Conyuge"];
             $telefono_trabajo_conyuge = $fila["Telefono_Trabajo_Conyuge"];
             $extension = $fila["Extension"];
+            $foto_conyuge = $fila["Imagen_Conyuge"];
             $tieneconyuge='si';
             break;
         }
@@ -53,6 +54,7 @@
             $adscripcion = $fila["Adscripcion"];
             $horario = $fila["Horario_Trabajo"];
             $extension = $fila["Extension"];
+            $foto_derecho = $fila["Imagen_Derecho"];
             $encontrado=1;
             break;
         }
@@ -64,6 +66,7 @@
         if ( $fila['Folio'] == $folio ) {
             $cendi = $fila["Cendi"];
             $grupo = $fila["Grupo"];
+            $foto_autorizada = $fila["Imagen_Autorizada"];
             $encontrado=1;
             break;
         }
@@ -79,7 +82,8 @@
             $email = $fila["Email"];    
             $edadAnios = $fila["Edad_Anios"];
             $edadMeses = $fila["Edad_Meses"];
-            $curp = $fila["Curp"];    
+            $curp = $fila["Curp"];   
+            $foto = $fila["Imagen_Ninio"]; 
             $encontrado=1;
             break;
         }
