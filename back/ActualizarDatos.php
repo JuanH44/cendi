@@ -23,6 +23,7 @@
             $domicilio_trabajo_conyuge = $fila["Domicilio_Trabajo_Conyuge"];
             $telefono_trabajo_conyuge = $fila["Telefono_Trabajo_Conyuge"];
             $extension = $fila["Extension"];
+            $imagen_conyuge=$fila["Imagen_Conyuge"];
             $tieneconyuge='si';
         }
         else{
@@ -56,6 +57,7 @@
             $adscripcion = $fila["Adscripcion"];
             $horario = $fila["Horario_Trabajo"];
             $extension = $fila["Extension"];
+            $imagen_derecho=$fila["Imagen_Derecho"];
         }else{
             echo "Folio: ".$folio." no encontrado";
         }
@@ -67,6 +69,7 @@
         if ( $fila['Folio'] == $folio ) {
             $cendi = $fila["Cendi"];
             $grupo = $fila["Grupo"];
+            $imagen_autorizada=$fila["Imagen_Autorizada"];
         }else{
             echo "Folio: ".$folio." no encontrado";
         }
@@ -80,8 +83,10 @@
             $nombre = $fila["Nombre"];    
             $fechaNac = $fila["FechaNac"];
             $email = $fila["Email"];    
-            $edad = $fila["Edad"];
-            $curp = $fila["Curp"];    
+            $edadAnios = $fila["Edad_Anios"];
+            $edadMeses= $fila['Edad_Meses'];
+            $curp = $fila["Curp"];
+            $imagen_ninio=$fila['Imagen_Ninio'];
         }else{
             echo "Folio: ".$folio." no encontrado";
         }
@@ -91,22 +96,21 @@
 
     $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
 
-    $sqlActGeneral="update datos_generales set Cendi='".$cendi."',Grupo='".$grupo."' where folio = '".$folio."'";
+    $sqlActGeneral="update datos_generales set Cendi='".$cendi."',Grupo='".$grupo."',Imagen_Autorizada='".$imagen_autorizada."' where folio = '".$folio."'";
 
-    $sqlActNinio="update datos_niño set Primer_Apellido='".$primer_apellido."',Segundo_Apellido='".$segundo_apellido."',Nombre='".$nombre."',FechaNac='".$fecha."',Email='".$email."',Edad='".$edad."',Curp='"
-    .$curp."',Folio='".$folio."'";
+    $sqlActNinio="update datos_niño set Primer_Apellido='".$primer_apellido."',Segundo_Apellido='".$segundo_apellido."',Nombre='".$nombre."',FechaNac='".$fecha."',Email='".$email."',Edad_Anios='".$edadAnios."',Edad_Meses='".$edadMeses.
+    "',Curp='".$curp."',Imagen_Ninio='".$imagen_ninio."',Folio='".$folio."'";
 
     $sqlActDerecho="update datos_derecho set Primer_Apellido_Derecho='".$primer_apellido_derecho."',Segundo_Apellido_Derecho='".$segundo_apellido_derecho."',Nombre_Derecho='".$nombre_derecho."',calle='"
     .$calle."',NoExt='".$noExt."',noInt='".$noInt."',colonia='".$colonia."',alcaldia='".$alcaldia."',entidad='".$entidad."',cp='".$cp."',Telefono_Fijo_Derecho='".$telefono_fijo."',Telefono_Celular_Derecho='"
     .$telefono_celular."',Email_Derecho='".$email_derecho."',Ocupacion_Derecho='".$ocupacion."',Curp_Derecho='".$curp_derecho."',Puesto='".$puesto."',Sueldo='".$sueldo."',Numero_Empleado='".$numero_empleado.
-    "',Adscripcion='".$adscripcion."',Horario_Trabajo='".$horario."',Extension='".$extension."',Folio='".$folio."'";
+    "',Adscripcion='".$adscripcion."',Horario_Trabajo='".$horario."',Extension='".$extension."',Folio='".$folio."',Imagen_Derecho='".$imagen_derecho."'";
     
-    $tieneconyuge=$_GET['tieneconyuge'];
-    if ($tieneconyuge=='Sí'){
+    if ($tieneconyuge=='si'){
         $sqlActConyuge="update conyuge set Primer_Apellido_Conyuge = '".$primer_apellido_conyuge."',Segundo_Apellido_Conyuge='".$segundo_apellido_conyuge."',Nombre_Conyuge='".$nombre_conyuge."',calle_conyuge='"
         .$calle_conyuge."',NoExt_conyuge='".$noExt_conyuge."',noInt_conyuge='".$noInt_conyuge."',colonia_conyuge='".$colonia_conyuge."',alcaldia_conyuge='".$alcaldia_conyuge."',entidad_conyuge='".$entidad_conyuge.
         "',cp_conyuge='".$cp_conyuge."',Telefono_Fijo_Conyuge='".$telefono_fijo_conyuge."',Telefono_Celular_Conyuge='".$telefono_celular_conyuge."',Lugar_Trabajo_Conyuge='".$lugar_trabajo_conyuge."',Domicilio_Trabajo_Conyuge='"
-        .$domicilio_trabajo_conyuge."',Telefono_Trabajo_Conyuge='".$telefono_trabajo_conyuge."',Extension='".$extension_conyuge."',Folio='".$folio."'";
+        .$domicilio_trabajo_conyuge."',Telefono_Trabajo_Conyuge='".$telefono_trabajo_conyuge."',Extension='".$extension_conyuge."',Folio='".$folio."',Imagen_Conyuge='".$imagen_conyuge."'";
         mysqli_query($conexion,$sqlActConyuge);
     }
     

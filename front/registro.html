@@ -31,7 +31,7 @@
     <form action="../back/RegistroBD.php" method="get" id="formulario">
 
         <fieldset>
-            <legend>DATOS GENERALES</legend>
+            <legend><h6>DATOS GENERALES</h6></legend>
             <div class="input-field col s12 m6">
                 <select  name="cendi" id="cendi" class="icons">
                     <option value="sel" disabled selected>Seleccione su CENDI</option>
@@ -69,8 +69,13 @@
         </fieldset>
 
         <!-- NINI@ -->
+    </div>
+        </div>
+        <div id="tabla2">
+            <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL NIÑO O DE LA NIÑA</legend>
+            
+            <legend><h6>DATOS DEL NIÑO O DE LA NIÑA</h6></legend>
             <div class="row">
 
 
@@ -134,8 +139,12 @@
         </fieldset>
 
         <!-- DERECHOHABIENTE -->
+    </div>
+    </div>
+    <div id="tabla3">
+        <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL O LA DERECHOHABIENTE:</legend>
+            <legend><h6>DATOS DEL O LA DERECHOHABIENTE:</h6></legend>
             <div class="row">
                 <div class="file-field input-field col s6">
                     <div class="btn">
@@ -376,8 +385,11 @@
         </fieldset>
 
         <!-- CONYUGE -->
+    </div>
+    <div id="tabla4">
+        <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL CÓNYUGE (PADRE, MADRE):</legend>
+            <legend><h6>DATOS DEL CÓNYUGE (PADRE, MADRE):</h6></legend>
             <div class="row">
                 <!-- Switch -->
                 <label for="tieneconyuge">Tiene Conyuge</label>
@@ -516,13 +528,16 @@
             </div>
             </div>
         </fieldset>
-
-        <div class="row s12 m6 center" >
-            <br>
-            <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+    </div>
+    </div>
+    </div>
+        <div class="row center">
+            <div id="letras">
+            <a id="btn-reset" class="z-depth-3 waves-effect waves-light btn">Limpiar</a>
+            <button class="z-depth-3 btn waves-effect waves-light" type="submit" name="action">Enviar
                 <i class="material-icons right">send</i>
             </button>
+        </div>
         </div>
     </form>
     <div class="row">
@@ -797,6 +812,88 @@
            // enviaJSON(informacion, actionUrl);
         }
 
+
+     
+
+
+        $("#formulario").submit(function (e) {
+
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            
+            
+
+
+            var form = $(this);
+            var actionUrl = form.attr('action');
+            let fotoURL = "https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png";
+            var informacion = {
+
+                cendi: $('#cendi').val(),
+                foto: fotoURL,
+                folio: $('#folio').val(),
+                grupo: $('#grupo').val(),
+
+                //Datos niño
+                primer_apellido: $('#primer_apellido').val(),
+                segundo_apellido: $('#segundo_apellido').val(),
+                nombre: $('#nombre').val(),
+                fecha: $('#fecha').val(),
+                edadAnios: $('#edadAnios').val(),
+                edadMeses: $('#edadMeses').val(),
+                email: $('#email').val(),
+                curp: $('#curp').val(),
+
+                //Datos de derechohabiente
+                primer_apellido_derecho: $('#primer_apellido_derecho').val(),
+                segundo_apellido_derecho: $('#segundo_apellido_derecho').val(),
+                nombre_derecho: $('#nombre_derecho').val(),
+                calle: $('#calle').val(),
+                noExt: $('#noExt').val(),
+                noInt: $('#noInt').val(),
+                colonia: $('#colonia').val(),
+                alcaldia: $('#alcaldia').val(),
+                entidad: $('#entidad').val(),
+                cp: $('#cp').val(),
+                telefono_fijo: $('#telefono_fijo').val(),
+                telefono_celular: $('#telefono_celular').val(),
+                email_derecho: $('#email_derecho').val(),
+                ocupacion: $('#ocupacion').val(),
+                curp_derecho: $('#curp_derecho').val(),
+                puesto: $('#puesto').val(),
+                sueldo: $('#sueldo').val(),
+                numero_empleado: $('#numero_empleado').val(),
+                adscripcion: $('#adscripcion').val(),
+                horario: $('#horario').val(),
+                extension: $('#extension').val(),
+
+                //Datos del conyuge
+                //tienec: $('#tienec').val(),
+                primer_apellido_conyuge: $('#primer_apellido_conyuge').val(),
+                segundo_apellido_conyuge: $('#segundo_apellido_conyuge').val(),
+                nombre_conyuge: $('#nombre_conyuge').val(),
+                calle_conyuge: $('#calle_conyuge').val(),
+                noExt_conyuge: $('#noExt_conyuge').val(),
+                noInt_conyuge: $('#noInt_conyuge').val(),
+                colonia_conyuge: $('#colonia_conyuge').val(),
+                alcaldia_conyuge: $('#alcaldia_conyuge').val(),
+                entidad_conyuge: $('#entidad_conyuge').val(),
+                cp_conyuge: $('#cp_conyuge').val(),
+                telefono_fijo_conyuge: $('#telefono_fijo_conyuge').val(),
+                telefono_celular_conyuge: $('#telefono_celular_conyuge').val(),
+                lugar_trabajo_conyuge: $('#lugar_trabajo_conyuge').val(),
+                domicilio_trabajo_conyuge: $('#domicilio_trabajo_conyuge').val(),
+                telefono_trabajo_conyuge: $('#telefono_trabajo_conyuge').val(),
+                extension_conyuge: $('#extension_conyuge').val()
+
+            };
+            alumno = informacion;
+
+            subirFoto("#foto", actionUrl);
+
+            subeFoto( informacion, actionUrl);
+
+
+        });
     
     });
     

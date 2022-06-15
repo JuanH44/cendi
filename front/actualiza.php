@@ -52,12 +52,18 @@ $boleto = ""
 </head>
 
 <body>
-    <header id="navegacion"></header>
-    <h1>Bienvenido</h1>
-    <form action="../back/hola.php" method="get">
-
+<div class="row blue lighten-4">
+    <header id="navegacion"></header> 
+    <div class="row"></div>  
+    <div class="center-align">
+    <h1 id="titulo">Bienvenido a la Actualizacion de Registro</h1>
+    </div>
+    <form action="../back/hola.php" method="get" id="formulario">
+        <div id="tablas">
+            <div id="tabla1">
+                <div class="card blue lighten-5 z-depth-3z-depth-3">
         <fieldset>
-            <legend>DATOS GENERALES</legend>
+            <legend><h6>DATOS GENERALES</h6></legend>
             <div class="input-field col s12 m6">
                 <select class="icons">
                     <option value="" disabled selected>Seleccione su CENDI</option>
@@ -82,20 +88,25 @@ $boleto = ""
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="folio" name="boleta" type="text" data-length="10" value="<?php echo $bole ?>" disabled>
+                    <input id="folio" name="folio" type="text" data-length="10">
                     <label for="folio">Folio (Boleta)</label>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s6">
-                    <input id="grupo" type="text" data-length="5" value="<?php echo $boleto ?>">
+                    <input id="grupo" type="text" data-length="5">
                     <label for="grupo">Grupo</label>
                 </div>
             </div>
         </fieldset>
+    </div>
+        </div>
+        <div id="tabla2">
+            <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL NIÑO O DE LA NIÑA</legend>
+            
+            <legend><h6>DATOS DEL NIÑO O DE LA NIÑA</h6></legend>
             <div class="row">
 
                 <div class="input-field col s6">
@@ -140,43 +151,47 @@ $boleto = ""
             <div class="row">
 
         </fieldset>
+    </div>
+    </div>
+    <div id="tabla3">
+        <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL O LA DERECHOHABIENTE:</legend>
+            <legend><h6>DATOS DEL O LA DERECHOHABIENTE:</h6></legend>
             <div class="row">
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6 m4">
                     <input id="primer_apellido_derecho" type="text" class="validate">
                     <label for="primer_apellido_derecho">Primer Apellido</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6 m4">
                     <input id="segundo_apellido_derecho" type="text" class="validate">
                     <label for="segundo_apellido_derecho">Segundo Apellido</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6 m4">
                     <input id="nombre_derecho" type="text" class="validate">
                     <label for="nombre_derecho">Nombre(s)</label>
                 </div>
-                <div class="input-field col s12">
+                <div class="input-field col s12 m12 l12">
                     <input id="domicilio" type="text" class="validate">
                     <label for="domicilio">Domicilio particular (Calle, no. Ext., no. Int., Colonia, Alcaldía o
                         municipio, Entidad federativa, C.P.</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6 m4">
                     <input id="telefono_fijo" type="text" class="validate">
                     <label for="telefono_fijo">Telefono Fijo</label>
                 </div>
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6 m4">
                     <input id="telefono_celular" type="text" class="validate">
                     <label for="telefono_celular">Telefono celular</label>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
+                    <div class="input-field col s12 s6 m4">
                         <input id="email_derecho" type="email" class="validate">
                         <label for="email_derecho">Email</label>
                         <span class="helper-text" data-error="Invalido" data-success="Valido">Escriba una direccion
                             valida</span>
                     </div>
                 </div>
-                <div class="input-field col s12">
+                <div class="input-field col s12 s6">
                     <select>
                         <option value="" disabled selected>Escoja su ocupacion</option>
                         <option value="1">Docente</option>
@@ -186,27 +201,27 @@ $boleto = ""
                     <label>Ocupacion</label>
                 </div>
 
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6">
                     <input id="curp_derecho" type="text" data-length="18">
                     <label for="curp_derecho">CURP</label>
                 </div>
 
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6">
                     <input id="puesto" type="text" class="validate">
                     <label for="puesto">Nombre de la plaza o puesto</label>
                 </div>
 
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6">
                     <input id="sueldo" type="text" class="validate">
                     <label for="sueldo">Sueldo mensual</label>
                 </div>
 
-                <div class="input-field col s6">
+                <div class="input-field col s12 s6">
                     <input id="numero_empleado" type="text" class="validate">
                     <label for="numero_empleado">Numero de empleado</label>
                 </div>
 
-                <div class="input-field col s12">
+                <div class="input-field col s12 s6">
                     <select>
                         <option value="" disabled selected>Seleccione Adscripcion</option>
                         <option value="1">cet</option>
@@ -216,7 +231,7 @@ $boleto = ""
                     <label>Adscripcion</label>
                 </div>
 
-                <div class="input-field col s12">
+                <div class="input-field col s12 s6">
                     <select>
                         <option value="" disabled selected>Seleccione horario</option>
                         <option value="1">07:00 a 15:00</option>
@@ -232,10 +247,25 @@ $boleto = ""
                 </div>
             </div>
         </fieldset>
-
+    </div>
+    <div id="tabla4">
+        <div class="card blue lighten-5 z-depth-3">
         <fieldset>
-            <legend>DATOS DEL CÓNYUGE (PADRE, MADRE):</legend>
+            <legend><h6>DATOS DEL CÓNYUGE (PADRE, MADRE):</h6></legend>
             <div class="row">
+                <!-- Switch -->
+                <label for="tieneconyuge">Tiene Conyuge</label>
+                <div id="tieneconyuge" name="tieneconyuge" class="switch">
+                    <label>
+                        No
+                        <input id="tienec" type="checkbox">
+                        <span class="lever"></span>
+                        Sí
+                    </label>
+                </div>
+
+            </div>
+            <div class="row" id="fila-conyuge">
                 <div class="input-field col s6">
                     <input id="primer_apellido_conyuge" type="text" class="validate">
                     <label for="primer_apellido_conyuge">Primer Apellido</label>
@@ -250,7 +280,8 @@ $boleto = ""
                 </div>
                 <div class="input-field col s12">
                     <input id="domicilio_conyuge" type="text" class="validate">
-                    <label for="domicilio_conyuge">Domicilio particular (Calle, no. Ext., no. Int., Colonia, Alcaldía o
+                    <label for="domicilio_conyuge">Domicilio particular (Calle, no. Ext., no. Int., Colonia,
+                        Alcaldía o
                         municipio, Entidad federativa, C.P.</label>
                 </div>
                 <div class="input-field col s6">
@@ -278,16 +309,24 @@ $boleto = ""
                     <label for="extension_conyuge">Extension</label>
                 </div>
             </div>
+            </div>
         </fieldset>
+    </div>
+    </div>
+    </div>
         <div class="row">
-            <a class="waves-effect waves-light btn">Limpiar</a>
-            <button class="btn waves-effect waves-light" type="submit" name="action">Enviar
+            <div id="letras2">
+            <a id="btn-reset" class="z-depth-3 waves-effect waves-light btn">Limpiar</a>
+            <button class="z-depth-3 btn waves-effect waves-light" type="submit" name="action">Enviar
                 <i class="material-icons right">send</i>
             </button>
+        </div>
         </div>
     </form>
 
     <footer id="futer"></footer>
+</div>
+</div>
 </body>
 
 </html>
