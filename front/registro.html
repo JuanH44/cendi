@@ -622,11 +622,11 @@
        
         
 
-        await uploadBytesResumable(storageRef, file).then((snapshot) => {
+        uploadBytesResumable(storageRef, file).then((snapshot) => {
             getDownloadURL(snapshot.ref).then((url) => {
                 alert(url); 
                // dato = url;
-              
+              return url;
             }).error(function () {
                 return "";
             }).error(function () {
