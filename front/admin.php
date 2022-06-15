@@ -74,6 +74,7 @@
     </div>
     <div class="row"></div>
     <div class="row">
+        <p id="textoAdmin" class="white-text center-align">Este apartado es solo para personar autorizado</p>
         <a class="waves-effect waves-light right btn" id="actualizar">Actualizar</a>
     </div>
     <div class="row">
@@ -83,7 +84,9 @@
     </div>
     <div class="row">
         <ul class="collection">
-            <li class="collection-item avatar">
+            <div id=cuardro-1>
+        <fieldset class="z-depth-3">
+            <li class="collection-item avatar blue lighten-4">
                 <img src="https://picsum.photos/100/100" alt="" class="circle">
                 <span class="title">Alexis</span>
                 <p>First Line <br>
@@ -92,11 +95,14 @@
                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                 <div class="row">
                     <a href="./actualiza.php?folio=<?php echo '99199' ?>" class="waves-effect waves-light right btn">Editar</a>
-                    <a class="waves-effect waves-light right btn red" id="elimina-12345">Eliminar</a>
+                    <a class="waves-effect waves-light right btn red" id="elimina-1">Eliminar</a>
                 </div>
-
             </li>
-            <li class="collection-item avatar">
+            </fieldset>
+            </div>
+            <div id=cuardro-2>
+            <fieldset class="z-depth-3">
+            <li class="collection-item avatar blue lighten-4">
                 <img src="https://picsum.photos/100/100" alt="" class="circle">
                 <span class="title">Jose</span>
                 <p>First Line <br>
@@ -105,10 +111,14 @@
                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                 <div class="row">
                     <a href="./registro.html" class="waves-effect waves-light right btn">Editar</a>
-                    <a class="waves-effect waves-light right btn red">Eliminar</a>
+                    <a class="waves-effect waves-light right btn red" id="elimina-2">Eliminar</a>
                 </div>
             </li>
-            <li class="collection-item avatar">
+    </fieldset>
+    </div>
+    <div id=cuardro-3>
+    <fieldset class="z-depth-3">
+            <li class="collection-item avatar blue lighten-4">
                 <img src="https://picsum.photos/100/100" alt="" class="circle">
                 <span class="title">Juan</span>
                 <p>First Line <br>
@@ -117,10 +127,14 @@
                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                 <div class="row">
                     <a href="./registro.html" class="waves-effect waves-light right btn">Editar</a>
-                    <a class="waves-effect waves-light right btn red">Eliminar</a>
+                    <a class="waves-effect waves-light right btn red" id="elimina-3">Eliminar</a>
                 </div>
             </li>
-            <li class="collection-item avatar">
+    </fieldset>
+    </div>
+    <div id=cuardro-4>
+    <fieldset class="z-depth-3">
+            <li class="collection-item avatar blue lighten-4">
                 <img src="https://picsum.photos/100/100" alt="" class="circle">
                 <span class="title">Luis</span>
                 <p>First Line <br>
@@ -129,9 +143,12 @@
                 <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
                 <div class="row">
                     <a href="./registro.html" class="waves-effect waves-light right btn">Editar</a>
-                    <a class="waves-effect waves-light right btn red">Eliminar</a>
-                </div>
+                    <a class="waves-effect waves-light right btn red" id="elimina-4">Eliminar</a>
+                </div>  
             </li>
+            </fieldset> 
+            </div>
+            
         </ul>
     </div>
     <footer id="futer"></footer>
