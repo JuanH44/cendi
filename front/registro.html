@@ -538,6 +538,7 @@
                         Swal.fire({
                             title: (jsonData.mensaje),
                             icon: 'succes',
+                            //Imagen de Rei
                             imageUrl: 'https://firebasestorage.googleapis.com/v0/b/cendi-c14d4.appspot.com/o/images%2Frei.png?alt=media&token=aad34563-8ad1-43bc-941e-4c6e2a9ae988',
             
                             confirmButtonColor: '#3085d6',
@@ -609,20 +610,55 @@
                 });
             });
         }
+
+
+        function subirFoto(idFoto, actionUrl){
+            var file = $(idFoto).prop('files')[0];
+            let nombre = 'images/'+file.name;
+            let storageRef = ref(storage, nombre);
+
+            uploadBytesResumable(storageRef, file).then((snapshot) => {
+                getDownloadURL(snapshot.ref).then((url) => {
+                    alert(url); 
+                  return url;
+                }).error(function () {
+                    return "";
+                }).error(function () {
+                    return "";
+                });
+            });
+        }
+
+        function mostrarDatos(){
+            let saludo = ("Hola "+$("#nombre_derecho").val()+", verifica que los datos que ingresaste sean correctos:");
+            let contenido = $("#formulario").serialize();
+            Swal.fire({
+                title: saludo,
+                text: contenido,
+                imageUrl: url,
+                imageWidth: 400,
+                imageHeight: 200,
+                imageAlt: 'Custom image',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Modificar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        enviaJSON(informacion, actionUrl);
+                    }
+            })
+        }
+
+
+     
+
+
         $("#formulario").submit(function (e) {
 
             e.preventDefault(); // avoid to execute the actual submit of the form.
             
-            /*
-            Swal.fire({
-                title: "Seguro",
-                text: textoo,
-                imageUrl: 'https://firebasestorage.googleapis.com/v0/b/cendi-c14d4.appspot.com/o/images%2Frei.png?alt=media&token=aad34563-8ad1-43bc-941e-4c6e2a9ae988',
-                imageWidth: 400,
-                imageHeight: 200,
-                imageAlt: 'Custom image',
-            })
-            */
             
 
 
@@ -691,7 +727,7 @@
             };
             alumno = informacion;
 
-            
+            subirFoto("#foto", actionUrl);
 
             subeFoto( informacion, actionUrl);
 
