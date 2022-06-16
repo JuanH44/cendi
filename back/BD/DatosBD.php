@@ -17,7 +17,8 @@
         from datos_generales 
         INNER JOIN datos_niño on datos_niño.Folio = datos_generales.Folio
         INNER JOIN datos_derecho on datos_derecho.Folio = datos_generales.Folio
-        LEFT JOIN conyuge on conyuge.Folio = datos_generales.Folio";
+        LEFT JOIN conyuge on conyuge.Folio = datos_generales.Folio
+        ORDER by Grupo";
 
     $respGen=mysqli_query($conexion,$sqlGeneral);//hacer consulta
     while($filaGen=mysqli_fetch_assoc($respGen)){
@@ -27,4 +28,3 @@
     $resultado=json_encode($result);
     echo $resultado;
     mysqli_close($conexion);
-?>
