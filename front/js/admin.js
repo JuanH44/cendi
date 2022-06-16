@@ -150,7 +150,7 @@ $(document).ready(function () {
                 M.updateTextFields();
                 let form = $(this);
                 ///Enviar un formulario a actualizar
-                $(formID).submit(function (e) {
+                /*$(formID).submit(function (e) {
                     //alert("Voy a subir");
                     e.preventDefault(); // avoid to execute the actual submit of the form.
                     let subitForm = $(this);
@@ -170,7 +170,7 @@ $(document).ready(function () {
                             //subitForm.find('.correo').val("Enviado chido" + jsonData.curpo);
                         }
                     });
-                });
+                });*/
                 $('select').formSelect();
             });
             //$(alumnID).ready(function() {
