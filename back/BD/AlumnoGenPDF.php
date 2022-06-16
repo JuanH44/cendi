@@ -1,7 +1,6 @@
 <?php
+    require("./conexionBD.php");
     $folio=$_REQUEST['folio'];
-
-    $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
 
     $sqlConyuge="select * from conyuge";//declarar consulta
     $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta

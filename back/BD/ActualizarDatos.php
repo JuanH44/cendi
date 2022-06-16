@@ -1,8 +1,6 @@
 <?php
-
+    require("./conexionBD.php");
     $folio='1231';//recibir cual folio a actualizar
-
-    $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
     $sqlConyuge="select * from conyuge";//declarar consulta
     $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
     while($fila = mysqli_fetch_array($respCon)){

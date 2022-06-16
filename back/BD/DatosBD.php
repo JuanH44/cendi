@@ -1,7 +1,7 @@
 <?php
 //sacar todos los datos de la BD para el admin
 
-    $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
+    require("./conexionBD.php");
 
     //datos generales
     $result=array();
