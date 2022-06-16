@@ -99,5 +99,5 @@
     mysqli_query($conexion,$sqlActDerecho);
 
     mysqli_close($conexion);//Cerrar conexion con BD
-    header("location: /cendi/front/admin.php")
+    header("location: ./../front/admin.php")
 ?>  

@@ -248,7 +248,5 @@ $(document).ready(function () {
 
     $('#actualizar').click(function () {
         jalaTodo();
-        //$('#alumnos').ready(function() {
-        //});
     });
 });

@@ -10,8 +10,8 @@
 
     if ($respSql['contar']>0){
         $_SESSION['username'] = $usuario;
-        header("location: /cendi/front/admin.php");//cambiar ruta a admin
+        header("location: ../../front/admin.php");//cambiar ruta a admin
     }else{
-        header("location: /cendi/front/login.html");
+        header("location: ../../front/login.html");
     }
 ?>
