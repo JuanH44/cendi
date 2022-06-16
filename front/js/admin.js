@@ -7,14 +7,12 @@ $(document).ready(function () {
     $('select').formSelect(); //jala select
     $('input#input_text, textarea#textarea2').characterCounter(); // jala counter
 
-    //$('.modal').modal();
-    //$(".dropdown-trigger").dropdown();
     var alumnos;
-
     var contenedor = $('#alumnos');
     function construye() {
         let nuevaLista = "<ul class='collection' id='alumnos'> ";
         for (let index = 0; index < alumnos.length; index++) {
+            "<p>hola</p>";
             let nuevoAlumno = "";
             nuevoAlumno += ("<li class='collection-item avatar' id='usr" + index + "'>");
             nuevoAlumno += ("    <img src='" + alumnos[index].foto + "' alt='" + alumnos[index].Folio + "' class='circle'>");
@@ -42,33 +40,22 @@ $(document).ready(function () {
         contenedor = $('#alumnos');
 
     }
-
-
-
-
-
     ///Generar a partir de la query al back
 
     ///Nested functions para controlar el dom
     function restableceValores(alumnRow, idx) {
-        //alumnRow.find('.folio').val(alumnos[idx].folio);
-        //alert('eeeee');
-        //alert("aaaa");
         alumnRow.find('.cendi').val(alumnos[idx].Cendi);
         //alumnRow.find('.foto').val(alumnos[idx].foto);
         alumnRow.find('.folio').val(alumnos[idx].Folio);
-        let testo =  "cosa" + alumnRow.find('.folio').val();
-        //alert(testo);
-        
         alumnRow.find('.grupo').val(alumnos[idx].Grupo);
-        //alert("rrrrr");
+
         //Datos niño
         alumnRow.find('.primer_apellido').val(alumnos[idx].Primer_Apellido);
         alumnRow.find('.segundo_apellido').val(alumnos[idx].Segundo_Apellido);
         alumnRow.find('.nombre').val(alumnos[idx].Nombre);
         alumnRow.find('.fecha').val(alumnos[idx].FechaNac);
-        alumnRow.find('.edadAnios').val(alumnos[idx].Edad);
-        alumnRow.find('.edadMeses').val(alumnos[idx].edadMeses);
+        alumnRow.find('.edadAnios').val(alumnos[idx].Edad_Anios);
+        alumnRow.find('.edadMeses').val(alumnos[idx].Edad_Meses);
         alumnRow.find('.email').val(alumnos[idx].Email);
         alumnRow.find('.curp').val(alumnos[idx].Curp);
 
@@ -113,7 +100,6 @@ $(document).ready(function () {
         alumnRow.find('.domicilio_trabajo_conyuge').val(alumnos[idx].Domicilio_Trabajo_Conyuge);
         alumnRow.find('.telefono_trabajo_conyuge').val(alumnos[idx].Telefono_Trabajo_Conyuge);
         alumnRow.find('.extension_conyuge').val(alumnos[idx].Extension);
-        // alert('camara');
         M.updateTextFields();
 
     }
@@ -159,49 +145,36 @@ $(document).ready(function () {
             const element = alumnos[index];
             let formID = ("#formula" + index);
             let alumnID = ("#alumno" + index);
-
             $(formID).load("./compartidos/formRegistro.html").ready(function () {
-
-
                 $('select').formSelect();
                 M.updateTextFields();
                 let form = $(this);
-                ///
-
-                ///Enviar un fomrulario a actualizar
+                ///Enviar un formulario a actualizar
                 $(formID).submit(function (e) {
                     //alert("Voy a subir");
                     e.preventDefault(); // avoid to execute the actual submit of the form.
-
                     let subitForm = $(this);
                     let actionUrl = subitForm.attr('action');
                     let alumno = $(formID).serialize();
                     alert("Tengo para subir el yeison" + alumno);
-
                     $.ajax({
                         type: "GET",
                         url: actionUrl,
                         //data: form.serialize(), // serializes the form's elements.
                         data: alumno,
                         success: function (data) {
-
                             //alert("respondido");
-                             // show response from the php script.
+                            // show response from the php script.
                             let jsonData = $.parseJSON(data);
                             console.log(data);
                             //subitForm.find('.correo').val("Enviado chido" + jsonData.curpo);
                         }
                     });
-
                 });
                 $('select').formSelect();
-
-                ///Eliminar un elemento
             });
             //$(alumnID).ready(function() {
             M.updateTextFields();
-
-
             let alumInicial = $(alumnID);
             verMenos(alumInicial, formID);
             restableceValores(alumInicial, index);
@@ -228,16 +201,16 @@ $(document).ready(function () {
             });
             $(alumnID).find(".btn-reset").click(function () {
                 let alumRow = $(alumnID);
-                
+
                 restableceValores(alumRow, index);
                 //$(this).closest(alumnID).find('.contrasena').val(alumnos[index].nombre);
 
             });
             $(alumnID).find('.elimina').click(function () {
-                $(('#usr'+index)).replaceWith("");
+                $(('#usr' + index)).replaceWith("");
                 $.ajax({
                     type: "GET",
-                    url: '../back/BD/EliminarDatos.php?folioBorrar='+alumnos[index].Folio,
+                    url: '../back/BD/EliminarDatos.php?folioBorrar=' + alumnos[index].Folio,
                     success: function (response) {
                         let jsonData = JSON.parse(response);
                         $(alumnID).replaceWith("");
@@ -253,11 +226,9 @@ $(document).ready(function () {
                 });
             });
 
-            //});
         }
     }
 
- 
     function jalaTodo() {
         let direc = "../back/BD/DatosBD.php";
         $.ajax({
@@ -265,7 +236,7 @@ $(document).ready(function () {
             url: direc,
 
             success: function (data) {
-                
+
                 let jsonData = $.parseJSON(data);
                 alumnos = jsonData;
                 construye();
@@ -284,7 +255,4 @@ $(document).ready(function () {
 
         //});
     });
-    
-    ///Colocar los controladores de los botones de cada formulario
-
 });

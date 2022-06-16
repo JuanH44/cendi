@@ -1,9 +1,6 @@
 <?php
 session_start();
 ?>
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,26 +17,26 @@ session_start();
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/admin.js"></script>
     <title>.::Admin::.</title>
-    
+
 </head>
 
 <body>
-<div class="row blue lighten-4">
-    <div id="cuadros">
-        <header id="navegacion"></header>
+    <div class="row blue lighten-4">
+        <div id="cuadros">
+            <header id="navegacion"></header>
+        </div>
+        <div class="row"></div>
+        <div class="row">
+            <a class="waves-effect waves-light left btn" id="actualizar">Actualizar</a>
+        </div>
+
+        <div class="row">
+            <ul class="collection" id="alumnos">
+
+            </ul>
+        </div>
+        <footer id="futer"></footer>
     </div>
-    <div class="row"></div>
-    <div class="row">
-        <a class="waves-effect waves-light left btn" id="actualizar">Actualizar</a>
-    </div>
-    
-    <div class="row">
-        <ul class="collection" id="alumnos">
-            
-        </ul>
-    </div>
-    <footer id="futer"></footer>
-</div>
 </body>
 
 </html>
