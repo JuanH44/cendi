@@ -74,12 +74,7 @@
     $extension_conyuge=$_REQUEST['extension_conyuge'];
     $foto_conyuge=$_REQUEST['foto_conyuge'];
     $foto_conyuge='3';
-    
-    //if (isset($_REQUEST['primer_apellido_conyuge'])){
-        //$tieneconyuge='si';
-    //}else{
-        //$tieneconyuge='no';
-    //}
+
     if ($primer_apellido_conyuge==''){
         $tieneconyuge='no';
     }else{
@@ -87,9 +82,75 @@
     }
     echo $tieneconyuge;
 
+    if ($grupo!='Lac I-II'){
+        $cita='no';
+    }else{
+        if($lugaresOcup[0]==1){
+            $docs='09:00-10:00';
+        }elseif($lugaresOcup[0]==2){
+            $docs='10:00-11:00';
+        }elseif($lugaresOcup[0]==3){
+            $docs='11:00-12:00';
+        }elseif($lugaresOcup[0]==4){
+            $docs='12:00-13:00';
+        }elseif($lugaresOcup[0]==5){
+            $docs='13:00-14:00';
+        }elseif($lugaresOcup[0]==6){//a partir de aqui se agrega un dia 
+            $docs='09:00-10:00';
+        }elseif($lugaresOcup[0]==7){
+            $docs='10:00-11:00';
+        }elseif($lugaresOcup[0]==8){
+            $docs='11:00-12:00';
+        }elseif($lugaresOcup[0]==9){
+            $docs='12:00-13:00';
+        }elseif($lugaresOcup[0]==10){
+            $docs='13:00-14:00';
+        }
+    }
+
+    $sqlConsLug = "select lugares from horario where grupo = '$grupo'";//Consulta para obtener lugares del grupo
+    $resultado = mysqli_query($conexion, $sqlConsLug);//ejecutar consulta
+    $lugaresOcup = mysqli_fetch_row($resultado);//obener los lugares ocupados en ese grupo
+    //entrega de docs
+function asignarHorarioDocs($lugaresOcup){
+    if($lugaresOcup[0]==0){
+        $docs='09:00-09:15';
+    }elseif($lugaresOcup[0]==1){
+        $docs='09:15-09:30';
+    }elseif($lugaresOcup[0]==2){
+        $docs='09:30-09:45';
+    }elseif($lugaresOcup[0]==3){
+        $docs='09:45-10:00';
+    }elseif($lugaresOcup[0]==4){
+        $docs='10:00-10:15';
+    }elseif($lugaresOcup[0]==5){
+        $docs='10:15-10:30';
+    }elseif($lugaresOcup[0]==6){
+        $docs='10:30-10:45';
+    }elseif($lugaresOcup[0]==7){
+        $docs='10:45-11:00';
+    }elseif($lugaresOcup[0]==8){
+        $docs='11:00-11:15';
+    }elseif($lugaresOcup[0]==9){
+        $docs='11:15-11:30';
+    }elseif($lugaresOcup[0]==10){
+        $docs='11:30-11:45';
+    }elseif($lugaresOcup[0]==11){
+        $docs='11:45-12:00';
+    }elseif($lugaresOcup[0]==12){
+        $docs='12:00-12:15';
+    }elseif($lugaresOcup[0]==13){
+        $docs='12:15-12:30';
+    }elseif($lugaresOcup[0]==14){
+        $docs='12:30-12:45';
+    }
+    return $docs;
+}
+
+
 //consultas
 
-    $sqlConsDatos="insert into datos_generales values('".$folio."','".$cendi."','".$grupo."','".$foto_autorizada."')";
+    $sqlConsDatos="insert into datos_generales values('$folio','$cendi','$grupo','$foto_autorizada','$cita')";
 
     $sqlConsNin="insert into datos_niño values('".$primer_apellido."','".$segundo_apellido."','".$nombre."','".$fecha."','".$email."','".$edadAnios."','".$edadMeses."','".$curp."','".$folio.
     "','".$foto."')";
@@ -99,7 +160,6 @@
     "','".$ocupacion."','".$curp_derecho."','".$puesto."','".$sueldo."','".$numero_empleado."','".$adscripcion."','".$horario."','".$extension."','".$folio.
     "','".$foto_derecho."')";
 
-    
     if ($tieneconyuge =='si'){
         $sqlConsCony="insert into conyuge values('".$primer_apellido_conyuge."','".$segundo_apellido_conyuge."','".$nombre_conyuge."','".$calle_conyuge."','".$noExt_conyuge.
         "','".$noInt_conyuge."','".$colonia_conyuge."','".$alcaldia_conyuge."','".$entidad_conyuge."','".$cp_conyuge."','".$telefono_fijo_conyuge."','".$telefono_celular_conyuge."','".
@@ -107,10 +167,6 @@
     }
 
 //Datos para el pdf
-
-    $sqlConsLug = "select lugares from horario where grupo = '".$grupo."'";//Consulta para obtener lugares del grupo
-    $resultado = mysqli_query($conexion, $sqlConsLug);//ejecutar consulta
-    $lugaresOcup = mysqli_fetch_row($resultado);//obener los lugares ocupados en ese grupo
 
     if ($grupo == "Lac I-II"){
         if ($lugaresOcup[0] == 10){
