@@ -18,52 +18,9 @@
         $(document).ready(function() {
             $("#navegacion").load("./compartidos/barranav.html");
             $("#futer").load("./compartidos/futer.html");
-            /*
-            $("#formula").submit(function(event) {
-                var formData = {
-                    curp: $("#curp").val(),
-                    folio: $("#folio").val(),
-                    accion: "recuperar",
-                };
-                $.ajax({
-                    type: "POST",
-                    url: "genera.php",
-                    data: formData,
-                    dataType: "json",
-                    encode: true,
-                }).done(function(data) {
-                    console.log(data);
-                });
-
-                event.preventDefault();
-            });
-            */
-
             $("#btn-reset").click(function() {
                 $("#formula").trigger('reset');
             });
-
-            $("#formula").submit(function(e) {
-                alert("minimo");
-                e.preventDefault(); // avoid to execute the actual submit of the form.
-
-                var form = $(this);
-                var actionUrl = form.attr('action');
-
-
-                $.ajax({
-                    type: "POST",
-                    url: actionUrl,
-                    data: form.serialize(), // serializes the form's elements.
-                    success: function(data) {
-                        alert(data); // show response from the php script.
-                        let direc = "./admin.php";
-                        window.open(direc, '_self');
-                    }
-                });
-
-            });
-
         });
     </script>
 </head>
