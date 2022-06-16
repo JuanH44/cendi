@@ -1,4 +1,5 @@
 <?php
+    require("./conexionBD.php");
 //datos
     $startYear = 2021;
     $endYear = 2022;
@@ -107,7 +108,6 @@
 
 //Datos para el pdf
 
-    $conexion = mysqli_connect("localhost","root","","cendi");//conexion a la BD
     $sqlConsLug = "select lugares from horario where grupo = '".$grupo."'";//Consulta para obtener lugares del grupo
     $resultado = mysqli_query($conexion, $sqlConsLug);//ejecutar consulta
     $lugaresOcup = mysqli_fetch_row($resultado);//obener los lugares ocupados en ese grupo

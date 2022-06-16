@@ -1,5 +1,5 @@
 <?php
-    require("../conexionBD.php");
+    require("../BD/conexionBD.php");
     session_start();
     $usuario = $_POST['usuario'];
     $contraseña = $_POST['contraseña'];
