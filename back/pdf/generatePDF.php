@@ -4,7 +4,7 @@ ob_start();
     include("style.php");
     
     include("requestData.php");
-    include("../AlumnoGenPDF.php");
+    include("../BD/AlumnoGenPDF.php");
     require("./tfpdf/tfpdf.php");
 
     class PDF extends tFPDF

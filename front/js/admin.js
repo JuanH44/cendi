@@ -30,7 +30,7 @@ $(document).ready(function () {
             nuevoAlumno += ("        <a class='waves-effect waves-light btn cancelar-edicion'>Cancelar edicion</a>");
             nuevoAlumno += ("        <a class='waves-effect waves-light btn btn-reset'>Restablecer valores</a>");
             nuevoAlumno += ("        <a class='waves-effect waves-light right btn red elimina'>Eliminar</a>");
-            nuevoAlumno += ("        <form id='formula" + index + "' class='formula' action='../back/ActualizarDatos.php' method='get'>");
+            nuevoAlumno += ("        <form id='formula" + index + "' class='formula' action='../back/BD/ActualizarDatos.php' method='get'>");
             nuevoAlumno += ("            <!-- Aqui se inserta solito -->");
             nuevoAlumno += ("        </form>");
             nuevoAlumno += ("    </div>");
@@ -237,7 +237,7 @@ $(document).ready(function () {
                 $(('#usr'+index)).replaceWith("");
                 $.ajax({
                     type: "GET",
-                    url: '../back/EliminarDatos.php?folioBorrar='+alumnos[index].Folio,
+                    url: '../back/BD/EliminarDatos.php?folioBorrar='+alumnos[index].Folio,
                     success: function (response) {
                         let jsonData = JSON.parse(response);
                         $(alumnID).replaceWith("");
@@ -259,7 +259,7 @@ $(document).ready(function () {
 
  
     function jalaTodo() {
-        let direc = "../back/DatosBD.php";
+        let direc = "../back/BD/DatosBD.php";
         $.ajax({
             type: "GET",
             url: direc,
