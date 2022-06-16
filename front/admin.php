@@ -13,23 +13,11 @@ session_start();
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/cssProyecto.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/custom.css" />
     <!--Jquery-->
     <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="js/materialize.js"></script>
     <script type="text/javascript" src="js/admin.js"></script>
     <title>.::Admin::.</title>
-    <script>
-        $(document).ready(function() {
-            $("#navegacion").load("./compartidos/barranav.html");
-            $("#futer").load("./compartidos/futer.html");
-
-            $("#btn-reset").click(function() {
-                $("#formula").trigger('reset');
-            });
-        });
-    </script>
 
 </head>
 
@@ -39,9 +27,6 @@ session_start();
             <header id="navegacion"></header>
         </div>
         <div class="row"></div>
-        <div class="row">
-            <a class="waves-effect waves-light left btn" id="actualizar">Actualizar</a>
-        </div>
 
         <div class="row">
             <ul class="collection" id="alumnos">

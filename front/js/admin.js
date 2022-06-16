@@ -2,6 +2,7 @@ $(document).ready(function () {
     $("#navegacion").load("./compartidos/barranavadmin.html");
     $("#futer").load("./compartidos/futer.html");
     $("#contenido1").load("./compartidos/formol.html");
+    jalaTodo();
 
     //Activaciones
     $('select').formSelect(); //jala select
@@ -247,12 +248,7 @@ $(document).ready(function () {
 
     $('#actualizar').click(function () {
         jalaTodo();
-
-
         //$('#alumnos').ready(function() {
-
-
-
         //});
     });
 });
