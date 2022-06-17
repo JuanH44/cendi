@@ -3,6 +3,7 @@
 
     $folio=$_REQUEST['folio'];
 
+    
     $sqlConyuge="select * from conyuge";//declarar consulta
     $respCon=mysqli_query($conexion,$sqlConyuge);//hacer consulta
     while($fila = mysqli_fetch_array($respCon)){
@@ -22,7 +23,7 @@
             $lugar_trabajo_conyuge = $fila["Lugar_Trabajo_Conyuge"];
             $domicilio_trabajo_conyuge = $fila["Domicilio_Trabajo_Conyuge"];
             $telefono_trabajo_conyuge = $fila["Telefono_Trabajo_Conyuge"];
-            $extension = $fila["Extension"];
+            $extension_conyuge = $fila["Extension"];
             $foto_conyuge = $fila["Imagen_Conyuge"];
             $tieneconyuge='si';
             break;
@@ -67,6 +68,9 @@
             $cendi = $fila["Cendi"];
             $grupo = $fila["Grupo"];
             $foto_autorizada = $fila["Imagen_Autorizada"];
+            $cita = $fila["Cita"];
+            $docs = $fila["Docs"];
+            $fecha_r = date_parse($fila["FechaR"]);
             $encontrado=1;
             break;
         }

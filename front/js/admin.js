@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $("#navegacion").load("./compartidos/barranavadmin.html");
+    $("#navegacion").load("./compartidos/barranav.html");
     $("#futer").load("./compartidos/futer.html");
     $("#contenido1").load("./compartidos/formol.html");
     jalaTodo();

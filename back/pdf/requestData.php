@@ -1,72 +1,95 @@
 <?php
-    //include("../AlumnoGenPDF.php");
+     include("../BD/AlumnoGenPDF.php");
+
+     $meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
     //Datos generales
+
+    if($grupo == "Lac I-II"){
+        $tramite = "INSCRIPCION";
+    } else{
+        $tramite = "REINSCRIPCION";
+    }
+   
+
     $startYear = 2021;
     $endYear = 2022;
-    $cendi = "EVA SÁMANO DE LÓPEZ MATEOS";
+    $cendi = $cendi;
+
+      //Registro
+    $diaRegistro = $fecha_r["day"];
+    $mesRegistro = $meses[$fecha_r["month"]-1];
+    $anioRegistro = $fecha_r["year"];
 
    
-    $grupo = "Grupo 1";
+    $grupo = $grupo;
+    $aFoto = $foto_autorizada;
+
+    if($cita == "no")
+    {
+        $cita = "N/A";
+    }
+ 
+    $docs = $docs;
+    $fechaR = $fecha_r;
+
 
 
     //Datos del niño o niña
-    $nNombre = "Victor";
-    $nApellido1 = "Robles";
-    $nApellido2 = "Suarez";
-    $nFechaNacimiento = "01/01/2001";
-    //$nEdad = "12";
+    $nNombre = $nombre;
+    $nApellido1 = $primer_apellido;
+    $nApellido2 = $segundo_apellido;
+    $nFechaNacimiento = $fechaNac;
+    $nEdadAnios = $edadAnios;
+    $nEdadMeses = $edadMeses;
+    $nCurp = $curp;
+    $nFoto = $foto;
+
 
     //Datos del o la derechohabiente
-    $dNombre = "Alexis";
-    $dApellido1 = "Jaimes";
-    $dApellido2 = "Espinoza";
-    $dCalle = "Calle de los palos";
-    $dNumExt = "123";
-    $dNumInt = "456";
-    $dColonia = "Colonia de los palos";
-    $dAlcaldia = "Alcaldia de los palos";
-    $dEntidadFed = "Entidad de los palos";
-    $dCP = "12345";
-    $dTelefono = "123456789";
-    $dCelular = "123456789";
-    $dCorreo = "ejemplo@mail.com";
-    $dOcupacion = "Estudiante";
-    $dCURP = "12345678901234567890";
-    $dPuesto = "Estudiante";
-    $dSueldo = "12345";
-    $dNumEmpleado = "12345";
-    $dAdscripcion = "Alcaldia de los palos";
-    $dJefeNombre = "Jefe de los palos";
-    $dJefeCargo = "Jefe de los palos";
-    $dHorario = "10:00 a 18:00";
-    $dExtencion = "12345";
+    $dNombre = $nombre_derecho;
+    $dApellido1 = $primer_apellido_derecho;
+    $dApellido2 = $segundo_apellido_derecho;
+    $dCalle = $calle;
+    $dNumExt = $noExt;
+    $dNumInt = $noInt;
+    $dColonia = $colonia;
+    $dAlcaldia = $alcaldia;
+    $dEntidad = $entidad;
+    $dCP = $cp;
+    $dTelefono = $telefono_fijo;
+    $dCelular = $telefono_celular;
+    $dCorreo = $email_derecho;
+    $dOcupacion = $ocupacion;
+    $dCURP = $curp_derecho;
+    $dPuesto = $puesto;
+    $dSueldo = $sueldo;
+    $dNumEmpleado = $numero_empleado;
+    $dAdscripcion = $adscripcion;
+    $dHorario = $horario;
+    $dExtension = $extension;
 
 
 
     //Datos del conyuge
-    $cNombre = "Juan";
-    $cApellido1 = "Perez";
-    $cApellido2 = "Perez";
-    $cCalle = "Calle de los palos";
-    $cNumExt = "123";
-    $cNumInt = "456";
-    $cColonia = "Colonia de los palos";
-    $cAlcaldia = "Alcaldia de los palos";
-    $cEntidadFed = "Entidad de los palos";
-    $cCP = "12345";
-    $cTelefono = "123456789";
-    $cCelular = "123456789";
-    $cLugarTrabajo = "Alcaldia de los palos";
-    $cOcupacion = "Estudiante";
-    $cDomicilioTrabajo = "Calle de los palos";
-    $cTelefonoTrabajo = "123456789";
-    $cCelularTrabajo = "123456789";
-    $cReligion = "Cristianismo";
+    $cNombre = $nombre_conyuge;
+    $cApellido1 = $primer_apellido_conyuge;
+    $cApellido2 = $segundo_apellido_conyuge;
+    $cCalle = $calle_conyuge;
+    $cNumExt = $noExt_conyuge;
+    $cNumInt = $noInt_conyuge;
+    $cColonia = $colonia_conyuge;
+    $cAlcaldia = $alcaldia_conyuge;
+    $cEntidad = $entidad_conyuge;
+    $cCP = $cp_conyuge;
+    $cTelefono = $telefono_fijo_conyuge;
+    $cCelular = $telefono_celular_conyuge;
+    $cLugarTrabajo = $lugar_trabajo_conyuge;
+    $cDomicilioTrabajo = $domicilio_trabajo_conyuge;
+    $cTelefonoTrabajo = $telefono_trabajo_conyuge;
+    $cExtension = $extension_conyuge;
+    
 
-    //Registro
-    $diaRegistro = "22";
-    $mesRegistro = "Diciembre";
-    $anioRegistro = "2021";
+  
 
     //include
 
