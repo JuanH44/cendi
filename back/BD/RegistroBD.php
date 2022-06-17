@@ -13,18 +13,15 @@ $anioRegistro = "2021";
 $cendi = "Amalia Solórzano de Cárdenas"; //No se puede cambiar
 $folio = $_REQUEST['folio'];
 $grupo = $_REQUEST['grupo']; //
-//$foto_autorizada = $_REQUEST['foto_autorizada'];
-$foto_autorizada = '1';
+$foto_autorizada = $_REQUEST['foto_autorizada'];
 
 //Datos niño
 $primer_apellido = $_REQUEST['primer_apellido'];
 $segundo_apellido = $_REQUEST['segundo_apellido'];
 $nombre = $_REQUEST['nombre'];
 $fecha = $_REQUEST['fecha'];
-//$edadAnios = $_REQUEST['edadAnios'];
-$edadAnios='1';
-$edadMeses="1";
-//$edadMeses = $_REQUEST['edadMeses'];
+$edadAnios = $_REQUEST['edadAnios'];
+$edadMeses = $_REQUEST['edadMeses'];
 $email = $_REQUEST['email'];
 $curp = $_REQUEST['curp'];
 $foto = $_REQUEST['foto'];
@@ -51,10 +48,7 @@ $numero_empleado = $_REQUEST['numero_empleado'];
 $adscripcion = $_REQUEST['adscripcion'];
 $horario = $_REQUEST['horario'];
 $extension = $_REQUEST['extension'];
-//$foto_derecho = $_REQUEST['foto_derecho'];
-$foto_derecho = '1';
-
-
+$foto_derecho = $_REQUEST['foto_derecho'];
 
 //Datos Conyugue
 
@@ -74,15 +68,13 @@ $lugar_trabajo_conyuge = $_REQUEST['lugar_trabajo_conyuge'];
 $domicilio_trabajo_conyuge = $_REQUEST['domicilio_trabajo_conyuge'];
 $telefono_trabajo_conyuge = $_REQUEST['telefono_trabajo_conyuge'];
 $extension_conyuge = $_REQUEST['extension_conyuge'];
-//$foto_conyuge = $_REQUEST['foto_conyuge'];
-$foto_conyuge = '3';
+$foto_conyuge = $_REQUEST['foto_conyuge'];
 
 if ($primer_apellido_conyuge == '') {
     $tieneconyuge = 'no';
 } else {
     $tieneconyuge = 'si';
 }
-echo $tieneconyuge;
 
 //sacar lugares del grupo
 $sqlConsLug = "select lugares from horario where grupo = '$grupo'"; //Consulta para obtener lugares del grupo
@@ -92,7 +84,8 @@ $lugaresOcup = mysqli_fetch_row($resultado); //obener los lugares ocupados en es
 if ($grupo != 'Lac I-II') {
     $cita = 'no';
 }
-function asignarHorariosCita($lugaresOcup){
+function asignarHorariosCita($lugaresOcup)
+{
     $dia1 = "20-06-2022";
     $dia2 = "21-06-2022";
     if ($lugaresOcup[0] == 0) {
@@ -105,7 +98,7 @@ function asignarHorariosCita($lugaresOcup){
         $cita = "$dia1 - 12:00-14:00";
     } elseif ($lugaresOcup[0] == 4) {
         $cita = "$dia1 - 13:00-15:00";
-    } elseif ($lugaresOcup[0] == 5) { 
+    } elseif ($lugaresOcup[0] == 5) {
         $cita = "$dia2 - 09:00-11:00";
     } elseif ($lugaresOcup[0] == 6) {
         $cita = "$dia2 - 10:00-12:00";
@@ -156,21 +149,22 @@ function asignarHorarioDocs($lugaresOcup)
     return $docs;
 }
 //funcion para insertar datos en BD
-function ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge){
-    $sqlConsDatos = "insert into datos_generales values('$folio','$cendi','$grupo','$foto_autorizada','$cita','$docs')";
+function ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge)
+{
+    $hoy = date("y-m-d");
+    $sqlConsDatos = "insert into datos_generales values('$folio','$cendi','$grupo','$foto_autorizada','$cita','$docs','$hoy')";
 
     $sqlConsNin = "insert into datos_niño values('" . $primer_apellido . "','" . $segundo_apellido . "','" . $nombre . "','" . $fecha . "','" . $email . "','" . $edadAnios . "','" . $edadMeses . "','" . $curp . "','" . $folio .
         "','" . $foto . "')";
 
-    $sqlConsDere = "insert into datos_derecho values('" . $primer_apellido_derecho . "','" . $segundo_apellido_derecho . "','" . $nombre_derecho . "','" . $calle . "','" . $noExt .
-        "','" . $noInt . "','" . $colonia . "','" . $alcaldia . "','" . $entidad . "','" . $cp . "','" . $telefono_fijo . "','" . $telefono_celular . "','" . $email_derecho .
-        "','" . $ocupacion . "','" . $curp_derecho . "','" . $puesto . "','" . $sueldo . "','" . $numero_empleado . "','" . $adscripcion . "','" . $horario . "','" . $extension . "','" . $folio .
-        "','" . $foto_derecho . "')";
+    $sqlConsDere = "insert into datos_derecho values('$primer_apellido_derecho','$segundo_apellido_derecho','$nombre_derecho','$calle','$noExt .','$noInt','
+    $colonia','$alcaldia','$entidad','$cp','$telefono_fijo','$telefono_celular','$email_derecho','$ocupacion','$curp_derecho','$puesto','$sueldo',
+    '$numero_empleado','$adscripcion','$horario','$extension','$folio','$foto_derecho')";
 
     if ($tieneconyuge == 'si') {
         $sqlConsCony = "insert into conyuge values('" . $primer_apellido_conyuge . "','" . $segundo_apellido_conyuge . "','" . $nombre_conyuge . "','" . $calle_conyuge . "','" . $noExt_conyuge .
-        "','" . $noInt_conyuge . "','" . $colonia_conyuge . "','" . $alcaldia_conyuge . "','" . $entidad_conyuge . "','" . $cp_conyuge . "','" . $telefono_fijo_conyuge . "','" . $telefono_celular_conyuge . "','" .
-        $lugar_trabajo_conyuge . "','" . $domicilio_trabajo_conyuge . "','" . $telefono_trabajo_conyuge . "','" . $extension_conyuge . "','" . $folio . "','" . $foto_conyuge . "')";
+            "','" . $noInt_conyuge . "','" . $colonia_conyuge . "','" . $alcaldia_conyuge . "','" . $entidad_conyuge . "','" . $cp_conyuge . "','" . $telefono_fijo_conyuge . "','" . $telefono_celular_conyuge . "','" .
+            $lugar_trabajo_conyuge . "','" . $domicilio_trabajo_conyuge . "','" . $telefono_trabajo_conyuge . "','" . $extension_conyuge . "','" . $folio . "','" . $foto_conyuge . "')";
     }
     mysqli_query($conexion, $sqlConsDatos);
     mysqli_query($conexion, $sqlConsNin);
@@ -185,85 +179,84 @@ function ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,
 //Datos para el pdf
 if ($grupo == "Lac I-II") {
     if ($lugaresOcup[0] == 10) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        $cita=asignarHorariosCita($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        $cita = asignarHorariosCita($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "Lac III - Mat I") {
     if ($lugaresOcup[0] == 10) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "Mat IIA") {
     if ($lugaresOcup[0] == 12) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        $cita=asignarHorariosCita($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "Mat IIB") {
     if ($lugaresOcup[0] == 12) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "PIA") {
     if ($lugaresOcup[0] == 15) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "PIB") {
     if ($lugaresOcup[0] == 15) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "PIIA") {
     if ($lugaresOcup[0] == 15) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "PIIB") {
     if ($lugaresOcup[0] == 15) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "PIIIA") {
     if ($lugaresOcup[0] == 15) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 } elseif ($grupo == "PIIIB") {
     if ($lugaresOcup[0] == 15) {
-        $respuesta=array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
+        $respuesta = array("state" => 1, "folio" => '', "mensaje" => "No quedan mas lugares");
     } else {
-        $docs=asignarHorarioDocs($lugaresOcup);
-        ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge);
-        $respuesta=array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
+        $docs = asignarHorarioDocs($lugaresOcup);
+        ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge);
+        $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
     }
 }
 echo json_encode($respuesta);
