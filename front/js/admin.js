@@ -5,7 +5,7 @@ $(document).ready(function () {
     jalaTodo();
 
     //Activaciones
-    $('select').formSelect(); //jala select
+   // $('select').formSelect(); //jala select
     $('input#input_text, textarea#textarea2').characterCounter(); // jala counter
 
     var alumnos;
@@ -146,7 +146,7 @@ $(document).ready(function () {
             let formID = ("#formula" + index);
             let alumnID = ("#alumno" + index);
             $(formID).load("./compartidos/formRegistro.html").ready(function () {
-                $('select').formSelect();
+               // $('select').formSelect();
                 
                 M.updateTextFields();
                 let form = $(this);
@@ -172,7 +172,7 @@ $(document).ready(function () {
                         }
                     });
                 });*/
-                $('select').formSelect();
+               // $('select').formSelect();
             });
             //$(alumnID).ready(function() {
             M.updateTextFields();
@@ -193,7 +193,7 @@ $(document).ready(function () {
             $(alumnID).find(".editar").click(function () {
                 let alumRow = $(alumnID);
                 activarEdicion(alumRow, formID);
-                $('select').formSelect();
+               // $('select').formSelect();
             });
             $(alumnID).find(".cancelar-edicion").click(function () {
                 let alumRow = $(alumnID);
