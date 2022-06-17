@@ -51,6 +51,8 @@ $(document).ready(function () {
 
     telefono_fijo_conyuge: /^\d{10}$/,
     telefono_celular_conyuge: /^\d{10}$/,
+    lugar_trabajo_conyuge: /\w{2,}/,
+    domicilio_trabajo_conyuge: /\w{2,}/,
     telefono_trabajo_conyuge: /^\d{10}$/,
     extension_conyuge: /^\d{4,5}$/,
  
