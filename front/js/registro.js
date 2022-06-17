@@ -122,6 +122,13 @@ $(document).ready(function () {
                 
                     $('#btn-imprimir').show();
 
+                }else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error BD',
+                        text: jsonData.mensaje,
+                        showConfirmButton: true,
+                    });
                 }
             }
         });

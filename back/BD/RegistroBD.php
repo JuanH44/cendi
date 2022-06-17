@@ -14,6 +14,9 @@ $folio = $_REQUEST['folio'];
 
 $sqlGen = "select * from datos_generales"; //generales
 $respGen = mysqli_query($conexion, $sqlGen);
+if (isset($respGen)){
+    $folioRepetido="no";
+}
 while ($fila = mysqli_fetch_array($respGen)) {
     if ($fila['Folio'] == $folio) {
         $folioRepetido = "si";
@@ -164,7 +167,7 @@ if ($folioRepetido == "no") {
     function ingresarDatos($docs, $lugaresOcup, $conexion, $tieneconyuge, $folio, $cendi, $grupo, $foto_autorizada, $cita, $primer_apellido, $segundo_apellido, $nombre, $fecha, $edadAnios, $edadMeses, $email, $curp, $foto, $primer_apellido_derecho, $segundo_apellido_derecho, $nombre_derecho, $calle, $noExt, $noInt, $colonia, $alcaldia, $entidad, $cp, $telefono_fijo, $telefono_celular, $email_derecho, $ocupacion, $curp_derecho, $puesto, $sueldo, $numero_empleado, $adscripcion, $horario, $extension, $foto_derecho, $primer_apellido_conyuge, $segundo_apellido_conyuge, $nombre_conyuge, $calle_conyuge, $noExt_conyuge, $noInt_conyuge, $colonia_conyuge, $alcaldia_conyuge, $entidad_conyuge, $cp_conyuge, $telefono_fijo_conyuge, $telefono_celular_conyuge, $lugar_trabajo_conyuge, $domicilio_trabajo_conyuge, $telefono_trabajo_conyuge, $extension_conyuge, $foto_conyuge)
     {
         $hoy = date("y-m-d");
-        $sqlConsDatos = "insert into datos_generales values('$folio','$cendi','$grupo','$foto_autorizada','$cita','$docs','$hoy')";
+        //$sqlConsDatos = "insert into datos_generales values('$folio','$cendi','$grupo','$foto_autorizada','$cita','$docs','$hoy')";
 
         $sqlConsNin = "insert into datos_niño values('" . $primer_apellido . "','" . $segundo_apellido . "','" . $nombre . "','" . $fecha . "','" . $email . "','" . $edadAnios . "','" . $edadMeses . "','" . $curp . "','" . $folio .
             "','" . $foto . "')";
@@ -178,7 +181,7 @@ if ($folioRepetido == "no") {
                 "','" . $noInt_conyuge . "','" . $colonia_conyuge . "','" . $alcaldia_conyuge . "','" . $entidad_conyuge . "','" . $cp_conyuge . "','" . $telefono_fijo_conyuge . "','" . $telefono_celular_conyuge . "','" .
                 $lugar_trabajo_conyuge . "','" . $domicilio_trabajo_conyuge . "','" . $telefono_trabajo_conyuge . "','" . $extension_conyuge . "','" . $folio . "','" . $foto_conyuge . "')";
         }
-        mysqli_query($conexion, $sqlConsDatos);
+        //mysqli_query($conexion, $sqlConsDatos);
         mysqli_query($conexion, $sqlConsNin);
         mysqli_query($conexion, $sqlConsDere);
         if ($tieneconyuge == 'si') {
@@ -271,7 +274,7 @@ if ($folioRepetido == "no") {
             $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
         }
     }
-    echo json_encode($respuesta);
 } else {
-    echo json_encode(array("repetido"=>"si"));
+    $respuesta = array("state" => 0, "folio" => '', "mensaje" => "El folio que ingresaste esta repetido");
 }
+echo json_encode($respuesta);
