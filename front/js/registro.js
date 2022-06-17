@@ -152,6 +152,25 @@ $(document).ready(function () {
 //   return await getDownloadURL(storageRef);
 // }
 
+    function subirFoto( idFoto, informacion) {
+        const file = $(idFoto).prop('files')[0];
+        const imageRef = ref(storage, 'images/' + file.name);
+        uploadBytesResumable(imageRef, file)
+          .then((snapshot) => {
+            console.log('Uploaded', snapshot.totalBytes, 'bytes.');
+            console.log('File metadata:', snapshot.metadata);
+            // Let's get a download URL for the file.
+            getDownloadURL(snapshot.ref).then((url) => {
+              console.log('File available at', url);
+                informacion = url;
+              // ...
+            });
+          }).catch((error) => {
+            console.error('Upload failed', error);
+            // ...
+          });
+    };
+
 
     function mostrarDatos(informacion, actionUrl){
         let saludo = ("Hola "+$("#nombre_derecho").val()+", verifica que los datos que ingresaste sean correctos:");
@@ -229,7 +248,11 @@ $(document).ready(function () {
             cancelButtonText: 'Modificar'
             }).then((result) => {
                 if (result.isConfirmed) {
-
+                    subirFoto("#foto", informacion.foto);
+                    subirFoto("#foto_derecho", informacion.foto_derecho);
+                    subirFoto("#foto_autorizada", informacion.foto_autorizada);
+                    subirFoto("#foto_conyuge", informacion.foto_conyuge);
+                    console.log("foto: "+informacion.foto);
                     enviaJSON(informacion, actionUrl);
                     
 
