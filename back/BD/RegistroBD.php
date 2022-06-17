@@ -14,6 +14,9 @@ $folio = $_REQUEST['folio'];
 
 $sqlGen = "select * from datos_generales"; //generales
 $respGen = mysqli_query($conexion, $sqlGen);
+if (isset($respGen)){
+    $folioRepetido="no";
+}
 while ($fila = mysqli_fetch_array($respGen)) {
     if ($fila['Folio'] == $folio) {
         $folioRepetido = "si";
@@ -271,7 +274,7 @@ if ($folioRepetido == "no") {
             $respuesta = array("state" => 0, "folio" => $folio, "mensaje" => "Se ha registrado correctamente");
         }
     }
-    echo json_encode($respuesta);
 } else {
-    echo json_encode(array("repetido"=>"si"));
+    $respuesta = array("state" => 0, "folio" => '', "mensaje" => "El folio que ingresaste esta repetido");
 }
+echo json_encode($respuesta);

@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-106;
 $ut=73;
-$ttffile='C:\xampp\htdocs\cendi\back\pdf\tfpdf/font/unifont/arial.ttf';
+$ttffile='C:\Nueva carpeta\htdocs\cendi\back\pdf\tfpdf/font/unifont/arial.ttf';
 $originalsize=1036584;
 $fontkey='arial';
 ?>

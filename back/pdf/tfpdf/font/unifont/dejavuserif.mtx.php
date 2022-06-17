@@ -13,7 +13,7 @@ $desc=array (
 );
 $up=-63;
 $ut=44;
-$ttffile='C:\xampp\htdocs\cendi\back\pdf\tfpdf/font/unifont/DejaVuSerif.ttf';
+$ttffile='C:\Nueva carpeta\htdocs\cendi\back\pdf\tfpdf/font/unifont/DejaVuSerif.ttf';
 $originalsize=380132;
 $fontkey='dejavu-serif';
 ?>

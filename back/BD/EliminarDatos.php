@@ -1,7 +1,6 @@
 <?php
     require("./conexionBD.php");
     $folioBorrar = $_REQUEST['folioBorrar'];
-
     $sqlBorarDerecho="delete from datos_derecho where folio = '".$folioBorrar."'";
     mysqli_query($conexion,$sqlBorarDerecho);
 
