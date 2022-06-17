@@ -4,7 +4,7 @@ ob_start();
     include("style.php");
     
     include("requestData.php");
-    include("../BD/AlumnoGenPDF.php");
+   
     require("./tfpdf/tfpdf.php");
 
     class PDF extends tFPDF
@@ -12,7 +12,7 @@ ob_start();
         function getBodyWidth(){
             return $this->GetPageWidth() - $this->lMargin - $this->rMargin;
         }
- 
+
         // Cabecera de página
         function Header(){
             // Logo
@@ -63,7 +63,7 @@ ob_start();
 
     //ENCABEZADO
     $pdf->Ln(1);
-    $pdf->Cell(0,$lineHeight+2,"FICHA DE REISNCRIPCIÓN",0,1,"C");
+    $pdf->Cell(0,$lineHeight+2,"FICHA DE ".$tramite,0,1,"C");
     $pdf->Cell(0,$lineHeight+2,"CICLO ESCOLAR: ". $startYear ." - ". $endYear ,0,1,"C");
     $pdf->Cell(0,$lineHeight+2,"CENDI: ". $cendi ,0,1,"C");
 
@@ -72,11 +72,11 @@ ob_start();
     $pdf->Cell(25,30,"Foto", 1, 1, 'C');
    // $pdf->Image($foto,getFrac(11,12),30,25,30, 'JPG');   //Foto del ninno
     $pdf->SetXY(getFrac(5,7)+$margins, 63);
-    $pdf->Cell(getFrac(2,21),$lineHeight,"Folio:", 1, 0, 'C');
+    $pdf->Cell(getFrac(2,21),$lineHeight,"Folio:", 1, 0, 'C'); 
     $pdf->Cell(getFrac(4,21),$lineHeight,$folio, 1, 1, 'L', true);
-    $pdf->SetXY(getFrac(1,7)*5+$margins, 63+ $lineHeight);
+    $pdf->SetXY(getFrac(1,7)*5+$margins, 63+ $lineHeight); #
     $pdf->Cell(getFrac(2,21),$lineHeight,"Grupo:", 1, 0, 'C');
-    $pdf->Cell(getFrac(4,21),$lineHeight,$grupo, 1, 1, 'L', true);
+    $pdf->Cell(getFrac(4,21),$lineHeight,$grupo, 1, 1, 'L', true); #
     $pdf->Ln(5);
   
     //DATOS DEL NIÑO O NIÑA
@@ -84,30 +84,30 @@ ob_start();
     $pdf->SetFont('Arial','',$fontSize);
     
     //1ra Linea - Nombre completo
-    $pdf->Cell(getFrac(1,3),$lineHeight,$primer_apellido,1,0,"C",true); 
-    $pdf->Cell(getFrac(1,3),$lineHeight,$segundo_apellido,1,0,"C",true);
-    $pdf->Cell(getFrac(1,3),$lineHeight,$nombre,1,1,"C",true);
+    $pdf->Cell(getFrac(1,3),$lineHeight,$nApellido1,1,0,"C",true); #
+    $pdf->Cell(getFrac(1,3),$lineHeight,$nApellido2,1,0,"C",true); #
+    $pdf->Cell(getFrac(1,3),$lineHeight,$nNombre,1,1,"C",true); #
     $pdf->Cell(getFrac(1,3),$lineHeight,"Primer Apellido",1,0,"C"); 
     $pdf->Cell(getFrac(1,3),$lineHeight,"Segundo Apellido",1,0,"C");
     $pdf->Cell(getFrac(1,3),$lineHeight,"Nombre(s)",1,1,"C");
 
     //2da Linea - Fecha de nacimiento
     $pdf->Cell(getFrac(4,16),$lineHeight,"Fecha de Nacimiento:",1,0,"C");
-    $pdf->Cell(getFrac(1,16),$lineHeight,"Día",1,0,"C");
-    $pdf->Cell(getFrac(1,16),$lineHeight,"",1,0,"C", true);
-    $pdf->Cell(getFrac(1,16),$lineHeight,"Mes",1,0,"C");
-    $pdf->Cell(getFrac(2,16),$lineHeight,"Diciembre",1,0,"C", true);
-    $pdf->Cell(getFrac(1,16),$lineHeight,"Año",1,0,"C");
-    $pdf->Cell(getFrac(1,16),$lineHeight,"",1,0,"C", true);
-    $pdf->Cell(getFrac(1,16),$lineHeight,"Edad:",1,0,"C");
+   // $pdf->Cell(getFrac(1,16),$lineHeight,"Día",1,0,"C");
+    $pdf->Cell(getFrac(6,16),$lineHeight,$nFechaNacimiento,1,0,"C", true);
+   // $pdf->Cell(getFrac(1,16),$lineHeight,"Mes",1,0,"C");
+   // $pdf->Cell(getFrac(2,16),$lineHeight,"Diciembre",1,0,"C", true);
+    //$pdf->Cell(getFrac(1,16),$lineHeight,"Año",1,0,"C");
+   // $pdf->Cell(getFrac(1,16),$lineHeight,"",1,0,"C", true);
+    $pdf->Cell(getFrac(2,16),$lineHeight,"Edad:",1,0,"C");
     $pdf->Cell(getFrac(1,16),$lineHeight,"Años",1,0,"C");
-    $pdf->Cell(getFrac(1,16),$lineHeight,$edadAnios,1,0,"C", true);
+    $pdf->Cell(getFrac(1,16),$lineHeight,$nEdadAnios,1,0,"C", true); #
     $pdf->Cell(getFrac(1,16),$lineHeight,"Mes",1,0,"C");
-    $pdf->Cell(getFrac(1,16),$lineHeight,$edadMeses,1,1,"C", true);
+    $pdf->Cell(getFrac(1,16),$lineHeight,$nEdadMeses,1,1,"C", true); #
 
     //3ra Linea - Curp
     $pdf->Cell(getFrac(2,12),$lineHeight,"CURP:",1,0,"C");
-    $pdf->Cell(getFrac(4,12),$lineHeight,$curp,1,0,"C",true); 
+    $pdf->Cell(getFrac(4,12),$lineHeight,$nCurp,1,0,"C",true); #
 
 
     $pdf->Ln(8);
@@ -116,9 +116,9 @@ ob_start();
     $pdf->SetFont('Arial','B',$titleFontSize);
     $pdf->Cell(0,$lineHeight,"DATOS DEL O LA DERECHOHABIENTE:",0,1,"L");
     $pdf->SetFont('Arial','',$fontSize);
-    $pdf->Cell(getFrac(1,3),$lineHeight,$primer_apellido_derecho,1,0,"C",true);
-    $pdf->Cell(getFrac(1,3),$lineHeight,$segundo_apellido_derecho,1,0,"C",true); 
-    $pdf->Cell(getFrac(1,3),$lineHeight,$nombre_derecho,1,1,"C",true);
+    $pdf->Cell(getFrac(1,3),$lineHeight,$dApellido1,1,0,"C",true); #
+    $pdf->Cell(getFrac(1,3),$lineHeight,$dApellido1,1,0,"C",true);  #
+    $pdf->Cell(getFrac(1,3),$lineHeight,$dNombre,1,1,"C",true); #
     $pdf->Cell(getFrac(1,3),$lineHeight,"Primer Apellido",1,0,"C"); 
     $pdf->Cell(getFrac(1,3),$lineHeight,"Segundo Apellido",1,0,"C");
     $pdf->Cell(getFrac(1,3),$lineHeight,"Nombre(s)",1,1,"C");
@@ -130,10 +130,10 @@ ob_start();
    
     $pdf->SetXY($x+getFrac(1,10),$y); //Nos posicionamos delante del la celda anterior
 
-    $pdf->Cell(getFrac(4,10),$lineHeight,$calle,1,0,"C",true);
-    $pdf->Cell(getFrac(1,10),$lineHeight,$noExt,1,0,"C",true);
-    $pdf->Cell(getFrac(1,10),$lineHeight,$noInt,1,0,"C",true);
-    $pdf->Cell(getFrac(3,10),$lineHeight,$colonia,1,1,"C",true);
+    $pdf->Cell(getFrac(4,10),$lineHeight,$dCalle,1,0,"C",true); #
+    $pdf->Cell(getFrac(1,10),$lineHeight,$dNumExt,1,0,"C",true); #
+    $pdf->Cell(getFrac(1,10),$lineHeight,$dNumInt,1,0,"C",true); #
+    $pdf->Cell(getFrac(3,10),$lineHeight,$dColonia,1,1,"C",true); #
     $x = $pdf->GetX();
     $y = $pdf->GetY();
     $pdf->SetXY($x+getFrac(1,10),$y); //Nos posicionamos delante del la celda anterior
@@ -143,43 +143,42 @@ ob_start();
     $pdf->Cell(getFrac(3,10),$lineHeight,"Colonia",1,1,"C");
 
     //3ra Linea - Alcaldía, Entidad Federativa, CP y Teléfono
-    $pdf->Cell(getFrac(3,10),$lineHeight,$alcaldia,1,0,"C",true);
-    $pdf->Cell(getFrac(2,10),$lineHeight,$entidad,1,0,"C",true);
-    $pdf->Cell(getFrac(1,10),$lineHeight,$cp,1,0,"C",true);
-    $pdf->Cell(getFrac(2,10),$lineHeight,$telefono_fijo,1,0,"C",true);
-    $pdf->Cell(getFrac(2,10),$lineHeight,$telefono_celular,1,1,"C",true);
+    $pdf->Cell(getFrac(3,10),$lineHeight,$dAlcaldia,1,0,"C",true);
+    $pdf->Cell(getFrac(2,10),$lineHeight,$dEntidad,1,0,"C",true);
+    $pdf->Cell(getFrac(1,10),$lineHeight,$dCP,1,0,"C",true);
+    $pdf->Cell(getFrac(2,10),$lineHeight,$dTelefono,1,0,"C",true);
+    $pdf->Cell(getFrac(2,10),$lineHeight,$dCelular,1,1,"C",true);
     $pdf->Cell(getFrac(3,10),$lineHeight,"Alcaldía o municipio",1,0,"C");
     $pdf->Cell(getFrac(2,10),$lineHeight,"Entidad federativa",1,0,"C");
     $pdf->Cell(getFrac(1,10),$lineHeight,"C.P.",1,0,"C");
     $pdf->Cell(getFrac(2,10),$lineHeight,"Teléfono fijo",1,0,"C");
     $pdf->Cell(getFrac(2,10),$lineHeight,"Teléfono celular",1,1,"C");
     //4ta Linea - Correo electrónico, Ocupación y Curp
-    $pdf->Cell(getFrac(1,3),$lineHeight,$email_derecho,1,0,"C",true);
-    $pdf->Cell(getFrac(1,3),$lineHeight,$ocupacion,1,0,"C",true);
-    $pdf->Cell(getFrac(1,3),$lineHeight,$curp_derecho,1,1,"C",true);
+    $pdf->Cell(getFrac(1,3),$lineHeight,$dCorreo,1,0,"C",true); #
+    $pdf->Cell(getFrac(1,3),$lineHeight,$dOcupacion,1,0,"C",true); #
+    $pdf->Cell(getFrac(1,3),$lineHeight,$dCURP,1,1,"C",true); #
+
     $pdf->Cell(getFrac(1,3),$lineHeight,"Correo electrónico",1,0,"C");
     $pdf->Cell(getFrac(1,3),$lineHeight,"Ocupación",1,0,"C");
     $pdf->Cell(getFrac(1,3),$lineHeight,"CURP",1,1,"C");
 
     //5ta Linea - Puesto, Sueldo y No. de Empleado
-    $pdf->Cell(getFrac(3,7),$lineHeight,$puesto,1,0,"C",true);
-    $pdf->Cell(getFrac(2,7),$lineHeight,$sueldo,1,0,"C",true);
-    $pdf->Cell(getFrac(2,7),$lineHeight,$numero_empleado,1,1,"C",true);
+    $pdf->Cell(getFrac(3,7),$lineHeight,$dPuesto,1,0,"C",true); #
+    $pdf->Cell(getFrac(2,7),$lineHeight,$dSueldo,1,0,"C",true); #
+    $pdf->Cell(getFrac(2,7),$lineHeight,$dNumEmpleado,1,1,"C",true); #
     $pdf->Cell(getFrac(3,7),$lineHeight,"Nombre de plaza o puesto",1,0,"C");
     $pdf->Cell(getFrac(2,7),$lineHeight,"Sueldo mensual",1,0,"C");
     $pdf->Cell(getFrac(2,7),$lineHeight,"Número de empleado",1,1,"C");
    
     //6ta Linea - Adscripción
-    $pdf->Cell(getFrac(1,1),$lineHeight,$adscripcion,1,1,"C",true);
+    $pdf->Cell(getFrac(1,1),$lineHeight,$dAdscripcion,1,1,"C",true); #
     $pdf->Cell(getFrac(1,1),$lineHeight,"Adscripción (Secretaría, Coordinación, Dirección, Centro, Escuela, etc.) [Iniciales]",1,1,"C"); 
     
-    //7ma Linea - Jefe inmediato no lleva jefe
-    $pdf->Cell(getFrac(1,1),$lineHeight,"",1,1,"C",true);
-    $pdf->Cell(getFrac(1,1),$lineHeight,"Nombre y cargo de su jefe o jefa inmediato",1,1,"C"); 
+    
 
     //8va Linea - Horario de trabajo, Extensión
-    $pdf->Cell(getFrac(3,4),$lineHeight,$horario,1,0,"C",true);
-    $pdf->Cell(getFrac(1,4),$lineHeight,$extension,1,1,"C",true);
+    $pdf->Cell(getFrac(3,4),$lineHeight,$dHorario,1,0,"C",true); #
+    $pdf->Cell(getFrac(1,4),$lineHeight,$dExtension,1,1,"C",true); #
     $pdf->Cell(getFrac(3,4),$lineHeight,"Horario de trabajo",1,0,"C");
     $pdf->Cell(getFrac(1,4),$lineHeight,"Extensión",1,0,"C");
 
@@ -190,9 +189,9 @@ ob_start();
         $pdf->SetFont('Arial','B',$titleFontSize);
         $pdf->Cell(0,$lineHeight,"DATOS DEL CONYUGE (PADRE, MADRE):",0,1,"L");
         $pdf->SetFont('Arial','',$fontSize);
-        $pdf->Cell(getFrac(1,3),$lineHeight,$primer_apellido_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(1,3),$lineHeight,$segundo_apellido_conyuge,1,0,"C",true); 
-        $pdf->Cell(getFrac(1,3),$lineHeight,$nombre_conyuge,1,1,"C",true);
+        $pdf->Cell(getFrac(1,3),$lineHeight,$cApellido2,1,0,"C",true); #
+        $pdf->Cell(getFrac(1,3),$lineHeight,$cApellido1,1,0,"C",true); #
+        $pdf->Cell(getFrac(1,3),$lineHeight,$cNombre,1,1,"C",true); #
         $pdf->Cell(getFrac(1,3),$lineHeight,"Primer Apellido",1,0,"C"); 
         $pdf->Cell(getFrac(1,3),$lineHeight,"Segundo Apellido",1,0,"C");
         $pdf->Cell(getFrac(1,3),$lineHeight,"Nombre(s)",1,1,"C");
@@ -204,10 +203,10 @@ ob_start();
         $pdf->MultiCell(getFrac(1,10),$lineHeight,"Domicilio particular:",1,"C");
     
         $pdf->SetXY($x+getFrac(1,10),$y); //Nos posicionamos delante del la celda anterior
-        $pdf->Cell(getFrac(4,10),$lineHeight,$calle_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(1,10),$lineHeight,$noExt_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(1,10),$lineHeight,$noInt_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(3,10),$lineHeight,$colonia_conyuge,1,1,"C",true);
+        $pdf->Cell(getFrac(4,10),$lineHeight,$cCalle,1,0,"C",true); #
+        $pdf->Cell(getFrac(1,10),$lineHeight,$cNumExt,1,0,"C",true); #
+        $pdf->Cell(getFrac(1,10),$lineHeight,$cNumInt,1,0,"C",true); #
+        $pdf->Cell(getFrac(3,10),$lineHeight,$cColonia,1,1,"C",true); #
         $x = $pdf->GetX();
         $y = $pdf->GetY();
         $pdf->SetXY($x+getFrac(1,10),$y); //Nos posicionamos delante del la celda anterior
@@ -217,11 +216,11 @@ ob_start();
         $pdf->Cell(getFrac(3,10),$lineHeight,"Colonia",1,1,"C");
 
         //3ra Linea - Alcaldía, Entidad Federativa, CP y Teléfono
-        $pdf->Cell(getFrac(3,10),$lineHeight,$alcaldia_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(2,10),$lineHeight,$entidad_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(1,10),$lineHeight,$cp_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(2,10),$lineHeight,$telefono_fijo_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(2,10),$lineHeight,$telefono_celular_conyuge,1,1,"C",true);
+        $pdf->Cell(getFrac(3,10),$lineHeight,$cAlcaldia,1,0,"C",true);
+        $pdf->Cell(getFrac(2,10),$lineHeight,$cEntidad,1,0,"C",true);
+        $pdf->Cell(getFrac(1,10),$lineHeight,$cCP,1,0,"C",true);
+        $pdf->Cell(getFrac(2,10),$lineHeight,$cTelefono,1,0,"C",true);
+        $pdf->Cell(getFrac(2,10),$lineHeight,$cCelular,1,1,"C",true);
         $pdf->Cell(getFrac(3,10),$lineHeight,"Alcaldía o municipio",1,0,"C");
         $pdf->Cell(getFrac(2,10),$lineHeight,"Entidad federativa",1,0,"C");
         $pdf->Cell(getFrac(1,10),$lineHeight,"C.P.",1,0,"C");
@@ -229,33 +228,28 @@ ob_start();
         $pdf->Cell(getFrac(2,10),$lineHeight,"Teléfono celular",1,1,"C");
 
         //4ta Linea - Lugar de trabajo, Ocupación
-        $pdf->Cell(getFrac(1,5),$lineHeight,"Lugar de trabajo:",1,0,"C");
-        $pdf->Cell(getFrac(2,5),$lineHeight,$lugar_trabajo_conyuge,1,0,"C",true);
-        $pdf->Cell(getFrac(1,5),$lineHeight,"Ocupación:",1,0,"C");
-        $pdf->Cell(getFrac(1,5),$lineHeight,"",1,1,"C",true);
+        $pdf->Cell(getFrac(1,4),$lineHeight,"Lugar de trabajo:",1,0,"L");
+        $pdf->Cell(getFrac(3,4),$lineHeight,$cLugarTrabajo,1,1,"C",true);
+        //$pdf->Cell(getFrac(1,5),$lineHeight,"Ocupación:",1,0,"C");
+        //$pdf->Cell(getFrac(1,5),$lineHeight,"",1,1,"C",true);
 
         //5ta Linea - Domicilio del trabajo
         $pdf->Cell(getFrac(1,4),$lineHeight,"Domicilio del trabajo:",1,0,"L");
-        $pdf->Cell(getFrac(3,4),$lineHeight,$domicilio_trabajo_conyuge,1,1,"C",true);
+        $pdf->Cell(getFrac(3,4),$lineHeight,$cDomicilioTrabajo,1,1,"L",true);
 
         //6ta Linea - Teléfono del trabajo, Religión
         $pdf->Cell(getFrac(1,4),$lineHeight,"Teléfono del trabajo:",1,0,"L");
-        $pdf->Cell(getFrac(1,4),$lineHeight,$telefono_trabajo_conyuge,1,0,"C",true);
+        $pdf->Cell(getFrac(1,4),$lineHeight,$cTelefonoTrabajo,1,0,"C",true);
+        $pdf->Cell(getFrac(1,8),$lineHeight,"Extension:",1,0,"L");
+        $pdf->Cell(getFrac(1,6),$lineHeight,$cExtension,1,1,"C",true);
         $x = $pdf->GetX();
         $y = $pdf->GetY();
         // falta extension
-        $pdf->MultiCell(getFrac(1,4),$lineHeight*2,"Religión de la familia:",1,"C");
-        $pdf->SetXY($x+getFrac(1,4),$y);
-        $pdf->Cell(getFrac(1,4),$lineHeight,"",1,1,"C",true);
-
-        //7ma Linea - Telefono celular
-        $pdf->Cell(getFrac(1,4),$lineHeight,"Télefono celular:",1,0,"L");
-        $pdf->Cell(getFrac(1,4),$lineHeight,$telefono_trabajo_conyuge,1,0,"C",true);
-        $x = $pdf->GetX();
-        $y = $pdf->GetY();
-        $pdf->SetXY($x+getFrac(1,4),$y); 
-
-        $pdf->Cell(getFrac(1,4),$lineHeight,"",1,1,"C",true);
+      
+      //  $pdf->MultiCell(getFrac(1,4),$lineHeight*2,"Religión de la familia:",1,"C");
+      //  $pdf->SetXY($x+getFrac(1,4),$y);
+        // $pdf->Cell(getFrac(1,4),$lineHeight,"",1,1,"C",true);
+      
     }
 
     $pdf->AddPage();
@@ -285,8 +279,15 @@ ob_start();
     $pdf->Cell(3,$lineHeight,"",0,0,"C");
     $pdf->Cell(getFrac(1,4),$lineHeight,"PERSONA AUTORIZADA",0,0,"C");
 
-    $pdf->Ln(10);
+    $pdf->Ln(20);
 
+    $pdf->Cell(getFrac(1,3),$lineHeight,"Fecha de entrevista:",1,0,"L");
+    $pdf->Cell(getFrac(1,3),$lineHeight,$cita,1,1,"C",true);
+    $pdf->Cell(getFrac(1,3),$lineHeight,"Fecha de entrega de documentos:",1,0,"L");
+    $pdf->Cell(getFrac(1,3),$lineHeight,$docs,1,1,"C",true);
+
+    $pdf->Ln(15);
+   
     //FECHA DE REGISTRO
     $pdf->SetFont('Arial','B',$fontSize);
     $spaceAside = ($pdf->getBodyWidth() - ($pdf->GetStringWidth("Ciudad de México a ".$diaRegistro." de ".$mesRegistro." de ".$anioRegistro)+10)) / 2;
@@ -305,7 +306,9 @@ ob_start();
     $pdf->SetFont('Arial','B',$fontSize);
     $pdf->Cell($pdf->GetStringWidth($anioRegistro)+2,$lineHeight,$anioRegistro,0,0,"L",true);
 
-    $spaceAside = 
+
+
+  
     $pdf->Ln(12);
     $pdf->SetXY($margins + getFrac(1,3), $pdf->GetY()+$lineHeight);
     $pdf->Cell(getFrac(1,3), 10, "", "B", 2, "C", true);
