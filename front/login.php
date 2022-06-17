@@ -46,8 +46,8 @@
         </fieldset>
         <div class="row">
             <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
-            <button class="btn waves-effect waves-light" type="submit" name="action"> Ingresar
-                <i class="material-icons right">send</i>
+            <button id="btn-submit" class="btn btn-primary" type="submit" name="action">
+                        Enviar
             </button>
         </div>
     </form>

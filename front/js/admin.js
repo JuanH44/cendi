@@ -235,7 +235,6 @@ $(document).ready(function () {
         $.ajax({
             type: "GET",
             url: direc,
-
             success: function (data) {
 
                 let jsonData = $.parseJSON(data);
