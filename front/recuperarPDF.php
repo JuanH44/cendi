@@ -55,8 +55,7 @@
                 <div class="mb-3">
                     <input id="folio" name="folio" type="text" data-length="10" placeholder="Folio (Boleta)" class="form-control username">
                 </div>
-                <button id="recuperar" class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
-                    <!-- <i class="material-icons right">send</i> -->
+                <button id="recuperar" class="btn btn-primary" type="submit" name="action"> Recuperar
                 </button>
         </form>
         </fieldset>
