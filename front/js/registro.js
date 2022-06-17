@@ -151,32 +151,15 @@ $(document).ready(function () {
 
       // return await
 
-//       const uploadImage = async () => {
-//   const filename = new Date().getTime() + photo!.name
-//   const storage = getStorage(app)
-//   const storageRef = ref(storage, filename)
-//   await uploadBytesResumable(storageRef, photo!);
-//   return await getDownloadURL(storageRef);
-// }
+    //       const uploadImage = async () => {
+    //   const filename = new Date().getTime() + photo!.name
+    //   const storage = getStorage(app)
+    //   const storageRef = ref(storage, filename)
+    //   await uploadBytesResumable(storageRef, photo!);
+    //   return await getDownloadURL(storageRef);
+    // }
 
-    function subirFoto( idFoto, informacion) {
-        const file = $(idFoto).prop('files')[0];
-        const imageRef = ref(storage, 'images/' + file.name);
-        uploadBytesResumable(imageRef, file)
-          .then((snapshot) => {
-            console.log('Uploaded', snapshot.totalBytes, 'bytes.');
-            console.log('File metadata:', snapshot.metadata);
-            // Let's get a download URL for the file.
-            getDownloadURL(snapshot.ref).then((url) => {
-              console.log('File available at', url);
-                informacion = url;
-              // ...
-            });
-          }).catch((error) => {
-            console.error('Upload failed', error);
-            // ...
-          });
-    };
+    
 
 
     function mostrarDatos(informacion, actionUrl){
@@ -256,10 +239,11 @@ $(document).ready(function () {
             }).then((result) => {
                 if (result.isConfirmed) {
                     subirFoto("#foto", informacion.foto);
+                    console.log("foto: "+informacion.foto);
                     subirFoto("#foto_derecho", informacion.foto_derecho);
                     subirFoto("#foto_autorizada", informacion.foto_autorizada);
                     subirFoto("#foto_conyuge", informacion.foto_conyuge);
-                    console.log("foto: "+informacion.foto);
+                   
                     enviaJSON(informacion, actionUrl);
                     
 

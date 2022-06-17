@@ -517,6 +517,25 @@
         const storage = getStorage();
         var alumno;
 
+        function subirFoto( idFoto, info) {
+        const file = $(idFoto).prop('files')[0];
+        const imageRef = ref(storage, 'images/' + file.name);
+        uploadBytesResumable(imageRef, file)
+          .then((snapshot) => {
+           // console.log('Uploaded', snapshot.totalBytes, 'bytes.');
+            // Let's get a download URL for the file.
+            getDownloadURL(snapshot.ref).then((url) => {
+              console.log('File available at', url);
+                info = url;
+              // ...
+            });
+          }).catch((error) => {
+            console.error('Upload failed', error);
+            // ...
+          });
+    };
+
+
     </script>
 
     

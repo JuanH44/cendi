@@ -34,7 +34,7 @@ $(document).ready(function () {
     email_derecho:  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
     curp_derecho:  /^[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}$/,
     puesto: /^[a-zA-Z\s]{2,}$/,
-    sueldo: /^\d$/,
+    sueldo: /^\d+$/,
 
     numero_empleado:  /^\d{5,7}$/,
     extension: /^\d{5}$/,
