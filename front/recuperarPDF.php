@@ -48,7 +48,7 @@
 <body>
     <header id="navegacion"></header>
     <div class="container">
-        <h1>Bienvenido</h1>
+      <div class="mt-5">
         <form id="formula" action="../back/pdf/generatePDF.php" method="get">
             <fieldset class="form-group border p-3">
                 <legend class="w-auto">BUSCAR COMPROBANTE DE CITA</legend>
@@ -60,7 +60,7 @@
                 </button>
         </form>
         </fieldset>
-
+        </div>
     </div>
 </body>
 <footer id="futer"></footer>
