@@ -7,7 +7,6 @@ $endYear = 2022;
 $diaRegistro = "22";
 $mesRegistro = "Diciembre";
 $anioRegistro = "2021";
-
 //Datos Generales
 
 $folio = $_REQUEST['folio'];
@@ -176,7 +175,7 @@ if ($folioRepetido == "no") {
         $colonia','$alcaldia','$entidad','$cp','$telefono_fijo','$telefono_celular','$email_derecho','$ocupacion','$curp_derecho','$puesto','$sueldo',
         '$numero_empleado','$adscripcion','$horario','$extension','$folio','$foto_derecho')";
 
-        if ($tieneconyuge == 'si') {
+        if ($tieneconyuge == 'si') {   
             $sqlConsCony = "insert into conyuge values('" . $primer_apellido_conyuge . "','" . $segundo_apellido_conyuge . "','" . $nombre_conyuge . "','" . $calle_conyuge . "','" . $noExt_conyuge .
                 "','" . $noInt_conyuge . "','" . $colonia_conyuge . "','" . $alcaldia_conyuge . "','" . $entidad_conyuge . "','" . $cp_conyuge . "','" . $telefono_fijo_conyuge . "','" . $telefono_celular_conyuge . "','" .
                 $lugar_trabajo_conyuge . "','" . $domicilio_trabajo_conyuge . "','" . $telefono_trabajo_conyuge . "','" . $extension_conyuge . "','" . $folio . "','" . $foto_conyuge . "')";
@@ -277,4 +276,5 @@ if ($folioRepetido == "no") {
 } else {
     $respuesta = array("state" => 0, "folio" => '', "mensaje" => "El folio que ingresaste esta repetido");
 }
+echo "Respuesta: $respuesta";
 echo json_encode($respuesta);
