@@ -10,143 +10,99 @@
 
 <body>
 
-    </script>
-    <form action="/cendi/back/BD/ActualizarDatos.php" method="get" id="formulario">
-        <fieldset>
-            <legend>DATOS GENERALES</legend>
-            <div class="input-field col s12 m6">
-                <select name="cendi" class="cendi icons">
-                    <option value="sel" disabled selected>Seleccione su CENDI</option>
-                    <option value="Amalia Solórzano de Cárdenas" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">Amalia Solórzano de Cárdenas </option>
-                    <option value="Clementina Batalla de Bassols" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">Clementina Batalla de Bassols</option>
-                    <option value="Eva Sámano de López Mateos" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">Eva Sámano de López Mateos</option>
-                    <option value="Laura Pérez de Bátiz" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">Laura Pérez de Bátiz </option>
-                    <option value="Margarita Salazar de Erro" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">Margarita Salazar de Erro</option>
-                </select>
-                <label>Cendi</label>
-            </div>
-            <div class="file-field input-field">
-                <div class="btn">
-                    <span>Foto</span>
-                    <input name="foto" type="file" class="foto">
+     
+<div class="container">
+    
+        <form action="/cendi/back/BD/ActualizarDatos.php" method="get" id="formulario">
+            <fieldset>
+                <legend><h1 class="mt-4 mb-4">DATOS GENERALES</h1></legend>
+                <div class="mb-3">
+                    <label class="form-label" for="cendi">CENDI</label>
+                    <select  name="cendi" id="cendi" class="form-select" required>
+                        <option value="sel" disabled selected>Seleccione su CENDI</option>
+                        <option value="Amalia Solórzano de Cárdenas" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CENDI “Amalia Solórzano de Cárdenas” </option>
+                        <option value="Clementina Batalla de Bassols" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CENDI “Clementina Batalla de Bassols”</option>
+                        <option value="Eva Sámano de López Mateos" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CENDI “Eva Sámano de López Mateos”</option>
+                        <option value="Laura Pérez de Bátiz" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CENDI “Laura Pérez de Bátiz” </option>
+                        <option value="Margarita Salazar de Erro" disabled data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CENDI “Margarita Salazar de Erro”</option>
+                    </select>
                 </div>
-                <div class="file-path-wrapper">
-                    <input name="fotoNombre" class="file-path validate" type="text">
+                <div class="mb-3">
+                    <label class="form-label" for="folio">Folio (Boleta)</label>
+                    <input  class="form-control" name="folio" id="folio" type="text" data-length="10">
+                    <div class="invalid-feedback" >El folio debe tener 10 digitos o bien el formato PP o PE seguido de 8 numeros</div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="folio" class="folio" type="text" data-length="10">
-                    <label for="folio">Folio (Boleta)</label>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="grupo">Grupo</label>
+                    <select class="form-select" name="grupo" id="grupo">
+                        <option value="sel" disabled selected>Seleccione grupo</option>
+                        <option value="Lac I-II">Lac I - II </option>
+                        <option value="Lac III - Mat I">Lac III - Mat I</option>
+                        <option value="Mat IIA">Mat IIA</option>
+                        <option value="Mat IIB">Mat IIB</option>
+                        <option value="PIA y PIB">PIA y PIB </option>
+                        <option value="PIIA y PIIB">PIIA y PIIB </option>
+                        <option value="PIIIA y PIIIB ">PIIIA y PIIIB </option>
+                    </select>
                 </div>
-            </div>
-
-            <div class="input-field col s12 m6">
-                <select name="grupo" class="grupo">
-                    <option value="sel" disabled selected>Seleccione grupo</option>
-                    <option value="Lac I-II">Lac I-II</option>
-                    <option value="Lac III - Mat I">Lac III - Mat I</option>
-                    <option value="Mat IIA">Mat IIA</option>
-                    <option value="Mat IIB">Mat IIB</option>
-                    <option value="PIA y PIB">PIA y PIB </option>
-                    <option value="PIIA y PIIB">PIIA y PIIB </option>
-                    <option value="PIIIA y PIIIB ">PIIIA y PIIIB </option>
-                </select>
-                <label>Grupo</label>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>DATOS DEL NIÑO O DE LA NIÑA</legend>
-            <div class="row">
-
-                <div class="input-field col s6">
-                    <input name="primer_apellido" class="primer_apellido validate" type="text">
-                    <label for="primer_apellido">Primer Apellido</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="segundo_apellido" class="segundo_apellido validate" type="text">
-                    <label for="segundo_apellido">Segundo Apellido</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="nombre" class="nombre validate" type="text">
-                    <label for="nombre">Nombre(s)</label>
+            </fieldset>
+    
+            <fieldset>
+                <legend><h5>DATOS DEL O LA DERECHOHABIENTE:</h5></legend>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="foto_derecho">Fotorafía</label>
+                    <input type="file" class="form-control" name="foto_derecho" id="foto_derecho"/>
                 </div>
                 <div class="row">
-                    <div class="input-field col s12">
-                        <input name="fecha" class="fecha" type="text" class="datepicker">
-                        <label for="fecha">Fecha de Nacimiento</label>
+                    <div class="col-sm-12 col-md-4 mb-3 ">
+                        <label class="form-label" for="primer_apellido_derecho">Primer Apellido</label>
+                        <input  class="form-control" name="primer_apellido_derecho" id="primer_apellido_derecho" type="text">
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mb-3">
+                        <label class="form-label" for="segundo_apellido_derecho">Segundo Apellido</label>
+                        <input class="form-control" name="segundo_apellido_derecho" id="segundo_apellido_derecho" type="text">
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                    </div>
+                    <div class="col-sm-12 col-md-4 mb-3">
+                        <label class="form-label" for="nombre_derecho">Nombre(s)</label>
+                        <input class="form-control" name="nombre_derecho" id="nombre_derecho" type="text">
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                 </div>
-                <div class="input-field col s6">
-                    <input name="edadAnios" class="edadAnios validate" type="text">
-                    <label class="active" for="edadAnios">Edad (años) </label>
-                </div>
-
-                <div class="input-field col s6">
-                    <input name="edadMeses" class="edadMeses validate" type="text">
-                    <label class="active" for="edadMeses">Meses</label>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input name="email" class="email validate" type="email">
-                        <label for="email">Email</label>
-                        <span class="helper-text" data-error="Invalido" data-success="Valido">Escriba una direccion
-                            valida</span>
-                    </div>
-                </div>
-
-                <div class="input-field col s6">
-                    <input name="curp" class="curp" type="text" data-length="18">
-                    <label for="curp">CURP</label>
-                </div>
-
-
-
-            </div>
-            <div class="row">
-
-        </fieldset>
-        <fieldset>
-            <legend>DATOS DEL O LA DERECHOHABIENTE:</legend>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input name="primer_apellido_derecho" class="primer_apellido_derecho validate" type="text">
-                    <label for="primer_apellido_derecho">Primer Apellido</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="segundo_apellido_derecho" class="segundo_apellido_derecho validate" type="text">
-                    <label for="segundo_apellido_derecho">Segundo Apellido</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="nombre_derecho" class="nombre_derecho validate" type="text">
-                    <label for="nombre_derecho">Nombre(s)</label>
-                </div>
-                <div class="row col s12">
-                    <fieldset>
-                        <legend>Domicilio particular</legend>
-                        <div class="input-field col s4">
-                            <input name="calle" class="calle validate" type="text">
-                            <label for="calle">Calle</label>
+    
+                <fieldset>
+                    <legend>Domicilio particular</legend>
+                        <div class="mb-3">
+                            <label class="form-label" for="calle">Calle</label>
+                            <input  name="calle" id="calle" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
-                        <div class="input-field col s4">
-                            <input name="noExt" class="noExt validate" type="text">
-                            <label for="noExt">Número exterior</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="noExt">Número exterior</label>
+                            <input  name="noExt" id="noExt" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
                         </div>
-                        <div class="input-field col s4">
-                            <input name="noInt" class="noInt validate" type="text">
-                            <label for="noInt">Número interior</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="noInt">Número interior</label>
+                            <input  name="noInt" id="noInt" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
                         </div>
-                        <div class="input-field col s4">
-                            <input name="colonia" class="colonia validate" type="text">
-                            <label for="colonia">Colonia</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="colonia">Colonia</label>
+                            <input  name="colonia" id="colonia" type="text"class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
-                        <div class="input-field col s4">
-                            <input name="alcaldia" class="alcaldia validate" type="text">
-                            <label for="alcaldia">Alcaldia o municipio</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="alcaldia">Alcaldía o municipio</label>
+                            <input  name="alcaldia" id="alcaldia" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
-                        <div class="input-field col s4">
-                            <select name="entidad" class="entidad">
+                        <div class="mb-3">
+                            <label class="form-label" for="entidad">Entidad Federativa</label>
+                            <select class="form-select" name="entidad" id="entidad">
                                 <option value="sel" disabled selected>Seleccione su entidad</option>
                                 <option value="Aguascalientes">Aguascalientes</option>
                                 <option value="Baja California">Baja California</option>
@@ -182,34 +138,31 @@
                                 <option value="Zacatecas">Zacatecas</option>
                                 <option value="Nacido en el extranjero">Nacido en el extranjero</option>
                             </select>
-                            <label>Entidad Federativa</label>
                         </div>
-                        <div class="input-field col s4">
-                            <input name="cp" class="cp validate" type="text">
-                            <label for="cp">Código postal</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="cp">Código postal</label>
+                            <input  name="cp" id="cp" type="number" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
                         </div>
-                        <div class="input-field col s6">
-                            <input name="telefono_fijo" class="telefono_fijo validate" type="text">
-                            <label for="telefono_fijo">Telefono Fijo</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="telefono_fijo">Telefono Fijo</label>
+                            <input  name="telefono_fijo" id="telefono_fijo" type="text"class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                         </div>
-                        <div class="input-field col s6">
-                            <input name="telefono_celular" class="telefono_celular validate" type="text">
-                            <label for="telefono_celular">Telefono celular</label>
+                        <div class="mb-3">
+                            <label class="form-label" for="telefono_celular">Telefono celular</label>
+                            <input  name="telefono_celular" id="telefono_celular" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                         </div>
-                    </fieldset>
+                </fieldset>
+                <div class="mb-3">
+                    <label class="form-label" for="email_derecho">Email</label>
+                    <input  name="email_derecho" id="email_derecho" type="email"class="form-control">
+                    <div class="invalid-feedback" >Este campo debe tener el formato: correo@gmail.com</div>
                 </div>
-
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input name="email_derecho" class="email_derecho validate" type="email">
-                        <label for="email_derecho">Email</label>
-                        <span class="helper-text" data-error="Invalido" data-success="Valido">Escriba una direccion
-                            valida</span>
-                    </div>
-                </div>
-                <div class="input-field col s12">
-                    <select name="ocupacion" class="ocupacion">
+                <div class="mb-3">
+                    <label class="form-label">Ocupacion</label>
+                    <select class="form-select" name="ocupacion" id="ocupacion">
                         <option value="sel" disabled selected>Escoja su ocupacion</option>
                         <option value="Docente">Docente</option>
                         <option value="PAAE">PAAE</option>
@@ -217,31 +170,35 @@
                         <option value="Estudiante">Estudiante</option>
                         <option value="Otro">Otro</option>
                     </select>
-                    <label>Ocupacion</label>
                 </div>
-
-                <div class="input-field col s6">
-                    <input name="curp_derecho" class="curp_derecho" type="text" data-length="18">
-                    <label for="curp_derecho">CURP</label>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="curp_derecho">CURP</label>
+                    <input class="form-control" name="curp_derecho" id="curp_derecho" type="text" data-length="18">
+                    <div class="invalid-feedback" >Formato de curp incorrecto</div>
                 </div>
-
-                <div class="input-field col s6">
-                    <input name="puesto" class="puesto validate" type="text">
-                    <label for="puesto">Nombre de la plaza o puesto</label>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="puesto">Nombre de la plaza o puesto</label>
+                    <input class="form-control name="puesto" id="puesto" type="text"">
+                    <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
-
-                <div class="input-field col s6">
-                    <input name="sueldo" class="sueldo validate" type="text">
-                    <label for="sueldo">Sueldo mensual</label>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="sueldo">Sueldo mensual</label>
+                    <input class="form-control" name="sueldo" id="sueldo" type="text">
+                    <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
                 </div>
-
-                <div class="input-field col s6">
-                    <input name="numero_empleado" class="numero_empleado validate" type="text">
-                    <label for="numero_empleado">Numero de empleado</label>
+    
+                <div class="mb-3">
+                    <label for="numero_empleado">Número de empleado</label>
+                    <input class="form-control" name="numero_empleado" id="numero_empleado" type="text">
+                    <div class="invalid-feedback" >Este campo sólo debe contener de 5 a 7 numeros</div>
                 </div>
-
-                <div class="input-field col s12">
-                    <select name="adscripcion" class="adscripcion">
+    
+                <div class="mb-3">
+                    <label class="form-label" for="adscripcion">Adscripcion</label>
+                    <select class="form-select" name="adscripcion" id="adscripcion">
                         <option value="sel" disabled selected>Seleccione Adscripcion</option>
                         <optgroup label="Nivel Medio Superior">
                             <option value="CECyT1" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT1.png">CECyT 1 Gonzalo Vázquez Vela</option>
@@ -298,166 +255,162 @@
                             <option value="UPIIC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">UPIIC</option>
                             <option value="UPIEM" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">UPIEM</option>
                             <option value="UPIIT" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">UPIIT</option>
-
+    
                         </optgroup>
                         <optgroup label="Area Central">
                             <option value="AC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">Area Central</option>
                         </optgroup>
-
                     </select>
-
-                    <label>Adscripcion</label>
                 </div>
-
-                <div class="input-field col s12">
-                    <select name="horario" class="horario">
+                <div class="mb-3">
+                    <label class="form-label" for="horario">Horario de trabajo</label>
+                    <select class="form-select" name="horario" id="horario">
                         <option value="sel" disabled selected>Seleccione horario</option>
                         <option value="07:00 a 15:00">07:00 a 15:00</option>
                         <option value="08:00 a 15:00">08:00 a 15:00</option>
                         <option value="07:00 a 14:00">07:00 a 14:00</option>
                     </select>
-                    <label>Horario de trabajo</label>
                 </div>
-
-                <div class="input-field col s6">
-                    <input name="extension" class="extension" type="text" data-length="5">
-                    <label for="extension">Extension</label>
+                <div class="mb-3">
+                    <label class="form-label" for="extension">Extension</label>
+                    <input class="form-control" name="extension" id="extension" type="number" data-length="5">
+                    <div class="invalid-feedback" >Este campo sólo debe contener de 5 numeros</div>
                 </div>
-            </div>
-        </fieldset>
-
-        <fieldset>
-            <legend>DATOS DEL CÓNYUGE (PADRE, MADRE):</legend>
+    
+                <div class="mb-3">
+                    <label class="form-label" for="foto_autorizada">Fotografía de la persona autorizada</label>
+                    <input type="file" class="form-control" name="foto_autorizada" id="foto_autorizada" />
+                </div>
+            </fieldset>
+    
+            <fieldset>
+                <legend><h5>DATOS DEL CÓNYUGE (PADRE, MADRE):</h5></legend>
+                 <!-- Switch -->
+                <div class="mb-3">
+                    <label class="form-label" for="tieneconyuge">¿Tiene conyuge?</label>
+                    <div id="tieneconyuge" name="tieneconyuge" class="form-check form-switch">
+                        <label id="no" class="form-check-label col"> No</label>
+                        <input class="form-check-input col" name="tienec" id="tienec" type="checkbox">
+                        <label id="si" class="form-check-label col">Sí</label>
+    
+                    </div>
+                </div>
+    
+                <div class="row" id="fila-conyuge">
+                    <div class="mb-3">
+                        <label class="form-label" for="foto_conyuge">Fotografía</label>
+                        <input class="form-control" type="file" name="foto_conyuge" id="foto_conyuge" />
+                    </div>
+    
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4 mb-3 ">
+                            <label class="form-label" for="primer_apellido_conyuge">Primer Apellido</label>
+                            <input class="form-control" name="primer_apellido_conyuge" id="primer_apellido_conyuge" type="text">
+                    <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 mb-3 ">
+                            <label class="form-label" for="segundo_apellido_conyuge">Segundo Apellido</label>
+                            <input class="form-control" name="segundo_apellido_conyuge" id="segundo_apellido_conyuge" type="text">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 mb-3 ">
+                            <label class="form-label" for="nombre_conyuge">Nombre(s)</label>
+                            <input class="form-control" name="nombre_conyuge" id="nombre_conyuge" type="text">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <fieldset>
+                            <legend>Domicilio particular</legend>
+                            <div class="mb-3">
+                                <label class="form-label" for="calle_conyuge" title="Ingrese una calle válida">Calle</label>
+                                <input class="form-control" name="calle_conyuge" id="calle_conyuge" type="text">
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="noExt_conyuge">Número exterior</label>
+                                <input name="noExt_conyuge" id="noExt_conyuge" type="text"class="form-control">
+                                <div class="invalid-feedback" >Este campo sólo debe contener nuemeros</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="noInt_conyuge">Número interior</label>
+                                <input name="noInt_conyuge" id="noInt_conyuge" type="text"class="form-control">
+                                <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="colonia_conyuge">Colonia</label>
+                                <input name="colonia_conyuge" id="colonia_conyuge" type="text"class="form-control">
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="alcaldia_conyuge">Alcaldia o municipio</label>
+                                <input class="form-control" name="alcaldia_conyuge" id="alcaldia_conyuge" type="text">
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Entidad Federativa</label>
+                                <select  class="form-select" name="entidad_conyuge"  id="entidad_conyuge" >
+                                    <option value="sel" disabled selected>Seleccione su entidad</option>
+                                    <option value="Aguascalientes">Aguascalientes</option>
+                                    <option value="Baja California">Baja California</option>
+                                    <option value="Baja California Sur">Baja California Sur</option>
+                                    <option value="Campeche">Campeche</option>
+                                    <option value="Coahuila">Coahuila</option>
+                                    <option value="Colima">Colima</option>
+                                    <option value="Chiapas">Chiapas</option>
+                                    <option value="Chihuahua">Chihuahua</option>
+                                    <option value="Ciudad de México">Ciudad de México</option>
+                                    <option value="Durango">Durango</option>
+                                    <option value="Guanajuato">Guanajuato</option>
+                                    <option value="Guerrero">Guerrero</option>
+                                    <option value="Hidalgo">Hidalgo</option>
+                                    <option value="Jalisco">Jalisco</option>
+                                    <option value="Estado de México">Estado de México</option>
+                                    <option value="Michoacán">Michoacán</option>
+                                    <option value="Morelos">Morelos</option>
+                                    <option value="Nayarit">Nayarit</option>
+                                    <option value="Nuevo León">Nuevo León</option>
+                                    <option value="Oaxaca">Oaxaca</option>
+                                    <option value="Puebla">Puebla</option>
+                                    <option value="Querétaro">Querétaro</option>
+                                    <option value="Quintana Roo">Quintana Roo</option>
+                                    <option value="San Luis Potosí">San Luis Potosí</option>
+                                    <option value="Sinaloa">Sinaloa</option>
+                                    <option value="Sonora">Sonora</option>
+                                    <option value="Tabasco">Tabasco</option>
+                                    <option value="Tamaulipas">Tamaulipas</option>
+                                    <option value="Tlaxcala">Tlaxcala</option>
+                                    <option value="Veracruz">Veracruz</option>
+                                    <option value="Yucatán">Yucatán</option>
+                                    <option value="Zacatecas">Zacatecas</option>
+                                    <option value="Nacido en el extranjero">Nacido en el extranjero</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="cp_conyuge">Código postal</label>
+                                <input name="cp_conyuge" id="cp_conyuge" type="text"class="form-control">
+                                <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-3 ">
+                                    <label  class="form-label" for="telefono_fijo_conyuge">Telefono Fijo</label>
+                                    <input name="telefono_fijo_conyuge" id="telefono_fijo_conyuge" type="text"class="form-control">
+                                    <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                                </div>
+                                <div class="col-md-4 mb-3 ">
+                                    <label  class="form-label" for="telefono_celular_conyuge">Telefono celular</label>
+                                    <input name="telefono_celular_conyuge" id="telefono_celular_conyuge" type="text" class="form-control">
+                                    <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                                </div>
+                            </div>
+                        </fieldset>
             <div class="row">
-                <!-- Switch -->
-                <label for="tieneconyuge">Tiene Conyuge</label>
-                <div class="tieneconyuge" name="tieneconyuge" class="switch">
-                    <label>
-                        No
-                        <input name="tienec" class="tienec" type="checkbox">
-                        <span class="lever"></span>
-                        Sí
-                    </label>
-                </div>
-
+    
+                <button class="z-depth-3 btn btn-primary waves-effect waves-light" type="submit" value="enviar" id="enviar">
+                    Enviar
+                </button>
             </div>
-            <div class="row" class="fila-conyuge">
-                <div class="input-field col s6">
-                    <input name="primer_apellido_conyuge" class="primer_apellido_conyuge validate" type="text">
-                    <label for="primer_apellido_conyuge">Primer Apellido</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="segundo_apellido_conyuge" class="segundo_apellido_conyuge validate" type="text">
-                    <label for="segundo_apellido_conyuge">Segundo Apellido</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="nombre_conyuge" class="nombre_conyuge validate" type="text">
-                    <label for="nombre_conyuge">Nombre(s)</label>
-                </div>
-                <div class="row col s12">
+        </form>
+</div>
 
-
-                    <fieldset>
-                        <legend>Domicilio particular</legend>
-                        <div class="input-field col s4">
-                            <input name="calle_conyuge" class="calle_conyuge validate" type="text">
-                            <label for="calle_conyuge">Calle</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input name="noExt_conyuge" class="noExt_conyuge validate" type="text">
-                            <label for="noExt_conyuge">Número exterior</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input name="noInt_conyuge" class="noInt_conyuge validate" type="text">
-                            <label for="noInt_conyuge">Número interior</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input name="colonia_conyuge" class="colonia_conyuge validate" type="text">
-                            <label for="colonia_conyuge">Colonia</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input name="alcaldia_conyuge" class="alcaldia_conyuge validate" type="text">
-                            <label for="alcaldia_conyuge">Alcaldia o municipio</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <select name="entidad_conyuge" class="entidad_conyuge">
-                                <option value="sel" disabled selected>Seleccione su entidad</option>
-                                <option value="Aguascalientes">Aguascalientes</option>
-                                <option value="Baja California">Baja California</option>
-                                <option value="Baja California Sur">Baja California Sur</option>
-                                <option value="Campeche">Campeche</option>
-                                <option value="Coahuila">Coahuila</option>
-                                <option value="Colima">Colima</option>
-                                <option value="Chiapas">Chiapas</option>
-                                <option value="Chihuahua">Chihuahua</option>
-                                <option value="Ciudad de México">Ciudad de México</option>
-                                <option value="Durango">Durango</option>
-                                <option value="Guanajuato">Guanajuato</option>
-                                <option value="Guerrero">Guerrero</option>
-                                <option value="Hidalgo">Hidalgo</option>
-                                <option value="Jalisco">Jalisco</option>
-                                <option value="Estado de México">Estado de México</option>
-                                <option value="Michoacán">Michoacán</option>
-                                <option value="Morelos">Morelos</option>
-                                <option value="Nayarit">Nayarit</option>
-                                <option value="Nuevo León">Nuevo León</option>
-                                <option value="Oaxaca">Oaxaca</option>
-                                <option value="Puebla">Puebla</option>
-                                <option value="Querétaro">Querétaro</option>
-                                <option value="Quintana Roo">Quintana Roo</option>
-                                <option value="San Luis Potosí">San Luis Potosí</option>
-                                <option value="Sinaloa">Sinaloa</option>
-                                <option value="Sonora">Sonora</option>
-                                <option value="Tabasco">Tabasco</option>
-                                <option value="Tamaulipas">Tamaulipas</option>
-                                <option value="Tlaxcala">Tlaxcala</option>
-                                <option value="Veracruz">Veracruz</option>
-                                <option value="Yucatán">Yucatán</option>
-                                <option value="Zacatecas">Zacatecas</option>
-                                <option value="Nacido en el extranjero">Nacido en el extranjero</option>
-                            </select>
-                            <label>Entidad Federativa</label>
-                        </div>
-                        <div class="input-field col s4">
-                            <input name="cp_conyuge" class="cp_conyuge validate" type="text">
-                            <label for="cp_conyuge">Código postal</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input name="telefono_fijo_conyuge" class="telefono_fijo_conyuge validate" type="text">
-                            <label for="telefono_fijo_conyuge">Telefono Fijo</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input name="telefono_celular_conyuge" class="telefono_celular_conyuge validate" type="text">
-                            <label for="telefono_celular_conyuge">Telefono celular</label>
-                        </div>
-                    </fieldset>
-                </div>
-
-                <div class="input-field col s6">
-                    <input name="lugar_trabajo_conyuge" class="lugar_trabajo_conyuge validate" type="text">
-                    <label for="lugar_trabajo_conyuge">Lugar de trabajo</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="domicilio_trabajo_conyuge" class="domicilio_trabajo_conyuge validate" type="text">
-                    <label for="domicilio_trabajo_conyuge">Domicilio del trabajo</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="telefono_trabajo_conyuge" class="telefono_trabajo_conyuge validate" type="text">
-                    <label for="telefono_trabajo_conyuge">Telefono del trabajo</label>
-                </div>
-                <div class="input-field col s6">
-                    <input name="extension_conyuge" class="extension_conyuge validate" type="text">
-                    <label for="extension_conyuge">Extension</label>
-                </div>
-            </div>
-            </div>
-        </fieldset>
-        <div class="row">
-
-            <button class="z-depth-3 btn btn-primary waves-effect waves-light" type="submit" value="enviar" id="enviar">
-                Enviar
-            </button>
-        </div>
-    </form>
-    </div>
 </body>

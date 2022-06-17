@@ -9,10 +9,6 @@
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/bootstrap.css" media="screen,projection" />
     <link type="text/css" rel="stylesheet" href="css/custom.css" />
-<<<<<<< HEAD
-=======
-
->>>>>>> bootstrap
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Jquery-->
@@ -60,7 +56,7 @@
                     <input id="folio" name="folio" type="text" data-length="10" placeholder="Folio (Boleta)" class="form-control username">
                 </div>
                 <button id="recuperar" class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
-                    <i class="material-icons right">send</i>
+                    <!-- <i class="material-icons right">send</i> -->
                 </button>
         </form>
         </fieldset>

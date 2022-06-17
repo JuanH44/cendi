@@ -46,6 +46,7 @@
 
 
     //Datos del o la derechohabiente
+    $dFoto = $foto_derecho;
     $dNombre = $nombre_derecho;
     $dApellido1 = $primer_apellido_derecho;
     $dApellido2 = $segundo_apellido_derecho;
@@ -71,6 +72,7 @@
 
 
     //Datos del conyuge
+    $cFoto = $foto_conyuge;
     $cNombre = $nombre_conyuge;
     $cApellido1 = $primer_apellido_conyuge;
     $cApellido2 = $segundo_apellido_conyuge;

@@ -12,15 +12,15 @@ $(document).ready(function () {
     const patterns = {
     folio:/^(PE|PP)\d{8}$/,
 
-    nombre:/^[a-zA-Z\s]{2,}$/i,
-    primer_apellido: /^[a-zA-Z\s]{2,}$/,
-    segundo_apellido: /^[a-zA-Z\s]{2,}$/,
+    nombre:/^[\w\s]{2,}$/i,
+primer_apellido: /^[\w\s]{2,}$/,
+    segundo_apellido: /^[\w\s]{2,}$/,
     curp: /^[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}$/,
     email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
 
-    primer_apellido_derecho: /^[a-zA-Z\s]{2,}$/,
-    segundo_apellido_derecho:/^[a-zA-Z\s]{2,}$/,
-    nombre_derecho:/^[a-zA-Z\s]{2,}$/,
+    primer_apellido_derecho: /^[\w\s]{2,}$/,
+    segundo_apellido_derecho:/^[\w\s]{2,}$/,
+    nombre_derecho:/^[\w\s]{2,}$/,
 
     calle: /\w{1,}/,
     noExt: /^\d{1,}$/,
@@ -39,9 +39,9 @@ $(document).ready(function () {
     numero_empleado:  /^\d{5,7}$/,
     extension: /^\d{5}$/,
 
-    primer_apellido_conyuge:  /^[a-zA-Z\s]{2,}$/,
-    segundo_apellido_conyuge:  /^[a-zA-Z\s]{2,}$/,
-    nombre_conyuge:  /^[a-zA-Z\s]{2,}$/,
+    primer_apellido_conyuge:  /^[\w\s]{2,}$/,
+    segundo_apellido_conyuge:  /^[\w\s]{2,}$/,
+    nombre_conyuge:  /^[\w\s]{2,}$/,
     calle_conyuge:  /\w{1,}/,
     noExt_conyuge: /^\d{1,}$/,
     noInt_conyuge: /^\d{0,}$/,

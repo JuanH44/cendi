@@ -70,7 +70,7 @@ ob_start();
     //FOTO, FOLIO, GRUPO
     $pdf->SetXY(getFrac(1,12)*11, 30);
     $pdf->Cell(25,30,"Foto", 1, 1, 'C');
-   // $pdf->Image($foto,getFrac(11,12),30,25,30, 'JPG');   //Foto del ninno
+    $pdf->Image($nFoto,getFrac(11,12),30,25,30, 'JPG');   //Foto del ninno
     $pdf->SetXY(getFrac(5,7)+$margins, 63);
     $pdf->Cell(getFrac(2,21),$lineHeight,"Folio:", 1, 0, 'C'); 
     $pdf->Cell(getFrac(4,21),$lineHeight,$folio, 1, 1, 'L', true);
@@ -265,10 +265,13 @@ ob_start();
     //FOTOS
     $pdf->SetXY($margins+ getFrac(2,12), 50);
     $pdf->Rect($pdf->GetX(), $pdf->GetY(), $rectWidth, $rectHeight);
+    $pdf->Image($dFoto,$margins+ getFrac(2,12),50,25,30, 'JPG');
     $pdf->SetXY($pdf->GetX()+$rectWidth + $spaceBetween, $pdf->GetY());
     $pdf->Rect($pdf->GetX(), $pdf->GetY(), $rectWidth, $rectHeight);
+    $pdf->Image($cFoto,$pdf->GetX(), $pdf->GetY(),25,30, 'JPG');
     $pdf->SetXY($pdf->GetX()+$rectWidth + $spaceBetween, $pdf->GetY());
     $pdf->Rect($pdf->GetX(), $pdf->GetY(), $rectWidth, $rectHeight);
+    $pdf->Image($aFoto,$pdf->GetX(), $pdf->GetY(),25,30, 'JPG');
 
     $pdf->SetXY(35, $pdf->GetY()+$rectHeight+$lineHeight);
 
