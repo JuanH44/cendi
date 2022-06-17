@@ -31,7 +31,7 @@ $(document).ready(function () {
 
     telefono_fijo:  /^\d{10}$/,
     telefono_celular: /^\d{10}$/,
-    email_derecho: /^\d{10}$/,
+    email_derecho:  /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
     curp_derecho:  /^[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}$/,
     puesto: /^[a-zA-Z\s]{2,}$/,
     sueldo: /^\d$/,

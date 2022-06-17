@@ -7,9 +7,8 @@
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/cssProyecto.css" media="screen,projection" />
-
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" media="screen,projection" />
+    <link type="text/css" rel="stylesheet" href="css/custom.css" />
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--Jquery-->
@@ -21,86 +20,49 @@
             $("#navegacion").load("./compartidos/barranav.html");
             $("#futer").load("./compartidos/futer.html");
             var alumno;
-            
             $("#formula").submit(function(event) {
                 event.preventDefault();
 
                 var form = $(this);
-                
+
                 var formData = {
-                    curp: $("#curp").val(),
                     folio: $("#folio").val(),
                     accion: "recuperar",
                 };
                 alumno = formData;
-                var actionUrl = form.attr('action') + "?folio="+formData.folio;
-                window.open(actionUrl,'_self');
-                /*
-                $.ajax({
-                    type: "GET",
-                    url: actionUrl,
-                    data: formData,
-                    dataType: "json",
-                    encode: true,
-                }).done(function(data) {
-                    //if(data.estado == 0 && data.folio == alumno.folio){
-                        //alert("Cita recuperada");
-                        let direc = "../back/recupera.php?folio="+alumno.folio;
-                        window.open(direc,'_blank');
-                    //}
-                    
-                });
-                */
-
-                
+                var actionUrl = form.attr('action') + "?folio=" + formData.folio;
+                window.open(actionUrl, '_self');
             });
-            
-
             $("#btn-reset").click(function() {
                 $("#formula").trigger('reset');
             });
-
-
-            $('#recuperar').click(function(){
-            let direc = "../back/pdf/generatePDF.php?folio="+alumno.folio;
-            window.open(direc,'_blank');
-        });
+            $('#recuperar').click(function() {
+                let direc = "../back/pdf/generatePDF.php?folio=" + alumno.folio;
+                window.open(direc, '_blank');
+            });
 
         });
     </script>
 </head>
 
 <body>
-    <div class="row blue lighten-4">
     <header id="navegacion"></header>
-    <h1>Bienvenido</h1>
-    <form id="formula" action="../back/pdf/generatePDF.php" method="get">
-
-        <fieldset>
-            <legend>BUSCAR COMPROBANTE DE CITA</legend>
-
-            <div class="input-field col s6">
-                <input id="curp" name="curp" type="text" data-length="18">
-                <label for="curp">CURP</label>
-            </div>
-            <div class="row">
-                <div class="input-field col s6">
-                    <input id="folio" name="folio" type="text" data-length="10">
-                    <label for="folio">Folio (Boleta)</label>
+    <div class="container">
+        <h1>Bienvenido</h1>
+        <form id="formula" action="../back/pdf/generatePDF.php" method="get">
+            <fieldset class="form-group border p-3">
+                <legend class="w-auto">BUSCAR COMPROBANTE DE CITA</legend>
+                <div class="mb-3">
+                    <input id="folio" name="folio" type="text" data-length="10" placeholder="Folio (Boleta)" class="form-control username">
                 </div>
-            </div>
+                <button id="recuperar" class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
+                    <i class="material-icons right">send</i>
+                </button>
+        </form>
         </fieldset>
-        </div>
-        <div class="row">
-            <a id="btn-reset" class="waves-effect waves-light btn">Limpiar</a>
-            <button id="recuperar" class="btn waves-effect waves-light" type="submit" name="action"> Recuperar
-                <i class="material-icons right">send</i>
-            </button>
-        </div>
-    </form>
 
-    <footer id="futer"></footer>
     </div>
 </body>
+<footer id="futer"></footer>
 
 </html>
