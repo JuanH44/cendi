@@ -54,7 +54,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="folio">Folio (Boleta)</label>
                     <input  class="form-control" name="folio" id="folio" type="text" data-length="10">
-                    <div class="invalid-feedback" >Ingrese una boleta válida</div>
+                    <div class="invalid-feedback" >El folio debe tener 10 digitos o bien el formato PP o PE seguido de 8 numeros</div>
                 </div>
 
                 <div class="mb-3">
@@ -83,17 +83,17 @@
                     <div class="col mb-3">
                         <label class="form-label" for="primer_apellido" >Primer Apellido</label>
                         <input class="form-control" name="primer_apellido" id="primer_apellido" type="text" >
-                        <div class="invalid-feedback" >Este campo sólo puede contener letras</div>
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                     <div class="col mb-3">
                         <label class="form-label" for="segundo_apellido">Segundo Apellido</label>
                         <input class="form-control" name="segundo_apellido" id="segundo_apellido" type="text">
-                        <div class="invalid-feedback" >Este campo sólo puede contener letras</div>
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                     <div class="col mb-3">
                         <label class="form-label" for="nombre">Nombre(s)</label>
                         <input class="form-control" name="nombre" id="nombre" type="text">
-                        <div class="invalid-feedback" >Este campo sólo puede contener letras</div>
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                 </div>
                 <div class="row">
@@ -113,11 +113,12 @@
                 <div class="mb-3">
                     <label class="form-label" for="email">Email</label>
                     <input class="form-control" name="email" id="email" type="email">
-                    <div class="invalid-feedback" >Ingrese un email válida</div>
+                    <div class="invalid-feedback" >Este campo debe tener el formato: correo@gmail.com</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label" for="curp">CURP</label>
                     <input class="form-control" name="curp" id="curp" type="text" data-length="18">
+                    <div class="invalid-feedback" >Formato de curp incorrecto</div>
                 </div>
             </fieldset>
 
@@ -126,24 +127,24 @@
                 <legend><h5>DATOS DEL O LA DERECHOHABIENTE:</h5></legend>
 
                 <div class="mb-3">
-                    <label class="form-label" for="foto_derecho">Fotgrafía</label>
+                    <label class="form-label" for="foto_derecho">Fotorafía</label>
                     <input type="file" class="form-control" name="foto_derecho" id="foto_derecho"/>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-4 mb-3 ">
                         <label class="form-label" for="primer_apellido_derecho">Primer Apellido</label>
                         <input  class="form-control" name="primer_apellido_derecho" id="primer_apellido_derecho" type="text">
-                        <small class="help-text" >Este campo sólo puede contener letras</small>
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                     <div class="col-sm-12 col-md-4 mb-3">
                         <label class="form-label" for="segundo_apellido_derecho">Segundo Apellido</label>
                         <input class="form-control" name="segundo_apellido_derecho" id="segundo_apellido_derecho" type="text">
-                        <small class="help-text" >Este campo sólo puede contener letras</small>
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                     <div class="col-sm-12 col-md-4 mb-3">
                         <label class="form-label" for="nombre_derecho">Nombre(s)</label>
                         <input class="form-control" name="nombre_derecho" id="nombre_derecho" type="text">
-                        <small class="help-text" >Este campo sólo puede contener letras</small>
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                 </div>
     
@@ -152,22 +153,27 @@
                         <div class="mb-3">
                             <label class="form-label" for="calle">Calle</label>
                             <input  name="calle" id="calle" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="noExt">Número exterior</label>
                             <input  name="noExt" id="noExt" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="noInt">Número interior</label>
                             <input  name="noInt" id="noInt" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="colonia">Colonia</label>
                             <input  name="colonia" id="colonia" type="text"class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="alcaldia">Alcaldía o municipio</label>
                             <input  name="alcaldia" id="alcaldia" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="entidad">Entidad Federativa</label>
@@ -211,19 +217,23 @@
                         <div class="mb-3">
                             <label class="form-label" for="cp">Código postal</label>
                             <input  name="cp" id="cp" type="number" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="telefono_fijo">Telefono Fijo</label>
                             <input  name="telefono_fijo" id="telefono_fijo" type="text"class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                         </div>
                         <div class="mb-3">
                             <label class="form-label" for="telefono_celular">Telefono celular</label>
                             <input  name="telefono_celular" id="telefono_celular" type="text" class="form-control">
+                            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                         </div>
                 </fieldset>
                 <div class="mb-3">
                     <label class="form-label" for="email_derecho">Email</label>
                     <input  name="email_derecho" id="email_derecho" type="email"class="form-control">
+                    <div class="invalid-feedback" >Este campo debe tener el formato: correo@gmail.com</div>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Ocupacion</label>
@@ -240,21 +250,25 @@
                 <div class="mb-3">
                     <label class="form-label" for="curp_derecho">CURP</label>
                     <input class="form-control" name="curp_derecho" id="curp_derecho" type="text" data-length="18">
+                    <div class="invalid-feedback" >Formato de curp incorrecto</div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="puesto">Nombre de la plaza o puesto</label>
                     <input class="form-control name="puesto" id="puesto" type="text"">
+                    <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label" for="sueldo">Sueldo mensual</label>
                     <input class="form-control" name="sueldo" id="sueldo" type="text">
+                    <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
                 </div>
                 
                 <div class="mb-3">
                     <label for="numero_empleado">Número de empleado</label>
                     <input class="form-control" name="numero_empleado" id="numero_empleado" type="text">
+                    <div class="invalid-feedback" >Este campo sólo debe contener de 5 a 7 numeros</div>
                 </div>
                 
                 <div class="mb-3">
@@ -335,6 +349,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="extension">Extension</label>
                     <input class="form-control" name="extension" id="extension" type="number" data-length="5">
+                    <div class="invalid-feedback" >Este campo sólo debe contener de 5 numeros</div>
                 </div>
 
                 <div class="mb-3">
@@ -367,14 +382,17 @@
                         <div class="col-sm-12 col-md-4 mb-3 ">
                             <label class="form-label" for="primer_apellido_conyuge">Primer Apellido</label>
                             <input class="form-control" name="primer_apellido_conyuge" id="primer_apellido_conyuge" type="text">
+                    <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
                         <div class="col-sm-12 col-md-4 mb-3 ">
                             <label class="form-label" for="segundo_apellido_conyuge">Segundo Apellido</label>
                             <input class="form-control" name="segundo_apellido_conyuge" id="segundo_apellido_conyuge" type="text">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
                         <div class="col-sm-12 col-md-4 mb-3 ">
                             <label class="form-label" for="nombre_conyuge">Nombre(s)</label>
                             <input class="form-control" name="nombre_conyuge" id="nombre_conyuge" type="text">
+                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
                     </div>
                     <div class="row">
@@ -383,22 +401,27 @@
                             <div class="mb-3">
                                 <label class="form-label" for="calle_conyuge" title="Ingrese una calle válida">Calle</label>
                                 <input class="form-control" name="calle_conyuge" id="calle_conyuge" type="text">
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="noExt_conyuge">Número exterior</label>
                                 <input name="noExt_conyuge" id="noExt_conyuge" type="text"class="form-control">
+                                <div class="invalid-feedback" >Este campo sólo debe contener nuemeros</div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="noInt_conyuge">Número interior</label>
                                 <input name="noInt_conyuge" id="noInt_conyuge" type="text"class="form-control">
+                                <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="colonia_conyuge">Colonia</label>
                                 <input name="colonia_conyuge" id="colonia_conyuge" type="text"class="form-control">
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="alcaldia_conyuge">Alcaldia o municipio</label>
                                 <input class="form-control" name="alcaldia_conyuge" id="alcaldia_conyuge" type="text">
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Entidad Federativa</label>
@@ -442,15 +465,18 @@
                             <div class="mb-3">
                                 <label class="form-label" for="cp_conyuge">Código postal</label>
                                 <input name="cp_conyuge" id="cp_conyuge" type="text"class="form-control">
+                                <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
                             </div>
                             <div class="row">
                                 <div class="col-md-4 mb-3 ">
                                     <label  class="form-label" for="telefono_fijo_conyuge">Telefono Fijo</label>
                                     <input name="telefono_fijo_conyuge" id="telefono_fijo_conyuge" type="text"class="form-control">
+                                    <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                                 </div>
                                 <div class="col-md-4 mb-3 ">
                                     <label  class="form-label" for="telefono_celular_conyuge">Telefono celular</label>
                                     <input name="telefono_celular_conyuge" id="telefono_celular_conyuge" type="text" class="form-control">
+                                    <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                                 </div>
                             </div>
                         </fieldset>
@@ -459,18 +485,22 @@
                     <div class="mb-3">
                         <label  class="form-label" for="lugar_trabajo_conyuge">Lugar de trabajo</label>
                         <input name="lugar_trabajo_conyuge" id="lugar_trabajo_conyuge" type="text"class="form-control">
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                     <div class="mb-3">
                         <label  class="form-label" for="domicilio_trabajo_conyuge">Domicilio del trabajo</label>
                         <input name="domicilio_trabajo_conyuge" id="domicilio_trabajo_conyuge" type="text"class="form-control">
+                        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                     </div>
                     <div class="mb-3">
                         <label  class="form-label" for="telefono_trabajo_conyuge">Telefono del trabajo</label>
                         <input name="telefono_trabajo_conyuge" id="telefono_trabajo_conyuge" type="text"class="form-control">
+                        <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                     </div>
                     <div class="mb-3">
                         <label  class="form-label" for="extension_conyuge" >Extension</label>
                         <input name="extension_conyuge" id="extension_conyuge" type="text"class="form-control">
+                        <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
                     </div>
                 </div>
                

@@ -90,6 +90,12 @@ if ($folioRepetido == "no") {
     } else {
         $tieneconyuge = 'si';
     }
+    return $docs;
+}
+//funcion para insertar datos en BD
+function ingresarDatos($docs,$lugaresOcup,$conexion,$tieneconyuge,$folio,$cendi,$grupo,$foto_autorizada,$cita,$primer_apellido,$segundo_apellido,$nombre,$fecha,$edadAnios,$edadMeses,$email,$curp,$foto,$primer_apellido_derecho,$segundo_apellido_derecho,$nombre_derecho,$calle,$noExt,$noInt,$colonia,$alcaldia,$entidad,$cp,$telefono_fijo,$telefono_celular,$email_derecho,$ocupacion,$curp_derecho,$puesto,$sueldo,$numero_empleado,$adscripcion,$horario,$extension,$foto_derecho,$primer_apellido_conyuge,$segundo_apellido_conyuge,$nombre_conyuge,$calle_conyuge,$noExt_conyuge,$noInt_conyuge,$colonia_conyuge,$alcaldia_conyuge,$entidad_conyuge,$cp_conyuge,$telefono_fijo_conyuge,$telefono_celular_conyuge,$lugar_trabajo_conyuge,$domicilio_trabajo_conyuge,$telefono_trabajo_conyuge,$extension_conyuge,$foto_conyuge){
+    $hoy=date("y-m-d");
+    $sqlConsDatos = "insert into datos_generales values('$folio','$cendi','$grupo','$foto_autorizada','$cita','$docs','$hoy')";
 
     //sacar lugares del grupo
     $sqlConsLug = "select lugares from horario where grupo = '$grupo'"; //Consulta para obtener lugares del grupo
