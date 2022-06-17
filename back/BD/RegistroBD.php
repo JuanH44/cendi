@@ -96,25 +96,25 @@ function asignarHorariosCita($lugaresOcup){
     $dia1 = "20-06-2022";
     $dia2 = "21-06-2022";
     if ($lugaresOcup[0] == 0) {
-        $cita = "$dia1 - 09:00-10:00";
+        $cita = "$dia1 - 09:00-11:00";
     } elseif ($lugaresOcup[0] == 1) {
-        $cita = "$dia1 - 10:00-11:00";
+        $cita = "$dia1 - 10:00-12:00";
     } elseif ($lugaresOcup[0] == 2) {
-        $cita = "$dia1 - 11:00-12:00";
+        $cita = "$dia1 - 11:00-13:00";
     } elseif ($lugaresOcup[0] == 3) {
-        $cita = "$dia1 - 12:00-13:00";
+        $cita = "$dia1 - 12:00-14:00";
     } elseif ($lugaresOcup[0] == 4) {
-        $cita = "$dia1 - 13:00-14:00";
+        $cita = "$dia1 - 13:00-15:00";
     } elseif ($lugaresOcup[0] == 5) { 
-        $cita = "$dia2 - 09:00-10:00";
+        $cita = "$dia2 - 09:00-11:00";
     } elseif ($lugaresOcup[0] == 6) {
-        $cita = "$dia2 - 10:00-11:00";
+        $cita = "$dia2 - 10:00-12:00";
     } elseif ($lugaresOcup[0] == 7) {
-        $cita = "$dia2 - 11:00-12:00";
+        $cita = "$dia2 - 11:00-13:00";
     } elseif ($lugaresOcup[0] == 8) {
-        $cita = "$dia2 - 12:00-13:00";
+        $cita = "$dia2 - 12:00-14:00";
     } elseif ($lugaresOcup[0] == 9) {
-        $cita = "$dia2 - 13:00-14:00";
+        $cita = "$dia2 - 13:00-15:00";
     }
     return $cita;
 }

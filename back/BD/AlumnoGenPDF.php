@@ -1,5 +1,6 @@
 <?php
-    require("./conexionBD.php");
+    require("../BD/conexionBD.php");
+
     $folio=$_REQUEST['folio'];
 
     $sqlConyuge="select * from conyuge";//declarar consulta
