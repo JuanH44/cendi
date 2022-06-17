@@ -22,9 +22,12 @@ $(document).ready(function () {
     segundo_apellido_derecho:/^[a-zA-Z\s]{2,}$/,
     nombre_derecho:/^[a-zA-Z\s]{2,}$/,
 
+    calle: /\w{1,}/,
     noExt: /^\d{1,}$/,
     noInt: /^\d{0,}$/,
     cp:  /^\d{5}$/,
+    colonia: /\w{1,}/,
+    alcaldia: /\w{1,}/,
 
     telefono_fijo:  /^\d{10}$/,
     telefono_celular: /^\d{10}$/,
@@ -33,27 +36,31 @@ $(document).ready(function () {
     puesto: /^[a-zA-Z\s]{2,}$/,
     sueldo: /^\d$/,
 
-    numEmpleado:  /^\d{5,7}$/,
+    numero_empleado:  /^\d{5,7}$/,
     extension: /^\d{5}$/,
 
     primer_apellido_conyuge:  /^[a-zA-Z\s]{2,}$/,
     segundo_apellido_conyuge:  /^[a-zA-Z\s]{2,}$/,
     nombre_conyuge:  /^[a-zA-Z\s]{2,}$/,
+    calle_conyuge:  /\w{1,}/,
     noExt_conyuge: /^\d{1,}$/,
     noInt_conyuge: /^\d{0,}$/,
     cp_conyuge:  /^\d{5}$/,
+    colonia_conyuge: /\w{1,}/,
+    alcaldia_conyuge: /\w{1,}/,
+
     telefono_fijo_conyuge: /^\d{10}$/,
-    telefomo_celular_conyuge: /^\d{10}$/,
-    telefomo_trabajo_conyuge: /^\d{10}$/,
+    telefono_celular_conyuge: /^\d{10}$/,
+    telefono_trabajo_conyuge: /^\d{10}$/,
     extension_conyuge: /^\d{4,5}$/,
  
 };
 
 function validate(field, regex) {
-  if (regex.test(field.value)) {
-    field.className = 'form-control valid';
+  if (!regex.test(field.value) || field.value == '' || field.value == null) {
+    field.classList = 'form-control is-invalid';
   } else {
-    field.className = 'form-control invalid';
+    field.className = 'form-control is-valid';
   }
 }
 
@@ -67,7 +74,7 @@ $("#btn-submit").click(function(){
     let valid = true;
 
     for(let i=0; i < inputs.length; i++){
-        if (inputs[i].classList.contains("invalid") || inputs[i].value == "" || inputs[i].value == null){
+        if (inputs[i].classList.contains("is-invalid") || inputs[i].value == "" || inputs[i].value == null){
              Swal.fire({
                 icon: 'error',
                 title: 'Datos incompetos',
