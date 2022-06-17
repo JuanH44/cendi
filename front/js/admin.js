@@ -15,8 +15,8 @@ $(document).ready(function () {
         for (let index = 0; index < alumnos.length; index++) {
             "<p>hola</p>";
             let nuevoAlumno = "";
-            nuevoAlumno += ("<li class='collection-item avatar' id='usr" + index + "'>");
-            nuevoAlumno += ("    <img src='" + alumnos[index].foto + "' alt='" + alumnos[index].Folio + "' class='circle'>");
+            nuevoAlumno += ("<li class='collection-item' id='usr" + index + "'>");
+           // nuevoAlumno += ("    <img src='" + alumnos[index].Imagen_Ninio + "' alt='" + alumnos[index].Folio + "' class='rounded float-start' >");
             nuevoAlumno += ("    <span class='title'>" + alumnos[index].Folio + "</span>");
             nuevoAlumno += ("    <p class='parrafo'>" + alumnos[index].Curp + " <br>");
             nuevoAlumno += ("        " + alumnos[index].Nombre + "");
