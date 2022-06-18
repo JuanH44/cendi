@@ -138,8 +138,8 @@
             <fieldset>
                 <legend><h5>DATOS DEL O LA DERECHOHABIENTE:</h5></legend>
 
-                <div class="input-group mb-3">
-                    <label for="foto_derecho" class="input-group-text">Fotografía</label>
+                <div class="mb-3">
+                    <label for="foto_derecho" class="form-label">Fotografía</label>
                     <input type="file" class="form-control" name="foto_derecho" id="foto_derecho"/>
                 </div>
                 <div class="row">
@@ -232,20 +232,28 @@
                             </select>   
                             <label for="entidad">Entidad Federativa</label>
                         </div>
-                        <div class="form-floating mb-3">
-                            <input  name="cp" id="cp" placeholder="aa" type="number" class="form-control">
-                            <label for="cp">Código postal</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input  name="telefono_fijo" id="telefono_fijo" placeholder="aa" type="text"class="form-control">
-                            <label for="telefono_fijo">Telefono Fijo</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input  name="telefono_celular" id="telefono_celular" placeholder="aa" type="text" class="form-control">
-                            <label for="telefono_celular">Telefono celular</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input  name="cp" id="cp" placeholder="aa" type="number" class="form-control">
+                                    <label for="cp">Código postal</label>
+                                    <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input  name="telefono_fijo" id="telefono_fijo" placeholder="aa" type="text"class="form-control">
+                                    <label for="telefono_fijo">Telefono fijo</label>
+                                    <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-floating mb-3">
+                                    <input  name="telefono_celular" id="telefono_celular" placeholder="aa" type="text" class="form-control">
+                                    <label for="telefono_celular">Telefono celular</label>
+                                    <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                                </div>
+                            </div>
                         </div>
                 </fieldset>
                 <div class="form-floating mb-3">
@@ -390,27 +398,33 @@
                     </div>
                 </div>
             
-                <div class="row" id="fila-conyuge">
-                    <div class="form-floating mb-3">
+                <div id="fila-conyuge">
+                    <div class="mb-3">
+                        <label for="foto_conyuge" class="form-label">Fotografía</label>
                         <input class="form-control" type="file" name="foto_conyuge" id="foto_conyuge" />
-                        <label for="foto_conyuge">Fotografía</label>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-12 col-md-4 mb-3 ">
-                            <input class="form-control" name="primer_apellido_conyuge" id="primer_apellido_conyuge" placeholder="aa" type="text">
-                            <label for="primer_apellido_conyuge">Primer Apellido</label>
-                    <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            <div class="form-floating">
+                                <input class="form-control" name="primer_apellido_conyuge" id="primer_apellido_conyuge" placeholder="aa" type="text">
+                                <label for="primer_apellido_conyuge">Primer Apellido</label>
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-4 mb-3 ">
-                            <input class="form-control" name="segundo_apellido_conyuge" id="segundo_apellido_conyuge" placeholder="aa" type="text">
-                            <label for="segundo_apellido_conyuge">Segundo Apellido</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            <div class="form-floating">
+                                <input class="form-control" name="segundo_apellido_conyuge" id="segundo_apellido_conyuge" placeholder="aa" type="text">
+                                <label for="segundo_apellido_conyuge">Segundo Apellido</label>
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            </div>
                         </div>
                         <div class="col-sm-12 col-md-4 mb-3 ">
-                            <input class="form-control" name="nombre_conyuge" id="nombre_conyuge" placeholder="aa" type="text">
-                            <label for="nombre_conyuge">Nombre(s)</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            <div class="form-floating">
+                                <input class="form-control" name="nombre_conyuge" id="nombre_conyuge" placeholder="aa" type="text">
+                                <label for="nombre_conyuge">Nombre(s)</label>
+                                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -480,21 +494,27 @@
                                 </select>
                                 <label>Entidad Federativa</label>
                             </div>
-                            <div class="form-floating mb-3">
-                                <input name="cp_conyuge" id="cp_conyuge" placeholder="aa" type="text"class="form-control">
-                                <label for="cp_conyuge">Código postal</label>
-                                <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
-                            </div>
                             <div class="row">
-                                <div class="col-md-4 mb-3 ">
-                                    <input name="telefono_fijo_conyuge" id="telefono_fijo_conyuge" placeholder="aa" type="text"class="form-control">
-                                    <label  for="telefono_fijo_conyuge">Telefono Fijo</label>
-                                    <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                                <div class="col-md-4">
+                                    <div class="form-floating mb-3">
+                                        <input name="cp_conyuge" id="cp_conyuge" placeholder="aa" type="text"class="form-control">
+                                        <label for="cp_conyuge">Código postal</label>
+                                        <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
+                                    </div>
                                 </div>
                                 <div class="col-md-4 mb-3 ">
-                                    <input name="telefono_celular_conyuge" id="telefono_celular_conyuge" placeholder="aa" type="text" class="form-control">
-                                    <label  for="telefono_celular_conyuge">Telefono celular</label>
-                                    <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                                    <div class="form-floating">
+                                        <input name="telefono_fijo_conyuge" id="telefono_fijo_conyuge" placeholder="aa" type="text"class="form-control">
+                                        <label  for="telefono_fijo_conyuge">Telefono Fijo</label>
+                                        <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3 ">
+                                    <div class="form-floating">
+                                        <input name="telefono_celular_conyuge" id="telefono_celular_conyuge" placeholder="aa" type="text" class="form-control">
+                                        <label  for="telefono_celular_conyuge">Telefono celular</label>
+                                        <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+                                    </div>
                                 </div>
                             </div>
                         </fieldset>
