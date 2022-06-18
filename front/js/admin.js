@@ -11,9 +11,9 @@ $(document).ready(function () {
     var alumnos;
     var contenedor = $('#alumnos');
     function construye() {
-        let nuevaLista = "<ul class='collection' id='alumnos'> ";
+        let nuevaLista = "<ul class='collection ' id='alumnos'> ";
         for (let index = 0; index < alumnos.length; index++) {
-            "<p>hola</p>";
+           // "<p>hola</p>";
             let nuevoAlumno = "";
             nuevoAlumno += ("<li class='collection-item' id='usr" + index + "'>");
            // nuevoAlumno += ("    <img src='" + alumnos[index].Imagen_Ninio + "' alt='" + alumnos[index].Folio + "' class='rounded float-start' >");
