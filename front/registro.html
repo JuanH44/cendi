@@ -546,7 +546,7 @@
 
             <div class="row center">
                 <div id="letras">
-                    <input class="btn btn-secondary" type="reset" value="Limpiar">
+                    <input class="btn btn-danger" type="reset" value="Limpiar">
                     <button id="btn-submit" class="btn btn-primary" type="submit" name="action">
                         Enviar
                     </button>
@@ -637,10 +637,13 @@
     $("#btn-reset").click(function () {
         $("#formulario").trigger('reset');
         $('#fila-conyuge').hide();
+        
     });
 
     $("input[type='reset']").click(function () {
         $("#fila-conyuge").hide();
+        $("#si").hide();
+        $("#no").show();
     });
     
     
