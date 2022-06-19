@@ -10,32 +10,45 @@ $(document).ready(function () {
 
     var alumnos;
     var contenedor = $('#alumnos');
+
+    //Carga cada uno de los registros de los alumnos a la página
     function construye() {
-        let nuevaLista = "<ul class='collection ' id='alumnos'> ";
+        let nuevaLista = "<div class='accordion' id='alumnos'> ";
         for (let index = 0; index < alumnos.length; index++) {
            // "<p>hola</p>";
             let nuevoAlumno = "";
-            nuevoAlumno += ("<li class='collection-item' id='usr" + index + "'>");
+            nuevoAlumno += ("<div class='accordion-item' id='usr"+index+"' >");
            // nuevoAlumno += ("    <img src='" + alumnos[index].Imagen_Ninio + "' alt='" + alumnos[index].Folio + "' class='rounded float-start' >");
-            nuevoAlumno += ("    <span class='title'>" + alumnos[index].Folio + "</span>");
-            nuevoAlumno += ("    <p class='parrafo'>" + alumnos[index].Curp + " <br>");
-            nuevoAlumno += ("        " + alumnos[index].Nombre + "");
-            nuevoAlumno += ("    </p>");
-            nuevoAlumno += ("    <div  id='alumno" + index + "'>");
-            nuevoAlumno += ("        <a class='waves-effect waves-light btn ver-mas'>Ver mas</a>");
-            nuevoAlumno += ("        <a class='waves-effect waves-light btn ver-menos'>Ver menos</a>");
-            nuevoAlumno += ("        <a class='waves-effect waves-light btn editar'>Editar</a>");
-            nuevoAlumno += ("        <a class='waves-effect waves-light btn cancelar-edicion'>Cancelar edicion</a>");
-            nuevoAlumno += ("        <a class='waves-effect waves-light btn btn-reset'>Restablecer valores</a>");
-            nuevoAlumno += ("        <a class='waves-effect waves-light right btn btn-danger red elimina'>Eliminar</a>");
-            nuevoAlumno += ("        <form id='formula" + index + "' class='formula' action='../back/BD/ActualizarDatos.php' method='get'>");
-            nuevoAlumno += ("            <!-- Aqui se inserta solito -->");
-            nuevoAlumno += ("        </form>");
+            nuevoAlumno += ("   <div class='accordion-header' id='encabezado"+index+"'>");
+            
+         //   nuevoAlumno += ("       <button class='accordion-button collapsed ver-mas' type='button' data-bs-toggle='collapse' data-bs-target='#alumno"+index+"' aria-expanded='false' aria-controls='collapse"+index+"'>"+ alumnos[index].Folio +"</button>");
+            nuevoAlumno += ("       <div  class='accordion-button collapsed ver-mas btn d-flex' data-bs-toggle='collapse' data-bs-target='#alumno"+index+"' aria-expanded='false' aria-controls='collapse"+index+"'>");
+            nuevoAlumno += ("           <img src='./assets/man.jpg' class='rounded-circle img-responsive float-left mx-3' width='50' height='50' alt='100x100' data-holder-rendered='true'></img>");
+            nuevoAlumno += ("           <p>"+ alumnos[index].Folio +"</p>");
+            nuevoAlumno += ("           <br>");
+            //nuevoAlumno += ("         <p>"+ alumnos[index].Curp +"</p>");
+          //  nuevoAlumno += ("           <button class='btn btn-primary ver-mas float-end'>Ver más</button>");
+            nuevoAlumno += ("       </div>");
+            nuevoAlumno += ("   </div>")
+            
+            nuevoAlumno += ("   <div id='alumno"+index+"' class='accordion-collapse collapse' aria-labelledby='encabezado"+index+"' data-bs-parent='#alumnos' >");
+            nuevoAlumno += ("            <div class='accordion-body'>");
+            // nuevoAlumno += ("        <a class='col btn ver-mas'>Ver mas</a>");
+            // nuevoAlumno += ("        <a class='col btn ver-menos'>Ver menos</a>");
+            nuevoAlumno += ("       <div class='buttons float-end'>");
+            nuevoAlumno += ("        <a class='col btn editar'>Editar</a>");
+            nuevoAlumno += ("        <a class='col btn cancelar-edicion'>Cancelar edicion</a>");
+            nuevoAlumno += ("        <a class='col btn btn-reset'>Restablecer valores</a>");
+            nuevoAlumno += ("        <a class='col right btn btn-danger elimina'>Eliminar</a>");
+            nuevoAlumno += ("       </div>");
+            nuevoAlumno += ("       <form id='formula"+index+"' class='formula' action='../back/BD/ActualizarDatos.php' method='get'>");
+            nuevoAlumno += ("       </form>");
+            nuevoAlumno += ("           </div>");
             nuevoAlumno += ("    </div>");
-            nuevoAlumno += ("</li>");
+            nuevoAlumno += ("</div>");
             nuevaLista += nuevoAlumno;
         }
-        nuevaLista += "</ul>";
+        nuevaLista += "</div>";
         contenedor.replaceWith(nuevaLista);
         contenedor = $('#alumnos');
 
@@ -103,30 +116,40 @@ $(document).ready(function () {
         M.updateTextFields();
 
     }
+
+    //Habilita los campos
     function activarForm(alumnRow, formID) {
         alumnRow.find(formID).find(':input:disabled').prop('disabled', false);
         alumnRow.find('.btn-enviar').show();
     }
+
+    //Deshabilita los campos
     function bloquearForm(alumnRow, formID) {
         alumnRow.find(formID).find(':input:not(:disabled)').prop('disabled', true);
         alumnRow.find('.btn-enviar').hide();
     }
+
+    //Muestra los botones y habilita los campos
     function activarEdicion(alumnRow, formID) {
         alumnRow.find(".editar").hide();
         alumnRow.find(".cancelar-edicion").show();
         alumnRow.find(".btn-reset").show();
         activarForm(alumnRow, formID);
     }
+
+    //Ocultalos botones y deshabilita los campos
     function cancelarEdicion(alumnRow, formID) {
         alumnRow.find(".editar").show();
         alumnRow.find(".cancelar-edicion").hide();
         alumnRow.find(".btn-reset").hide();
         bloquearForm(alumnRow, formID);
     }
+
+
     function verMas(alumnRow, formID) {
         alumnRow.find(formID).show();
         alumnRow.find(".ver-menos").show();
-        alumnRow.find(".ver-mas").hide();
+      //  alumnRow.find(".ver-mas").hide();
         cancelarEdicion(alumnRow, formID);
     }
 
@@ -144,7 +167,7 @@ $(document).ready(function () {
         for (let index = 0; index < alumnos.length; index++) {
             const element = alumnos[index];
             let formID = ("#formula" + index);
-            let alumnID = ("#alumno" + index);
+            let alumnID = ("#usr"+index);
             $(formID).load("./compartidos/formRegistro.html").ready(function () {
                // $('select').formSelect();
                 
@@ -182,11 +205,13 @@ $(document).ready(function () {
 
             $(alumnID).find(".ver-mas").click(function () {
                 let alumRow = $(alumnID);
+                $("#hola").hide();
                 verMas(alumRow, formID);
                 restableceValores(alumInicial, index);
             });
-            $(alumnID).find(".ver-menos").click(function () {
+            $(alumnID).find(".ver-menos").not(".collapsed").click(function () {
                 let alumRow = $(alumnID);
+                $("#hola").show();
                 verMenos(alumRow, formID);
                 restableceValores(alumRow, index);
             });
@@ -207,6 +232,7 @@ $(document).ready(function () {
                 //$(this).closest(alumnID).find('.contrasena').val(alumnos[index].nombre);
 
             });
+            
             $(alumnID).find('.elimina').click(function () {
                 $(('#usr' + index)).replaceWith("");
                 $.ajax({
@@ -248,4 +274,11 @@ $(document).ready(function () {
     $('#actualizar').click(function () {
         jalaTodo();
     });
+
+    $('#hola').click(function(){
+        $('#hola').hide();
+
+    }
+
+    )
 });

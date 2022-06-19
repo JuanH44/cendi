@@ -26,20 +26,15 @@ session_start();
 </head>
 
 <body>
-   
-   
-            <header id="navegacion"></header>
-     
-        
-        <div class="container">            
-            <div class="row"></div>
-                <div class="row"> 
-                    <ul class="collection" id="alumnos"></ul>
-                </div>
-            </div>
-        </div>
-        <footer id="futer"></footer>
- 
-</body>
+    <header>
+        <nav id="navegacion"></nav>
+    </header>
+    <div class="container">   
+        <h1>Administrador</h1>
+        <div class="collection" id="alumnos"></div>
+    </div>
 
+    <footer id="futer"></footer>
+    <p id="hola">Prueba :D</p>
+</body>
 </html>

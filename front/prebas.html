@@ -21,6 +21,7 @@
    
    
     <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script type="text/javascript" src="js/materialize.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
    
 
@@ -30,23 +31,52 @@
     
 </head>
 <body>
-    <div class="row g-2">
-        <div class="col-md">
-          <div class="form-floating">
-            <input type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com" value="mdo@example.com">
-            <label for="floatingInputGrid">Email address</label>
-          </div>
+  <div class="container">
+    <div class="container">
+      
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#home">Default</a></li>
+        <li><a href="#menu1">Menu 1</a></li>
+        <li><a href="#menu2">Menu 2</a></li>
+        <li><a href="#menu3">Menu 3</a></li>
+      </ul>
+      <form class="tab-content" method="post" id="myForm">
+        <div class="tab-pane active" id="step1">
+           <p>Here is the content for the first step...</p>
+           <input class="form-control" id="input1" name="input1" required="">
+           <button class="btn btn-default btn-ok" type="button">OK</button>
         </div>
-        <div class="col-md">
-          <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid">
-              <option selected>Open this select menu</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
-            </select>
-            <label for="floatingSelectGrid">Works with selects</label>
-          </div>
+        <div class="tab-pane" id="step2">
+           <p>Here is the content for step 2...</p>
+           <input class="form-control" id="input2" name="input2" required="">
+           <button class="btn btn-default btn-ok" type="button">OK</button>
         </div>
-      </div>
+        <div class="tab-pane" id="step3">
+           <p>Here is the content for step 3...</p>
+           <input class="form-control" id="input3" name="input3" required="">
+           <input class="form-control" id="input4" name="input4" required="">
+           <button class="btn btn-default btn-ok" type="button">OK</button>
+        </div>
+        <div class="tab-pane" id="step4">
+           <p>This is the last step. You're done.</p>
+           <button class="btn btn-default btn-submit" type="submit">Submit</button>
+        </div>
+  </form>
+    </div>
+
+   
+  </div>
+  <script>
+    $(document).ready(function(){
+        $(".nav-tabs a").click(function(){
+            $(this).tab('show');
+        });
+        $('.nav-tabs a').on('shown.bs.tab', function(event){
+            var x = $(event.target).text();         
+            var y = $(event.relatedTarget).text();  
+            $(".act span").text(x);
+            $(".prev span").text(y);
+        });
+    });
+    </script>
 </body>
