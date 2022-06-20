@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- hojas de estilo -->
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <!-- scripts -->
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"> </script>
+    <script type="text/javascript" src="../js/registro.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <!-- datos y metadatos -->
+    <link rel="shortcut icon" href="../assets/burrito-sin-f.png">
+    <title>Registro</title>
+</head>
+<body>
+
+    <header>
+        <nav id="navigation"></nav>
+    </header>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Formulario de registro</h3>
+                    </div>
+                    <nav>
+                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                          <button class="nav-link active" id="nav-general-tab" data-bs-toggle="tab" data-bs-target="#nav-general" type="button" role="tab" aria-controls="nav-general" aria-selected="true">Datos generales</button>
+                          <button class="nav-link" id="nav-ninnx-tab" data-bs-toggle="tab" data-bs-target="#nav-ninnx" type="button" role="tab" aria-controls="nav-ninnx" aria-selected="false">Datos del niño o niña </button>
+                          <button class="nav-link" id="nav-derechohabiente-tab" data-bs-toggle="tab" data-bs-target="#nav-derechohabiente" type="button" role="tab" aria-controls="nav-derechohabiente" aria-selected="false">Datos del o la derechohabiente</button>
+                          <button class="nav-link" id="nav-conyuge-tab" data-bs-toggle="tab" data-bs-target="#nav-conyuge" type="button" role="tab" aria-controls="nav-conyuge" aria-selected="false">Datos del o la conyuge</button>
+                        </div>
+                      </nav>
+                      <form class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">    
+                            <div class="container">
+                                <fieldset id="general-section"></fieldset>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-ninnx" role="tabpanel" aria-labelledby="nav-ninnx-tab">
+                            <div class="container">
+                                <fieldset id="ninnx-section"></fieldset>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-derechohabiente" role="tabpanel" aria-labelledby="nav-derechohabiente-tab">
+                            <div class="container">
+                                <fieldset id="derechohabiente-section"></fieldset>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="nav-conyuge" role="tabpanel" aria-labelledby="nav-conyuge-tab">
+                            <div class="container">
+                                <fieldset id="conyuge-section"></fieldset>
+                            </div>
+                        </div>
+                    
+                    <div class="card-footer" > 
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="text-center">
+                                        <button id="btn-limpiar" type="reset" class="btn btn-danger">Limpiar</button>
+                                        <button id="btn-siguiente" type="submit" class="btn btn-success">Siguiente</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" ></footer>
+</body>
+</html>
