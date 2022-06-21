@@ -6,15 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/bootstrap.css" media="screen,projection" />
-    <link type="text/css" rel="stylesheet" href="css/custom.css" />
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!--Jquery-->
-    <script type="text/javascript" src="js/jquery-3.6.0.js"></script>
-    <script type="text/javascript" src="js/materialize.js"></script>
-    <title>.::Recuperar PDF::.</title>
+     <!-- hojas de estilo -->
+     <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/custom.css">
+    <!-- scripts -->
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"> </script>
+    <script type="text/javascript" src="../js/registro.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <!-- datos y metadatos -->
+    <link rel="shortcut icon" href="../assets/burrito-sin-f.png">
+    <title>Recuperar ficha de registro</title>
     <script>
         $(document).ready(function() {
             $("#navegacion").load("./compartidos/barranav.html");
@@ -46,7 +47,7 @@
 </head>
 
 <body>
-    <header id="navegacion"></header>
+    <header id="navigation"></header>
     <div class="container">
       <div class="mt-5">
         <form id="formula" action="../back/pdf/generatePDF.php" method="get">
@@ -61,7 +62,13 @@
         </fieldset>
         </div>
     </div>
+    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+    <script type="text/javascript" src="../js/load-components.js"></script>
+    <script type="text/javascript" src="../js/bootstrap.js"></script>
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<footer id="futer"></footer>
+<footer id="footer"></footer>
 
 </html>

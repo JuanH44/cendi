@@ -11,7 +11,7 @@
   background-color: var(--secundary-color)  !important;
 }
 
-.nav-link:hover{
+.navbar-ipn .nav-link:hover{
   background-color: rgb(37, 8, 10);
 }
 
