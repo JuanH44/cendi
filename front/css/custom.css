@@ -1,5 +1,18 @@
+:root{
+--main-color:  #270411;
+--secundary-color: #411223;
+}
+
+.header-ipn{
+    background-color: var(--main-color) !important;
+}
+
 .navbar-ipn{
-    background-color: #270411 !important;
+  background-color: var(--secundary-color)  !important;
+}
+
+.nav-link:hover{
+  background-color: rgb(37, 8, 10);
 }
 
 .form-control.invalid {
