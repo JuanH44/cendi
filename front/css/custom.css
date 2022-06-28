@@ -1,6 +1,10 @@
 :root{
---main-color:  #270411;
---secundary-color: #411223;
+--main-color:  #2e050c;
+/* --main-color:  #270411; */
+
+--secundary-color: #530c18;
+/* --secundary-color: #6e1340; */
+  box-sizing: border-box;
 }
 
 .header-ipn{
@@ -8,6 +12,10 @@
 }
 
 .navbar-ipn{
+  background-color: var(--secundary-color)  !important;
+}
+
+.bg-main{
   background-color: var(--secundary-color)  !important;
 }
 
@@ -47,6 +55,22 @@
 
 }
 
+.custom-toggler.navbar-toggler {
+  border-color: lightgrey;
+} 
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='lightgrey' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.nav-item.nav-item-ipn .nav-link{
+  color: white;
+  padding: 1rem;
+}
+
+.offcanvas-body.offcanvas-ipn, .offcanvas-header.offcanvas-ipn{
+  background-color: #270411;
+}
 
 /* .form-control:active,
 .form-control:focus,

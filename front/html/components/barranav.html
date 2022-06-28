@@ -1,52 +1,81 @@
+<script type="text/javascript" src="../js/header.js"></script>
+
 <header class="bg-dark text-white header-ipn pb-0 pt-3">
-    <div class="container-fluid px-0 row row-cols-3 justify-content-center">
-      <div class=" col col-md-10 d-flex">
-        <div class="flex-grow-1">
-          <img src="../assets/logo-ipn-blanco.png" class="px-md-3 px-sm-1 mb-3 border-end" style="max-height: 75px;" alt="...">
-          <img src="../assets/logo-escom-blanco.png" class="px-md-3 px-sm-1 mb-3" style="max-height: 75px;"  alt="...">
+    <div class="container-fluid px-0 row d-flex  justify-content-center  m-0">
+      <div class=" col d-flex col-11 col-md-10 d-flex  flex-wrap align-items-center justify-content-between">
+        <img src="../assets/logo-ipn-blanco.png" 
+          class="px-3 mb-3 border-md-end " 
+          style="max-height: 75px;"
+          alt="..."
+        >
+        <img src="../assets/logo-escom-blanco.png" 
+          class="px-3 mb-3 " 
+          style="max-height: 75px;" 
+          alt="..."
+        >
+        <div class="ms-auto order-last order-md-2 col-12 col-md-auto pb-3 text-center">
+          Centros de Desarrollo Infantil
         </div>
-        <div>
-          <span>
-            Centros de Desarrollo Infantil
-          </span>
-          <img src="../assets/burrito-sin-f.png" class="" style="max-height: 75px;"  alt="...">
-        </div>
+        <img src="../assets/burrito-sin-f.png" 
+          class="px-0 px-md-3 mb-3 order-md-3" 
+          style="max-height: 75px;"  
+          alt="..."
+        >
       </div>
     </div>
-  
-    <nav class="row row-cols-3 d-flex px-5 flex-wrap align-items-center justify-content-center navbar-ipn m-0">
-      <div class="d-flex col-md-10 justify-content-center align-items-center">
-        <ul class="nav col col-lg-auto me-lg-auto  mb-0">
-            <li>
-                <a href="./index.html" class="nav-link p-3 text-white">Inicio</a>
-            </li>
-            <li>
-                <div class="dropdown">
-                  <a class="nav-link dropdown-toggle text-white p-3" type="button" role="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Servicios
-                  </a>
-                  <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                    <li><a class="dropdown-item" href="./Medicina.html">Medicina</a></li>
-                    <li><a class="dropdown-item" href="./Nutricion.html">Nutricion</a></li>
-                    <li><a class="dropdown-item" href="./Psicologia.html">Psicoligía</a></li>
-                    <li><a class="dropdown-item" href="./Pedagogia.html">Pedagogía</a></li>
+   
+    <nav class="navbar navbar-expand-lg navbar-ipn text-white p-0">
+      <div class="container-fluid">
+        
+        <div class="d-md-none d-flex justify-content-between p-2 col-12 ">
+          
+            <button class="navbar-toggler custom-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+              <span class="navbar-toggler-icon custom-toggler"></span>
+            </button>
+            <a class="btn btn-outline-light ms-auto align-items-center">  <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión</a>
+        </div>
+
+        <div class="offcanvas offcanvas-start  text-white" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+          <div class="offcanvas-header offcanvas-ipn">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">CENDI</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body offcanvas-ipn navbar-ipn row justify-content-center">
+            <div class="d-flex col-10">
+                  <ul class="navbar-nav justify-content-start">
+                    <li class="nav-item nav-item-ipn">
+                     
+                      <a class="nav-link nav-ipn active" aria-current="page" href="#">  
+                        <i class="bi bi-home"></i>Inicio
+                      </a>
+                    </li>
+                    <li class="nav-item nav-item-ipn d-flex align-items-center dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Servicios
+                      </a>
+                      <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                        <li><a class="dropdown-item" href="#">Medicina</a></li>
+                        <li><a class="dropdown-item" href="#">Nutrición</a></li>
+                        <li><a class="dropdown-item" href="#">Odontología</a></li>
+                        <li><a class="dropdown-item" href="#">Pedagogía</a></li>
+                        <li><a class="dropdown-item" href="#">Psicología</a></li>
+                      </ul>
+                    </li>
+                    <li class="nav-item nav-item-ipn">
+                      <a class="nav-link" href="#">Registro</a>
+                    </li>
+                    <li class="nav-item nav-item-ipn">
+                      <a class="nav-link" href="#">Recuperar</a>
+                    </li>
                   </ul>
-                </div>
-            </li>
-            <li>
-                <a href="./registro.html" class="nav-link p-3 text-white">Registro</a>
-            </li>
-            <li>
-                <a href="./recuperarPDF.php" class="nav-link p-3 text-white">Recuperar</a>
-            </li>
-        </ul>
-        <div class="text-end flex-shrink-1">
-          <form class="">
-            <a href="../front/login.html">
-              <button type="button" class="btn btn-outline-light">Acceder</button>
-            </a>
-          </form>
+              <div  class="ms-auto d-flex align-items-center"  id="btn_login" >
+                <button class="btn btn-outline-light" type="submit"> <i class="bi bi-box-arrow-in-right"></i> Iniciar Sesión</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </nav>
   </header>
+
+ 
