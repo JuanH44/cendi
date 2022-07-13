@@ -5,31 +5,32 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!--Import materialize.css-->
-  <link type="text/css" rel="stylesheet" href="css/bootstrap.css" media="screen,projection" />
-  <link type="text/css" rel="stylesheet" href="css/custom.css" />
-  <!--Jquery-->
-  <script type="text/javascript" src="./js/jquery-3.6.0.js"></script>
-  <script type="text/javascript" src="./js/materialize.js"></script>
-  <title>.::Inicio::.</title>
-  <script>
-    $(document).ready(function () {
-      $("#navegacion").load("./compartidos/barranav.html");
-      $("#futer").load("./compartidos/futer.html");
-    });
+  <!--Hojas de estilo--> 
+  <link type="text/css" rel="stylesheet" href="../../css/bootstrap.min.css"/>
+  <link type="text/css" rel="stylesheet" href="../../css/bootstrap-icons.css"/>
+  <link type="text/css" rel="stylesheet" href="../../css/custom.css" />
+  <!--scripts-->
+  <script type="text/javascript" src="../../js/jquery-3.6.0.js"></script>
+  <script type="text/javascript" src="../../js/load-components.js"></script>
+  <script type="text/javascript" src="../../js/services.js"></script> <!-- cambia las referencias -->
+  <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../../js/bootstrap.bundle.min.js"></script>
+  <!-- datos -->
+  <link rel="shortcut icon" href="../assets/burrito-sin-f.png">
+  <title>Nutrición</title>
 
-  </script>
 </head>
 
-<body>
-  <div class="container-fluid"></div>
-      <header id="navegacion"></header>
-       <div class="text-center">
-        <div class="card">
-          <div class="card-body">
-           <h2 class="card-title">Nutricion</h2>
-            <p class="card-text mt-4">Proporcionar el servicio de desayuno y comida a los niños y niñas acorde con las recomendaciones para su edad y con las características de una dieta correcta, saludable, suficiente y variada.
+<body>  
+  <header id="navigation"></header>
+    <div class="container">
+      <div class="row">
+        <div class="col col-12 rounded mt-3 ">
+          <div class="row p-3">
+            <div class="col col-12 col-md-8">
+              <h2 class="card-title">Nutrición</h2>
+              <div class="card-text mt-4 mb-3 h-100">
+                Proporcionar el servicio de desayuno y comida a los niños y niñas acorde con las recomendaciones para su edad y con las características de una dieta correcta, saludable, suficiente y variada.
 
               Proporcionar a los niños y niñas las dietas especiales indicadas por el área Médica de los CENDI y Jardín de Niños.
               
@@ -39,14 +40,16 @@
               
               Participar en los eventos especiales programados por el área pedagógica con alimentos alusivos a las fechas de celebración, que sean estimulantes del apetito y de la imaginación de nuestros niños y niñas.
               
-              Fomentar en los niños y niñas la adquisición de buenos hábitos de alimentación.</p>   
-         <img src="nutricion.jpg" style="width: 50rem;" class="card-img-top" alt="...">
-          </div>
-       </div>
+              Fomentar en los niños y niñas la adquisición de buenos hábitos de alimentación.
+              </div>
+            </div>
+            <div class="col col-12 col-md-4 h-100 p-0">
+              <img src="https://images.pexels.com/photos/8851929/pexels-photo-8851929.jpeg" class="h-100 img-fluid rounded-2" alt="Frutas y verduras sobre una mesa">
+            </div>
+          </div>  
+        </div>
       </div>
     </div>
-  <footer id="futer"></footer>
-
+  <footer id="footer"></footer>
 </body>
-
 </html>

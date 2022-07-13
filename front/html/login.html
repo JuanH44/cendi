@@ -19,14 +19,6 @@
     <!-- datos y metadatos -->
     <link rel="shortcut icon" href="../assets/burrito-sin-f.png">
     <title>Inicio de Sesión</title>
-    <script>
-        $(document).ready(function () {
-
-            $("#btn-reset").click(function () {
-                $("#formula").trigger('reset');
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -38,24 +30,23 @@
                 <div class="card-header">
                     <h3 class="text-center">Inicio de Sesión</h3>
                 </div>
-                <form action="../../back/admin/loguear.php" class=" p-3" method="post">
-                        <div class="form-floating">
-                            <input class="form-control mb-3 username" name="usuario" id="segundo_apellido_derecho" placeholder="Usuario" type="text">
+                <form action="../../back/admin/loguear.php" class="p-3" method="post">
+                        <div class="form-floating mb-3">
+                            <input class="form-control" name="usuario" id="usuario" placeholder="Usuario" type="text">
                             <label for="usuario">Usuario</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                         </div>
                         <div class="form-floating mb-3">
-                            <input class="form-control mb-3 username" name="contraseña" id="contraseña" placeholder="Contraseña" type="password">
-                            <label for="usuario">Contraseña</label>
+                            <input class="form-control" name="pass" id="pass" placeholder="Contraseña" type="password">
+                            <label for="pass">Contraseña</label>
                         </div>
 
                         <div class="row justify-content-center">
-                            <button id="recuperar" class="col  col-4 col-sm-12 col-md-4 btn btn-primary " type="submit" name="action"> Acceder </button>
+                            <button id="btnAcceder" class="col  col-4 col-sm-12 col-md-4 btn btn-primary " type="submit" name="action"> Acceder </button>
                         </div>
                 </form>
+                
             </div>
         </div>
-
     </div>
 </body>
 <footer id="footer"></footer>
