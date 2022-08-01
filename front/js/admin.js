@@ -1,7 +1,7 @@
 $(document).ready(function () {
-    $("#navegacion").load("./compartidos/barranavadmin.html");
-    $("#futer").load("./compartidos/futer.html");
-    $("#contenido1").load("./compartidos/formol.html");
+    $("#navegacion").load("./components/barranavadmin.html");
+    $("#futer").load("./components/futer.html");
+    $("#contenido1").load("./components/formol.html");
     jalaTodo();
 
     //Activaciones
@@ -23,7 +23,7 @@ $(document).ready(function () {
             
          //   nuevoAlumno += ("       <button class='accordion-button collapsed ver-mas' type='button' data-bs-toggle='collapse' data-bs-target='#alumno"+index+"' aria-expanded='false' aria-controls='collapse"+index+"'>"+ alumnos[index].Folio +"</button>");
             nuevoAlumno += ("       <div  class='accordion-button collapsed ver-mas btn d-flex' data-bs-toggle='collapse' data-bs-target='#alumno"+index+"' aria-expanded='false' aria-controls='collapse"+index+"'>");
-            nuevoAlumno += ("           <img src='./assets/man.jpg' class='rounded-circle img-responsive float-left mx-3' width='50' height='50' alt='100x100' data-holder-rendered='true'></img>");
+            nuevoAlumno += ("           <img src='../assets/man.jpg' class='rounded-circle img-responsive float-left mx-3' width='50' height='50' alt='100x100' data-holder-rendered='true'></img>");
             nuevoAlumno += ("           <p>"+ alumnos[index].Folio +"</p>");
             nuevoAlumno += ("           <br>");
             //nuevoAlumno += ("         <p>"+ alumnos[index].Curp +"</p>");
@@ -168,7 +168,7 @@ $(document).ready(function () {
             const element = alumnos[index];
             let formID = ("#formula" + index);
             let alumnID = ("#usr"+index);
-            $(formID).load("./compartidos/formRegistro.html").ready(function () {
+            $(formID).load("./components/formRegistro.html").ready(function () {
                // $('select').formSelect();
                 
                 M.updateTextFields();
@@ -257,7 +257,7 @@ $(document).ready(function () {
     }
 
     function jalaTodo() {
-        let direc = "../back/BD/DatosBD.php";
+        let direc = "../../back/BD/DatosBD.php";
         $.ajax({
             type: "GET",
             url: direc,

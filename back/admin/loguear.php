@@ -12,6 +12,6 @@
         $_SESSION['username'] = $usuario;
         header("location: ../../front/html/admin.php");//cambiar ruta a admin
     }else{
-        header("location: ../../html/front/login.html");
+        header("location: ../../front/html/admin.php");
     }
 ?>
