@@ -1,2 +1,3 @@
 cendi.code-workspace
 *.mtx.php
+*-test\.*
