@@ -7,7 +7,7 @@ const getData = async () => {
 		const data =  await fetch(url);
 		const registers = await data.json();
 
-		await buildTable(registers);
+		buildTable(registers);
 
 	} catch (error) {
 		console.log(error);
@@ -27,13 +27,8 @@ const buildTable = async (registers) => {
 }
 
 const deleteRegister = (id) => {
-
 	const register = document.querySelector(`[data-id="${id}"]`);
-
 	register.style.backgroundColor = "red";
-
-
-	alert("registro eliminado:" + id);
 }
 
 const updateRegister =  (id) => {
@@ -58,7 +53,7 @@ const instantiateElement = (register, studentElement) => {
 
 	console.log(studentElement);
 
-	studentElement.dataset.id =  Folio + "";
+	studentElement.dataset.id =  Folio;
 	name.textContent = `${Primer_Apellido} ${Segundo_Apellido} ${Nombre}`;
 	group.textContent = `Grupo: ${Grupo}`;
 	id.textContent = `Folio: ${Folio}`;
@@ -69,19 +64,17 @@ const instantiateElement = (register, studentElement) => {
 	return studentElement;
 }
 
-
-
-
 getData();
 
 studentsTable.addEventListener("click", (event) => {
 	const {target} = event;
 
 	id = target.dataset.key;
-	
+
 	if (target.dataset.action == "delete") {
 		deleteRegister(id);
 	} else if (target.dataset.action == "update") {
 		updateRegister(id);
 	}
 });
+

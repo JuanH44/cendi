@@ -33,31 +33,31 @@
     </fieldset>
 
     <!-- NINI@ -->
-<fieldset id="ninnx-section">
+<fieldset id="infant-section">
     <legend><h5>DATOS DEL NIÑO O DE LA NIÑA</h5></legend>
     <div class="mb-3">
-        <label for="foto">Fotografía</label>
-        <input type="file" class="form-control" placeholder="aa" name="foto" id="foto" />
+        <label for="n_foto">Fotografía</label>
+        <input type="file" class="form-control" placeholder="aa" name="n_foto" id="n_foto" />
     </div>
     <div class="row">
         <div class="col mb-3">
             <div class="form-floating">
-                <input class="form-control" name="primer_apellido" placeholder="Primer apellido" id="primer_apellido" placeholder="aa" type="text" >
-                <label for="primer_apellido" >Primer Apellido</label>
+                <input class="form-control" name="n_apellido1" placeholder="Primer apellido" id="n_apellido1" placeholder="aa" type="text" >
+                <label for="n_apellido1" >Primer Apellido</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
         <div class="col mb-3">
             <div class="form-floating">
-                <input class="form-control" name="segundo_apellido" id="segundo_apellido" placeholder="Segundo apellido" placeholder="aa" type="text">
-                <label for="segundo_apellido">Segundo Apellido</label>
+                <input class="form-control" name="n_apellido2" id="n_apellido2" placeholder="Segundo apellido" placeholder="aa" type="text">
+                <label for="n_apellido2">Segundo Apellido</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
         <div class="col mb-3">
             <div class="form-floating">
-                <input class="form-control" name="nombre" id="nombre" placeholder="aa" placeholder="aa" type="text">
-                <label for="nombre">Nombre(s)</label>
+                <input class="form-control" name="n_nombre" id="n_nombre" placeholder="aa" placeholder="aa" type="text">
+                <label for="n_nombre">Nombre(s)</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
@@ -65,62 +65,62 @@
     <div class="row">
         <div class="col-md">
             <div class="form-floating mb-3">
-                <input class="form-control" name="fecha" id="fecha" placeholder="aa" type="date" class="datepicker">
-                <label for="fecha">Fecha de Nacimiento</label>
+                <input class="form-control" name="n_fechaNacimiento" id="n_fechaNacimiento" placeholder="aa" type="date" class="datepicker">
+                <label for="n_fechaNacimiento">Fecha de Nacimiento</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-3">
-                <input class="form-control" name="edadAnios" id="edadAnios"  placeholder="aa" type="text" disabled value="5">
-                <label class="active" for="edadAnios">Edad (años) </label>
+                <input class="form-control" name="n_edadAnnos" id="n_edadAnnos"  placeholder="aa" type="text" disabled value="5">
+                <label class="active" for="n_edadAnnos">Edad (años) </label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-3">
-                <input class="form-control" name="edadMeses" id="edadMeses" placeholder="aa" type="text" disabled value="5">
-                <label class="active" for="edadMeses">Meses</label>
+                <input class="form-control" name="n_edadMeses" id="n_edadMeses" placeholder="aa" type="text" disabled value="5">
+                <label class="active" for="n_edadMeses">Meses</label>
             </div>
         </div>
     </div>
     <div class="form-floating mb-3">
-        <input class="form-control" name="email" id="email" placeholder="aa" type="email">
-        <label for="email">Email</label>
+        <input class="form-control" name="n_email" id="n_email" placeholder="aa" type="email">
+        <label for="n_email">Email</label>
         <div class="invalid-feedback" >Este campo debe tener el formato: correo@gmail.com</div>
     </div>
     <div class="form-floating mb-3">
-        <input class="form-control" name="curp" id="curp" placeholder="aa" type="text" data-length="18">
-        <label for="curp">CURP</label>
+        <input class="form-control" name="n_curp" id="n_curp" placeholder="aa" type="text" data-length="18">
+        <label for="n_curp">CURP</label>
         <div class="invalid-feedback" >Formato de curp incorrecto</div>
     </div>
 </fieldset>
 
 <!-- DERECHOHABIENTE -->
-<fieldset id="derechohabiente-section">
+<fieldset id="parent-section">
     <legend><h5>DATOS DEL O LA DERECHOHABIENTE:</h5></legend>
 
     <div class="mb-3">
-        <label for="foto_derecho" class="form-label">Fotografía</label>
-        <input type="file" class="form-control" name="foto_derecho" id="foto_derecho"/>
+        <label for="d_foto" class="form-label">Fotografía</label>
+        <input type="file" class="form-control" name="d_foto" id="d_foto"/>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-4 mb-3 ">
             <div class="form-floating">
-                <input  class="form-control" name="primer_apellido_derecho" id="primer_apellido_derecho" placeholder="Primer apellido" type="text">
-                <label for="primer_apellido_derecho">Primer apellido</label>
+                <input  class="form-control" name="d_apellido1" id="d_apellido1" placeholder="Primer apellido" type="text">
+                <label for="d_apellido1">Primer apellido</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
         <div class="col-sm-12 col-md-4 mb-3">
             <div class="form-floating">
-                <input class="form-control" name="segundo_apellido_derecho" id="segundo_apellido_derecho" placeholder="aa" type="text">
-                <label for="segundo_apellido_derecho">Segundo Apellido</label>
+                <input class="form-control" name="d_apellido2" id="d_apellido2" placeholder="aa" type="text">
+                <label for="d_apellido2">Segundo Apellido</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
         <div class="col-sm-12 col-md-4 mb-3">
             <div class="form-floating">
-                <input class="form-control" name="nombre_derecho" id="nombre_derecho" placeholder="aa" type="text">
-                <label for="nombre_derecho">Nombre(s)</label>
+                <input class="form-control" name="d_nombre" id="d_nombre" placeholder="aa" type="text">
+                <label for="d_nombre">Nombre(s)</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
@@ -129,32 +129,32 @@
     <fieldset>
         <legend>Domicilio particular</legend>
             <div class="form-floating mb-3">
-                <input  name="calle" id="calle" placeholder="aa" type="text" class="form-control">
-                <label for="calle">Calle</label>
+                <input  name="d_calle" id="d_calle" placeholder="aa" type="text" class="form-control">
+                <label for="d_calle">Calle</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
             <div class="form-floating mb-3">
-                <input  name="noExt" id="noExt" placeholder="aa" type="text" class="form-control">
-                <label for="noExt">Número exterior</label>
+                <input  name="d_numExterior" id="d_numExterior" placeholder="aa" type="text" class="form-control">
+                <label for="d_numExterior">Número exterior</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
             </div>
             <div class="form-floating mb-3">
-                <input  name="noInt" id="noInt" placeholder="aa" type="text" class="form-control">
-                <label for="noInt">Número interior</label>
+                <input  name="d_numInterior" id="d_numInterior" placeholder="aa" type="text" class="form-control">
+                <label for="d_numInterior">Número interior</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
             </div>
             <div class="form-floating mb-3">
-                <input  name="colonia" id="colonia" placeholder="aa" type="text"class="form-control">
-                <label for="colonia">Colonia</label>
+                <input  name="d_colonia" id="d_colonia" placeholder="aa" type="text"class="form-control">
+                <label for="d_colonia">Colonia</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
             <div class="form-floating mb-3">
-                <input  name="alcaldia" id="alcaldia" placeholder="aa" type="text" class="form-control">
-                <label for="alcaldia">Alcaldía o municipio</label>
+                <input  name="d_alacaldia" id="d_alacaldia" placeholder="aa" type="text" class="form-control">
+                <label for="d_alacaldia">Alcaldía o municipio</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
             <div class="form-floating mb-3">
-                <select class="form-select" name="entidad" id="entidad">
+                <select class="form-select" name="d_entidad" id="d_entidad">
                     <option value="sel" disabled selected>Seleccione su entidad</option>
                     <option value="Aguascalientes">Aguascalientes</option>
                     <option value="Baja California">Baja California</option>
@@ -190,39 +190,39 @@
                     <option value="Zacatecas">Zacatecas</option>
                     <option value="Nacido en el extranjero">Nacido en el extranjero</option>
                 </select>   
-                <label for="entidad">Entidad Federativa</label>
+                <label for="d_entidad">Entidad Federativa</label>
             </div>
             <div class="row">
                 <div class="col">
                     <div class="form-floating mb-3">
-                        <input  name="cp" id="cp" placeholder="aa" type="number" class="form-control">
-                        <label for="cp">Código postal</label>
+                        <input  name="d_codigoPostal" id="d_codigoPostal" placeholder="aa" type="number" class="form-control">
+                        <label for="d_codigoPostal">Código postal</label>
                         <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-floating mb-3">
-                        <input  name="telefono_fijo" id="telefono_fijo" placeholder="aa" type="text"class="form-control">
-                        <label for="telefono_fijo">Telefono fijo</label>
+                        <input  name="d_telefonoFijo" id="d_telefonoFijo" placeholder="aa" type="text"class="form-control">
+                        <label for="d_telefonoFijo">Telefono fijo</label>
                         <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-floating mb-3">
-                        <input  name="telefono_celular" id="telefono_celular" placeholder="aa" type="text" class="form-control">
-                        <label for="telefono_celular">Telefono celular</label>
+                        <input  name="d_telefonoCelular" id="d_telefonoCelular" placeholder="aa" type="text" class="form-control">
+                        <label for="d_telefonoCelular">Telefono celular</label>
                         <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                     </div>
                 </div>
             </div>
     </fieldset>
     <div class="form-floating mb-3">
-        <input  name="email_derecho" id="email_derecho" placeholder="aa" type="email"class="form-control">
-        <label for="email_derecho">Email</label>
+        <input  name="d_email" id="d_email" placeholder="aa" type="email"class="form-control">
+        <label for="d_email">Email</label>
         <div class="invalid-feedback" >Este campo debe tener el formato: correo@gmail.com</div>
     </div>
     <div class="form-floating mb-3">
-        <select class="form-select" name="ocupacion" id="ocupacion">
+        <select class="form-select" name="d_ocupacion" id="d_ocupacion">
             <option value="sel" disabled selected>Escoja su ocupacion</option>
             <option value="Docente">Docente</option>
             <option value="PAAE">PAAE</option>
@@ -230,35 +230,35 @@
             <option value="Estudiante">Estudiante</option>
             <option value="Otro">Otro</option>
         </select>
-        <label for="ocupacion">Ocupacion</label>
+        <label for="d_ocupacion">Ocupacion</label>
     </div>
 
     <div class="form-floating mb-3">
-        <input class="form-control" name="curp_derecho" id="curp_derecho" placeholder="aa" type="text" data-length="18">
-        <label for="curp_derecho">CURP</label>
+        <input class="form-control" name="d_curp" id="d_curp" placeholder="aa" type="text" data-length="18">
+        <label for="d_curp">CURP</label>
         <div class="invalid-feedback" >Formato de curp incorrecto</div>
     </div>
 
     <div class="form-floating mb-3">
-        <input class="form-control name="puesto" id="puesto" placeholder="aa" type="text"">
-        <label for="puesto">Nombre de la plaza o puesto</label>
+        <input class="form-control" name="d_puesto" id="d_puesto" placeholder="aa" type="text"">
+        <label for="d_puesto">Nombre de la plaza o puesto</label>
         <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
     </div>
 
     <div class="form-floating mb-3">
-        <input class="form-control" name="sueldo" id="sueldo" placeholder="aa" type="text">
-        <label for="sueldo">Sueldo mensual</label>
+        <input class="form-control" name="d_sueldo" id="d_sueldo" placeholder="aa" type="text">
+        <label for="d_sueldo">Sueldo mensual</label>
         <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
     </div>
     
     <div class="form-floating mb-3">
-        <label for="numero_empleado">Número de empleado</label>
-        <input class="form-control" name="numero_empleado" id="numero_empleado" placeholder="aa" type="text">
+				<input class="form-control" name="d_numEmpleado" id="d_numEmpleado" placeholder="aa" type="text">
+				<label for="d_numEmpleado">Número de empleado</label>
         <div class="invalid-feedback" >Este campo sólo debe contener de 5 a 7 numeros</div>
     </div>
     
     <div class="form-floating mb-3">
-        <select class="form-select" name="adscripcion" id="adscripcion">
+        <select title="Adscripción" class="form-select" name="d_adscripcion" id="d_adscripcion">
             <option value="sel" disabled selected>Seleccione Adscripcion</option>
             <optgroup label="Nivel Medio Superior">
                 <option value="CECyT1" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT1.png">CECyT 1 Gonzalo Vázquez Vela</option>
@@ -320,21 +320,21 @@
             <optgroup label="Area Central">
                 <option value="AC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">Area Central</option>
             </optgroup>
-            <label for="adscripcion">Adscripcion</label>
-        </select>
+					</select>
+					<label for="d_adscripcion">Adscripcion</label>
     </div>
     <div class="form-floating mb-3">
-        <select class="form-select" name="horario" id="horario">
+        <select title="Horario" class="form-select" name="d_horarioTrabajo" id="d_horarioTrabajo">
             <option value="sel" disabled selected>Seleccione horario</option>
             <option value="07:00 a 15:00">07:00 a 15:00</option>
             <option value="08:00 a 15:00">08:00 a 15:00</option>
             <option value="07:00 a 14:00">07:00 a 14:00</option>
         </select>
-        <label for="horario">Horario de trabajo</label>
+        <label for="d_horarioTrabajo">Horario de trabajo</label>
     </div>
     <div class="form-floating mb-3">
-        <input class="form-control" name="extension" id="extension" placeholder="aa" type="number" data-length="5">
-        <label for="extension">Extension</label>
+        <input class="form-control" name="d_extension" id="d_extension" placeholder="aa" type="number" data-length="5">
+        <label for="d_extension">Extension</label>
         <div class="invalid-feedback" >Este campo sólo debe contener de 5 numeros</div>
     </div>
 
@@ -345,14 +345,14 @@
 </fieldset>
 
 <!-- CONYUGE -->
-<fieldset id="conyuge-section">
+<fieldset id="spouse-section">
     <legend><h5>DATOS DEL CÓNYUGE (PADRE, MADRE):</h5></legend>
      <!-- Switch -->
     <div class="mb-3">
         <div id="tieneconyuge" name="tieneconyuge" class="form-check form-switch row">
-            <label for="tieneconyuge">¿Tiene conyuge?</label>
+            <label for="c_tieneConyuge">¿Tiene conyuge?</label>
             <!-- <label id="no" class="form-check-label col"> No</label> -->
-            <input class="form-check-input col" name="tienec" id="tienec" type="checkbox">
+            <input class="form-check-input col" name="c_tieneConyuge" id="c_tieneConyuge" type="checkbox">
             <label id="no" class="form-check-label col"> No</label>
             <label id="si" class="form-check-label col"> Sí</label>    
         </div>
@@ -360,29 +360,29 @@
 
     <div id="fila-conyuge">
         <div class="mb-3">
-            <label for="foto_conyuge" class="form-label">Fotografía</label>
-            <input class="form-control" type="file" name="foto_conyuge" id="foto_conyuge" />
+            <label for="c_foto" class="form-label">Fotografía</label>
+            <input class="form-control" type="file" name="c_foto" id="c_foto" />
         </div>
 
         <div class="row">
             <div class="col-sm-12 col-md-4 mb-3 ">
                 <div class="form-floating">
-                    <input class="form-control" name="primer_apellido_conyuge" id="primer_apellido_conyuge" placeholder="aa" type="text">
-                    <label for="primer_apellido_conyuge">Primer Apellido</label>
+                    <input class="form-control" name="c_apellido1" id="c_apellido1" placeholder="aa" type="text">
+                    <label for="c_apellido1">Primer Apellido</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 mb-3 ">
                 <div class="form-floating">
-                    <input class="form-control" name="segundo_apellido_conyuge" id="segundo_apellido_conyuge" placeholder="aa" type="text">
-                    <label for="segundo_apellido_conyuge">Segundo Apellido</label>
+                    <input class="form-control" name="c_apellido2" id="c_apellido2" placeholder="aa" type="text">
+                    <label for="c_apellido2">Segundo Apellido</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 mb-3 ">
                 <div class="form-floating">
-                    <input class="form-control" name="nombre_conyuge" id="nombre_conyuge" placeholder="aa" type="text">
-                    <label for="nombre_conyuge">Nombre(s)</label>
+                    <input class="form-control" name="c_nombre" id="c_nombre" placeholder="aa" type="text">
+                    <label for="c_nombre">Nombre(s)</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
             </div>
@@ -391,32 +391,32 @@
             <fieldset>
                 <legend>Domicilio particular</legend>
                 <div class="form-floating mb-3">
-                    <input class="form-control" name="calle_conyuge" id="calle_conyuge" placeholder="aa" type="text">
-                    <label for="calle_conyuge" title="Ingrese una calle válida">Calle</label>
+                    <input class="form-control" name="c_calle" id="c_calle" placeholder="aa" type="text">
+                    <label for="c_calle" title="Ingrese una d_calle válida">Calle</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input name="noExt_conyuge" id="noExt_conyuge" placeholder="aa" type="text"class="form-control">
-                    <label for="noExt_conyuge">Número exterior</label>
+                    <input name="c_numExterior" id="c_numExterior" placeholder="aa" type="text"class="form-control">
+                    <label for="c_numExterior">Número exterior</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener nuemeros</div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input name="noInt_conyuge" id="noInt_conyuge" placeholder="aa" type="text"class="form-control">
-                    <label for="noInt_conyuge">Número interior</label>
+                    <input name="c_numInterior" id="c_numInterior" placeholder="aa" type="text"class="form-control">
+                    <label for="c_numInterior">Número interior</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input name="colonia_conyuge" id="colonia_conyuge" placeholder="aa" type="text"class="form-control">
-                    <label for="colonia_conyuge">Colonia</label>
+                    <input name="c_colonia" id="c_colonia" placeholder="aa" type="text"class="form-control">
+                    <label for="c_colonia">Colonia</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
                 <div class="form-floating mb-3">
-                    <input class="form-control" name="alcaldia_conyuge" id="alcaldia_conyuge" placeholder="aa" type="text">
-                    <label for="alcaldia_conyuge">Alcaldia o municipio</label>
+                    <input class="form-control" name="c_alcaldia" id="c_alcaldia" placeholder="aa" type="text">
+                    <label for="c_alcaldia">Alcaldia o municipio</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
                 <div class="form-floating mb-3">
-                    <select  class="form-select" name="entidad_conyuge"  id="entidad_conyuge" >
+                    <select title="Entidad Federativa" class="form-select" name="c_entidad"  id="c_entidad" >
                         <option value="sel" disabled selected>Seleccione su entidad</option>
                         <option value="Aguascalientes">Aguascalientes</option>
                         <option value="Baja California">Baja California</option>
@@ -457,22 +457,22 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="form-floating mb-3">
-                            <input name="cp_conyuge" id="cp_conyuge" placeholder="aa" type="text"class="form-control">
-                            <label for="cp_conyuge">Código postal</label>
+                            <input name="c_codigoPostal" id="c_codigoPostal" placeholder="aa" type="text"class="form-control">
+                            <label for="c_codigoPostal">Código postal</label>
                             <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
                         </div>
                     </div>
                     <div class="col-md-4 mb-3 ">
                         <div class="form-floating">
-                            <input name="telefono_fijo_conyuge" id="telefono_fijo_conyuge" placeholder="aa" type="text"class="form-control">
-                            <label  for="telefono_fijo_conyuge">Telefono Fijo</label>
+                            <input name="c_telefonoFijo" id="c_telefonoFijo" placeholder="aa" type="text"class="form-control">
+                            <label  for="c_telefonoFijo">Telefono Fijo</label>
                             <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                         </div>
                     </div>
                     <div class="col-md-4 mb-3 ">
                         <div class="form-floating">
-                            <input name="telefono_celular_conyuge" id="telefono_celular_conyuge" placeholder="aa" type="text" class="form-control">
-                            <label  for="telefono_celular_conyuge">Telefono celular</label>
+                            <input name="c_telefonoCelular" id="c_telefonoCelular" placeholder="aa" type="text" class="form-control">
+                            <label  for="c_telefonoCelular">Telefono celular</label>
                             <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
                         </div>
                     </div>
@@ -481,23 +481,23 @@
         </div>
 
         <div class="form-floating mb-3">
-            <input name="lugar_trabajo_conyuge" id="lugar_trabajo_conyuge" placeholder="aa" type="text"class="form-control">
-            <label  for="lugar_trabajo_conyuge">Lugar de trabajo</label>
+            <input name="c_lugarTrabajo" id="c_lugarTrabajo" placeholder="aa" type="text"class="form-control">
+            <label  for="c_lugarTrabajo">Lugar de trabajo</label>
             <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
         </div>
         <div class="form-floating mb-3">
-            <input name="domicilio_trabajo_conyuge" id="domicilio_trabajo_conyuge" placeholder="aa" type="text"class="form-control">
-            <label  for="domicilio_trabajo_conyuge">Domicilio del trabajo</label>
+            <input name="c_domicilioTrabajo" id="c_domicilioTrabajo" placeholder="aa" type="text"class="form-control">
+            <label  for="c_domicilioTrabajo">Domicilio del trabajo</label>
             <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
         </div>
         <div class="form-floating mb-3">
-            <input name="telefono_trabajo_conyuge" id="telefono_trabajo_conyuge" placeholder="aa" type="text"class="form-control">
-            <label  for="telefono_trabajo_conyuge">Telefono del trabajo</label>
+            <input name="c_telefonoTrabajo" id="c_telefonoTrabajo" placeholder="aa" type="text"class="form-control">
+            <label  for="c_telefonoTrabajo">Telefono del trabajo</label>
             <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
         </div>
         <div class="form-floating mb-3">
-            <input name="extension_conyuge" id="extension_conyuge" placeholder="aa" type="text"class="form-control">
-            <label  for="extension_conyuge" >Extension</label>
+            <input name="c_extension" id="c_extension" placeholder="aa" type="text"class="form-control">
+            <label  for="c_extension" >Extension</label>
             <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
         </div>
     </div>
