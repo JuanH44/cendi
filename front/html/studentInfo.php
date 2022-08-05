@@ -15,7 +15,18 @@
 <body>
 	<header id="header"></header>
 
+
+
 	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<h1>Informacion del infante</h1>
+			</div>
+		</div>
+
+		<!-- Card with the basic information of the child -->
+		
 		<form action="#" id="form">
 			<fieldset id="general-section"></fieldset>
 			<fieldset id="infant-section"></fieldset>
@@ -24,13 +35,16 @@
 		</form>
 
 		<div class="row">
-			<div class="col-md-12">
-				<button type="button" class="btn btn-primary" id="edit-button">Editar</button>
-				<button type="button" class="btn btn-primary" id="save-button">Guardar</button>
+			<div class="col-md-12" id="bottomButtons">
+				<button type="button" class="btn btn-primary" id="btnEdit"  data-action="edit">Editar</button>
+				<button type="button" class="btn btn-primary" id="btnSave" data-action="save" hidden >Guardar</button>
+				<button type="button" class="btn btn-primary" id="btnCancel" data-action="cancel" hidden>Cancelar</button>
+				<button type="button" class="btn btn-primary" id="btnDelete"  data-action="delete">Eliminar</button>
+				<button type="button" class="btn btn-primary" id="btnBack" data-action="back">Regresar</button>
 			</div>
+		</div>
 	</div>
 
-	
 	<footer id="footer"></footer>
 	<script src="../js/script.js"></script>
 	<script src="../js/studentInfo.js"></script>

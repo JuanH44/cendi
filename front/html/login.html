@@ -11,44 +11,48 @@
     <link type="text/css" rel="stylesheet" href="../css/custom.css" />
     <link type="text/css" rel="stylesheet" href="../css/bootstrap-icons.css">
     <!--Jquery-->
-    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+		<script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
     <script type="text/javascript" src="../js/load-components.js"></script>
     <script type="text/javascript" src="../js/bootstrap.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   
     <!-- datos y metadatos -->
     <link rel="shortcut icon" href="../assets/burrito-sin-f.png">
     <title>Inicio de Sesión</title>
 </head>
 
 <body>
-    <header id="navigation"></header>
-    <div class="container">
+	<header id="navigation"></header>
+	<div class="container">
 
-        <div class="row justify-content-center">
-            <div class="col col-sm-12 col-md-4 col-lg-4 mt-5 p-0 card">
-                <div class="card-header">
-                    <h3 class="text-center">Inicio de Sesión</h3>
-                </div>
-                <form action="../../back/admin/loguear.php" class="p-3" method="post">
-                        <div class="form-floating mb-3">
-                            <input class="form-control" name="usuario" id="usuario" placeholder="Usuario" type="text">
-                            <label for="usuario">Usuario</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <input class="form-control" name="pass" id="pass" placeholder="Contraseña" type="password">
-                            <label for="pass">Contraseña</label>
-                        </div>
+			<div class="row justify-content-center">
+					<div class="col col-sm-12 col-md-4 col-lg-4 mt-5 p-0 card">
+							<div class="card-header">
+									<h3 class="text-center">Inicio de Sesión</h3>
+							</div>
+							<form action="../../back/admin/login.php" class="p-3" method="POST" id="loginForm">
+											<div class="form-floating mb-3">
+													<input class="form-control" name="user" id="user" placeholder="Usuario" type="text">
+													<label for="usuario">Usuario</label>
+											</div>
+											<div class="form-floating mb-3">
+													<input class="form-control" name="pass" id="pass" placeholder="Contraseña" type="password">
+													<label for="pass">Contraseña</label>
+											</div>
 
-                        <div class="row justify-content-center">
-                            <button id="btnAcceder" class="col  col-4 col-sm-12 col-md-4 btn btn-primary " type="submit" name="action"> Acceder </button>
-                        </div>
-                </form>
-                
-            </div>
-        </div>
-    </div>
+											<div class="row justify-content-center">
+													<button id="btnAcceder" class="col  col-4 col-sm-12 col-md-4 btn btn-primary " type="submit" name="action"> Acceder </button>
+											</div>
+							</form>
+							
+					</div>
+			</div>
+	</div>
+	<footer id="footer"></footer>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script type="text/javascript" src="../js/login.js"></script>
 </body>
-<footer id="footer"></footer>
+
+
 
 </html>

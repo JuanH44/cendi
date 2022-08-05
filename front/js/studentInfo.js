@@ -1,14 +1,24 @@
 const form = document.querySelector("#form");
+const bottomButtons = document.querySelector("#bottomButtons");
 const infantSection = document.querySelector('#infant-section');
 const parentSection = document.querySelector('#parent-section');
 const spouseSection = document.querySelector('#spouse-section');
+let record = {};
 
-const disableForm = () => {
-	const formElements = document.querySelectorAll('input, select');
+const getURLParms = (paramName) => {
+	const params = new URLSearchParams(window.location.search);
+	const paramValue = params.get(paramName);
+	console.log(paramValue);
+	return paramValue;
+}
 
-	formElements.forEach(element => {
-		element.setAttribute('disabled', true);
-	});
+
+const disableForm = (state) => {
+	const formElements = document.querySelectorAll('input:not(.disabled), select ');
+
+	for (const element of formElements) {
+			element.disabled = state;
+	};
 }
 
 const showData = (record) => {
@@ -72,29 +82,61 @@ const showData = (record) => {
 }
 
 const loadForm = async () => {
+	form.hidden = true;
 	await loadComponent("#general-section", "./components/form-sections.html #general-section", "replace");
 	await loadComponent("#infant-section", "./components/form-sections.html #infant-section", "replace");
 	await loadComponent("#parent-section", "./components/form-sections.html #parent-section", "replace");
 	await loadComponent("#spouse-section", "./components/form-sections.html #spouse-section", "replace");
 
-	disableForm();
+	disableForm(true);
 
-	const record = await loadData();
+	record = await loadData();
 	showData(record);
 
+	form.hidden = false; // replace for a loading animation
 }
 
-const loadData = async () => {
-	const data = await fetch("../../back/BD/DatosBD.php?ID=PP44444444");
-	const record = await data.json();
-	console.log(record);
-	return record;
-
+const loadData = async (ID) => {
+	try{
+		const data = await fetch(`../../back/BD/DatosBD.php?folio=${getURLParms('folio')}`);
+		const record = await data.json();
+		console.log(record);
+		return record;
+	}	catch(error){
+		console.log(error);
+	}
 }
 
-
-
-
-
+const displayElements = (state,...selectors) => {
+	for (const selector of selectors) {
+		const element = document.querySelector(selector);
+		
+		element.hidden = !state;  //for diplay true = !false
+	}
+}
 
 loadForm();
+
+bottomButtons.addEventListener("click", (e) => {
+	const action = e.target.dataset.action;
+
+	if (action === "edit"){
+		displayElements(false,"#btnEdit", "#btnDelete");
+		displayElements(true, "#btnCancel", "#btnSave");
+
+		disableForm(false);
+
+	}else if (action === "cancel"){
+		displayElements(true,"#btnEdit", "#btnDelete");
+		displayElements(false,"#btnCancel", "#btnSave");
+		showData(record);
+		disableForm(true);
+	}else if (action === "save"){
+
+
+	}else if (action === "delete"){
+
+	}else if (action === "back"){
+		window.location.href = "./index.html";
+	}
+});

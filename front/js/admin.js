@@ -274,11 +274,4 @@ $(document).ready(function () {
     $('#actualizar').click(function () {
         jalaTodo();
     });
-
-    $('#hola').click(function(){
-        $('#hola').hide();
-
-    }
-
-    )
 });

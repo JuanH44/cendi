@@ -49,27 +49,27 @@
 </head>
 
 <body>
-    <header id="navigation"></header>
-    <div class="container">
-      <div class="mt-5">
-        <form id="formula" action="../back/pdf/generatePDF.php" method="get">
-            <fieldset class="form-group border p-3">
-                <legend class="w-auto">BUSCAR COMPROBANTE DE CITA</legend>
-                <div class="mb-3">
-                    <input id="folio" name="folio" type="text" data-length="10" placeholder="Folio (Boleta)" class="form-control username">
-                </div>
-                <button id="recuperar" class="btn btn-primary" type="submit" name="action"> Recuperar
-                </button>
-        </form>
-        </fieldset>
-        </div>
-    </div>
-    <script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
-    <script type="text/javascript" src="../js/load-components.js"></script>
-    <script type="text/javascript" src="../js/bootstrap.js"></script>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+	<header id="navigation"></header>
+	<div class="container">
+		<div class="mt-5">
+			<form id="formula" action="../back/pdf/generatePDF.php" method="get">
+					<fieldset class="form-group border p-3">
+							<legend class="w-auto">BUSCAR COMPROBANTE DE CITA</legend>
+							<div class="mb-3">
+									<input id="folio" name="folio" type="text" data-length="10" placeholder="Folio (Boleta)" class="form-control username">
+							</div>
+							<button id="recuperar" class="btn btn-primary" type="submit" name="action"> Recuperar
+							</button>
+			</form>
+			</fieldset>
+			</div>
+	</div>
+	<script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
+	<script type="text/javascript" src="../js/load-components.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	<script src="https://unpkg.com/@popperjs/core@2"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 <footer id="footer"></footer>
 
