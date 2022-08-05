@@ -1,10 +1,19 @@
 :root{
+	padding: 0;
+	margin: 0;
+
 --main-color:  #2e050c;
 /* --main-color:  #270411; */
 
 --secundary-color: #530c18;
 /* --secundary-color: #6e1340; */
   box-sizing: border-box;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
 }
 
 .header-ipn{

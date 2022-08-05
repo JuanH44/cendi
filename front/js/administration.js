@@ -1,5 +1,21 @@
 const studentsTable = document.querySelector("#students-table");
-const btnSession = document.querySelector("#btnSession");
+
+loadComponent("#header", "./components/header.html", "replace")
+	.then(() => { 
+		const btnSession = document.querySelector("#btnSession")
+		btnSession.textContent = "Cerrar Sesión";
+
+		btnSession.addEventListener("click", () => {
+			const url = "../../back/admin/login.php";
+			const formData = new FormData();
+
+			formData.append("action", "logout");
+			fetch(url, {
+				method: "POST",
+				body: formData
+			});
+		});
+	});
 
 const getData = async () => { //get the data of the students as a json object
 	try {
@@ -82,4 +98,3 @@ studentsTable.addEventListener("click", (event) => {
 		viewStudent(id);
 	}
 });
-

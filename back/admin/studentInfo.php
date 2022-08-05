@@ -1,5 +1,3 @@
 <?php
-$id = $_POST['id'];
-
-
+ require '../../back/admin/checkLogin.php';
 ?>

@@ -1,3 +1,4 @@
+<?php require '../../back/admin/studentInfo.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

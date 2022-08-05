@@ -29,5 +29,14 @@
 				);
     }
 
+
+		if (isset($_POST['action'])){
+			if ($_POST['action'] == 'logout'){
+				session_unset();
+				session_destroy();
+				//header("Location: ../../front/html/login.html");
+			}
+		};
+
 		echo json_encode($response);
 ?>

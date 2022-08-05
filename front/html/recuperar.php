@@ -49,7 +49,7 @@
 </head>
 
 <body>
-	<header id="navigation"></header>
+	<header id="header"></header>
 	<div class="container">
 		<div class="mt-5">
 			<form id="formula" action="../back/pdf/generatePDF.php" method="get">
@@ -64,13 +64,13 @@
 			</fieldset>
 			</div>
 	</div>
-	<script type="text/javascript" src="../js/jquery-3.6.0.js"></script>
-	<script type="text/javascript" src="../js/load-components.js"></script>
-	<script type="text/javascript" src="../js/bootstrap.js"></script>
+	
+	<footer id="footer"></footer>
+
+	<script type="text/javascript" src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/login.js"></script>
 	<script src="https://unpkg.com/@popperjs/core@2"></script>
-	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
-<footer id="footer"></footer>
 
 </html>
