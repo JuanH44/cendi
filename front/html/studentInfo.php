@@ -47,7 +47,8 @@
 	</div>
 
 	<footer id="footer"></footer>
-	<script src="../js/script.js"></script>
-	<script src="../js/studentInfo.js"></script>
+	<script type="text/javascript" src="../js/script.js"></script>
+	<script type="text/javascript" src="../js/studentInfo.js"></script>
+	<script type="text/javascript" src="../js/resources/bootstrap.min.js"></script>
 </body>
 </html>

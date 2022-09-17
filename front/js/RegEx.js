@@ -6,14 +6,14 @@ $(document).ready(function () {
         input.addEventListener('blur', (e) => {
             validate(e.target, patterns[e.target.attributes.id.value]);
          });
-    });
+});
 
 
-    const patterns = {
-    folio:/^(PE|PP)\d{8}$/,
+  const patterns = {
+  	folio:/^(PE|PP)\d{8}$/,
 
-    nombre:/^[\w\s]{2,}$/i,
-primer_apellido: /^[\w\s]{2,}$/,
+  	nombre:/^[\w\s]{2,}$/i,
+		primer_apellido: /^[\w\s]{2,}$/,
     segundo_apellido: /^[\w\s]{2,}$/,
     curp: /^[A-Z]{4}[0-9]{6}[A-Z]{6}[0-9]{2}$/,
     email: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
@@ -90,16 +90,6 @@ $("#btn-submit").click(function(){
             break;
         }
     }
-
-    // inputs.forEach((input) => {
-    //     if (input.classList.contains('invalid')) {
-    //     valid = false;
-    //     //alert("Faltan campos por llenar");
-    //     input.focus();
-    //     return false;
-    //     }
-    //     break;
-    // });
     return valid;
 });
 

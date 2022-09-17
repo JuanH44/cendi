@@ -116,3 +116,7 @@
 .logo{
 	max-height: 75px;
 }
+
+.btn-rounded{
+	border-radius: 5px !important; 
+}

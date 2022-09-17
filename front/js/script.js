@@ -1,4 +1,4 @@
-const loadComponent = async(target, componentURL, option) => {
+export const loadComponent = async(target, componentURL, option) => {
 	const off = componentURL.indexOf(" ");
 	
 	let selector;
@@ -36,10 +36,18 @@ const loadComponent = async(target, componentURL, option) => {
 	}
 }
 
-const parseHTML = (html) => {
+export const parseHTML = (html) => {
 	const template =  document.createElement("template");
 	template.innerHTML = html;
 	return template.content;
+}
+
+export const displayElements = (state,...selectors) => {
+	for (const selector of selectors) {
+		const element = document.querySelector(selector);
+		
+		element.hidden = !state;  //for diplay true = !false
+	}
 }
 
 loadComponent("#header", "./components/header.html", "replace");

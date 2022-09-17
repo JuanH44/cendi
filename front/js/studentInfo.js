@@ -34,7 +34,6 @@ const showData = (record) => {
 	form.n_fechaNacimiento.value =  record.FechaNac;
 	form.n_edadAnnos.value =  record.Edad_Anios;
 	form.n_edadMeses.value =  record.Edad_Meses;
-	form.n_email.value =  record.Email;
 	form.n_curp.value =  record.Curp;
 	
 	//"Derechohabiente" data. d_ = "derechohabiente"
@@ -53,32 +52,16 @@ const showData = (record) => {
 	form.d_email.value = record.Email_Derecho;
 	form.d_ocupacion.value = record.Ocupacion_Derecho;
 	form.d_curp.value = record.Curp_Derecho;
-	form.d_puesto.value = record.Puesto;
-	form.d_sueldo.value = record.Sueldo;
 	form.d_numEmpleado.value = record.Numero_Empleado;
-	form.d_adscripcion.value = record.Adscripcion;
 	form.d_horarioTrabajo.value = record.Horario_Trabajo; 
-	form.d_extension.value = record.Extension;
 
 	//"Conyuge" data.  c_ = "conyuge"
 	form.c_tieneConyuge.value =  record.tienec;
 	form.c_apellido1.value =  record.Primer_Apellido_Conyuge;
 	form.c_apellido2.value =  record.Segundo_Apellido_Conyuge;
 	form.c_nombre.value =  record.Nombre_Conyuge;
-	form.c_calle.value =  record.calle_conyuge;
-	form.c_numExterior.value =  record.noExt_conyuge;
-	form.c_numInterior.value =  record.noInt_conyuge;
-	form.c_colonia.value =  record.colonia_conyuge;
-	form.c_alcaldia.value =  record.alcaldia_conyuge;
-	form.c_entidad.value =  record.entidad_conyuge;
-	form.c_codigoPostal.value =  record.cp_conyuge;
-	form.c_telefonoFijo.value =  record.Telefono_Fijo_Conyuge;
 	form.c_telefonoCelular.value =  record.Telefono_Celular_Conyuge;
-	form.c_lugarTrabajo.value =  record.Lugar_Trabajo_Conyuge;
-	form.c_domicilioTrabajo.value =  record.Domicilio_Trabajo_Conyuge;
 	form.c_telefonoTrabajo.value =  record.Telefono_Trabajo_Conyuge;
-	form.c_extension.value =  record.Extension; //areglar Aqui
-	console.dir(record.Extension);
 }
 
 const loadForm = async () => {
