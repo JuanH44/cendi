@@ -1,4 +1,4 @@
-<form action="../back/BD/RegistroBD.php" method="get" id="formulario"> 
+<!-- <form action="../back/BD/RegistroBD.php" method="get" id="formulario">  -->
     <fieldset id="general-section">
         <legend><h4 class="mt-4 mb-4">DATOS GENERALES</h6></legend>
         <div class="form-floating mb-3">
@@ -18,7 +18,7 @@
             <div class="invalid-feedback" >El folio debe tener 10 digitos o bien el formato PP o PE seguido de 8 numeros</div>
         </div>
         <div class="form-floating mb-3">
-            <select class="form-select" name="grupo" id="grupo">
+            <select class="form-select" name="grupo" id="grupo" required>
                 <option value="sel" disabled selected>Seleccione grupo</option>
                 <option value="Lac I-II">Lac I - II </option>
                 <option value="Lac III - Mat I">Lac III - Mat I</option>
@@ -33,31 +33,31 @@
     </fieldset>
 
     <!-- NINI@ -->
-<fieldset id="ninnx-section">
+<fieldset id="infant-section">
     <legend><h5>DATOS DEL NIÑO O DE LA NIÑA</h5></legend>
     <div class="mb-3">
-        <label for="foto">Fotografía</label>
-        <input type="file" class="form-control" placeholder="aa" name="foto" id="foto" />
+        <label for="n_foto">Fotografía</label>
+        <input type="file" class="form-control" placeholder="aa" name="n_foto" id="n_foto" />
     </div>
     <div class="row">
         <div class="col mb-3">
             <div class="form-floating">
-                <input class="form-control" name="primer_apellido" placeholder="Primer apellido" id="primer_apellido" placeholder="aa" type="text" >
-                <label for="primer_apellido" >Primer Apellido</label>
+                <input class="form-control" name="n_apellido1" placeholder="Primer apellido" id="n_apellido1" placeholder="aa" type="text" >
+                <label for="n_apellido1" >Primer Apellido</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
         <div class="col mb-3">
             <div class="form-floating">
-                <input class="form-control" name="segundo_apellido" id="segundo_apellido" placeholder="Segundo apellido" placeholder="aa" type="text">
-                <label for="segundo_apellido">Segundo Apellido</label>
+                <input class="form-control" name="n_apellido2" id="n_apellido2" placeholder="Segundo apellido" placeholder="aa" type="text">
+                <label for="n_apellido2">Segundo Apellido</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
         <div class="col mb-3">
             <div class="form-floating">
-                <input class="form-control" name="nombre" id="nombre" placeholder="aa" placeholder="aa" type="text">
-                <label for="nombre">Nombre(s)</label>
+                <input class="form-control" name="n_nombre" id="n_nombre" placeholder="aa" placeholder="aa" type="text">
+                <label for="n_nombre">Nombre(s)</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
@@ -65,164 +65,172 @@
     <div class="row">
         <div class="col-md">
             <div class="form-floating mb-3">
-                <input class="form-control" name="fecha" id="fecha" placeholder="aa" type="date" class="datepicker">
-                <label for="fecha">Fecha de Nacimiento</label>
+                <input class="form-control" name="n_fechaNacimiento" id="n_fechaNacimiento" placeholder="aa" type="date" class="datepicker">
+                <label for="n_fechaNacimiento">Fecha de Nacimiento</label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-3">
-                <input class="form-control" name="edadAnios" id="edadAnios"  placeholder="aa" type="text" disabled value="5">
-                <label class="active" for="edadAnios">Edad (años) </label>
+                <input class="form-control disabled" name="n_edadAnnos" id="n_edadAnnos"  placeholder="aa" type="text" disabled value="5">
+                <label for="n_edadAnnos">Edad (años) </label>
             </div>
         </div>
         <div class="col-md">
             <div class="form-floating mb-3">
-                <input class="form-control" name="edadMeses" id="edadMeses" placeholder="aa" type="text" disabled value="5">
-                <label class="active" for="edadMeses">Meses</label>
+                <input class="form-control disabled" name="n_edadMeses" id="n_edadMeses" placeholder="aa" type="text" disabled value="5">
+                <label for="n_edadMeses">Meses</label>
             </div>
         </div>
     </div>
     <div class="form-floating mb-3">
-        <input class="form-control" name="email" id="email" placeholder="aa" type="email">
-        <label for="email">Email</label>
-        <div class="invalid-feedback" >Este campo debe tener el formato: correo@gmail.com</div>
-    </div>
-    <div class="form-floating mb-3">
-        <input class="form-control" name="curp" id="curp" placeholder="aa" type="text" data-length="18">
-        <label for="curp">CURP</label>
+        <input class="form-control" name="n_curp" id="n_curp" placeholder="aa" type="text" data-length="18">
+        <label for="n_curp">CURP</label>
         <div class="invalid-feedback" >Formato de curp incorrecto</div>
     </div>
 </fieldset>
 
 <!-- DERECHOHABIENTE -->
-<fieldset id="derechohabiente-section">
+<fieldset id="parent-section">
     <legend><h5>DATOS DEL O LA DERECHOHABIENTE:</h5></legend>
 
     <div class="mb-3">
-        <label for="foto_derecho" class="form-label">Fotografía</label>
-        <input type="file" class="form-control" name="foto_derecho" id="foto_derecho"/>
+        <label for="d_foto" class="form-label">Fotografía</label>
+        <input type="file" class="form-control" name="d_foto" id="d_foto"/>
     </div>
     <div class="row">
         <div class="col-sm-12 col-md-4 mb-3 ">
             <div class="form-floating">
-                <input  class="form-control" name="primer_apellido_derecho" id="primer_apellido_derecho" placeholder="Primer apellido" type="text">
-                <label for="primer_apellido_derecho">Primer apellido</label>
+                <input  class="form-control" name="d_apellido1" id="d_apellido1" placeholder="Primer apellido" type="text">
+                <label for="d_apellido1">Primer apellido</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
         <div class="col-sm-12 col-md-4 mb-3">
             <div class="form-floating">
-                <input class="form-control" name="segundo_apellido_derecho" id="segundo_apellido_derecho" placeholder="aa" type="text">
-                <label for="segundo_apellido_derecho">Segundo Apellido</label>
+                <input class="form-control" name="d_apellido2" id="d_apellido2" placeholder="aa" type="text">
+                <label for="d_apellido2">Segundo Apellido</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
         <div class="col-sm-12 col-md-4 mb-3">
             <div class="form-floating">
-                <input class="form-control" name="nombre_derecho" id="nombre_derecho" placeholder="aa" type="text">
-                <label for="nombre_derecho">Nombre(s)</label>
+                <input class="form-control" name="d_nombre" id="d_nombre" placeholder="aa" type="text">
+                <label for="d_nombre">Nombre(s)</label>
                 <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
             </div>
         </div>
     </div>
 
-    <fieldset>
-        <legend>Domicilio particular</legend>
-            <div class="form-floating mb-3">
-                <input  name="calle" id="calle" placeholder="aa" type="text" class="form-control">
-                <label for="calle">Calle</label>
-                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-            </div>
-            <div class="form-floating mb-3">
-                <input  name="noExt" id="noExt" placeholder="aa" type="text" class="form-control">
-                <label for="noExt">Número exterior</label>
-                <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
-            </div>
-            <div class="form-floating mb-3">
-                <input  name="noInt" id="noInt" placeholder="aa" type="text" class="form-control">
-                <label for="noInt">Número interior</label>
-                <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
-            </div>
-            <div class="form-floating mb-3">
-                <input  name="colonia" id="colonia" placeholder="aa" type="text"class="form-control">
-                <label for="colonia">Colonia</label>
-                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-            </div>
-            <div class="form-floating mb-3">
-                <input  name="alcaldia" id="alcaldia" placeholder="aa" type="text" class="form-control">
-                <label for="alcaldia">Alcaldía o municipio</label>
-                <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-            </div>
-            <div class="form-floating mb-3">
-                <select class="form-select" name="entidad" id="entidad">
-                    <option value="sel" disabled selected>Seleccione su entidad</option>
-                    <option value="Aguascalientes">Aguascalientes</option>
-                    <option value="Baja California">Baja California</option>
-                    <option value="Baja California Sur">Baja California Sur</option>
-                    <option value="Campeche">Campeche</option>
-                    <option value="Coahuila">Coahuila</option>
-                    <option value="Colima">Colima</option>
-                    <option value="Chiapas">Chiapas</option>
-                    <option value="Chihuahua">Chihuahua</option>
-                    <option value="Ciudad de México">Ciudad de México</option>
-                    <option value="Durango">Durango</option>
-                    <option value="Guanajuato">Guanajuato</option>
-                    <option value="Guerrero">Guerrero</option>
-                    <option value="Hidalgo">Hidalgo</option>
-                    <option value="Jalisco">Jalisco</option>
-                    <option value="Estado de México">Estado de México</option>
-                    <option value="Michoacán">Michoacán</option>
-                    <option value="Morelos">Morelos</option>
-                    <option value="Nayarit">Nayarit</option>
-                    <option value="Nuevo León">Nuevo León</option>
-                    <option value="Oaxaca">Oaxaca</option>
-                    <option value="Puebla">Puebla</option>
-                    <option value="Querétaro">Querétaro</option>
-                    <option value="Quintana Roo">Quintana Roo</option>
-                    <option value="San Luis Potosí">San Luis Potosí</option>
-                    <option value="Sinaloa">Sinaloa</option>
-                    <option value="Sonora">Sonora</option>
-                    <option value="Tabasco">Tabasco</option>
-                    <option value="Tamaulipas">Tamaulipas</option>
-                    <option value="Tlaxcala">Tlaxcala</option>
-                    <option value="Veracruz">Veracruz</option>
-                    <option value="Yucatán">Yucatán</option>
-                    <option value="Zacatecas">Zacatecas</option>
-                    <option value="Nacido en el extranjero">Nacido en el extranjero</option>
-                </select>   
-                <label for="entidad">Entidad Federativa</label>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <input  name="cp" id="cp" placeholder="aa" type="number" class="form-control">
-                        <label for="cp">Código postal</label>
-                        <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <input  name="telefono_fijo" id="telefono_fijo" placeholder="aa" type="text"class="form-control">
-                        <label for="telefono_fijo">Telefono fijo</label>
-                        <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-floating mb-3">
-                        <input  name="telefono_celular" id="telefono_celular" placeholder="aa" type="text" class="form-control">
-                        <label for="telefono_celular">Telefono celular</label>
-                        <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
-                    </div>
-                </div>
-            </div>
+    <fieldset >
+					<legend>Domicilio particular</legend>
+							<div class="form-floating mb-3">
+									<input  name="d_calle" id="d_calle" placeholder="aa" type="text" class="form-control">
+									<label for="d_calle">Calle</label>
+									<div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+							</div>
+							<div class="row">
+								<div class="col col-md-6">
+									<div class="form-floating mb-3">
+											<input  name="d_numExterior" id="d_numExterior" placeholder="aa" type="text" class="form-control">
+											<label for="d_numExterior">Número exterior</label>
+											<div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
+									</div>
+								</div>
+								<div class="col col-md-6">
+									<div class="form-floating mb-3">
+											<input  name="d_numInterior" id="d_numInterior" placeholder="aa" type="text" class="form-control">
+											<label for="d_numInterior">Número interior</label>
+											<div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col col-12 col-md-6">
+									<div class="form-floating mb-3">
+											<input  name="d_colonia" id="d_colonia" placeholder="aa" type="text"class="form-control">
+											<label for="d_colonia">Colonia</label>
+											<div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+									</div>
+								</div>
+								<div class="col col-12 col-md-6">
+									<div class="form-floating mb-3">
+											<input  name="d_alacaldia" id="d_alacaldia" placeholder="aa" type="text" class="form-control">
+											<label for="d_alacaldia">Alcaldía o municipio</label>
+											<div class="invalid-feedback" >Este campo sólo debe contener letras</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-floating mb-3">
+									<select class="form-select" name="d_entidad" id="d_entidad">
+											<option value="sel" disabled selected>Seleccione su entidad</option>
+											<option value="Aguascalientes">Aguascalientes</option>
+											<option value="Baja California">Baja California</option>
+											<option value="Baja California Sur">Baja California Sur</option>
+											<option value="Campeche">Campeche</option>
+											<option value="Coahuila">Coahuila</option>
+											<option value="Colima">Colima</option>
+											<option value="Chiapas">Chiapas</option>
+											<option value="Chihuahua">Chihuahua</option>
+											<option value="Ciudad de México">Ciudad de México</option>
+											<option value="Durango">Durango</option>
+											<option value="Guanajuato">Guanajuato</option>
+											<option value="Guerrero">Guerrero</option>
+											<option value="Hidalgo">Hidalgo</option>
+											<option value="Jalisco">Jalisco</option>
+											<option value="Estado de México">Estado de México</option>
+											<option value="Michoacán">Michoacán</option>
+											<option value="Morelos">Morelos</option>
+											<option value="Nayarit">Nayarit</option>
+											<option value="Nuevo León">Nuevo León</option>
+											<option value="Oaxaca">Oaxaca</option>
+											<option value="Puebla">Puebla</option>
+											<option value="Querétaro">Querétaro</option>
+											<option value="Quintana Roo">Quintana Roo</option>
+											<option value="San Luis Potosí">San Luis Potosí</option>
+											<option value="Sinaloa">Sinaloa</option>
+											<option value="Sonora">Sonora</option>
+											<option value="Tabasco">Tabasco</option>
+											<option value="Tamaulipas">Tamaulipas</option>
+											<option value="Tlaxcala">Tlaxcala</option>
+											<option value="Veracruz">Veracruz</option>
+											<option value="Yucatán">Yucatán</option>
+											<option value="Zacatecas">Zacatecas</option>
+											<option value="Nacido en el extranjero">Nacido en el extranjero</option>
+									</select>
+									<label for="d_entidad">Entidad Federativa</label>
+							</div>
+							<div class="row">
+									<div class="col">
+											<div class="form-floating mb-3">
+													<input  name="d_codigoPostal" id="d_codigoPostal" placeholder="aa" type="number" class="form-control">
+													<label for="d_codigoPostal">Código postal</label>
+													<div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
+											</div>
+									</div>
+									<div class="col">
+											<div class="form-floating mb-3">
+													<input  name="d_telefonoFijo" id="d_telefonoFijo" placeholder="aa" type="text"class="form-control">
+													<label for="d_telefonoFijo">Telefono fijo</label>
+													<div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+											</div>
+									</div>
+									<div class="col">
+											<div class="form-floating mb-3">
+													<input  name="d_telefonoCelular" id="d_telefonoCelular" placeholder="aa" type="text" class="form-control">
+													<label for="d_telefonoCelular">Telefono celular</label>
+													<div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+											</div>
+									</div>
+							</div>
+				</div>
     </fieldset>
     <div class="form-floating mb-3">
-        <input  name="email_derecho" id="email_derecho" placeholder="aa" type="email"class="form-control">
-        <label for="email_derecho">Email</label>
+        <input  name="d_email" id="d_email" placeholder="aa" type="email"class="form-control">
+        <label for="d_email">Email</label>
         <div class="invalid-feedback" >Este campo debe tener el formato: correo@gmail.com</div>
     </div>
     <div class="form-floating mb-3">
-        <select class="form-select" name="ocupacion" id="ocupacion">
+        <select class="form-select" name="d_ocupacion" id="d_ocupacion">
             <option value="sel" disabled selected>Escoja su ocupacion</option>
             <option value="Docente">Docente</option>
             <option value="PAAE">PAAE</option>
@@ -230,278 +238,97 @@
             <option value="Estudiante">Estudiante</option>
             <option value="Otro">Otro</option>
         </select>
-        <label for="ocupacion">Ocupacion</label>
+        <label for="d_ocupacion">Ocupacion</label>
     </div>
 
-    <div class="form-floating mb-3">
-        <input class="form-control" name="curp_derecho" id="curp_derecho" placeholder="aa" type="text" data-length="18">
-        <label for="curp_derecho">CURP</label>
-        <div class="invalid-feedback" >Formato de curp incorrecto</div>
-    </div>
-
-    <div class="form-floating mb-3">
-        <input class="form-control name="puesto" id="puesto" placeholder="aa" type="text"">
-        <label for="puesto">Nombre de la plaza o puesto</label>
-        <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-    </div>
-
-    <div class="form-floating mb-3">
-        <input class="form-control" name="sueldo" id="sueldo" placeholder="aa" type="text">
-        <label for="sueldo">Sueldo mensual</label>
-        <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
-    </div>
-    
-    <div class="form-floating mb-3">
-        <label for="numero_empleado">Número de empleado</label>
-        <input class="form-control" name="numero_empleado" id="numero_empleado" placeholder="aa" type="text">
-        <div class="invalid-feedback" >Este campo sólo debe contener de 5 a 7 numeros</div>
-    </div>
-    
-    <div class="form-floating mb-3">
-        <select class="form-select" name="adscripcion" id="adscripcion">
-            <option value="sel" disabled selected>Seleccione Adscripcion</option>
-            <optgroup label="Nivel Medio Superior">
-                <option value="CECyT1" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT1.png">CECyT 1 Gonzalo Vázquez Vela</option>
-                <option value="CECyT2" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT2.png">CECyT 2 Miguel Bernard</option>
-                <option value="CECyT3" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT3.png">CECyT 3 Estanislao Ramirez Ruíz</option>
-                <option value="CECyT4" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT4.png">CECyT 4 Lázaro Cárdenas</option>
-                <option value="CECyT5" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT5.png">CECyT 5 Benito Juárez</option>
-                <option value="CECyT6" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT6.png">CECyT 6 Miguel Othón de Mendizábal</option>
-                <option value="CECyT7" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT7.png">CECyT 7 Cuauhtémoc</option>
-                <option value="CECyT8" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT8.png">CECyT 8 Narciso Bassols</option>
-                <option value="CECyT9" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT9.png">CECyT 9 Juan de Dios Bátiz</option>
-                <option value="CECyT10" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT10.png">CECyT 10 Carlos Vallejo Márquez</option>
-                <option value="CECyT11" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT11.png">CECyT 11 Wilfrido Massieu</option>
-                <option value="CECyT12" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT12.png">CECyT 12 José María Morelos</option>
-                <option value="CECyT13" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT13.png">CECyT 13 Ricardo Flores Magón</option>
-                <option value="CECyT14" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT14.png">CECyT 14 Luis Enrique Erro</option>
-                <option value="CECyT15" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT15.png">CECyT 15 Diódoro Antúnez Echegaray</option>
-                <option value="CECyT16" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT16.jpg">CECyT 16 Hidalgo</option>
-                <option value="CECyT17" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CECyT17.jpg">CECyT 17 León, Guanajuato</option>
-                <option value="CECyT18" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CECyT 18 Zacatecas</option>
-                <option value="CECyT19" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">CECyT 19 Leona Vicario</option>
-                <option value="CET1" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNMS/CET1.png">CET 1 Walter Cross Buchanan</option>
-            </optgroup>
-            <optgroup label="Nivel Superior">
-                <option value="CICS-MA" data-icon="	https://www.ipn.mx/assets/files/saes/img/escudosNS/CICS-MA.png">CICS MILPA ALTA</option>
-                <option value="CICS-UST" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/CICS-UST.png">CICS UST</option>
-                <option value="ENCB" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ENCB.png">ENCB</option>
-                <option value="ENMH" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ENMH.png">ENMH</option>
-                <option value="ESCA-STO" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESCA-STO.png">ESCA SANTO TOMAS</option>
-                <option value="ESCA-TEP" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESCA-TEP.png">ESCA TEPEPAN</option>
-                <option value="ESCOM" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESCOM.png">ESCOM</option>
-                <option value="ESE" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESE.png">ESE</option>
-                <option value="ESEO" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESEO.png">ESEO</option>
-                <option value="ESFM" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESFM.png">ESFM</option>
-                <option value="ESIA-TEC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIA-TEC.png">ESIA TECAMACHALCO</option>
-                <option value="ESIA-TIC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIA-TIC.png">ESIA TICOMAN</option>
-                <option value="ESIA-ZAC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIA-ZAC.png">ESIA-ZAC</option>
-                <option value="ESIME-AZC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIME-AZC.png">ESIME AZCAPOTZALCO</option>
-                <option value="ESIME-CULH" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIME-CULH.png">ESIME CULHUACAN</option>
-                <option value="ESIME-TIC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIME-TIC.png">ESIME TICOMAN</option>
-                <option value="ESIME-ZAC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIME-ZAC.png">ESIME ZACATENCO</option>
-                <option value="ESIQIE" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIQIE.png">ESIQIE</option>
-                <option value="ESIT" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESIT.png">ESIT</option>
-                <option value="ESM" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/ESM.png">ESM</option>
-                <option value="EST" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/EST.png">EST</option>
-                <option value="UPIBI" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/UPIIBI.png">UPIBI</option>
-                <option value="UPIICSA" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/UPIICSA.png">UPIICSA</option>
-                <option value="UPIIG" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/UPIIG.png">UPIIG</option>
-                <option value="UPIITA" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/UPIITA.png">UPIITA</option>
-                <option value="UPIIZ" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/UPIIZ.png">UPIIZ</option>
-                <option value="ENBA" data-icon="https://www.ipn.mx/assets/files/saes/assets/uploads/enba.png">ENBA</option>
-                <option value="UPIIH" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">UPIIH</option>
-                <option value="UPIIP" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/upiipLogo-ch.png">UPIIP</option>
-                <option value="UPIIC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">UPIIC</option>
-                <option value="UPIEM" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">UPIEM</option>
-                <option value="UPIIT" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">UPIIT</option>
-            
-            </optgroup>
-            <optgroup label="Area Central">
-                <option value="AC" data-icon="https://www.ipn.mx/assets/files/saes/img/escudosNS/IPN-Default.png">Area Central</option>
-            </optgroup>
-            <label for="adscripcion">Adscripcion</label>
-        </select>
-    </div>
-    <div class="form-floating mb-3">
-        <select class="form-select" name="horario" id="horario">
-            <option value="sel" disabled selected>Seleccione horario</option>
-            <option value="07:00 a 15:00">07:00 a 15:00</option>
-            <option value="08:00 a 15:00">08:00 a 15:00</option>
-            <option value="07:00 a 14:00">07:00 a 14:00</option>
-        </select>
-        <label for="horario">Horario de trabajo</label>
-    </div>
-    <div class="form-floating mb-3">
-        <input class="form-control" name="extension" id="extension" placeholder="aa" type="number" data-length="5">
-        <label for="extension">Extension</label>
-        <div class="invalid-feedback" >Este campo sólo debe contener de 5 numeros</div>
-    </div>
-
-    <div class="mb-3">
-        <label for="foto_autorizada" class="form-label">Fotografía de la persona autorizada</label>
-        <input type="file" class="form-control" name="foto_autorizada" id="foto_autorizada" />
-    </div>
+    <div class="row">
+			<div class="col-md-6">
+				<div class="form-floating mb-3">
+						<input class="form-control" name="d_curp" id="d_curp" placeholder="aa" type="text" data-length="18">
+						<label for="d_curp">CURP</label>
+						<div class="invalid-feedback" >Formato de curp incorrecto</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="form-floating mb-3">
+						<input class="form-control" name="d_numEmpleado" id="d_numEmpleado" placeholder="aa" type="text">
+						<label for="d_numEmpleado">Número de empleado</label>
+						<div class="invalid-feedback" >Este campo sólo debe contener de 5 a 7 numeros</div>
+				</div>
+			</div>
+		</div>
+	<div class="form-floating mb-3">
+			<select title="Horario" class="form-select" name="d_horarioTrabajo" id="d_horarioTrabajo">
+					<option value="sel" disabled selected>Seleccione horario</option>
+					<option value="07:00 a 15:00">07:00 a 15:00</option>
+					<option value="08:00 a 15:00">08:00 a 15:00</option>
+					<option value="07:00 a 14:00">07:00 a 14:00</option>
+			</select>
+			<label for="d_horarioTrabajo">Horario de trabajo</label>
+	</div>
 </fieldset>
 
 <!-- CONYUGE -->
-<fieldset id="conyuge-section">
+<fieldset id="spouse-section">
     <legend><h5>DATOS DEL CÓNYUGE (PADRE, MADRE):</h5></legend>
      <!-- Switch -->
-    <div class="mb-3">
-        <div id="tieneconyuge" name="tieneconyuge" class="form-check form-switch row">
-            <label for="tieneconyuge">¿Tiene conyuge?</label>
-            <!-- <label id="no" class="form-check-label col"> No</label> -->
-            <input class="form-check-input col" name="tienec" id="tienec" type="checkbox">
-            <label id="no" class="form-check-label col"> No</label>
-            <label id="si" class="form-check-label col"> Sí</label>    
-        </div>
-    </div>
+    <div id="tieneConyuge">
+			<div class="mb-3">
+				<span>¿Tiene conyuge?</span>
+				<label for="no" class="form-check-label col"> No</label>
+				<input class="form-check-input col" name="c_tieneConyuge" id="no" type="radio" value="No">
+						<label for="si" class="form-check-label col"> Sí</label>
+						<input class="form-check-input col" name="c_tieneConyuge" id="si" type="radio" value="Sí">
+			</div>
+		</div>
 
-    <div id="fila-conyuge">
+    <div id="spouse-row" hidden>
         <div class="mb-3">
-            <label for="foto_conyuge" class="form-label">Fotografía</label>
-            <input class="form-control" type="file" name="foto_conyuge" id="foto_conyuge" />
+            <label for="c_foto" class="form-label">Fotografía</label>
+            <input class="form-control" type="file" name="c_foto" id="c_foto" />
         </div>
 
         <div class="row">
             <div class="col-sm-12 col-md-4 mb-3 ">
                 <div class="form-floating">
-                    <input class="form-control" name="primer_apellido_conyuge" id="primer_apellido_conyuge" placeholder="aa" type="text">
-                    <label for="primer_apellido_conyuge">Primer Apellido</label>
+                    <input class="form-control" name="c_apellido1" id="c_apellido1" placeholder="aa" type="text">
+                    <label for="c_apellido1">Primer Apellido</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 mb-3 ">
                 <div class="form-floating">
-                    <input class="form-control" name="segundo_apellido_conyuge" id="segundo_apellido_conyuge" placeholder="aa" type="text">
-                    <label for="segundo_apellido_conyuge">Segundo Apellido</label>
+                    <input class="form-control" name="c_apellido2" id="c_apellido2" placeholder="aa" type="text">
+                    <label for="c_apellido2">Segundo Apellido</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
             </div>
             <div class="col-sm-12 col-md-4 mb-3 ">
                 <div class="form-floating">
-                    <input class="form-control" name="nombre_conyuge" id="nombre_conyuge" placeholder="aa" type="text">
-                    <label for="nombre_conyuge">Nombre(s)</label>
+                    <input class="form-control" name="c_nombre" id="c_nombre" placeholder="aa" type="text">
+                    <label for="c_nombre">Nombre(s)</label>
                     <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <fieldset>
-                <legend>Domicilio particular</legend>
-                <div class="form-floating mb-3">
-                    <input class="form-control" name="calle_conyuge" id="calle_conyuge" placeholder="aa" type="text">
-                    <label for="calle_conyuge" title="Ingrese una calle válida">Calle</label>
-                    <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-                </div>
-                <div class="form-floating mb-3">
-                    <input name="noExt_conyuge" id="noExt_conyuge" placeholder="aa" type="text"class="form-control">
-                    <label for="noExt_conyuge">Número exterior</label>
-                    <div class="invalid-feedback" >Este campo sólo debe contener nuemeros</div>
-                </div>
-                <div class="form-floating mb-3">
-                    <input name="noInt_conyuge" id="noInt_conyuge" placeholder="aa" type="text"class="form-control">
-                    <label for="noInt_conyuge">Número interior</label>
-                    <div class="invalid-feedback" >Este campo sólo debe contener numeros</div>
-                </div>
-                <div class="form-floating mb-3">
-                    <input name="colonia_conyuge" id="colonia_conyuge" placeholder="aa" type="text"class="form-control">
-                    <label for="colonia_conyuge">Colonia</label>
-                    <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-                </div>
-                <div class="form-floating mb-3">
-                    <input class="form-control" name="alcaldia_conyuge" id="alcaldia_conyuge" placeholder="aa" type="text">
-                    <label for="alcaldia_conyuge">Alcaldia o municipio</label>
-                    <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-                </div>
-                <div class="form-floating mb-3">
-                    <select  class="form-select" name="entidad_conyuge"  id="entidad_conyuge" >
-                        <option value="sel" disabled selected>Seleccione su entidad</option>
-                        <option value="Aguascalientes">Aguascalientes</option>
-                        <option value="Baja California">Baja California</option>
-                        <option value="Baja California Sur">Baja California Sur</option>
-                        <option value="Campeche">Campeche</option>
-                        <option value="Coahuila">Coahuila</option>
-                        <option value="Colima">Colima</option>
-                        <option value="Chiapas">Chiapas</option>
-                        <option value="Chihuahua">Chihuahua</option>
-                        <option value="Ciudad de México">Ciudad de México</option>
-                        <option value="Durango">Durango</option>
-                        <option value="Guanajuato">Guanajuato</option>
-                        <option value="Guerrero">Guerrero</option>
-                        <option value="Hidalgo">Hidalgo</option>
-                        <option value="Jalisco">Jalisco</option>
-                        <option value="Estado de México">Estado de México</option>
-                        <option value="Michoacán">Michoacán</option>
-                        <option value="Morelos">Morelos</option>
-                        <option value="Nayarit">Nayarit</option>
-                        <option value="Nuevo León">Nuevo León</option>
-                        <option value="Oaxaca">Oaxaca</option>
-                        <option value="Puebla">Puebla</option>
-                        <option value="Querétaro">Querétaro</option>
-                        <option value="Quintana Roo">Quintana Roo</option>
-                        <option value="San Luis Potosí">San Luis Potosí</option>
-                        <option value="Sinaloa">Sinaloa</option>
-                        <option value="Sonora">Sonora</option>
-                        <option value="Tabasco">Tabasco</option>
-                        <option value="Tamaulipas">Tamaulipas</option>
-                        <option value="Tlaxcala">Tlaxcala</option>
-                        <option value="Veracruz">Veracruz</option>
-                        <option value="Yucatán">Yucatán</option>
-                        <option value="Zacatecas">Zacatecas</option>
-                        <option value="Nacido en el extranjero">Nacido en el extranjero</option>
-                    </select>
-                    <label>Entidad Federativa</label>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-floating mb-3">
-                            <input name="cp_conyuge" id="cp_conyuge" placeholder="aa" type="text"class="form-control">
-                            <label for="cp_conyuge">Código postal</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 ">
-                        <div class="form-floating">
-                            <input name="telefono_fijo_conyuge" id="telefono_fijo_conyuge" placeholder="aa" type="text"class="form-control">
-                            <label  for="telefono_fijo_conyuge">Telefono Fijo</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 ">
-                        <div class="form-floating">
-                            <input name="telefono_celular_conyuge" id="telefono_celular_conyuge" placeholder="aa" type="text" class="form-control">
-                            <label  for="telefono_celular_conyuge">Telefono celular</label>
-                            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
-                        </div>
-                    </div>
-                </div>
-            </fieldset>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input name="lugar_trabajo_conyuge" id="lugar_trabajo_conyuge" placeholder="aa" type="text"class="form-control">
-            <label  for="lugar_trabajo_conyuge">Lugar de trabajo</label>
-            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-        </div>
-        <div class="form-floating mb-3">
-            <input name="domicilio_trabajo_conyuge" id="domicilio_trabajo_conyuge" placeholder="aa" type="text"class="form-control">
-            <label  for="domicilio_trabajo_conyuge">Domicilio del trabajo</label>
-            <div class="invalid-feedback" >Este campo sólo debe contener letras</div>
-        </div>
-        <div class="form-floating mb-3">
-            <input name="telefono_trabajo_conyuge" id="telefono_trabajo_conyuge" placeholder="aa" type="text"class="form-control">
-            <label  for="telefono_trabajo_conyuge">Telefono del trabajo</label>
-            <div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
-        </div>
-        <div class="form-floating mb-3">
-            <input name="extension_conyuge" id="extension_conyuge" placeholder="aa" type="text"class="form-control">
-            <label  for="extension_conyuge" >Extension</label>
-            <div class="invalid-feedback" >Este campo sólo debe contener 5 digitos</div>
-        </div>
-    </div>
-   
+        
+		<div class="row">
+			<div class="col-12 col-md-6">
+				<div class="form-floating mb-3">
+					<input name="c_telefonoCelular" id="c_telefonoCelular" placeholder="aa" type="text" class="form-control">
+					<label  for="c_telefonoCelular">Telefono celular</label>
+					<div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+				</div>
+			</div>
+			<div class="col-12 col-md-6">
+				<div class="form-floating mb-3">
+					<input name="c_telefonoTrabajo" id="c_telefonoTrabajo" placeholder="aa" type="text"class="form-control">
+					<label  for="c_telefonoTrabajo">Telefono del trabajo</label>
+					<div class="invalid-feedback" >Este campo sólo debe contener 10 digitos</div>
+				</div>
+			</div>
+		</div>
+  </div>
 </fieldset>
 
 <div class="row center">
@@ -514,3 +341,21 @@
     </div>
 </div>
 </form>
+
+
+<!-- Eliminado
+	D_
+	Adscripcion
+	Foto Persona autorizada
+	Extension
+	Sueldo
+
+	C_
+	Domicilio
+	
+	Lugar de trabajo
+	Domicilio de trabajo
+
+
+	Extension
+	 -->

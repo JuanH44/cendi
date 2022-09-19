@@ -1,3 +1,5 @@
 cendi.code-workspace
 *.mtx.php
-/.vscode
+*-test\.*
+*-history\.*
+front/js/archive/*
