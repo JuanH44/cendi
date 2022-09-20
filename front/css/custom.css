@@ -1,19 +1,51 @@
 :root{
 	padding: 0;
 	margin: 0;
+	--title-height: 100px;
+	--title-padding: 0.5rem;
 
---main-color:  #2e050c;
-/* --main-color:  #270411; */
+	--title-height-total:
+	calc(var(--title-height) + var(--title-margin));
 
---secundary-color: #530c18;
-/* --secundary-color: #6e1340; */
-  box-sizing: border-box;
-}
+	--main-color:  #2e050c;
+	/* --main-color:  #270411; */
 
-*{
-	padding: 0;
-	margin: 0;
+--secondary-color: #530c18;
+	/* --secondary-color: #6e1340; */
 	box-sizing: border-box;
+
+	/* Primary: Saving Light */
+	--primary-100: #FFF2F3;
+	--primary-200: #FCB4BA;
+	--primary-300: #E96F81;
+	--primary-400: #B52B48;
+	--primary-500: #4F0015;
+	--primary-600: #450016;
+	--primary-700: #3B0016;
+	--primary-800: #300015;
+	--primary-900: #260013;
+
+	/* Accent: Bnei Brak Bay */
+	--accent-100: #F2F3FF;
+	--accent-200: #BFC5FE;
+	--accent-300: #8B9BFA;
+	--accent-400: #5575EE;
+	--accent-500: #2252D6;
+	--accent-600: #0B3FAA;
+	--accent-700: #03327E;
+	--accent-800: #002452;
+	--accent-900: #001326;
+
+	/* Neutral */
+	--neutral-100: #FCFAFA;
+	--neutral-200: #F0EAEB;
+	--neutral-300: #E4DBDD;
+	--neutral-400: #D8CCCF;
+	--neutral-500: #CCBEC2;
+	--neutral-600: #A3969A;
+	--neutral-700: #796F73;
+	--neutral-800: #50484C;
+	--neutral-900: #262224;
 }
 
 .header-ipn{
@@ -21,11 +53,27 @@
 }
 
 .navbar-ipn{
-  background-color: var(--secundary-color)  !important;
+  background-color: var(--secondary-color)  !important;
 }
 
 .bg-main{
-  background-color: var(--secundary-color)  !important;
+  background-color: var(--secondary-color)  !important;
+}
+
+.bg-neutral-100{
+	background-color: var(--neutral-100)  !important;
+}
+
+.bg-neutral-300{
+	background-color: var(--neutral-300)  !important;
+}
+
+.bg-neutral-500{
+	background-color: var(--neutral-500)  !important;
+}
+
+.bg-neutral-900{
+	background-color: var(--neutral-900)  !important;
 }
 
 .navbar-ipn .nav-link:hover{
@@ -79,6 +127,22 @@
 
 .offcanvas-body.offcanvas-ipn, .offcanvas-header.offcanvas-ipn{
   background-color: #270411;
+}
+
+ #heading{
+	height: var(--title-height);
+	padding: var(--title-padding);
+	box-sizing: border-box;
+}
+
+
+#header{
+	top: calc(var(--title-height) * -1);
+}
+
+#footer{
+	
+	box-sizing: border-box;
 }
 
 /* .form-control:active,
