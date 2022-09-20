@@ -1,3 +1,15 @@
+const getPathPrefix = () => {
+	if (location.hash === "#home"){
+		return "./front/";
+	}	else if ( location.hash === "#services"){
+		return "../";
+	} else{
+		return "./";
+	}
+}
+
+const pathPrefix = getPathPrefix();
+
 export const loadComponent = async(target, componentURL, option) => {
 	const off = componentURL.indexOf(" ");
 	
@@ -17,6 +29,7 @@ export const loadComponent = async(target, componentURL, option) => {
 		let element;
 
 		const component = parseHTML(template);
+		const configuredComponent = replaceImgSrc(component, pathPrefix);
 		if (selector) {
 			element = component.querySelector(selector);
 		} else {
@@ -50,5 +63,16 @@ export const displayElements = (state,...selectors) => {
 	}
 }
 
-loadComponent("#header", "./components/header.html", "replace");
-loadComponent("#footer", "./components/footer.html", "replace");
+// replace  all src of img in html template
+export const replaceImgSrc = (html, src) => {
+	// const template = document.createElement("template");
+	// template.innerHTML = html;
+	const imgs = html.querySelectorAll("[src]");
+	
+	imgs.forEach(img => {
+		const srcAttr = img.getAttribute("src");
+		img.setAttribute("src", src + srcAttr);
+	});
+	
+	return html;
+}

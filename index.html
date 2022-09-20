@@ -10,12 +10,12 @@
     <link rel="stylesheet" href="front/css/bootstrap-icons.css">
     <link rel="stylesheet" href="front/css/custom.css">
     <!-- scripts -->
-    <script type="text/javascript" src="front/js/jquery-3.6.0.js"></script>
-    <script type="text/javascript" src="front/js/load-components.js"></script>
-    <script type="text/javascript" src="front/js/bootstrap.min.js"></script>
+    <script type="module" src="./front/js/load-components.js"></script>
+    <script type="text/javascript" src="./front/js/resources/bootstrap.min.js"></script>
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="front/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="./front/js/resources/bootstrap.bundle.min.js"></script>
+		<script type="text/javascript" >location.hash="#home"</script>
      
     <!-- datos y metadatos -->
     <link rel="shortcut icon" href="front/assets/burrito-sin-f.png">
@@ -24,7 +24,7 @@
 
 <body>
 
-  <header id="navigation"></header>
+  <header id="header"></header>
 
   <div class="container-fluid m-0 p-0">
     <div id="carouselExampleIndicators " class="carousel slide" data-bs-ride="true">
