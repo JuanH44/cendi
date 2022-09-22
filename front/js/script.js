@@ -35,15 +35,16 @@ export const loadComponent = async(target, componentURL, option) => {
 		} else {
 			element = component;
 		}
+		document.addEventListener("DOMContentLoaded", () => {
 
-		const elementTarget = document.querySelector(target);
-		if (option === "append" || option === 0 || option === undefined ) {
-			elementTarget.append(element);
-		}
-		if (option === "replace" || option === 1) {
-			elementTarget.replaceWith(element);
-		}
-
+			const elementTarget = document.querySelector(target);
+			if (option === "append" || option === 0 || option === undefined ) {
+				elementTarget.append(element);
+			}
+			if (option === "replace" || option === 1) {
+				elementTarget.replaceWith(element);
+			}
+		});
 	}	catch(error){
 		console.log(error);
 	}
@@ -59,7 +60,7 @@ export const displayElements = (state,...selectors) => {
 	for (const selector of selectors) {
 		const element = document.querySelector(selector);
 		
-		element.hidden = !state;  //for diplay true = !false
+		element.hidden = !state;  //for display true = !false
 	}
 }
 
